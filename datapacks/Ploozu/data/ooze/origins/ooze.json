@@ -15,7 +15,7 @@
 		"ooze:particles_and_noises"
     ],
     "icon": "minecraft:slime_spawn_egg",
-    "order": 20,
+    "order": 1,
     "impact": 3,
     "name": "The Great Gooper",
     "description": "A highly corrosive species of slime known to eat other slimes and metals."

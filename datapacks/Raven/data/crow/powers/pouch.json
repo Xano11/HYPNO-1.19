@@ -5,5 +5,7 @@
     "title":"Potion Pouch",
     "key": {
         "key": "key.loadToolbarActivator"
-    }
+    },
+    "name": "Potion Pouch",
+    "description": "Using the [Load Toolbar Activator] key will open up your special potion pouch."
 }

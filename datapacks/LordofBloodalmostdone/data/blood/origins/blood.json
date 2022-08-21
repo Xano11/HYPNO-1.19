@@ -16,7 +16,7 @@
 		"blood:cosmetic/passive"
 	],
 	"icon": "minecraft:redstone",
-	"order": 10,
+	"order": 1,
 	"impact": 3,
 	"name": "§4§lLord of Blood",
 	"description": "Welcome, honoured guest. To the birthplace of our dynasty!"

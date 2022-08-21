@@ -15,7 +15,7 @@
 		"slime:swim"
 	],
 	"icon": "minecraft:golden_helmet",
-	"order": 10,
+	"order": 1,
 	"impact": 3,
 	"name": "Prince of the Souls",
 	"description": "A young prince filled with the essence of the souls that his father had killed before his birth, allowing him to accomplish feats unhuman."

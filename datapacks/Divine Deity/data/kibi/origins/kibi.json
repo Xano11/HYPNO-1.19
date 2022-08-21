@@ -9,7 +9,7 @@
 		"kibi:health"
     ],
     "icon": "minecraft:string",
-    "order": 20,
+    "order": 1,
     "impact": 3,
     "name": "Divine Deity",
     "description": "Ancient power passed down for generations."

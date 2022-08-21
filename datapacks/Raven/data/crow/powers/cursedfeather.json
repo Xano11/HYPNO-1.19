@@ -1,0 +1,179 @@
+{
+	"type": "origins:multiple",
+
+	"deploy": {
+        "type": "origins:action_on_block_use",
+        "block_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type":"origins:execute_command",
+                    "command":"execute at @e[tag=feather] run forceload remove ~ ~ ~ ~",
+                    "permission_level":4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type":"origins:execute_command",
+                                "command":"kill @e[tag=feather]",
+                                "permission_level":4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 2,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "summon armor_stand ~ ~0.4 ~ {Invisible:1b,Invulnerable:1b,NoBasePlate:1b,Marker:1b,ShowArms:1b,Tags:[\"feather\"],ArmorItems:[{},{},{},{}],HandItems:[{id:\"netherite_sword\",Count:1b},{}],Pose:{RightArm:[90f,0f,0f]}}"
+                                },
+                                {
+                                    "type":"origins:execute_command",
+                                    "command":"particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 0.5 0.5 0.5 1 100",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type":"origins:execute_command",
+                                    "command":"particle minecraft:witch ~ ~ ~ 0.5 0.5 0.5 0.1 100",
+                                    "permission_level": 4
+                                }
+                        ]
+                    }
+                }
+        ]
+        },
+            
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:change_resource",
+                "resource": "crow:cursedfeather_resource",
+                "change": 200
+            },
+            {
+                "type":"origins:execute_command",
+                "command":"playsound minecraft:entity.warden.sonic_charge player @a ~ ~ ~ 1 2",
+                "permission_level":4
+            }
+        ]
+        },
+        "directions": [
+            "up"
+        ],
+        "hands": [
+            "MAIN_HAND"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+        {
+                "type": "origins:resource",
+                "resource": "crow:cursedfeather_resource",
+                "comparison":"==",
+                "compare_to": 0
+            }
+        ]
+    }
+    },
+    "teleport": {
+        "type": "origins:active_self",
+        "cooldown": 3600,
+        "key": "key.origins.secondary_active",
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "tp @s @e[limit=1,sort=nearest,tag=feather]"
+                },
+                {
+                "type":"origins:execute_command",
+                "command":"particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 0.5 0.5 0.5 1 100",
+                "permission_level": 4
+                },
+                {
+                "type":"origins:execute_command",
+                "command":"particle minecraft:witch ~ ~ ~ 0.5 0.5 0.5 0.1 100",
+                "permission_level": 4
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute at @e[limit=1,sort=nearest,tag=feather] run particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 0.5 0.5 0.5 1 100"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute at @e[limit=1,sort=nearest,tag=feather] run particle minecraft:witch ~ ~ ~ 0.5 0.5 0.5 0.1 100"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type":"origins:execute_command",
+                                "command":"kill @e[tag=feather,limit=1,sort=nearest]",
+                                "permission_level":4
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 24
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+            {
+            "type": "origins:sneaking"
+        }
+        ]
+    }
+    },
+    "resource":{
+        "type":"origins:resource",
+        "min":0,
+        "max":200,
+        "start_value":0,
+        "hud_render":{
+            "should_render":true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 15
+        }
+    },
+	"charge": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "crow:cursedfeather_resource",
+	    "change": -10
+	},
+	"interval": 10
+},
+"particle": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+        "type":"origins:execute_command",
+        "command":"execute at @e[limit=1,sort=nearest,tag=feather] run particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~-0.4 ~1 ~-0.5 0.2 0 0.2 1 4",
+        "permission_level": 4
+        },
+	"interval": 2
+},
+	"name": "Cursed feather",
+    "description": "You can boost yourself into the air a total of 10 times until you have to land and recharge."
+}

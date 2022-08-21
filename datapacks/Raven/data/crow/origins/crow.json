@@ -1,20 +1,18 @@
 {
     "powers": [
-        "origins:elytra",
-        "crow:flaps",
         "crow:size",
-        "crow:death",
         "crow:health",
         "crow:seed",
-        "crow:lightarmor",
-        "crow:arrow",
         "crow:immune",
-        "crow:stealth"
-		
+        "crow:potion",
+        "crow:cursedfeather",
+        "crow:pouch",
+        "crow:potioned",
+        "crow:scatter"
     ],
     "icon": "minecraft:black_dye",
-    "order": 20,
+    "order": 1,
     "impact": 3,
-    "name": "Crow",
+    "name": "The Raven",
     "description": "Caw Caw."
 }

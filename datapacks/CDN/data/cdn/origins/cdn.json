@@ -15,7 +15,7 @@
         "tag": "{Enchantments:[{}],CustomModelData:1}"
     },
 	"order": 1,
-	"impact": 1,
+	"impact": 3,
 	"name": "CDN",
 	"description": "Emerald Elemental."
 }

@@ -1,0 +1,125 @@
+{
+    "type":"origins:multiple",
+
+
+    "catalyst":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Potion:\"minecraft:water\"}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:rotten_flesh"
+                    }
+                }
+            ]
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "result": {
+            "item": "minecraft:potion",
+            "tag": "{Tags:[raven],display:{Name:'[{\"text\":\"Ravenous Potion\",\"italic\":false}]'}}"
+        },
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "playsound minecraft:entity.allay.ambient_without_item player @a ~ ~ ~ 2 2"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:witch ~ ~1 ~ 0.5 0.5 0.5 1 10"
+                }
+            ]
+        }
+    },
+    "crow":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[raven]}"
+        },
+        "using_item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:ender_eye"
+                    }
+                }
+            ]
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "result": {
+            "item": "minecraft:potion",
+            "tag": "{Tags:[crowform],display:{Name:'[{\"text\":\"Potion of the \",\"italic\":false},{\"text\":\"Crows\",\"color\":\"gray\"}]',Lore:['[{\"text\":\"A special potion...\",\"italic\":false}]']}}"
+        },
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:witch ~ ~1 ~ 0.5 0.5 0.5 1 10"
+                }
+            ]
+        }
+    },
+
+    "use_crowform":{
+    "type": "origins:action_on_item_use",
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 1 0.5"
+            },
+            {
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "particle minecraft:witch ~ ~1 ~ 0.5 0.5 0.5 1 10"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "power grant @s crow:crowform"
+            }
+        ]
+    },
+    "item_condition": {
+        "type": "origins:nbt",
+        "nbt": "{Tags:[crowform]}"
+        }
+    },
+    "name": "Dark Alchemy",
+    "description": "You can craft special potions to buff yourself or to debuff enemies."
+}

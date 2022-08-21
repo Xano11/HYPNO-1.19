@@ -1,0 +1,105 @@
+{
+	"type": "origins:multiple",
+    "trigger": {
+        "type": "origins:active_self",
+        "cooldown": 3600,
+        "key": "key.origins.primary_active",
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 50,
+                    "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type":"origins:and",
+                            "actions":[
+                                {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 50,
+                                    "bientity_action": {
+                                        "type": "origins:target_action",
+                                        "action": {
+                                            "type":"origins:and",
+                                            "actions":[
+                                                {
+                                                "type":"origins:execute_command",
+                                                "command":"particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 0.5 0.5 0.5 1 100",
+                                                "permission_level": 4
+                                                },
+                                                {
+                                                "type":"origins:execute_command",
+                                                "command":"particle minecraft:witch ~ ~ ~ 0.5 0.5 0.5 0.1 100",
+                                                "permission_level": 4
+                                                },
+                                                {
+                                                "type":"origins:execute_command",
+                                                "command":"power grant @s crow:cursed",
+                                                "permission_level": 4
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "bientity_condition": {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:status_effect",
+                                            "effect": "minecraft:unluck",
+                                            "min_amplifier": 6,
+                                            "max_amplifier": 6
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 24
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+            {
+            "type": "origins:sneaking"
+        }
+        ]
+    }
+    },
+    "resource":{
+        "type":"origins:resource",
+        "min":0,
+        "max":200,
+        "start_value":0,
+        "hud_render":{
+            "should_render":true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 15
+        }
+    },
+	"charge": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "crow:cursedfeather_resource",
+	    "change": -10
+	},
+	"interval": 10
+},
+"particle": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+        "type":"origins:execute_command",
+        "command":"execute at @e[limit=1,sort=nearest,tag=feather] run particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~-0.4 ~1 ~-0.5 0.2 0 0.2 1 4",
+        "permission_level": 4
+        },
+	"interval": 2
+},
+	"name": "Throwable Plague",
+    "description": "Using the [Use] key with a Ravenous Potion will throw it. Affected enemies can be plagued by using the [Primary Ability] key."
+}

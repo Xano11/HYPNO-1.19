@@ -30,7 +30,7 @@
 		"horror:tag"
 	],
     "icon": "minecraft:netherite_block",
-    "order": 20,
+    "order": 1,
     "impact": 3,
     "name": "Mechanized Horror",
     "description": "(Defensive Form) A terrifying machine which has the sole purpose to kill and destroy."

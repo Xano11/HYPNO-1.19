@@ -5,7 +5,7 @@
 	"minecraft:hunger"
 	],
   "name": "Scavenger",
-    "description": "You are immune to poison hunger."
+    "description": "You are immune to poison and hunger."
 }
 
 

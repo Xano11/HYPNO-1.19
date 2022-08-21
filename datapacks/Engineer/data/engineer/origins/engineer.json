@@ -17,7 +17,7 @@
 	
 	],
 	"icon": "minecraft:redstone_block",
-	"order": 20,
+	"order": 1,
 	"impact": 3,
 	"name": "Engineer",
 	"description": "The Engineer is engihere."

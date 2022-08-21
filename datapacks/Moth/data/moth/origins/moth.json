@@ -18,7 +18,7 @@
 		"moth:cosmetic/passive"
 	],
 	"icon": "minecraft:elytra",
-	"order": 10,
+	"order": 1,
 	"impact": 3,
 	"name": "§lMoth",
 	"description": "The controls for this origin are extremely obtuse!"

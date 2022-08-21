@@ -15,8 +15,8 @@
         "item": "minecraft:trident",
         "tag": "{Enchantments:[{}],CustomModelData:1}"
     },
-	"order": 573,
-	"impact": 2,
+	"order": 1,
+	"impact": 3,
 	"name": "Imp",
 	"description": "You are the spawn of a lesser demonic entities"
 }

@@ -14,8 +14,8 @@
         "item": "minecraft:ochre_froglight",
         "tag": "{Enchantments:[{}],CustomModelData:1}"
     },
-	"order": 10,
-	"impact": 2,
+	"order": 1,
+	"impact": 3,
 	"name": "§eFire Fly",
 	"description": "§7You would not believe your eyes, If ten million fireflies, Lit up the world you I fell asleep, 'Cause they fill the open air, And leave teardrops everywhere, You'd think me rude but I would just stand and stare. BUT NOW YOU CAN"
 }

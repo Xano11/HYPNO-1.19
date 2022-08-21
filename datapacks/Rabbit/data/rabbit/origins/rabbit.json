@@ -9,7 +9,7 @@
 		"rabbit:carrot"
     ],
     "icon": "minecraft:rabbit_foot",
-    "order": 20,
+    "order": 1,
     "impact": 3,
     "name": "Rabbit",
     "description": "A fluffy creature that loves to munch on carrots and is very friendly, unless you piss it off."

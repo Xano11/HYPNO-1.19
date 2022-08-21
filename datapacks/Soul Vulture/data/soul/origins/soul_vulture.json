@@ -12,7 +12,7 @@
 		"soul:soul_effects"
 	],
 	"icon": "minecraft:soul_sand",
-	"order": 10,
+	"order": 1,
 	"impact": 3,
 	"name": "Soul Vulture",
 	"description": "Reanimated by the souls of the soul sand valley, Soul Vultures traverse the skies as relentless hunters in search of inferior souls to consume."

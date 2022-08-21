@@ -20,7 +20,7 @@
 		"allay:cosmetic/toss"
 	],
 	"icon": "minecraft:cookie",
-	"order": 10,
+	"order": 1,
 	"impact": 3,
 	"name": "§lAllay",
 	"description": "Definition of cute and useless.                (Read the badges for more info)"

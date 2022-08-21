@@ -14,8 +14,8 @@
 		"item": "minecraft:elytra",
 		"tag": "{Enchantments:[{}],CustomModelData:1}"
 	},
-	"order": 10,
-	"impact": 2,
+	"order": 1,
+	"impact": 3,
 	"name": "Wraith",
 	"description": "A vengeful spirit returning to the world of living to do a little trolling."
 }

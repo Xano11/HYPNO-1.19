@@ -1,0 +1,92 @@
+{
+    "hidden": true,
+    "type": "origins:multiple",
+
+    "fire":{
+    "type": "origins:fire_projectile",
+    "entity_type": "minecraft:potion",
+    "cooldown": 5,
+    "hud_render": {
+        "should_render": false
+    },
+    "count": 3,
+    "speed": 0.8,
+    "divergence": 4,
+    "tag": "{Tags:[\"scatter\"],Item:{id:\"minecraft:potion\",Count:1b,tag:{CustomPotionColor:8002164,CustomPotionEffects:[{Id:27,Amplifier:6b,Duration:300}],Enchantments:[{}]}}}",
+    "key": {
+        "key": "key.use",
+        "continuous": false
+    },
+    "condition":
+    {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[raven]}"
+            }
+    }
+    },
+    "use": {
+        "type": "origins:active_self",
+        "cooldown": 1,
+        "key": "key.use",
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:consume",
+                                    "amount": 1
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+    "condition":
+    {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[raven]}"
+            }
+    }
+},
+    "effects": {
+    "type": "origins:action_over_time",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute at @e[tag=scatter] run particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 0.5 0.5 0.5 1 100"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "execute at @e[tag=scatter] run particle minecraft:witch ~ ~ ~ 0.5 0.5 0.5 0.1 100"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "permission_level": 4,
+                    "command": "execute at @e[tag=scatter] run particle minecraft:witch ~ ~ ~ 0.5 0.5 0.5 0.1 100"
+                }
+        ]
+    }
+    }
+}

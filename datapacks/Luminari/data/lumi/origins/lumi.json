@@ -13,7 +13,7 @@
 		"lumi:particle"
     ],
     "icon": "minecraft:nether_star",
-    "order": 20,
+    "order": 1,
     "impact": 3,
     "name": "Luminari",
     "description": "Blessed by the stars."

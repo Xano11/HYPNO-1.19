@@ -1,0 +1,51 @@
+{
+    "type": "origins:multiple",
+    "raycast": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:raycast",
+            "distance": 5,
+            "block": false,
+            "entity": true,
+            "shape_type": "visual",
+            "fluid_handling": "none",
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:damage",
+                    "amount": 4,
+                    "source": {
+                        "name": "dragonBreath",
+                        "bypasses_armor": false
+                    }
+                }
+            },
+            "hit_action": {
+                "type": "origins:heal",
+                "amount": 0.05
+            },
+            "command_at_hit": "particle minecraft:enchanted_hit ~ ~ ~ 0 0 0 0.0 1 normal @a",
+            "command_along_ray": "particle minecraft:enchanted_hit",
+            "command_step": 1,
+            "command_along_ray_only_on_hit": true
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }        
+    },
+    "name": "Leech",
+    "description": "Shoot a beam that drains the life of your target whilst slowly healing you in the process.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/darkness.png",
+            "text": "You get half a heart per second."
+        }
+    ]
+}
+
+

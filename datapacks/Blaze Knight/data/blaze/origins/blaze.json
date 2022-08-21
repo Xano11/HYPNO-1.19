@@ -25,7 +25,7 @@
 		
     ],
     "icon": "minecraft:blaze_rod",
-    "order": 20,
+    "order": 1,
     "impact": 3,
     "name": "Blazeknight",
     "description": "Defend the fortress."

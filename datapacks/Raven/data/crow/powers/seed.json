@@ -28,19 +28,7 @@
     "modifier": {
         "name": "Increased exhaustion",
         "operation": "multiply_base",
-        "value": 1.0
-        }
-    },
-
-    "exaustion_flight": {
-        "type": "origins:action_over_time",
-    "entity_action": {
-        "type": "origins:exhaust",
-        "amount": 0.25
-    },
-    "interval": 20,
-    "condition": {
-        "type": "origins:fall_flying"
+        "value": 0.5
         }
     }
 }

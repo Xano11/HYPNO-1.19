@@ -1,0 +1,203 @@
+{
+	"type": "origins:multiple",
+	"toggle": {
+		"type": "origins:toggle",
+		"key": {
+			"key": "key.origins.secondary_active"
+		},
+		"retain_state": false,
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": ">",
+			"compare_to": 6
+		}
+	},
+	"overlay_green": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.2,
+		"green": 0.4,
+		"blue": 0.2,
+		"strength": 0.7,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": true,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 10
+				}
+			]
+		}
+	},
+	"overlay_orange": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.3,
+		"green": 0.3,
+		"blue": 0.2,
+		"strength": 0.7,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": true,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 8
+				}
+			]
+		}
+	},
+	"overlay_red": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.4,
+		"green": 0.2,
+		"blue": 0.2,
+		"strength": 0.7,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": true,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 8
+				}
+			]
+		}
+	},
+	"phasing": {
+		"type": "origins:phasing",
+		"blacklist": true,
+		"render_type": "remove_blocks",
+    	"view_distance": 12,
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "origins:unphasable"
+		},
+		"phase_down_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:on_block"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+	"effects": {
+                "type": "origins:stacking_status_effect",
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		},
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 30,
+		"effects": [
+			{
+				"effect": "minecraft:darkness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 25
+			},
+			{
+				"effect": "minecraft:night_vision",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			},
+			{
+				"effect": "minecraft:blindness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 25
+			}
+		]
+    },
+	"invisibility": {
+		"type": "origins:invisibility",
+		"render_armor": true,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+	"hunger": {
+		"type": "origins:exhaust",
+		"interval": 20,
+		"exhaustion": 0.412,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+
+	"suffocation_fix": {
+		"type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "inWall"
+            },
+            "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+    },
+
+    "flight": {
+        "type": "origins:creative_flight"
+    },
+
+	"undead": {
+		"type": "origins:entity_group",
+		"group": "undead"
+	},
+    "name": "Ghost Things",
+    "description": "Due to your ghostly presence you are undead, can slowly creative fly and phase through walls but phasing comes at the cost of hunger.",
+	"badges": [
+		{
+			"sprite": "minecraft:textures/particle/sculk_soul_8.png",
+			"text": "Don't forget that it costs hunger over time!"
+		}
+	]
+}

@@ -3,9 +3,9 @@
   "modifier": {
     "name": "Nine lives health reduction",
     "attribute": "minecraft:generic.max_health",
-    "value": -10.0,
+    "value": -4.0,
     "operation": "addition"
   },
-  "name": "Bird Heritage",
-  "description": "Due to your small size and hollow bones you have 5 less hearts than a human."
+  "name": "Curse of the Crows",
+  "description": "Due to your immense powers, you've had to sacrifice 2 of your hearts."
 }
