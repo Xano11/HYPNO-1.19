@@ -1,10 +1,14 @@
 {
   "type": "origins:effect_immunity",
   "effects": [
+      "minecraft:blindness",
+      "minecraft:darkness",
       "minecraft:strength",
       "minecraft:speed",
       "minecraft:jump_boost",
       "minecraft:fire_resistance",
+      "minecraft:resistance",
+      "minecraft:regeneration",
       "minecraft:water_breathing",
       "minecraft:invisibility",
       "minecraft:night_vision",
@@ -19,5 +23,11 @@
       "minecraft:hero_of_the_village"
   ],
   "name": "Interfering Magics",
-"description": "You are not used to magic you yourself can't use causing you to not be able to use positive potion effects that you cannot give yourself."
+"description": "You are not used to magic you yourself can't use causing you to not be able to use positive potion effects that you cannot give yourself.",    
+	"badges": [
+		{
+			"sprite": "minecraft:textures/item/milk_bucket.png",
+			"text": "L Bozo."
+		}
+	]
 }

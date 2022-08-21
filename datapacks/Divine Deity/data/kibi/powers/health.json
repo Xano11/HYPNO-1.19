@@ -19,5 +19,11 @@
     }
 },
     "name": "Nerd",
-    "description":"All your years training your magic has left you physically weaker."
+    "description":"All your years training your magic has left you physically weaker.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/instant_damage.png",
+            "text": "-6 max health, -12 armor toughness."
+        }
+    ]
 }

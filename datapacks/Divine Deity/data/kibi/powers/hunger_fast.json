@@ -1,12 +1,18 @@
 {
 	"type": "origins:multiple",
-	"name": "Magic Exhaustion",
-	"description": "Using so much magic takes a toll on you causing you to exhaust faster. (300% faster)",
 	"hunger": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
 			"value": 3,
 			"operation": "multiply_total"
 		}
-	}
+	},
+	"name": "Magic Exhaustion",
+	"description": "Using so much magic takes a toll on you causing you to exhaust faster.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "300% more exhaustion."
+        }
+    ]
 }
