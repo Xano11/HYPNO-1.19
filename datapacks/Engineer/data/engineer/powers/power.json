@@ -75,5 +75,11 @@
 		}
 },
   "name": "Feel The Energy",
-  "description": "You can charge up electricity inside your robotic suit by running to use in various different ways, but being on low power will cause you to be slower."
+  "description": "You can charge up electricity inside your robotic suit by running to use in various different ways, but being on low power will cause you to be slower.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "Sprint jump."
+        }
+    ]
 }

@@ -21,5 +21,11 @@
 		}
 },
   "name": "Star Power",
-  "description": "Your abilities run on star power, thus making it stronger in the overworld where there are stars but not in the nether where there aren't any."
+  "description": "Your abilities run on star power, thus making it stronger in the overworld where there are stars but not in the nether where there aren't any.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/nether_star.png",
+            "text": "1000 max."
+        }
+    ]
 }

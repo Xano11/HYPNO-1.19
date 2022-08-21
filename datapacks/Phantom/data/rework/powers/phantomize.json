@@ -1,0 +1,200 @@
+{
+	"type": "origins:multiple",
+	"toggle": {
+		"type": "origins:toggle",
+		"key": {
+			"key": "key.origins.secondary_active"
+		},
+		"retain_state": false,
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": ">",
+			"compare_to": 6
+		}
+	},
+
+	"armor": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.armor",
+			"operation": "addition",
+			"value": -8,
+			"name": "redused armor in phasing"
+		},
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+	
+	"armor_tough": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.armor_toughness",
+			"operation": "addition",
+			"value": -12,
+			"name": "redused armor toughness in phasing"
+		},
+		"tick_rate": 20,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+
+	"overlay_green": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.2,
+		"green": 0.4,
+		"blue": 0.2,
+		"strength": 0.7,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": true,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 10
+				}
+			]
+		}
+	},
+
+	"overlay_orange": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.3,
+		"green": 0.3,
+		"blue": 0.2,
+		"strength": 0.7,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": true,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 10
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 8
+				}
+			]
+		}
+	},
+
+	"overlay_red": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.4,
+		"green": 0.2,
+		"blue": 0.2,
+		"strength": 0.7,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": true,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "*:*_toggle"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<=",
+					"compare_to": 8
+				}
+			]
+		}
+	},
+
+	"phasing": {
+		"type": "origins:phasing",
+		"blacklist": true,
+		"render_type": "blindness",
+    	"view_distance": 3,
+		"block_condition": {
+			"type": "origins:in_tag",
+			"tag": "origins:unphasable"
+		},
+		"phase_down_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sneaking"
+				},
+				{
+					"type": "origins:on_block"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+
+	"invisibility": {
+		"type": "origins:invisibility",
+		"render_armor": true,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+
+	"hunger": {
+		"type": "origins:exhaust",
+		"interval": 20,
+		"exhaustion": 0.812,
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+	},
+
+	"suffocation_fix": {
+		"type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "inWall"
+            },
+            "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		}
+    },
+
+	"ss": {
+		"type": "origins:prevent_entity_collision"
+	},
+
+	"undead": {
+		"type": "origins:entity_group",
+		"group": "undead"
+	},
+    "name": "Phantomize",
+    "description": "You can go through walls as if you didn't exist in the first place!! (also you're undead and have 10 less armor and 4 less armor toughness in phasing)."
+}

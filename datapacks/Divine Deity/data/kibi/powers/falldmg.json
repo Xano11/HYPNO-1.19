@@ -14,5 +14,11 @@
     ]
   },
 	"name": "Divine Protection",
-	"description": "You don't take any fall damage."
+	"description": "You don't take any fall damage.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/slow_falling.png",
+          "text": "Magic."
+      }
+  ]
 }

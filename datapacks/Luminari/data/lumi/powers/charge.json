@@ -1,6 +1,4 @@
 {
-    "name": "Channel",
-    "description": "(Highlight Spectator Players) Channel the power of the stars into your body charging up your star power bar.",
     "type": "origins:multiple",
     "charge":
     {
@@ -186,5 +184,13 @@
                 }
             ]
         }
-		}
+		},
+    "name": "Channel",
+    "description": "(Highlight Spectator Players) Channel the power of the stars into your body charging up your star power bar.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/nether_star.png",
+            "text": "Channeling gets better at night."
+        }
+    ]
 }

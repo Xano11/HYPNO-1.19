@@ -35,5 +35,11 @@
 }
 },
   "name": "Brains Over Brawns",
-  "description": "You have 3 less hearts because of you focusing on learning instead of making yourself fit."
+  "description": "You have 3 less hearts because of you focusing on learning instead of making yourself fit.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/instant_damage.png",
+            "text": "mumbo."
+        }
+    ]
 }

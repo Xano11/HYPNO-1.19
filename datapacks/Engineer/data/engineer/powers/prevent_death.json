@@ -46,5 +46,11 @@
                 ]
     },
 	"name": "Emergency Escape",
-	"description": "When Omicron's health reaches 0 you are ejected from the cockpit."
+	"description": "When Omicron's health reaches 0 you are ejected from the cockpit.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/resistance.png",
+            "text": "Escape pod."
+        }
+    ]
 }

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "powers": [
 		"lumi:star",
@@ -17,4 +18,25 @@
     "impact": 3,
     "name": "Luminari",
     "description": "Blessed by the stars."
+=======
+{
+    "powers": [
+		"lumi:star",
+		"lumi:blast",
+		"lumi:walk",
+		"lumi:charge",
+		"lumi:power",
+		"lumi:immune",
+		"origins:carnivore",
+		"lumi:day",
+		"lumi:hunger_fast",
+		"origins:no_shield",
+		"lumi:particle"
+    ],
+    "icon": "minecraft:nether_star",
+    "order": 20,
+    "impact": 3,
+    "name": "Luminari",
+    "description": "Blessed by the stars."
+>>>>>>> a0fbeb5b608692ecb5c023963e6e6b660e869792
 }

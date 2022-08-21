@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
 	"powers": [
 		"engineer:switch",
@@ -21,4 +22,30 @@
 	"impact": 3,
 	"name": "Engineer",
 	"description": "The Engineer is engihere."
+=======
+{
+	"powers": [
+		"engineer:switch",
+		"engineer:power",
+		"engineer:dash",
+		"engineer:charge",
+		"engineer:build",
+		"engineer:engineer_tag",
+		"engineer:recipe",
+		"engineer:beacon",
+		"engineer:crafting",
+		"engineer:health",
+		"engineer:explosions",
+		"engineer:low",
+		"engineer:hunger_fast",
+		"engineer:ignore_water",
+		"engineer:prevent"
+	
+	],
+	"icon": "minecraft:redstone_block",
+	"order": 20,
+	"impact": 3,
+	"name": "Engineer",
+	"description": "The Engineer is engihere."
+>>>>>>> a0fbeb5b608692ecb5c023963e6e6b660e869792
 }

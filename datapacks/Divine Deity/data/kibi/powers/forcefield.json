@@ -127,5 +127,11 @@
             }
 },
 "name": "Force Field",
-    "description": "(loadToolbarActivator) You can create a force field around yourself that protects you from projectiles and pushes mobs away from you."
+    "description": "(loadToolbarActivator) You can create a force field around yourself that protects you from projectiles and pushes mobs away from you.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "Lasts 7 seconds."
+        }
+    ]
 }

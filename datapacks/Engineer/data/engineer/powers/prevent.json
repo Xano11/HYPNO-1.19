@@ -30,5 +30,11 @@
 	  }
 	},
 	"name": "Low tech",
-    "description": "Because of your high IQ you refuse to use old technology."
+    "description": "Because of your high IQ you refuse to use old technology.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "To smart for me."
+        }
+    ]
 }

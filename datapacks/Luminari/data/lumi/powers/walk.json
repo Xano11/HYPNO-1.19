@@ -1,6 +1,4 @@
 {
-    "name": "Star Walker",
-    "description": "(Secondary) Hold down to float in the air.",
     "type": "origins:multiple",
     "charge":
     {
@@ -118,5 +116,13 @@
                 }
 				]
 				}
-	}
+	},
+	"name": "Star Walker",
+    "description": "(Secondary) Hold down to float in the air.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/levitation.png",
+            "text": "Star power constantly drains when used."
+        }
+    ]
 }

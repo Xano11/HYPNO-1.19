@@ -1,12 +1,18 @@
 {
 	"type": "origins:multiple",
-	"name": "Exhaustion",
-	"description": "Carrying around that suit on your body takes a lot of energy, your hunger drains 200% faster.",
 	"hunger": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
 			"value": 2.00,
 			"operation": "multiply_total"
 		}
-	}
+	},
+	"name": "Exhaustion",
+	"description": "Carrying around that suit on your body takes a lot of energy, your hunger drains 200% faster.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "L."
+        }
+    ]
 }

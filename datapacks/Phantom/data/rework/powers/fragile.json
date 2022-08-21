@@ -1,0 +1,11 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+        "name": "half health oga booga",
+        "attribute": "minecraft:generic.max_health",
+        "value": -10,
+        "operation": "addition"
+    },
+	"name": "Fragile",
+    "description": "Due to you lacking a mortal presence, you're missing 5 hearts"
+}

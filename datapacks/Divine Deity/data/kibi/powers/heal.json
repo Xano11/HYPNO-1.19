@@ -55,5 +55,11 @@
     }
 },
     "name": "Divine Heal",
-    "description": "(Secondary) You can heal everyone around you."
+    "description": "(Secondary) You can heal everyone around you.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/health_boost.png",
+          "text": "Regen II for 4 seconds, clears DOT debuffs."
+      }
+  ]
 }

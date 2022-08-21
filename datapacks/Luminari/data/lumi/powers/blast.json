@@ -102,5 +102,11 @@
         }
 },
   "name": "Condensed Blast",
-  "description": "(loadToolbarActivator) Dash 10 blocks forward."
+  "description": "(loadToolbarActivator) Dash 10 blocks forward.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "Extinguishes you if your on fire."
+        }
+    ]
 }

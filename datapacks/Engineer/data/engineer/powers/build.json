@@ -1,7 +1,5 @@
 {
 	"type": "origins:multiple",
-	"name": "Construct",
-    "description": "(Use) You can build robots using blueprints you can craft.",
 	"build": {
 	"type": "origins:active_self",
 	"entity_action":
@@ -348,5 +346,13 @@
 		]
 	},
 	"key": "key.use"
-	}
+	},
+	"name": "Construct",
+    "description": "(Use) You can build robots using blueprints you can craft.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/haste.png",
+            "text": "Smart Brain."
+        }
+    ]
 }

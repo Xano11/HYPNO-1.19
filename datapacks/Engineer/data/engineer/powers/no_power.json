@@ -9,5 +9,11 @@
         "name": "flyIntoWall"
       },
     "name": "Explosive",
-    "description": "Flying into a wall will cause Omicron to explode violently and crash into the ground."
+    "description": "Flying into a wall will cause Omicron to explode violently and crash into the ground.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/fire_resistance.png",
+            "text": "escape pod go brr."
+        }
+    ]
 }

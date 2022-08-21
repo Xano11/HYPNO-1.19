@@ -101,5 +101,11 @@
             }
 		},
   "name": "Energy Blast",
-  "description": "(Primary) Blast divine energy in the direction your looking."
+  "description": "(Primary) Blast divine energy in the direction your looking.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/glowing.png",
+          "text": "Deals 16 magic damage."
+      }
+  ]
 }

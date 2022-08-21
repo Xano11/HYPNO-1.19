@@ -18,6 +18,11 @@
     ]
   },
   "name": "Shrapnel",
-  "description": "When caught in explosions your suit can be damaged causing it to dent inward and hurt you even more, you take 300% more damage from explosions.",
-  "hidden": false
+  "description": "When caught in explosions your suit can be damaged causing it to dent inward and hurt you even more, you take more damage from explosions.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "300% more."
+        }
+    ]
 }
