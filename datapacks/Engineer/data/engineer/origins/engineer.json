@@ -2,7 +2,7 @@
 	"powers": [
 		"engineer:switch",
 		"engineer:power",
-		"engineer:rocket",
+		"engineer:dash",
 		"engineer:charge",
 		"engineer:build",
 		"engineer:engineer_tag",
@@ -11,6 +11,7 @@
 		"engineer:crafting",
 		"engineer:health",
 		"engineer:explosions",
+		"engineer:low",
 		"engineer:hunger_fast",
 		"engineer:ignore_water",
 		"engineer:prevent"

@@ -52,5 +52,11 @@
 }
 },
 	"name": "Heavy",
-	"description": "You fall faster than normal and sink in water."
+	"description": "You fall faster than normal and sink in water.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+            "text": "Water boarded."
+        }
+    ]
 }

@@ -38,5 +38,11 @@
   },
     "name": "No Range",
     "description": "Your inside a robot how would you throw it.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "Rangeless?"
+        }
+    ]
 	"hidden": false
 }

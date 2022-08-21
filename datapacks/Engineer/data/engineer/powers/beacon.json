@@ -18,5 +18,11 @@
     "compare_to": 1
 	},
 	"name": "Power Thief",
-    "description": "While near a beacon you can steal power."
+    "description": "While near a beacon you can steal power.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "1 power every tick."
+        }
+    ]
 }

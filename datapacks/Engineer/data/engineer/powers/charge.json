@@ -1,7 +1,5 @@
 {
     "type": "origins:active_self",
-    "name": "Charge",
-    "description": "(Secondary) You can charge yourself with electricity making you deal more damage for a short period.",
     "hidden": false,
     "cooldown": 50,
     "entity_action": {
@@ -60,5 +58,13 @@
     "key": {
         "key": "key.origins.secondary_active",
         "continuous": true
-    }
+    },
+    "name": "Charge",
+    "description": "(Secondary) You can charge yourself with electricity making you deal more damage for a short period.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/strength.png",
+            "text": "Strength II for 10 seconds."
+        }
+    ]
 }

@@ -349,5 +349,11 @@
     }
 },
     "name": "High tech",
-    "description": "You can craft some uncraftable items and other items for cheaper."
+    "description": "You can craft some uncraftable items and other items for cheaper.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/luck.png",
+            "text": "Big brain time."
+        }
+    ]
 }
