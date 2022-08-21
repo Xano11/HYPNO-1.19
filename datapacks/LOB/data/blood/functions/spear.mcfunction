@@ -1,0 +1,1 @@
+give @s trident{display:{Name:'{"text":"Mohgwyn\'s Sacred Spear","color":"dark_red","italic":true}',Lore:['{"text":"The mother of truth desires a wound."}']},HideFlags:1,Enchantments:[{id:"minecraft:unbreaking",lvl:3s},{id:"minecraft:loyalty",lvl:3s},{id:"minecraft:impaling",lvl:5s},{id:"minecraft:channeling",lvl:1s},{id:"minecraft:mending",lvl:1s}]}

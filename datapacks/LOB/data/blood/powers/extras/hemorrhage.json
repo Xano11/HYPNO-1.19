@@ -1,0 +1,986 @@
+{
+	"type": "origins:multiple",
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 10000,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 5,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_resource",
+                "comparison": "!=",
+                "compare_to": 0
+            }
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "eggolib:damage",
+                    "source": {
+                        "name": "dryout",
+                        "bypasses_armor": true,
+                        "unblockable": true
+                    },
+                    "modifier": {
+                        "operation": "multiply_total",
+                        "value": 0.15
+                    }
+                },
+				{
+					"type": "origins:apply_effect",
+					"effect": {
+						"effect": "minecraft:slowness",
+						"duration": 20,
+						"amplifier": 9,
+						"is_ambient": false,
+						"show_particles": false,
+						"show_icon": false
+					}
+				},
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "operation": "set",
+                    "change": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar {\"text\": \"BLOOD LOSS\", \"color\": \"dark_red\", \"bold\":true, \"underlined\":true}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_gift_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_heal_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.dolphin.splash master @a[distance=..16] ~ ~ ~ 0.8 1.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bucket.empty master @a[distance=..16] ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.death master @a[distance=..16] ~ ~ ~ 0.5 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 2 0 0 0 ~ ~1 ~ 1 1 1 1 100 force",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:item minecraft:redstone ~ ~1 ~ 1 1 1 0.2 100 force",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 1 1.3",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 1 1.3",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 35,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 0.8 1.3",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 45,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 0.8 1.3",
+                        "permission_level": 4
+                    }
+                },    
+                {
+                    "type": "origins:delay",
+                    "ticks": 65,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 0.5 1.3",
+                        "permission_level": 4
+                    }
+                }, 
+                {
+                    "type": "origins:delay",
+                    "ticks": 75,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 0.5 1.3",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        }
+	},
+	"instant_burst": {
+		"type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_bleed_burst_instant",
+                    "change": -1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "operation": "set",
+                    "change": 10000
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_burst_instant",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "undead",
+                    "inverted": true
+                }
+            ]
+        },
+		"interval": 1
+	},
+	"burst": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 400
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 12.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 550
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 9.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 700
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 6.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 850
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 3.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 1000
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": "<",
+                        "compare_to": 3.0
+                    }
+                }
+            ]
+        }, 
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_burst",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "undead",
+                    "inverted": true
+                }
+			]
+        },
+		"interval": 1
+	},
+	"small_burst": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst_small",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 40
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 12.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst_small",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 55
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 9.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst_small",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 70
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 6.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst_small",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 85
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 3.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_burst_small",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 100
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": "<",
+                        "compare_to": 3.0
+                    }
+                }
+            ]
+        }, 
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_burst_small",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "undead",
+                    "inverted": true
+                }
+			]
+        },
+		"interval": 1
+	},
+	"linger": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+            "type": "origins:if_else_list",
+            "actions": [
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_linger",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 40
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 12.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_linger",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 55
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 9.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_linger",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 70
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 6.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_linger",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 85
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": ">=",
+                        "compare_to": 3.0
+                    }
+                },
+                {
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_bleed_linger",
+                                "change": -1
+                            },
+                            {
+                                "type": "origins:change_resource",
+                                "resource": "*:*_resource",
+                                "change": 100
+                            }
+                        ]
+                    },
+                    "condition": {
+                        "type": "origins:attribute",
+                        "attribute": "generic.armor_toughness",
+                        "comparison": "<",
+                        "compare_to": 3.0
+                    }
+                }
+            ]
+        }, 
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_linger",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "undead",
+                    "inverted": true
+                }
+			]
+        },
+		"interval": 2
+	},
+	"clot": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": -10
+		},
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_burst_instant",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_burst",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_burst_small",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_bleed_linger",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:entity_group",
+                    "group": "undead",
+                    "inverted": true
+                }
+			]
+        },
+		"interval": 1
+	},
+	"remove": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s blood:extras/hemorrhage",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=bloodlord,distance=..64]",
+            "comparison": "==",
+            "compare_to": 0
+        },
+		"interval": 10
+	},
+	"death_loss": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "operation": "set",
+            "change": 0
+        }
+	},
+	"bleed_burst_instant": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": false
+        }
+	},
+	"bleed_burst": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 10,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": false
+        }
+	},
+	"bleed_burst_small": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 10,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": false
+        }
+	},
+	"bleed_linger": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 20,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": false
+        }
+	},
+	"blood_gift_small": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_gift_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_heal_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bucket.fill master @p[tag=bloodlord] ~ ~ ~ 0.8 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.death master @p[tag=bloodlord] ~ ~ ~ 0.5 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "blood:small"
+                }
+            ]
+        },
+        "damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:attacker",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:name",
+                            "name": "dryout"
+                        },
+                        {
+                            "type": "origins:name",
+                            "name": "onFire"
+                        },
+                        {
+                            "type": "origins:fire"
+                        }
+                    ]
+                }
+			]
+        },
+        "cooldown": 100
+    },
+	"blood_gift_medium": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_gift_resource 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_heal_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bucket.fill master @p[tag=bloodlord] ~ ~ ~ 0.8 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.death master @p[tag=bloodlord] ~ ~ ~ 0.5 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "blood:medium"
+                }
+            ]
+        },
+        "damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:attacker",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:name",
+                            "name": "dryout"
+                        },
+                        {
+                            "type": "origins:name",
+                            "name": "onFire"
+                        },
+                        {
+                            "type": "origins:fire"
+                        }
+                    ]
+                }
+			]
+        },
+        "cooldown": 100
+    },
+	"blood_gift_large": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_gift_resource 4",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_heal_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bucket.fill master @p[tag=bloodlord] ~ ~ ~ 0.8 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.death master @p[tag=bloodlord] ~ ~ ~ 0.5 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "blood:large"
+                }
+            ]
+        },
+        "damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:attacker",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:name",
+                            "name": "dryout"
+                        },
+                        {
+                            "type": "origins:name",
+                            "name": "onFire"
+                        },
+                        {
+                            "type": "origins:fire"
+                        }
+                    ]
+                }
+			]
+        },
+        "cooldown": 100
+    },
+	"blood_gift_premium": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_gift_resource 8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource change @p[tag=bloodlord] blood:pros/blood_bar_heal_resource 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.bucket.fill master @p[tag=bloodlord] ~ ~ ~ 0.8 0.8",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.death master @p[tag=bloodlord] ~ ~ ~ 0.5 0.5",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "blood:premium"
+                }
+            ]
+        },
+        "damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:attacker",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:name",
+                            "name": "dryout"
+                        },
+                        {
+                            "type": "origins:name",
+                            "name": "onFire"
+                        },
+                        {
+                            "type": "origins:fire"
+                        }
+                    ]
+                }
+			]
+        },
+        "cooldown": 100
+    },
+	"hidden": true	
+}

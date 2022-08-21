@@ -1,0 +1,13 @@
+{
+    "replace": false,
+    "values": [
+      "minecraft:item",
+      "minecraft:experience_orb",
+      "minecraft:trident",
+      "minecraft:arrow",
+      "minecraft:spectral_arrow",
+      "minecraft:area_effect_cloud",
+      "minecraft:potion",
+      "dummmmmmy:dummy_number"
+    ]
+  }

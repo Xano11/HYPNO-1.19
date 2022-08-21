@@ -1,0 +1,548 @@
+{
+	"type": "origins:multiple",
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 100,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{display:{Lore:['{\"text\":\"The mother of truth desires a wound.\"}']},HideFlags:1}"
+                }
+            }
+        },
+        "max_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_countdown",
+                "comparison": "<",
+                "compare_to": 3
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_countdown",
+                        "change": 1
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 1
+                    }
+                ]
+            }
+        },
+        "min_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_countdown",
+                "comparison": ">",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_countdown",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_resource",
+                        "operation": "set",
+                        "change": 99
+                    }
+                ]
+            }
+        }
+	},
+	"countdown": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": true,
+            "sprite_location": "toomanyorigins:textures/gui/tmo_resource_bar.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{display:{Lore:['{\"text\":\"The mother of truth desires a wound.\"}']},HideFlags:1}"
+                }
+            }
+        }
+	},
+	"use_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 12,
+		"start_value": 0,
+		"hud_render": {
+            "should_render": false
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_duration"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_use_resource",
+                    "operation": "set",
+                    "change": 0
+                }
+            ]
+        }
+	},
+	"duration": {
+		"type": "origins:cooldown",
+		"cooldown": 50,
+		"hud_render": {
+            "should_render": false
+		}
+	},
+    "using": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+                    "type": "origins:change_resource",
+                    "resource": "*:*_use_resource",
+                    "change": 1
+                }
+			]
+		},
+        "falling_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+                    "type": "origins:change_resource",
+                    "resource": "*:*_use_resource",
+                    "operation": "set",
+                    "change": 0
+                }
+			]
+		},
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_countdown",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "blood:pros/blood_bar_resource",
+                    "comparison": ">=",
+                    "compare_to": 150
+                },
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {   
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{display:{Lore:['{\"text\":\"The mother of truth desires a wound.\"}']},HideFlags:1}"
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:trident"
+                                }
+                            }
+                        ]
+                    }
+                }
+			]
+        },
+		"interval": 5
+	},
+	"glow": {
+        "type": "origins:self_glow",
+        "use_teams": false,
+        "red": 0.5,
+        "green": 0,
+        "blue": 0,
+        "condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_use_resource",
+                    "comparison": ">",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_duration",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+			]
+        }
+    },
+	"gravity": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1.0
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_use_resource",
+                    "comparison": ">",
+                    "compare_to": 9
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_duration",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+			]
+		}
+	},
+	"burst": {
+		"type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+            {
+                "type": "origins:area_of_effect",
+                "radius": 10,
+                "bientity_action": {
+                "type": "origins:target_action",
+                    "action": {	
+                    "type": "origins:change_resource",
+                    "resource": "blood:extras/hemorrhage_bleed_burst_instant",
+                    "operation": "set",
+                    "change": 1
+                    }
+                },
+                "bientity_condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{Tags:[bloodlord]}"
+                            },
+                            {
+                                "type": "origins:in_tag",
+                                "tag": "blood:willcrashthegame"
+                            },
+                            {
+                                "type": "origins:living",
+                                "inverted": true
+                            }
+                        ]
+                    },
+                    "inverted": true
+                }
+            },
+            {
+                "type": "origins:trigger_cooldown",
+                "power": "*:*_cooldown"
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "resource change @s blood:pros/blood_bar_resource -150"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "*:*_countdown",
+                "change": -1
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.dolphin.splash master @a[distance=..16] ~ ~ ~ 0.8 1.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.drowned.ambient_water master @a[distance=..16] ~ ~ ~ 0.8 1.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:item.bucket.empty master @a[distance=..16] ~ ~ ~ 1 2",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.slime.death master @a[distance=..16] ~ ~ ~ 0.5 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.respawn_anchor.ambient master @a[distance=..16] ~ ~ ~ 0.6 1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.generic.explode master @a[distance=..16] ~ ~ ~ 0.4 0.6",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.beacon.power_select master @a[distance=..16] ~ ~ ~ 1 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.respawn_anchor.set_spawn master @a[distance=..16] ~ ~ ~ 1 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:item minecraft:redstone ~ ~0.7 ~ 0.5 0.5 0.5 0.3 150 force",
+                "permission_level": 4
+            }]
+        },
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "function blood:rain_2",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @s minecraft:resistance 2 0",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @s minecraft:slowness 2 9",
+					"permission_level": 4
+				},
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {    
+                        "type": "origins:area_of_effect",
+                        "radius": 10,
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:target_action",
+                                    "action": {	
+                                    "type": "origins:and",
+                                    "actions": [{
+                                            "type": "origins:damage",
+                                            "amount": 6,
+                                            "source": {
+                                                "name": "onFire"
+                                            }
+                                        }]
+                                    }
+                                }
+                            ]
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:nbt",
+                                        "nbt": "{Tags:[bloodlord]}"
+                                    },
+                                    {
+                                        "type": "origins:in_tag",
+                                        "tag": "blood:willcrashthegame"
+                                    },
+                                    {
+                                        "type": "origins:living",
+                                        "inverted": true
+                                    }
+                                ]
+                            },
+                            "inverted": true
+                        }
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 1 0 0 0 ~ ~1 ~ 0.4 0.4 0.4 1 50 force",
+                    "permission_level": 4
+                },
+				{
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 0 0 2 0 0 0 ~ ~1 ~ 5 5 5 0.05 200 force",
+                    "permission_level": 4
+                },
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.fire.ambient master @a[distance=..16] ~ ~ ~ 1 1",
+					"permission_level": 4
+				}
+			]
+		},
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_duration",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+			]
+        },
+		"interval": 5
+	},
+	"gain": {
+        "type": "origins:self_action_on_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_cooldown"
+				},
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "change": 10
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": ">=",
+            "compare_to": 4.0
+        },
+        "target_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:entity_type",
+                    "entity_type": "dummmmmmy:target_dummy",
+                    "inverted": true
+                }
+            ]
+        },
+        "cooldown": 10
+    },
+	"gain_2": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+					"type": "origins:trigger_cooldown",
+					"power": "*:*_cooldown"
+				},
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_resource",
+                    "change": 10
+                }
+            ]
+        },
+        "damage_condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:attacker"
+                }
+			]
+        },
+        "cooldown": 10
+    },
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 100,
+		"hud_render": {
+            "should_render": false
+		}
+	},
+	"loss": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": -1
+		},
+        "condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "*:*_resource",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {   
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:nbt",
+                                "nbt": "{display:{Lore:['{\"text\":\"The mother of truth desires a wound.\"}']},HideFlags:1}"
+                            },
+                            {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "item": "minecraft:trident"
+                                }
+                            }
+                        ]
+                    },
+                    "inverted": true
+                }
+			]
+        },
+		"interval": 1
+	},
+	"death_loss": {
+        "type": "origins:action_on_callback",
+        "entity_action_respawned": {
+            "type": "origins:change_resource",
+            "resource": "*:*_countdown",
+            "operation": "set",
+            "change": 0
+        }
+	},
+	"hidden": true	
+}
