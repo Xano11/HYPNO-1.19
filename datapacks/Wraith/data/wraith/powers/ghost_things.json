@@ -125,7 +125,7 @@
 		},
 		"min_stacks": 0,
 		"max_stacks": 1,
-		"duration_per_stack": 30,
+		"duration_per_stack": 50,
 		"effects": [
 			{
 				"effect": "minecraft:darkness",
