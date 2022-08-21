@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 {
     "powers": [
 		"kibi:blast",
@@ -14,21 +14,4 @@
     "impact": 3,
     "name": "Divine Deity",
     "description": "Ancient power passed down for generations."
-=======
-{
-    "powers": [
-		"kibi:blast",
-		"kibi:heal",
-		"kibi:forcefield",
-		"kibi:falldmg",
-		"kibi:immune",
-		"kibi:hunger_fast",
-		"kibi:health"
-    ],
-    "icon": "minecraft:string",
-    "order": 1,
-    "impact": 3,
-    "name": "Divine Deity",
-    "description": "Ancient power passed down for generations."
->>>>>>> a0fbeb5b608692ecb5c023963e6e6b660e869792
 }
