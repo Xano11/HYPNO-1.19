@@ -77,5 +77,11 @@
      }
 	 },
 	 "name": "Rabbit Food",
-     "description": "You can only eat Carrots."
+     "description": "You can only eat Carrots.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/carrot.png",
+            "text": "Also carrots give more saturation to you!"
+        }
+    ]
 }

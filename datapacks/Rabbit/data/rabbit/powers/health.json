@@ -19,5 +19,11 @@
     }
 },
 "name": "Small Body",
-"description":"Being smaller causes you to have less health and less armor."
+"description":"Being smaller causes you to have less health and less armor.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/iron_axe.png",
+            "text": "Its hunting season, actually Rabbit season..."
+        }
+    ]
 }

@@ -50,5 +50,11 @@
     }
 },
     "name": "Leap",
-    "description": "(Primary) You can leap up into the air."
+    "description": "(Primary) You can leap up into the air.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/feather.png",
+            "text": "Soar like a eagle."
+        }
+    ]
 }

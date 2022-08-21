@@ -67,8 +67,7 @@
 
     "wings": {
         "type": "origins:elytra_flight",
-        "render_elytra": true,
-        "texture_location": "minecraft:textures/block/horn_coral.png"
+        "render_elytra": true
     },
 
     "death_sound":

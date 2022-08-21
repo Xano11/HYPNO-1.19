@@ -7,28 +7,8 @@
       "type": "origins:fire"
     },
     "modifier": {
-      "value": 2.5,
-      "operation": "multiply_total"
-    },
-    "condition": {
-      "type": "origins:power",
-      "power": "yak:transformed",
-      "inverted": true
-    }
-  },
-  "transformed":{
-    "type": "origins:modify_damage_taken",
-    "damage_condition": {
-      "type": "origins:fire"
-    },
-    "modifier": {
       "value": 1.5,
       "operation": "multiply_total"
-    },
-    "condition": {
-      "type": "origins:power",
-      "power": "yak:transformed",
-      "inverted": false
     }
   },
     "name": "Yak's Trauma",

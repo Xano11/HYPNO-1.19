@@ -1,0 +1,9 @@
+{
+    "type": "origins:inventory",
+    "container_type": "hopper",
+    "drop_on_death": true,
+    "title":"Potion Pouch",
+    "key": {
+        "key": "key.loadToolbarActivator"
+    }
+}

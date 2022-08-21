@@ -156,5 +156,11 @@
     }
 },
 	"name": "Master of The Shadows",
-	"description": "When sneaking you gain invisibility and night vision, but you cannot attack."
+	"description": "When sneaking you gain invisibility and night vision, but you cannot attack.",
+    "badges": [
+            {
+                "sprite": "minecraft:textures/item/iron_door.png",
+                "text": "This comes with a lot of devious possibilities."
+            }
+        ]
 }

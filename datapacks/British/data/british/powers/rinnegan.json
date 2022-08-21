@@ -31,18 +31,8 @@
 					"permission_level": 4
 				},
 				{
-					"type": "origins:execute_command",
-					"command": "effect give @s mining_fatigue 2 1",
-					"permission_level": 4
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "effect give @s slowness 2 1",
-					"permission_level": 4
-				},
-				{
 					"type": "origins:delay",
-					"ticks": 40,
+					"ticks": 30,
 					"action": {
 						"type": "origins:execute_command",
 						"command": "power revoke @s origins:fall_immunity"
@@ -85,11 +75,11 @@
             },
 			{
 				"type": "origins:exhaust",
-				"amount": 1.4
+				"amount": 1.8
 			}
             ]
         },
-        "cooldown": 130,
+        "cooldown": 150,
   "hud_render": {
     "should_render": true,
     "bar_index": 3
@@ -100,5 +90,11 @@
         }
 },
   "name": "The rinnegan",
-  "description": "(Primary) Teleport 10 blocks forward."
+  "description": "(Primary) Teleport 10 blocks forward.",
+    "badges": [
+            {
+                "sprite": "minecraft:textures/item/ender_pearl.png",
+                "text": "Why can he do this... Because why not"
+            }
+        ]
 }

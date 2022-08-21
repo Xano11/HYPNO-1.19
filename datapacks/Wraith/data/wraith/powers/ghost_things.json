@@ -118,7 +118,11 @@
 		}
 	},
 	"effects": {
-        "type": "origins:stacking_status_effect",
+                "type": "origins:stacking_status_effect",
+		"condition": {
+			"type": "origins:power_active",
+			"power": "*:*_toggle"
+		},
 		"min_stacks": 0,
 		"max_stacks": 1,
 		"duration_per_stack": 30,
@@ -144,11 +148,7 @@
 				"show_icon": true,
 				"amplifier": 25
 			}
-		],
-		"condition": {
-			"type": "origins:power_active",
-			"power": "*:*_toggle"
-		}
+		]
     },
 	"invisibility": {
 		"type": "origins:invisibility",

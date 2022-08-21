@@ -56,5 +56,11 @@
   }
 },
 	"name": "Schtewpid",
-	"description": "You are slower and sink in water because you forgor how to swim."
+	"description": "You are slower and sink in water because you forgor how to swim.",
+    "badges": [
+            {
+                "sprite": "minecraft:textures/item/glass_bottle.png",
+                "text": "Like a glass half full."
+            }
+        ]
 }

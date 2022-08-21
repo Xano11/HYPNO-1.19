@@ -92,6 +92,16 @@
       }
   },
 
+  "fireweak":{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+      "type": "origins:fire"
+    },
+    "modifier": {
+      "value": 1,
+      "operation": "multiply_total"
+    }
+  },
 
 "footstep":
 {

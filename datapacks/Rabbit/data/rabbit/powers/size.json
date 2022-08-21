@@ -1,6 +1,12 @@
 {
     "name": "Short",
     "description": "Your a slab shorter than normal and faster than normal this causes you to exhaust 200% faster because of you using more energy with such a small body.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/cooked_rabbit.png",
+            "text": "for a rabbit you're pretty tall."
+        }
+    ],
     "type": "origins:action_on_callback",
     "execute_chosen_when_orb": true,
     "entity_action_added": {
