@@ -1,10 +1,5 @@
 {
 "type":"origins:multiple",
-"footstep":
-{
-  "type": "apugli:custom_footstep",
-  "sound": "minecraft:entity.spider.step"
-},
 "hurt_sound":
 {
     "type": "apugli:custom_hurt_sound",
