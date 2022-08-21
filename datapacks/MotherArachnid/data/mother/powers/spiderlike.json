@@ -1,0 +1,35 @@
+{
+"type":"origins:multiple",
+"footstep":
+{
+  "type": "apugli:custom_footstep",
+  "sound": "minecraft:entity.spider.step"
+},
+"hurt_sound":
+{
+    "type": "apugli:custom_hurt_sound",
+    "sounds": [
+        {
+            "sound": "minecraft:entity.player.hurt",
+            "weight": 9
+        },
+        "minecraft:entity.spider.step"
+    ]
+},
+"ignore":
+{
+    "type": "apugli:mobs_ignore",
+    "mob_condition": {
+        "type": "apoli:entity_type",
+        "entity_type": "minecraft:spider"
+    }
+},
+"name":"Queen of All Arachnids",
+"description":"Being the queen of spiders makes you quite special.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/spider_eye.png",
+            "text": "Spiders simply ignore you."
+        }
+    ]
+}

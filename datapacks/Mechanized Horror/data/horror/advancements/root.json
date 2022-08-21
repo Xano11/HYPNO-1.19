@@ -1,0 +1,24 @@
+{
+    "display": {
+        "title": {
+            "text": "Mechanized Horror",
+            "color": "white"
+        },
+        "description": {
+            "text": "Become Mechanized Horror."
+        },
+        "icon": {
+            "item": "minecraft:netherite_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false,
+        "background": "minecraft:textures/block/netherite_block.png"
+    },
+    "criteria": {
+        "Become Mechanized": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

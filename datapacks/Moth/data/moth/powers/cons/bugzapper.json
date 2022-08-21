@@ -1,0 +1,214 @@
+{
+	"type": "origins:multiple",
+    "bzz_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 61,
+        "start_value": 61,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "moth:cons/bugzapper_bzz_resource",
+                "comparison": "<",
+                "compare_to": 61
+            }
+        },
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "operation": "set",
+            "change": 61
+        }
+    },
+    "bzt": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.guardian.attack master @a[distance=..8] ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.guardian.attack master @a[distance=..8] ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.guardian.attack master @a[distance=..8] ~ ~ ~ 1 2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 1 0.3 1 1 1 1 ~ ~0.6 ~ 0.3 0.3 0.3 1 100 force",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 11,
+                    "source": {
+                        "name": "lightningBolt",
+                        "bypasses_armor": true
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "moth:cons/bugzapper_bzz_resource",
+                    "operation": "set",
+                    "change": 60    
+                }
+            ]
+        },
+        "condition": {
+                "type": "origins:or",
+                "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                    {
+                        "type": "origins:or",
+                        "conditions": [{
+                            "type": "origins:block_collision",
+                            "offset_x": 0.01,
+                            "offset_z": 0.01,
+                            "offset_y": 0
+                        },
+                        {
+                            "type": "origins:block_collision",
+                            "offset_x": -0.01,
+                            "offset_z": -0.01,
+                            "offset_y": 0
+                        }]
+                    },
+                    {
+                        "type": "origins:block_in_radius",
+                        "block_condition": {
+                            "type": "origins:block",
+                            "block": "minecraft:lightning_rod"
+                        },
+                        "radius": 0,
+                        "shape": "cube",
+                        "comparison": ">=",
+                        "compare_to": 1
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "moth:cons/bugzapper_bzz_resource",
+                        "comparison": "==",
+                        "compare_to": 61
+                    }]
+                },
+                {
+                    "type": "origins:and",
+                    "conditions": [{
+                        "type": "origins:on_block",
+                        "block_condition": {
+                            "type": "origins:block",
+                            "block": "minecraft:lightning_rod"
+                        }
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "moth:cons/bugzapper_bzz_resource",
+                        "comparison": "==",
+                        "compare_to": 61
+                    }]
+                }
+                ]
+            },
+        "interval": 1
+    },
+    "bz": {
+        "type": "origins:action_when_damage_taken",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:slowness 3 6",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "moth:cons/bugzapper_bzz_resource",
+                    "operation": "set",
+                    "change": 60    
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "lightningBolt"
+        },
+        "cooldown": 61
+    },
+    "bzzt": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "operation": "add",
+            "change": -1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "comparison": "<",
+            "compare_to": 61
+        },
+        "interval": 1
+    },
+    "bzzzt": {
+        "type": "origins:shaking",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "comparison": "<",
+            "compare_to": 61
+        }
+    },
+    "bzzzzzt": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1.0
+		},
+		"condition": {
+            "type": "origins:resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "comparison": "<",
+            "compare_to": 61
+        }
+	},
+    "bzzzzzzt": {
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "comparison": "<",
+            "compare_to": 61
+        }
+    },
+    "bzzzzzzzt": {
+        "type": "origins:prevent_elytra_flight",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "moth:cons/bugzapper_bzz_resource",
+            "comparison": "<",
+            "compare_to": 61
+        }
+    },
+    "name": "Bzzzzzt",
+    "description": "Dont touch lightning rods.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/instant_damage.png",
+            "text": "Dont."
+        }
+    ]
+}

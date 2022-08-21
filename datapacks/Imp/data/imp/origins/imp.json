@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"imp:nimble",
+		"imp:fire_immunity",
+		"imp:impish_wings",
+		"imp:small_size",
+		"imp:nether_inhabitant",
+		"imp:hydrophobia",
+		"imp:fragile",
+		"imp:lesser_being",
+		"imp:unwieldy",
+		"imp:carnivore"
+	],
+	"icon": {
+        "item": "minecraft:trident",
+        "tag": "{Enchantments:[{}],CustomModelData:1}"
+    },
+	"order": 573,
+	"impact": 2,
+	"name": "Imp",
+	"description": "You are the spawn of a lesser demonic entities"
+}

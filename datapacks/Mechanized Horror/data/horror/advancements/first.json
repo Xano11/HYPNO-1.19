@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "ITS A FEATURE MOM-"
+        },
+        "description": {
+            "text": "Switch for the very first time."
+        },
+        "icon": {
+            "item": "minecraft:copper_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "horror:root"
+}

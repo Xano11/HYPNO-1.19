@@ -1,0 +1,124 @@
+{
+  "type": "origins:multiple",
+  
+  "resource":{
+    "type": "origins:resource",
+    "min": 0,
+    "max": 600,
+    "start_value": 600,
+    "hud_render": {
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 15
+    },
+    "min_action": 
+    {
+      "type": "origins:and",
+      "actions": [
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s wereboar:crippled",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s wereboar:arrow_weakness_passive",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "function wereboar:resize",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 1,
+        "action": {
+            "type": "origins:and",
+            "actions": [
+              {
+                "type": "origins:execute_command",
+                    "command": "power remove @s wereboar:transformed",
+                    "permission_level": 4
+              }
+            ]
+        }
+    }
+    ]
+  }
+},
+
+
+    "remove_resource": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "wereboar:transformed_resource",
+        "change": -10
+    },
+    "interval": 10
+    },
+
+
+  "health":{
+
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "operation": "addition",
+      "value": 6
+    }
+  },
+
+
+  "mining_speed":{
+      "type": "origins:modify_break_speed",
+      "modifier": {
+          "operation": "multiply_base",
+          "value": 0.5
+      }
+  },
+
+
+  "bloodlust": 
+  {
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+        {
+        "type": "origins:execute_command",
+        "command": "effect give @s minecraft:absorption 30 0 false",
+        "permission_level": 4
+        },
+        {
+        "type": "origins:execute_command",
+        "command": "effect give @s minecraft:regeneration 15 1 false",
+        "permission_level": 4
+        },
+        {
+        "type": "origins:execute_command",
+        "command": "execute at @s run particle minecraft:dust 3 0 0 1.5 ~ ~1 ~ 0.25 0 0.25 1 100 force",
+        "permission_level": 4
+        },
+        {
+        "type": "origins:change_resource",
+        "resource": "wereboar:transformed_resource",
+        "change": 30
+      }
+    ]
+},
+"cooldown": 1
+},
+"footstep":
+{
+  "type": "apugli:custom_footstep",
+  "sound": "minecraft:entity.hoglin.step"
+},
+"hurt_sound":
+{
+  "type": "apugli:custom_hurt_sound",
+  "sound": "minecraft:entity.hoglin.hurt"
+},
+  "hidden": true
+}

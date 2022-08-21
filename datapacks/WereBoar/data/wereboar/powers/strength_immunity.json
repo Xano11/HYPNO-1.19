@@ -1,0 +1,14 @@
+{
+    "type": "origins:effect_immunity",
+    "effects": [
+        "minecraft:strength"
+    ],
+"name": "Immune of Alchemical Strength",
+"description": "You don't get affected by the effect \"Strength\".",
+"badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/strength.png",
+        "text": "Already strong enough."
+    }
+]
+}

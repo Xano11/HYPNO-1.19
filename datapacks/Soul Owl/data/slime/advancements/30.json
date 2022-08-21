@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Eradication 2"
+        },
+        "description": {
+            "text": "Escort 30 players away from the realm of the living."
+        },
+        "icon": {
+            "item": "minecraft:skeleton_skull"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "slime:15"
+}

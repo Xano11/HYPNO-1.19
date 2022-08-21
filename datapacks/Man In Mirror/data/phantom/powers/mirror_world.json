@@ -1,0 +1,79 @@
+{
+    "type": "origins:multiple",
+    "name": "Mirror World",
+    "description": "You have access to a plane of existence known as the Mirror World, where nothing can truly exist. Some special things might happen to you while you're there.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/spyglass.png",
+            "text": "Reflect a new world."
+        }
+    ],
+    "no_interaction": {
+        "type": "origins:prevent_block_selection",
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "phantom:mirror"
+        }
+    },
+    "flight": {
+        "type": "origins:creative_flight",
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "phantom:mirror"
+        }
+    },
+    "fast_flight": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.flying_speed",
+            "operation": "multiply_total",
+            "value": 1,
+            "name": "Increased flying speed."
+        }
+    },
+    "invulnerable": {
+        "type": "origins:modify_damage_taken",
+        "condition": {
+            "type": "origins:dimension",
+            "dimension": "phantom:mirror"
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1,
+            "name": "Invulnerable"
+        }
+    },
+    "no_void": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[y=-64,dy=-1000]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:dimension",
+                    "dimension": "phantom:mirror"
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "tp @s ~ ~320 ~",
+            "permission_level": 4
+        }
+    },
+    "detect_glass": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "execute as @a run function phantom:detect_glass",
+            "permission_level": 4
+        }
+    }
+}

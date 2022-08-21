@@ -1,0 +1,15 @@
+{
+	"type": "origins:effect_immunity",
+	"effects": [
+	"minecraft:blindness",
+	"minecraft:darkness"
+	],
+	"name": "Robotic Eyes",
+	"description": "You are immune to the darkness and blindness effect.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/resistance.png",
+            "text": "Have you ever heard of genetics?"
+        }
+    ]
+}

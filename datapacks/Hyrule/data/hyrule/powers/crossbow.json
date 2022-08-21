@@ -1,0 +1,1050 @@
+{
+	"type": "origins:multiple",
+	"effects": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "offhand",
+					"action": {
+						"type": "origins:consume",
+						"amount": 1
+					}
+				},
+				{
+					"type": "origins:raycast",
+					"distance": 100,
+					"block": true,
+					"entity": true,
+					"shape_type": "collider",
+					"fluid_handling": "any",
+					"command_along_ray": "particle minecraft:sonic_boom",
+					"command_step": 3
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "hyrule:stamina_sp_resource",
+					"operation": "set",
+					"change": 0
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "hyrule:stamina_resource",
+					"operation": "set",
+					"change": 1
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:sonic_boom ~ ~1 ~ 0.5 0.5 0.5 1 15 normal",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:raycast",
+					"distance": 100,
+					"block": true,
+					"entity": true,
+					"shape_type": "collider",
+					"fluid_handling": "any",
+					"command_along_ray": "particle minecraft:sonic_boom",
+					"command_step": 3
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.wither.spawn master @a[distance=..64] ~ ~ ~ 0.1 2 0.1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.warden.death master @a ~ ~ ~ 4 2 0",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.generic.explode master @a ~ ~ ~ 4 1 0",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.warden.sonic_boom master @a ~ ~ ~ 6 1 0",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:damage",
+					"amount": 15,
+					"source": {
+						"name": "outOfWorld",
+						"bypasses_armor": false
+					}
+				},
+				{
+					"type": "origins:drop_inventory",
+					"retain_ownership": true,
+					"slots": [
+						"weapon.mainhand",
+						"weapon.offhand"
+					],
+					"item_action": {
+						"type": "origins:damage",
+						"amount": 450,
+						"ignore_unbreaking": false
+					},
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:crossbow"
+						}
+					}
+				},
+				{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "head",
+					"action": {
+						"type": "origins:damage",
+						"amount": 100,
+						"ignore_unbreaking": false
+					}
+				},
+				{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "chest",
+					"action": {
+						"type": "origins:damage",
+						"amount": 100,
+						"ignore_unbreaking": false
+					}
+				},
+				{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "legs",
+					"action": {
+						"type": "origins:damage",
+						"amount": 100,
+						"ignore_unbreaking": false
+					}
+				},
+				{
+					"type": "origins:equipped_item_action",
+					"equipment_slot": "feet",
+					"action": {
+						"type": "origins:damage",
+						"amount": 100,
+						"ignore_unbreaking": false
+					}
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": -1.0,
+					"space": "local",
+					"set": true
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": -0.1,
+					"space": "world"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 20.0
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:crossbow_render"
+				}
+			]
+		},
+		"cooldown": 2,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.attack",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "==",
+					"compare_to": 1000
+				},
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+			]
+		}
+	},
+	"render": {
+		"type": "origins:cooldown",
+		"cooldown": 600,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 3,
+			"inverted": true,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "hyrule:crossbow_charge_resource",
+				"comparison": "==",
+				"compare_to": 0
+			}
+		}
+	},
+	"shoot": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:arrow",
+		"cooldown": 2,
+		"hud_render": {
+			"should_render": false
+		},
+		"count": 1,
+		"speed": 10.0,
+		"divergence": 0.0,
+		"tag": "{pickup:2b,damage:3d,crit:0b,ShotFromCrossbow:1b,Color:1788508,Potion:\"minecraft:empty\"}",
+		"key": {
+			"key": "key.attack",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_effects",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_pierce_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_multi_resource",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"shoot_pierce": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:arrow",
+		"cooldown": 2,
+		"hud_render": {
+			"should_render": false
+		},
+		"count": 1,
+		"speed": 10.0,
+		"divergence": 0.0,
+		"tag": "{Glowing:1b,pickup:2b,damage:4.5d,crit:0b,ShotFromCrossbow:1b,PierceLevel:10b,Color:1788508,Potion:\"minecraft:empty\"}",
+		"key": {
+			"key": "key.attack",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_effects",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_pierce_resource",
+					"comparison": "!=",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"shoot_multi": {
+		"type": "origins:fire_projectile",
+		"entity_type": "minecraft:arrow",
+		"cooldown": 2,
+		"hud_render": {
+			"should_render": false
+		},
+		"count": 30,
+		"speed": 10.0,
+		"divergence": 10.0,
+		"tag": "{Glowing:1b,pickup:2b,life:1000,damage:3d,crit:0b,ShotFromCrossbow:1b,Color:1788508,Potion:\"minecraft:empty\"}",
+		"key": {
+			"key": "key.attack",
+			"continuous": false
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_effects",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_multi_resource",
+					"comparison": "!=",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"pierce_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": false
+		}
+	},
+	"pierce_check": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_pierce_resource",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_pierce_resource",
+			"operation": "set",
+			"change": 0
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:piercing",
+							"comparison": ">=",
+							"compare_to": 1
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "==",
+					"compare_to": 1000
+        		}
+                ]
+			},
+		"interval": 1
+	},
+	"multi_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": false
+		}
+	},
+	"multi_check": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_multi_resource",
+			"change": 1
+		},
+		"falling_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_multi_resource",
+			"operation": "set",
+			"change": 0
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:multishot",
+							"comparison": ">=",
+							"compare_to": 1
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "==",
+					"compare_to": 1000
+        		}
+                ]
+			},
+		"interval": 1
+	},
+	"charge_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1000,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 3,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:crossbow_charge_resource",
+			"comparison": ">",
+			"compare_to": 0
+		}
+		}
+	},
+	"charge": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_charge_resource",
+			"change": 10
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "<",
+					"compare_to": 1000
+        		},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "==",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+                ]
+			},
+		"interval": 1
+	},
+	"charge_1": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_charge_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:quick_charge",
+							"comparison": "==",
+							"compare_to": 1
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "<",
+					"compare_to": 1000
+        		},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "==",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+                ]
+			},
+		"interval": 1
+	},
+	"charge_2": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_charge_resource",
+			"change": 2
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:quick_charge",
+							"comparison": "==",
+							"compare_to": 2
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "<",
+					"compare_to": 1000
+        		},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "==",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+                ]
+			},
+		"interval": 1
+	},
+	"charge_3": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_charge_resource",
+			"change": 3
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:quick_charge",
+							"comparison": ">=",
+							"compare_to": 3
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "<",
+					"compare_to": 1000
+        		},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "==",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+                ]
+			},
+		"interval": 1
+	},
+	"no_charge": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_charge_resource",
+			"operation": "set",
+			"change": 0
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                            }
+                        },
+                    "inverted": true
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": ">",
+					"compare_to": 0
+        		}
+            ]
+		},
+		"interval": 2
+	},
+	"charge_particles": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.warden.sonic_charge master @a ~ ~ ~ 3 1 0",
+			"permission_level": 4
+		},
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:dust_color_transition 0 0.7 0.5 1 0.7 0.7 1 ~ ~1 ~ 0.5 0.5 0.5 0 30 force",
+			"permission_level": 4
+				
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "<",
+					"compare_to": 1000
+        		},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "==",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+                ]
+			},
+		"interval": 5
+	},
+	"charge_sound": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.warden.sonic_charge master @a ~ ~ ~ 3 1 0",
+			"permission_level": 4
+		},
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.warden.sonic_charge master @a ~ ~ ~ 3 1 0",
+			"permission_level": 4
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+                {
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    }
+                },
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_charge_resource",
+					"comparison": "<",
+					"compare_to": 1000
+        		},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "==",
+					"compare_to": 25
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_render",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+                ]
+			},
+		"interval": 30
+	},
+	"ready_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 25,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": false
+		}
+	},
+	"gain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_ready_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "<",
+					"compare_to": 25
+				},
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                        }
+                    }
+                },
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+			]
+        },
+		"interval": 1
+	},
+	"gain_charge_1": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_ready_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "<",
+					"compare_to": 25
+				},
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:quick_charge",
+							"comparison": ">=",
+							"compare_to": 1
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+			]
+        },
+		"interval": 4
+	},
+	"gain_charge_2": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_ready_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "<",
+					"compare_to": 25
+				},
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:quick_charge",
+							"comparison": ">=",
+							"compare_to": 2
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+			]
+        },
+		"interval": 2
+	},
+	"gain_charge_3": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_ready_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": "<",
+					"compare_to": 25
+				},
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+						"type": "origins:and",
+              			"conditions": [
+						{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"item": "minecraft:crossbow"
+							}
+						},
+						{
+							"type": "origins:enchantment",
+							"enchantment": "minecraft:quick_charge",
+							"comparison": "==",
+							"compare_to": 3
+						}
+						]
+                    }
+                },
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:nbt",
+						"nbt": "{CustomPotionEffects:[{Id:33,Amplifier:0b,Duration:200,ShowParticles:0b}],Potion:\"minecraft:awkward\",CustomPotionColor:1788508}"
+					}
+				}
+			]
+        },
+		"interval": 1
+	},
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:crossbow_ready_resource",
+			"operation": "set",
+			"change": 0
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:crossbow_ready_resource",
+					"comparison": ">",
+					"compare_to": 0
+				},
+				{
+                    "type": "origins:using_item",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "minecraft:crossbow"
+                            }
+                        },
+                    "inverted": true
+                }
+			]
+        },
+		"interval": 2
+	},
+	"name": "§2§l§nOvercharge",
+    "description": "With unexplainable dark magic, and a snapped tendon, Ancient Arrows can be used to achieve destructive levels of power.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/particle/sonic_boom_1.png",
+            "text": "This ability is used by charging a crossbow (Not loading it) and having an 'Ancient Arrow' in your offhand. ('Ancient Arrows' are made using echo shards)"
+        },
+		{
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Use with [Attack] when fully charged, the result if affected by enchantments."
+        }
+    ]
+}

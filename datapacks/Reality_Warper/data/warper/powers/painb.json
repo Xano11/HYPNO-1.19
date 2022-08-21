@@ -1,0 +1,191 @@
+{
+	"type": "origins:multiple",
+    "pain": {
+    "type": "origins:self_action_when_hit",
+	"entity_action": {
+        "type": "origins:and",
+        "actions": [
+		{
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust_color_transition 0 1 0.6 1 1 0 0.8 ~ ~1 ~ 0.3 0.5 0.3 0.2 100 force"
+        },
+		{
+            "type": "origins:execute_command",
+            "command": "resource change @s warper:painb_res 20"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "effect give @s darkness 2 1 true"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "effect give @s blindness 1 0 true"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "effect clear @s fire_resistance"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "effect clear @s invisibility"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:entity.warden.listening_angry master @a[distance=..10] ~ ~ ~ 1 1.5"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:entity.warden.attack_impact master @a[distance=..10] ~ ~ ~ 1 2"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "power grant @s origins:translucent"
+        },
+                        {
+                "type": "origins:delay",
+                "ticks": 5,
+                "action": {
+        "type": "origins:execute_command",
+        "command": "power revoke @s origins:translucent"
+        }
+            }
+        ]
+    },
+    "cooldown": 30
+},
+"shard": {
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+					"type": "origins:and",
+					"actions": [
+						{
+							"type": "origins:chance",
+							"chance": 0.04,
+							"action":{
+								"type": "origins:choice",
+								"actions": [
+									{
+										"element": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "summon item ~ ~ ~ {Item:{id:\"minecraft:echo_shard\",Count:1b,tag:{display:{Name:'{\"text\":\"Corrupted Shard\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}}}",
+													"permission_level": 4
+												},
+												{
+												  "type": "origins:execute_command",
+												  "command": "playsound minecraft:entity.slime.death master @a ~ ~ ~ 0.5 0.5",
+												  "permission_level": 4
+												}
+											]
+										},
+										"weight": 5
+									}
+								]
+							}
+						},
+						{
+							"type": "origins:chance",
+							"chance": 0.04,
+							"action":{
+								"type": "origins:choice",
+								"actions": [
+									{
+										"element": {
+											"type": "origins:and",
+											"actions": [
+												{
+													"type": "origins:execute_command",
+													"command": "summon item ~ ~ ~ {Item:{id:\"minecraft:beetroot\",Count:1b,tag:{display:{Name:'{\"text\":\"Corrupted Heart\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}}}",
+													"permission_level": 4
+												},
+												{
+												  "type": "origins:execute_command",
+												  "command": "playsound minecraft:entity.slime.death master @a ~ ~ ~ 0.5 0.5",
+												  "permission_level": 4
+												}
+											]
+										},
+										"weight": 5
+									}
+								]
+							}
+						}
+					]
+				},
+    "condition": {
+        "type": "origins:health",
+        "comparison": "<=",
+        "compare_to": 0
+    },
+  "hidden": true,
+  "cooldown": 1
+},
+"effect": {
+    "type": "origins:effect_immunity",
+    "effects": [
+        "minecraft:regeneration",
+        "minecraft:fire_resistance",
+        "minecraft:invisibility"
+    ]
+    },
+    "regen": {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+            }
+        },
+    "shader": {
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/bits.json",
+        "toggleable": false
+    },
+    "res": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+            "should_render": true,
+		    "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+		    "bar_index": 17
+        }
+    },
+    "drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+            "type": "origins:and",
+            "actions": [ {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:painb_res -1"
+             },
+             {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:dust_color_transition 1 0 0.8 0.7 0 1 0.6 ~ ~1 ~ 0.01 0.01 0.01 1 1 force"
+             }
+            ]
+            },
+			"interval": 1
+		},
+        "remove": {
+            "type": "origins:action_over_time",
+            "entity_action": {
+                 "type": "origins:execute_command",
+                 "permission_level": 4,
+                 "command": "power revoke @s warper:painb"
+                 },
+                "interval": 1,
+                "condition":{
+                    "type": "origins:resource",
+                    "resource": "warper:painb_res",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            },
+"name": "Fractured Body",
+"description": "Getting hurt causes you to distort."
+}

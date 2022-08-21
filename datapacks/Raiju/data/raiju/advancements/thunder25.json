@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Rain of lightning"
+        },
+        "description": {
+            "text": "Hit 25 entities with your lightning AOE."
+        },
+        "icon": {
+            "item": "minecraft:lightning_rod"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "raiju:root"
+}

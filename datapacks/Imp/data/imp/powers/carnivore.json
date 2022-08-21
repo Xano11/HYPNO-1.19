@@ -1,0 +1,41 @@
+{
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:and",
+      "conditions": [
+        {
+          "type": "origins:or",
+          "conditions": [
+            {
+              "type": "origins:ingredient",
+              "ingredient": {
+                "tag": "origins:meat"
+              }
+            },
+            {
+              "type": "origins:meat"
+            }
+          ],
+          "inverted": true
+        },
+        {
+          "type": "origins:food"
+        },
+        {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "tag": "origins:ignore_diet"
+          },
+          "inverted": true
+        }
+      ]
+    },
+    "name": "Carnivore",
+    "description": "Nothing besides meat or flesh can soothe your appetite.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/beef.png",
+          "text": "Why eat vegetables or anything else?"
+      }
+  ]
+  }

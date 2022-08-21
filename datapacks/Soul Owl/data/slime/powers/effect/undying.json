@@ -1,0 +1,73 @@
+{
+    "type": "origins:multiple",
+    
+    "resource":{ 
+    "type": "origins:resource",
+    "min": 0,
+        "max": 30,
+        "start_value": 30,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 20
+			},
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s slime:effect/undying"
+        }
+    },
+
+    "chill_no_kill":{
+        "type": "origins:prevent_death",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sculk_soul ~ ~ ~ 1 1 1 1 100",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:sonic_boom ~ ~1 ~ 1 1 1 1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "advancement grant @a[tag=soul,limit=1,sort=nearest] only slime:undying",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "activation":{
+        "type": "origins:action_on_callback",
+            "entity_action_gained": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:sculk_soul ~ ~ ~ 1 1 1 1 100",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:sonic_boom ~ ~1 ~ 1 1 1 1 1",
+                        "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "remove_resource": {
+        "type": "origins:action_over_time",
+	    "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "slime:effect/undying_resource",
+            "change": -10
+        },
+        "interval": 10
+    },
+    "hidden": true
+}

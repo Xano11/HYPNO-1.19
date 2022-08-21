@@ -1,0 +1,101 @@
+{
+    "type": "origins:multiple",
+    
+    "15":{
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:execute_command",
+                "command": "advancement grant @s only slime:15",
+                "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "slime:achievements_killz",
+                    "change": 1,
+                    "operation": "set"
+                }
+            ]
+        },
+            "cooldown": 1,
+            "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "player_killz",
+            "comparison": "==",
+            "compare_to": 14
+        }
+    },
+
+    "30":{
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:execute_command",
+                "command": "advancement grant @s only slime:30",
+                "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "slime:achievements_killz",
+                    "change": 2,
+                    "operation": "set"
+                }
+            ]
+        },
+            "cooldown": 1,
+            "hud_render": {
+            "should_render": false
+        },
+            "condition": {
+            "type": "origins:scoreboard",
+            "objective": "player_killz",
+            "comparison": "==",
+            "compare_to": 29
+        }
+    },
+
+    "60":{
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:execute_command",
+                "command": "advancement grant @s only slime:60",
+                "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "slime:achievements_killz",
+                    "change": 3,
+                    "operation": "set"
+                }
+            ]
+        },
+            "cooldown": 1,
+            "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:scoreboard",
+            "objective": "player_killz",
+            "comparison": "==",
+            "compare_to": 59
+        }
+    },
+
+    "killz": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 3,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "hidden":true
+}

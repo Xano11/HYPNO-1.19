@@ -1,0 +1,139 @@
+{
+    "type": "origins:multiple",
+    
+    "resource":{
+      "type": "origins:resource",
+      "min": 0,
+      "max": 200,
+      "start_value": 200,
+      "hud_render": {
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+          "bar_index": 9
+      },
+      "min_action": 
+      {
+        "type": "origins:execute_command",
+        "command": "power remove @s yak:iced",
+        "permission_level": 4
+    }
+  },
+  
+  
+      "remove_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "yak:iced_resource",
+          "change": -10
+      },
+      "interval": 10
+      },
+
+      "drain_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "yak:iced_resource",
+          "change": -20
+      },
+      "interval": 5,
+      "condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:block_in_radius",
+                "block_condition": {
+                    "type": "origins:in_tag",
+                    "tag": "yak:fire"
+                },
+                "radius": 3,
+                "shape": "cube",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:on_fire"
+            }
+    ]
+        }
+      },
+  
+    "mining_speed":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.5
+        }
+    },
+
+    "freeze":{
+        "type": "origins:freeze"
+    },
+
+
+    "air_speed":
+    {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+
+    "less_damage":
+    {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.2
+        }
+    },
+
+    "healing":
+
+    {
+        "type": "origins:modify_healing",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.40
+        }
+    },
+
+    "sounds": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 3 0.5 0",
+        "permission_level": 4
+    },
+    "interval": 40
+    },
+
+    "particles": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:block minecraft:blue_ice ~ ~1 ~ 0.2 0.4 0.2 1 100",
+        "permission_level": 4
+    },
+    "interval": 40
+    },
+
+    "no_sprint": 
+    {
+        "type": "origins:prevent_sprinting"
+    },
+
+    "color":
+    {
+        "type": "origins:model_color",
+        "red": 0.5,
+        "green": 0.5,
+        "alpha": 0.95
+    },
+    "hidden": true
+  }

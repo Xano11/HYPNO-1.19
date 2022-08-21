@@ -1,0 +1,27 @@
+{
+"type": "origins:multiple",
+  "crossbow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:crossbow"
+          }
+    }
+  },
+  "bow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:bow"
+          }
+    }
+  },
+	"name": "Vulture Claws",
+	"description": "The way your hands are formed prevent you from using certain ranged weapons.",
+	"badges": [{
+		"sprite": "minecraft:textures/item/bow.png",
+		"text": "You are unable to use bows and crossbows."
+	}]
+}

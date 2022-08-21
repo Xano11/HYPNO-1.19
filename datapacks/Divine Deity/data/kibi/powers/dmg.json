@@ -1,0 +1,29 @@
+{
+"hidden": true,
+    "type": "origins:action_over_time",
+  "entity_action":
+      {
+        "type": "origins:and",
+        "actions": [
+		{
+					"type": "origins:damage",
+					"amount": 16,
+					"source": {
+						"name": "magic",
+						"unblockable": false,
+						"bypasses_armor": false
+					}
+				},
+				{
+                "type": "origins:delay",
+                "ticks": 3,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s kibi:dmg"
+                }
+            }
+        ]
+    },
+  "interval": 1
+}
+

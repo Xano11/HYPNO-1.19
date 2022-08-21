@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "First time?"
+        },
+        "description": {
+            "text": "Transform for the first time."
+        },
+        "icon": {
+            "item": "minecraft:polar_bear_spawn_egg"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "yak:root"
+}

@@ -1,0 +1,75 @@
+{
+	"type": "origins:multiple",
+	"flammable": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:name",
+                    "name": "lava"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "onFire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "inFire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "hotFloor"
+                }
+            ]
+        },
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 1.5
+        }
+    },
+    "warm": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+            "type": "origins:name",
+            "name": "freeze"
+        }
+	},
+    "drenched": {
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:in_rain"
+                }
+            ]
+        },
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 30,
+        "duration_per_stack": 20,
+        "effects": [
+            {
+                "effect": "minecraft:slowness",
+                "duration": 100,
+                "amplifier": 2,
+                "show_particles": false,
+                "show_icon": true
+            }
+        ]
+    },
+    "name": "Flammable",
+    "description": "You're covered in soft fluff which makes it impossible to freeze, but it makes you much more flammable and slows you down in the rain.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/blaze_powder.png",
+            "text": "You take 250% fire damage."
+        }
+    ]	
+}

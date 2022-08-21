@@ -1,0 +1,19 @@
+{
+	"type": "origins:multiple",
+	"name": "Star Exhaustion",
+	"description": "Your hunger drains 200% faster.",
+	"hunger": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 2,
+			"operation": "multiply_total"
+		}
+	},
+	"meat": {
+		"type": "origins:modify_food",
+		"saturation_modifier": {
+			"operation": "multiply_base",
+			"value": -0.10
+		}
+	}
+}

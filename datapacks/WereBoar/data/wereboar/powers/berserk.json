@@ -1,0 +1,304 @@
+{
+    "type":"origins:multiple",
+
+"resource":
+{
+  "type": "origins:resource",
+  "min": 0,
+  "max": 5,
+  "start_value": 0,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+    "bar_index": 4
+  },
+  "min_action": {
+    "type": "origins:and",
+    "actions": [{
+    "type": "origins:execute_command",
+    "command": "resource set @s wereboar:berserk_resource 0"
+            }
+        ]
+    },
+    "max_action": {
+      "type": "origins:and",
+      "actions": [{
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:berserk",
+        "permission_level": 4
+    }
+    ]
+    }
+},
+"lose_resource":
+{
+  "type": "origins:resource",
+  "min": 0,
+  "max": 60,
+  "start_value": 60,
+  "hud_render": {
+      "should_render": false
+  },
+  "min_action": {
+    "type": "origins:and",
+    "actions": [
+        {
+    "type": "origins:execute_command",
+    "command": "resource set @s wereboar:berserk_resource 0"
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "wereboar:berserk_lose_resource",
+                "change": 60
+            }
+        ]
+    }
+},
+  "berserk_up":
+  {
+    "type": "origins:self_action_on_hit",
+    "entity_action":  {
+        "type": "origins:change_resource",
+        "resource": "wereboar:berserk_resource",
+        "change": 1
+    },
+    "damage_condition": {
+        "type": "origins:amount",
+        "comparison": ">=",
+        "compare_to": 10.0
+    },
+    "cooldown": 1
+    },
+    "berserk_keepup":
+    {
+      "type": "origins:self_action_on_hit",
+      "entity_action":  {
+          "type": "origins:change_resource",
+          "resource": "wereboar:berserk_lose_resource",
+          "change": 60
+      },
+      "damage_condition": {
+          "type": "origins:amount",
+          "comparison": ">=",
+          "compare_to": 10.0
+      },
+      "cooldown": 1
+      },
+      "overtime_lose":
+        {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "wereboar:berserk_lose_resource",
+            "change": -1
+        },
+        "hidden": true
+    },
+    "attack_speed1":{
+
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_speed",
+          "operation": "addition",
+          "value": 0.08
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+      },
+      "damage1":{
+    
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 1
+        }
+      },
+      "attack_speed2":{
+
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_speed",
+          "operation": "addition",
+          "value": 0.08
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 2
+        }
+      },
+      "damage2":{
+    
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 2
+        }
+      },
+      "attack_speed3":{
+
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_speed",
+          "operation": "addition",
+          "value": 0.08
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 3
+        }
+      },
+      "damage3":{
+    
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 3
+        }
+      },
+      "attack_speed4":{
+
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_speed",
+          "operation": "addition",
+          "value": 0.08
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 4
+        }
+      },
+      "damage4":{
+    
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 0.5
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": ">=",
+            "compare_to": 4
+        }
+      },
+      "attack_speed5":{
+
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_speed",
+          "operation": "addition",
+          "value": 0.08
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": "==",
+            "compare_to": 5
+        }
+      },
+      "damage5":{
+    
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.attack_damage",
+          "operation": "addition",
+          "value": 1
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": "==",
+            "compare_to": 5
+        }
+      },
+      "dmg_self":
+      {
+        "type": "origins:self_action_on_hit",
+        "entity_action":  {
+          "type": "origins:damage",
+          "amount": 2,
+          "source": {
+              "name": "generic.player",
+              "bypasses_armor": true,
+              "unblockable": true
+          }
+      },
+      
+      "condition": {
+          "type": "origins:and",
+          "conditions": [
+          {	
+            "type": "origins:resource",
+            "resource": "wereboar:berserk_resource",
+            "comparison": "==",
+            "compare_to": 5
+          },
+          {
+            "type": "origins:power_active",
+            "power": "wereboar:transformed",
+            "inverted": true
+          }	
+      ]
+        },
+        "cooldown": 1
+    },
+    "aura":
+    {
+      "type": "apugli:energy_swirl",
+      "texture_location": "minecraft:textures/block/crimson_stem.png",
+      "speed": 0.01,
+      "condition": {
+          "type": "origins:resource",
+          "resource": "wereboar:berserk_resource",
+          "comparison": "==",
+          "compare_to": 5
+      }
+    },
+    "death_sound":
+    {
+      "type": "apugli:custom_death_sound",
+      "sound": "minecraft:entity.hoglin.death"
+    },
+    "name": "BERSERK",
+    "description": "Doing more than 10 damage per hit will grant you a stack of berserk. The more you have, the better your fighting capabilities get. Watch out, being at max will damage you; becoming deadly if kept for too long.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/particle/angry.png",
+          "text": "Getting to maximum berserk is quite dangerous! Being in Wereboar form will negate the maximum berserk harm."
+      }
+  ]
+}

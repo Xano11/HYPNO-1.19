@@ -1,0 +1,23 @@
+{
+  "type": "origins:effect_immunity",
+  "effects": [
+      "minecraft:strength",
+      "minecraft:regeneration",
+      "minecraft:resistance",
+      "minecraft:fire_resistance",
+      "minecraft:water_breathing",
+      "minecraft:invisibility",
+      "minecraft:night_vision",
+      "minecraft:health_boost",
+      "minecraft:absorption",
+      "minecraft:saturation",
+      "minecraft:glowing",
+      "minecraft:luck",
+      "minecraft:conduit_power",
+      "minecraft:dolphins_grace",
+      "minecraft:haste",
+      "minecraft:hero_of_the_village"
+  ],
+  "name": "Allergies",
+"description": "You can't get positive potion you can get from your star powers effects."
+}

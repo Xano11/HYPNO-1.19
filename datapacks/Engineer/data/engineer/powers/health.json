@@ -1,0 +1,39 @@
+{
+	"type": "origins:multiple",
+  "omic": {
+  "type": "origins:conditioned_attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.max_health",
+    "value": 28.0,
+    "operation": "addition"
+  },
+  "tick_rate": 20,
+  "condition": {
+		"type": "origins:entity_type",
+		"entity_type": "minecraft:player",
+		"type": "origins:origin",
+		"origin": "engineer:omicron",
+		"layer": "origins:origin"
+}
+},
+  "engi": {
+  "type": "origins:conditioned_attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.max_health",
+    "value": -6.0,
+    "operation": "addition"
+  },
+  "tick_rate": 20,
+  "condition": {
+		"type": "origins:entity_type",
+		"entity_type": "minecraft:player",
+		"type": "origins:origin",
+		"origin": "engineer:engineer",
+		"layer": "origins:origin"
+}
+},
+  "name": "Brains Over Brawns",
+  "description": "You have 3 less hearts because of you focusing on learning instead of making yourself fit."
+}

@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Teleportation Connoisseur"
+        },
+        "description": {
+            "text": "Save yourself from falling to death from a 100 block drop."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "Teleportation Connoisseur": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:save"
+}

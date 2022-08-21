@@ -1,0 +1,88 @@
+{
+    "type": "origins:multiple",
+    "size": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 1 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_respawn": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "particles": {
+        "type": "origins:particle",
+		"particle": "minecraft:end_rod",
+		"frequency": 15
+	},
+
+    "fall_damage_reduction": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+            },
+            "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+
+    "wings": {
+        "type": "origins:elytra_flight",
+        "render_elytra": true,
+        "texture_location": "minecraft:textures/block/horn_coral.png"
+    },
+
+    "death_sound":
+    {
+      "type": "apugli:custom_death_sound",
+      "sound": "minecraft:entity.bee.death"
+    },
+    
+    "name": "Flying Insect",
+    "description": "§7You a small insect meaning you are 40% shorter than the normal player, take more damage from bane of anthropoids and due to you species being adapted to flight, just like them you have a permanent elytra mounted to your body and the wings help you land making you take 50% less fall damage.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/elytra.png",
+            "text": "Firefwy is smol."
+        }
+    ]
+}

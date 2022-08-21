@@ -1,0 +1,24 @@
+{
+    "display": {
+        "title": {
+            "text": "Raiju",
+            "color": "yellow"
+        },
+        "description": {
+            "text": "Become Raiju."
+        },
+        "icon": {
+            "item": "minecraft:bell"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": true,
+        "background": "minecraft:textures/block/yellow_glazed_terracotta.png"
+    },
+    "criteria": {
+        "Become Raiju": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

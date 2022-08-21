@@ -1,0 +1,31 @@
+{
+  "type": "origins:effect_immunity",
+  "effects": [
+      "minecraft:strength",
+      "minecraft:speed",
+      "minecraft:jump_boost",
+      "minecraft:regeneration",
+      "minecraft:resistance",
+      "minecraft:fire_resistance",
+      "minecraft:water_breathing",
+      "minecraft:invisibility",
+      "minecraft:night_vision",
+      "minecraft:health_boost",
+      "minecraft:absorption",
+      "minecraft:saturation",
+      "minecraft:glowing",
+      "minecraft:levitation",
+      "minecraft:luck",
+      "minecraft:conduit_power",
+      "minecraft:dolphins_grace",
+      "minecraft:hero_of_the_village"
+  ],
+  "name": "Liquid",
+"description": "You can't use positive potion effects as their main ingredient is water.",
+"badges": [
+        {
+            "sprite": "minecraft:textures/item/potion.png",
+            "text": "Aye, drinking is for the weak."
+        }
+    ]
+}

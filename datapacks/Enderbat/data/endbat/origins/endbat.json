@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"endbat:upsidedownvol",
+		"endbat:night_vision",
+		"endbat:teleport",
+		"endbat:flaps",
+		"endbat:on",
+		"endbat:size",
+		"endbat:mineshaftspawn",
+		"endbat:water_vulnerability",
+		"endbat:arrow_weakness",
+		"endbat:health",
+		"endbat:sunandnight"
+	],
+	"icon": "minecraft:bat_spawn_egg",
+	"impact": 3,
+	"name": "Enderbat",
+	"description": "Flap flap :)"
+}

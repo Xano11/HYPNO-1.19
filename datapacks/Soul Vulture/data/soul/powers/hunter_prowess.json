@@ -1,0 +1,42 @@
+{
+	"type": "origins:multiple",
+	"health_damage": {
+		"type": "origins:modify_damage_dealt",
+		"target_condition": {
+			"type": "origins:relative_health",
+			"comparison": ">=",
+			"compare_to": 0.9
+		},
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.25
+		}
+	},
+	"attack_damage": {
+		"type": "origins:modify_attribute",
+		"attribute": "minecraft:generic.attack_damage",
+		"modifiers": {
+			"operation": "addition",
+			"value": "1.5"
+		    }
+		},
+	"particles": {
+    "type": "origins:target_action_on_hit",
+	"entity_action": {
+		"type": "origins:execute_command",
+		"command": "execute at @s run particle soul ~ ~1 ~ 0.1 0.35 0.1 0.05 30 normal",
+		"permission_level": 4
+	},
+	"target_condition": {
+			"type": "origins:relative_health",
+			"comparison": ">=",
+			"compare_to": 0.9
+		    }
+		},
+		"name": "Hunter's Prowess",
+		"description": "You deal additional damage, and opponents near full health will take even more damage from you.",
+		"badges": [{
+			"sprite": "minecraft:textures/mob_effect/strength.png",
+			"text": "+1.5 attack damage, enemies above 90% health will take 35% more damage from your attacks."
+		}]
+}

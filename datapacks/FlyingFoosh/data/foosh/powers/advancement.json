@@ -1,0 +1,186 @@
+{
+    "type":"origins:multiple",
+
+    "fresh":
+    {
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only foosh:fresh_air",
+            "permission_level": 4
+          },
+          "item_condition": {
+              "type": "origins:and",
+              "inverted": false,
+              "conditions": [{
+                "type": "origins:nbt",
+                "nbt": "{Potion:\"minecraft:water_breathing\"}"
+              },
+              {
+                "type": "origins:nbt",
+                "nbt": "{Potion:\"minecraft:long_water_breathing\"}"
+              }
+            ]
+          }
+    },
+    "lactose":
+    {
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only foosh:lactose",
+            "permission_level": 4
+          },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:milk_bucket"
+            }
+        }
+    },
+    "puffer":
+    {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only foosh:puffer",
+            "permission_level": 4
+          },
+          "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:pufferfish"
+            }
+        },
+        "cooldown": 1
+    },
+    "landfish":
+    {
+      "type": "origins:resource",
+      "min": 0,
+      "max": 60,
+      "start_value": 0,
+      "hud_render": {
+      "should_render":false
+      }, 
+      "max_action": {
+      "type": "origins:execute_command",
+      "command": "advancement grant @s only foosh:landfish"
+    }
+  },
+  "landfish_gain":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "foosh:advancement_landfish",
+        "change": 1
+    },
+    "interval": 1200,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": "==",
+      "compare_to": 0
+  }
+},
+"landfish_lose":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "foosh:advancement_landfish",
+        "change": -60
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": ">",
+      "compare_to": 0
+  }
+},
+"lavafish":
+    {
+      "type": "origins:resource",
+      "min": 0,
+      "max": 60,
+      "start_value": 0,
+      "hud_render": {
+      "should_render":false
+      }, 
+      "max_action": {
+      "type": "origins:execute_command",
+      "command": "advancement grant @s only foosh:lavafish"
+    }
+  },
+  "lavafish_gain":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "foosh:advancement_lavafish",
+        "change": 1
+    },
+    "interval": 1200,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:lava",
+      "comparison": ">",
+      "compare_to": 0
+  }
+},
+"lavafish_lose":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "foosh:advancement_lavafish",
+        "change": -60
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:lava",
+      "comparison": "==",
+      "compare_to": 0
+  }
+},
+"boat":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+    "type": "origins:execute_command",
+    "command": "advancement grant @s only foosh:boat"
+  },
+    "interval": 5,
+    "condition": {
+      "type": "origins:or",
+      "inverted": false,
+      "conditions": [
+        {
+          "type": "origins:riding",
+          "bientity_condition": {
+              "type": "origins:target_condition",
+              "condition": {
+                  "type": "origins:entity_type",
+                  "entity_type": "minecraft:boat"
+              }
+          }
+      },
+      {
+        "type": "origins:riding",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:chest_boat"
+            }
+        }
+    }
+      ]
+  }
+},
+    "hidden": true
+}

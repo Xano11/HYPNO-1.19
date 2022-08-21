@@ -1,0 +1,529 @@
+{
+	"type": "origins:multiple",
+	"slight_pomf": {
+		"type": "origins:modify_damage_taken",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "fall"
+		},
+		"modifier": {
+			"name": "Slight Pomf",
+			"operation": "addition",
+			"value": -4
+		}
+	},
+	"particles_and_noises": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:dust_color_transition 0 0.7 0.5 1 0.7 0.7 1 ~ ~1 ~ 0.2 0.2 0.2 0 3 force",
+			"permission_level": 4
+		},
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "particle minecraft:sonic_boom ~ ~1 ~ 0.1 0.1 0.1 1 1 force",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound particle.soul_escape master @a ~ ~ ~ 1 1 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:block.respawn_anchor.ambient master @a ~ ~ ~ 1 2 1",
+					"permission_level": 4
+				}
+			]
+		},
+		"falling_action": {
+			"type": "origins:execute_command",
+			"command": "particle minecraft:dust_color_transition 0 0.7 0.5 1 0.7 0.7 1 ~ ~1 ~ 0.5 0.5 0.5 0 30 force",
+			"permission_level": 4
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:dodge_frames",
+			"comparison": "!=",
+			"compare_to": 0
+		},
+		"interval": 1
+	},
+	"immunity": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:name",
+			"name": "outOfWorld",
+			"inverted": true
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:dodge_frames",
+			"comparison": "!=",
+			"compare_to": 0
+		}
+	},
+	"frames": {
+		"type": "origins:cooldown",
+		"cooldown": 10,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"invisible": {
+		"type": "origins:invisibility",
+    	"render_armor": false,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:dodge_frames",
+			"comparison": "!=",
+			"compare_to": 0
+		}
+	},
+	"dash_activate": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:trigger_cooldown",
+			"power": "hyrule:dodge_dash_activate_2"
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.origins.primary_active",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:stamina_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_forward",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_left",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_back",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_right",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"dash_activate_2": {
+		"type": "origins:cooldown",
+		"cooldown": 2,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	"yrender": {
+		"type": "origins:cooldown",
+		"cooldown": 19,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 3
+		}
+	},
+	"dash_forward": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_yrender"
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_frames"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "hyrule:stamina_sp_resource",
+					"change": -35
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": 0.6,
+					"space": "world",
+					"set": true
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 0.3,
+					"space": "local"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 2.0
+				}
+			]
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.forward",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_activate_2",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:power_active",
+					"power": "hyrule:dodge_forward"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_left",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_back",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_right",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"dash_left": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_yrender"
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_frames"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "hyrule:stamina_sp_resource",
+					"change": -35
+				},
+				{
+					"type": "origins:add_velocity",
+					"x": 1,
+					"space": "local"
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": -1,
+					"space": "world"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 2.0
+				}
+			]
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.left",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_activate_2",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:power_active",
+					"power": "hyrule:dodge_left"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_forward",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_back",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_right",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"dash_back": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_yrender"
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_frames"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "hyrule:stamina_sp_resource",
+					"change": -35
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": -1,
+					"space": "local"
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": -1,
+					"space": "world"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 2.0
+				}
+			]
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.back",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_activate_2",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:power_active",
+					"power": "hyrule:dodge_back"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_forward",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_left",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_right",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"dash_right": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_yrender"
+				},
+				{
+					"type": "origins:trigger_cooldown",
+					"power": "hyrule:dodge_frames"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "hyrule:stamina_sp_resource",
+					"change": -35
+				},
+				{
+					"type": "origins:add_velocity",
+					"x": -1,
+					"space": "local"
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": -1,
+					"space": "world"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 2.0
+				}
+			]
+		},
+		"cooldown": 20,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.right",
+			"continuous": true
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_activate_2",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:power_active",
+					"power": "hyrule:dodge_right"
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_forward",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_left",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_back",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"gravity": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -1.0
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_frames",
+					"comparison": "!=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:dodge_dash_forward",
+					"comparison": "==",
+					"compare_to": 0
+				}
+			]
+		}
+	},
+	"forward": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"retain_state": true,
+		"key": {
+			"key": "key.forward",
+			"continuous": true
+		}
+	},
+	"left": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"retain_state": true,
+		"key": {
+			"key": "key.left",
+			"continuous": true
+		}
+	},
+	"back": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"retain_state": true,
+		"key": {
+			"key": "key.back",
+			"continuous": true
+		}
+	},
+	"right": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"retain_state": true,
+		"key": {
+			"key": "key.right",
+			"continuous": true
+		}
+	},
+    "name": "§2§l§nWarp",
+    "description": "With the power of technology, quick reflexes and a small amount of illegal narcotics, you can break reality just briefly and pull off quick dodge, or double jump.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/sculk_catalyst_bottom.png",
+            "text": "The ability consumes stamina and hunger."
+        },
+		{
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Use with [Primary]"
+        }
+    ]
+}

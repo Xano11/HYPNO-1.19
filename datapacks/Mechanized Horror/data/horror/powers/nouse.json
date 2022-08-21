@@ -1,0 +1,48 @@
+{
+"type": "origins:multiple",
+    "pearl": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:ender_pearl"
+          }
+    }
+  },
+  "crossbow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:crossbow"
+          }
+    }
+  },
+  "bow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:bow"
+          }
+    }
+  },
+  "trident": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:trident"
+          }
+    }
+  },
+    "name": "No Range",
+    "description": "No bows, tridents, crossbows or pearls.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/bow_pulling_0.png",
+          "text": "Have you ever heard of plot?"
+      }
+  ],
+	"hidden": false
+}

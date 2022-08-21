@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_player_spawn",
+    "dimension": "minecraft:the_nether",
+    "structure": "minecraft:fortress",
+    "name": "Fortress",
+    "description": "You spawn in a fortress.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/nether_bricks.png",
+            "text": "Fortress boi."
+        }
+    ]
+}

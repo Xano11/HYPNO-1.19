@@ -1,0 +1,26 @@
+{
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:or",
+        "conditions": [{
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:trident"
+            }
+        },
+        {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:firework_rocket"
+            }
+        }]
+    },
+    "name": "Kinda Stupid",
+    "description": "You cant figure out how to use tridents or fireworks. You dont like fire or water either way so whatever.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/particle/big_smoke_5.png",
+            "text": "Why do I add abilities that people bully me over."
+        }
+    ]
+}

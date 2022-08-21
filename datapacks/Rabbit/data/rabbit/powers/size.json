@@ -1,0 +1,26 @@
+{
+    "name": "Short",
+    "description": "Your a slab shorter than normal and faster than normal this causes you to exhaust 200% faster because of you using more energy with such a small body.",
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 0.75",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 0.75",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:motion 1.2",
+                "permission_level": 4
+            }
+        ]
+    }
+}

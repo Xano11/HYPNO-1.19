@@ -1,0 +1,92 @@
+{
+    "type":"origins:multiple",
+
+    "armor_cold":{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.armor",
+      "operation": "addition",
+      "value": 2
+    },
+    "condition": {
+        "type": "origins:biome",
+        "condition": {
+            "type": "origins:temperature",
+            "comparison": "<=",
+            "compare_to": 0
+        }
+    }
+    },
+    "damage_cold":{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.attack_damage",
+        "operation": "addition",
+        "value": 3
+    },
+    "condition": {
+        "type": "origins:biome",
+        "condition": {
+                "type": "origins:temperature",
+                "comparison": "<=",
+                "compare_to": 0
+        }
+    }
+    },
+    "armor_hot":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+          "attribute": "minecraft:generic.armor",
+          "operation": "addition",
+          "value": -3
+        },
+        "condition": {
+            "type": "origins:biome",
+            "condition": {
+                "type": "origins:temperature",
+                "comparison": ">=",
+                "compare_to": 1
+            }
+        }
+        },
+        "damage_hot":{
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": -3
+        },
+        "condition": {
+            "type": "origins:biome",
+            "condition": {
+                    "type": "origins:temperature",
+                    "comparison": ">=",
+                    "compare_to": 1
+            }
+        }
+        },
+        "movement_hot":{
+            "type": "origins:conditioned_attribute",
+            "modifier": {
+                "attribute": "minecraft:generic.movement_speed",
+                "operation": "multiply_total",
+                "value": -0.4
+            },
+            "condition": {
+                "type": "origins:biome",
+                "condition": {
+                        "type": "origins:temperature",
+                        "comparison": ">=",
+                        "compare_to": 1
+                }
+            }
+            },
+    "name": "Cold Blooded",
+    "description": "Because of your wooly coat, temperature will affect you more harshly.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/fire_resistance.png",
+          "text": "Being in hot biomes will make you weaker and slower, but cold biomes will make you stronger and more resilient."
+      }
+  ]
+  }

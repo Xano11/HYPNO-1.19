@@ -1,0 +1,53 @@
+{
+    "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:choice",
+        "actions": [
+            {
+                "element": {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.allay.item_thrown",
+                    "volume": 1,
+                    "pitch": 2
+                },
+                "weight": 20
+            },
+            {
+                "element": {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.allay.item_thrown",
+                    "volume": 1,
+                    "pitch": 1.5
+                },
+                "weight": 25
+            },
+            {
+                "element": {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.allay.item_thrown",
+                    "volume": 1,
+                    "pitch": 1
+                },
+                "weight": 25
+            },
+            {
+                "element": {
+                    "type": "origins:play_sound",
+                    "sound": "minecraft:entity.allay.item_thrown",
+                    "volume": 1,
+                    "pitch": 0.6
+                },
+                "weight": 15
+            }
+        ]
+    },
+    "cooldown": 7,
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.drop",
+        "continuous": true
+        },
+    "hidden": true
+}

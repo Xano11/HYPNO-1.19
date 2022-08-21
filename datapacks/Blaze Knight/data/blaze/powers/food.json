@@ -1,0 +1,31 @@
+{
+  "type": "origins:multiple",
+  "prevent": {
+  "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+          "tag": "blaze:not_snacks"
+        }
+      }
+  },
+  "meat": {
+		"type": "origins:modify_food",
+		"food_modifier": {
+			"operation": "multiply_base",
+			"value": -0.15
+		},
+		"saturation_modifier": {
+			"operation": "multiply_base",
+			"value": -0.15
+		}
+	},
+    "name": "Meaty Diet",
+    "description": "You can only eat meat.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/beef.png",
+          "text": "Carnivore for the better."
+      }
+  ]
+}

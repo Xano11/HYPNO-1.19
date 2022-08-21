@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_player_spawn",
+    "name": "Need for Souls",
+    "description": "You spawn in a soul sand valley",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/soul_sand.png",
+            "text": "SOUL KINGDOM"
+        }
+    ],
+    "dimension": "minecraft:the_nether",
+	"biome": "minecraft:soul_sand_valley"
+}

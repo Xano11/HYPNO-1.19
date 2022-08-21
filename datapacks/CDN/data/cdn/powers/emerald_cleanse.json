@@ -1,0 +1,49 @@
+{
+    "type": "origins:multiple",
+   
+    "not_melting": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [{
+                    "type": "origins:name",
+                    "name": "lava"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "onFire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "inFire"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "hotFloor"
+                }
+            ]
+        }
+    },
+   
+    "can_see":{
+        "type": "origins:lava_vision",
+        "s": 0,
+        "v": 8
+    },
+   
+    "no_system": {
+        "type": "origins:effect_immunity",
+        "effects": [
+            "minecraft:wither",
+            "minecraft:poison",
+            "minecraft:hunger"
+        ]
+    },
+
+    "name": "§a§nEmerald Cleanse",
+    "description": "You take no fire damage, and also you are immune to poison, wither and hunger"
+}

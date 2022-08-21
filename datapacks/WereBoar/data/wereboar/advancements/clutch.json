@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Don't need a water bucket"
+        },
+        "description": {
+            "text": "Survive a 250+ block fall using your leap"
+        },
+        "icon": {
+            "item": "minecraft:netherite_boots"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "clutch": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "wereboar:leap"
+}

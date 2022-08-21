@@ -1,0 +1,98 @@
+{
+    "type": "origins:multiple",
+    "normal_regen": {
+        "type": "origins:disable_regen"
+    },
+    "heal": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {   
+                    "type": "origins:heal",
+                    "amount": 2
+                },
+                {
+                    "type": "origins:exhaust",
+                    "amount": 2.0
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+			"conditions": [
+			{
+                "type": "origins:resource",
+                "resource": "allay:pros/regen_resource",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:relative_health",
+                "comparison": "<",
+                "compare_to": 1.0
+            }
+            ]
+        },
+        "interval": 20
+    },
+    "cooldown": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": 
+            {    
+                "type": "origins:change_resource",
+                "resource": "allay:pros/regen_resource",
+				"operation": "set",
+                "change": 8
+            },
+            "damage_condition": {
+                "type": "origins:attacker",
+                "entity_condition": {
+                    "type": "origins:entity_type",
+                    "entity_type": "minecraft:allay",
+                    "inverted": true
+                }
+            },
+        "cooldown": 9
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 8,
+		"start_value": 8,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 1,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "allay:pros/regen_resource",
+                "comparison": ">",
+                "compare_to": 0
+                }
+            }
+        },
+        "recharge": {
+            "type": "origins:action_over_time",
+            "interval": 5,
+            "entity_action": {
+                "type": "origins:change_resource",
+                "resource": "allay:pros/regen_resource",
+                "change": -1
+            },
+            "condition": {
+                "type": "origins:resource",
+                "resource": "allay:pros/regen_resource",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+    "name": "§2§l§nSuper Regen",
+    "description": "Replaces regular regeneration with the Allay's, and being hit by a mob stunts said regen temporarily.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/health_boost.png",
+            "text": "Players can't prevent your regen."
+        }
+    ]
+}

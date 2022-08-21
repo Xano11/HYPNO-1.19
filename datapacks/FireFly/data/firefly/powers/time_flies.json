@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+
+    "daytime_health": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.max_health",
+            "value": -4,
+            "operation": "addition"
+        },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:daytime"
+        } 
+    },
+
+    "nighttime_health": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.max_health",
+            "value": -8,
+            "operation": "addition"
+        },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:daytime",
+        "inverted": true
+        } 
+    },
+    
+    "name": "Time Flies",
+    "description": "§7Due to you charging during the day you are using less energy making your max health 8 hearts but during the night you are putting your body has more to process leaving you at a measly 6 hearts.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/instant_health.png",
+            "text": "AAA Batteries."
+        }
+    ]
+}

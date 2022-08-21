@@ -1,0 +1,15 @@
+{
+    "type": "origins:action_on_hit",
+    "bientity_action": {
+        "type": "origins:add_velocity",
+        "z": -0.7
+    },
+    "name": "Grab",
+    "description": "When attacking mobs, you pull them towards you.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/particle/sweep_3.png",
+            "text": "Have you ever heard of grappling hooks?"
+        }
+    ]
+}

@@ -1,0 +1,80 @@
+{
+    "type": "origins:multiple",
+	"1": {
+  "type": "origins:active_self",
+  "entity_action": {
+        "type": "origins:and",
+        "actions": [
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:entity.wither.ambient master @a[distance=..20] ~ ~ ~ 0.01 1",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:entity.splash_potion.break master @a[distance=..20] ~ ~ ~ 0.7 1",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:particle.soul_escape master @a[distance=..20] ~ ~ ~ 1 1",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:particle.soul_escape master @a[distance=..20] ~ ~ ~ 1 1",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:particle.soul_escape master @a[distance=..20] ~ ~ ~ 1 1",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "particle minecraft:dust_color_transition 1 1 1 1 1 1 1 ^ ^1.7 ^1.5 0.3 0.3 0.3 0.3 100",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "particle minecraft:soul_fire_flame ^ ^1.7 ^1.5 0.3 0.3 0.3 0.3 50",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "clear @s potion{display:{Name:'{\"text\":\"Bottled Soul\",\"color\":\"aqua\",\"italic\":false}',Lore:['{\"text\":\"You can hear them \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"screaming.\",\"color\":\"dark_gray\",\"italic\":false}']},CustomPotionEffects:[{Id:2,Amplifier:1b,Duration:1800},{Id:9,Amplifier:0b,Duration:1800}],CustomPotionColor:16777215} 1",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "particle minecraft:soul ^ ^1.7 ^1.5 0.3 0.3 0.3 0.3 50",
+    "permission_level": 4
+  }
+  ]
+  },
+  "cooldown": 10,
+  "hud_render": {
+    "should_render": false,
+	"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+	"bar_index": 7
+  },
+  "condition": {
+  "type": "origins:and",
+  "conditions": [
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Bottled Soul\",\"color\":\"aqua\",\"italic\":false}',Lore:['{\"text\":\"You can hear them \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"screaming.\",\"color\":\"dark_gray\",\"italic\":false}']},CustomPotionEffects:[{Id:2,Amplifier:1b,Duration:1800},{Id:9,Amplifier:0b,Duration:1800}],CustomPotionColor:16777215}"
+			}
+			}
+			]
+			},
+  "key": {
+    "key": "key.use",
+	"continuous": true
+  }
+},
+"hidden": true
+}

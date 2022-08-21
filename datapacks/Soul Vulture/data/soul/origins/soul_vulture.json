@@ -1,0 +1,19 @@
+{
+	"powers": [
+		"soul:reanimated_wings",
+		"soul:hunter_prowess",
+	    "soul:soul_stepper",
+		"soul:pickup",
+		"soul:soul_harvester",
+		"soul:insatiable",
+		"soul:burning_sun",
+		"soul:claws",
+		"soul:soul_spawn",
+		"soul:soul_effects"
+	],
+	"icon": "minecraft:soul_sand",
+	"order": 10,
+	"impact": 3,
+	"name": "Soul Vulture",
+	"description": "Reanimated by the souls of the soul sand valley, Soul Vultures traverse the skies as relentless hunters in search of inferior souls to consume."
+}

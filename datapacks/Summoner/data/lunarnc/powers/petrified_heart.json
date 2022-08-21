@@ -1,0 +1,45 @@
+{
+    "type": "origins:target_action_on_hit",
+    "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:health",
+                "comparison": "<=",
+                "compare_to": 0   
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "function lunarnc:crystallize"
+            },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "function lunarnc:set_stats" 
+            }
+    },
+    "target_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:in_tag",
+                "tag": "lunarnc:hearts"
+            },
+            {
+                "type": "origins:nbt",
+                "nbt": "{Tags:['lnc_Minion']}",
+                "inverted": true
+            }
+        ]
+    },
+    "cooldown": 0,
+    "hud_render": {
+        "should_render": false
+    },
+    "name": "Heart-Stopping",
+    "description": "Most hostile mobs you kill drop Petrified Hearts, containing their vital data. SOUL is needed to summon bound mobs.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/heart_of_the_sea.png",
+            "text": "SOULS make life easier... or I mean; unlife easier."
+        }
+    ]
+}

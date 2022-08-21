@@ -1,0 +1,31 @@
+{
+    "type": "origins:action_over_time",
+    "condition": {
+        "type": "origins:and",
+        "inverted": false,
+        "conditions": [
+            {
+                "type": "origins:command",
+                "inverted": false,
+                "comparison": ">=",
+                "compare_to": 1,
+                "permission_level": 4,
+                "command": "execute if entity @e[distance=..15,name=cake_crysiles]"
+            }
+        ]
+    },
+    "interval": 5,
+    "entity_action": {
+        "type": "origins:execute_command",
+        "permission_level": 4,
+        "command": "effect give @s minecraft:speed 1 0 true"
+    },
+	"name": "My Creator",
+    "description": "When near your creator, you gain a speed and defense buff.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/speed.png",
+            "text": "Have you ever heard of Pinnochio?"
+        }
+    ]
+}

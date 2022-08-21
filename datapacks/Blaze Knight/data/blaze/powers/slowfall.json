@@ -1,0 +1,29 @@
+{
+	"type": "origins:multiple",
+	"slow": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effects": [
+			{
+				"effect": "minecraft:slow_falling",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			}
+		],
+		"condition": {
+				"type": "origins:sneaking"
+				}
+	},
+    "name": "Slow Falling",
+    "description": "When sneaking, you get slow falling.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/blaze_rod.png",
+            "text": "Blazes do be like that."
+        }
+    ]
+}

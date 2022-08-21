@@ -1,0 +1,116 @@
+{
+    "type": "origins:multiple",
+
+    "day_time_weakness": {
+        "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.attack_damage",
+    "value": -4,
+    "operation": "addition"
+  },
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:daytime"
+                    },
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld",
+					"inverted": true
+                }
+                ]
+            }
+        },
+	"night_time_speed_buff": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": 0.2
+             },
+			"condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+            ]
+        }
+		},
+	"night_time": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 40,
+		"effects": [
+			{
+				"effect": "minecraft:speed",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			},
+			{
+				"effect": "minecraft:slow_falling",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			},
+			{
+				"effect": "minecraft:jump_boost",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 1
+			}
+		],
+		"condition": {
+            "type": "origins:and",
+            "conditions": [
+			{
+                        "type": "origins:daytime",
+						"inverted": true
+                    },
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+				]
+				}
+	},
+"charge": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s lumi:power_res 2"
+             }
+			 ]
+			 },
+			"interval": 4,
+		"condition": {
+            "type": "origins:and",
+            "conditions": [
+			{
+                        "type": "origins:daytime",
+						"inverted": true
+                    },
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+				]
+				}
+		},
+    "name": "Sun Cancer",
+    "description": "During the day you deal less damage and you recharge slower."
+}

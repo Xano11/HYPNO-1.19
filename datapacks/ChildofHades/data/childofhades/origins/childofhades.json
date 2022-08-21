@@ -1,0 +1,18 @@
+{
+	"powers": [
+		"childofhades:scythe",
+		"childofhades:deadly_command",
+		"childofhades:blessing_of_thanatos",
+		"childofhades:horsespeedbuff",
+		"childofhades:black_blood",
+		"childofhades:underworld_home",
+		"childofhades:sibling_rivalry",
+		"childofhades:outcasted",
+		"childofhades:lightningweak"
+	],
+	"icon": "minecraft:netherite_helmet",
+	"order": 10,
+	"impact": 3,
+	"name": "Child of Hades",
+	"description": "You are the Child of Hades and was raised by him in your early years in your life. You must be weary, for the other gods look down upon you because of you being the Child of Hades."
+}

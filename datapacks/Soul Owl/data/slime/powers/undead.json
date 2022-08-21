@@ -1,0 +1,17 @@
+{
+    "type": "origins:multiple",
+
+    "undead": {
+        "type": "origins:entity_group",
+        "group": "undead"
+	},
+    
+    "name": "Undead Prince",
+    "description": "You're an undead prince, therefore you have the same attributes of an undead.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/emerald_block.png",
+            "text": "You have a menacing aura I guess."
+        }
+    ]
+}

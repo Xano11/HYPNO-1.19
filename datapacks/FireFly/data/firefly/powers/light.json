@@ -1,0 +1,147 @@
+{
+    "type": "origins:multiple",
+
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 35,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 24
+        }
+    },
+
+    "gain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "firefly:light_resource",
+            "change": 1
+        },
+        "interval": 40,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime"
+                },
+                {      
+                    "type": "origins:exposed_to_sky"
+                }
+            ]
+        }
+    },
+
+    "toggle": {
+        "type": "origins:toggle",
+        "active_by_default": true,
+        "key": {
+            "key": "key.playerlist"
+        }
+    },
+
+    "glow_vision": {
+        "type": "origins:entity_glow",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "firefly:light_toggle"
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 12
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.0
+    },
+
+    "glow_self": {
+        "type": "origins:self_glow",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "firefly:light_toggle"
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 12
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.0
+    },
+
+    "glow_overlay": {
+		"type": "origins:overlay",
+		"texture": "minecraft:textures/misc/nausea.png",
+		"red": 0.8,
+		"green": 0.8,
+		"blue": 0.1,
+		"strength": 0.5,
+		"draw_mode": "nausea",
+		"draw_phase": "above_hud",
+		"visible_in_third_person": false,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:power_active",
+                    "power": "firefly:light_toggle"
+                }
+			]
+		}
+	},
+    
+    "name": "Light",
+    "description": "§7While exposed to the sun you charge a resource that can hold up to 35 stacks of §eLight §7which is consumed upon using any of your active abilities. during night, if you have any §eLight §7stacks every entity within a 12 block radius will gain §6Shine §7(this is toggleable), but you also have glowing at same time.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/light_00.png",
+            "text": "Light."
+        }
+    ]
+}

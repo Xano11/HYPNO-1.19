@@ -1,0 +1,56 @@
+{
+  "type":"origins:multiple",
+
+  "exhaustion":{
+    "type": "origins:modify_exhaustion",
+    "modifier":{
+         "value": 1,
+         "operation": "multiply_total"
+         }
+      },
+      "bad_digestion":
+      {
+        "type": "origins:modify_food",
+        "food_modifier": {
+            "name": "Less food",
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "saturation_modifier": {
+            "name": "Less saturation points",
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+      "grass":{
+        "type": "apugli:edible_item",
+        "item_condition": {
+          "type": "apoli:ingredient",
+          "ingredient": {
+            "item": "minecraft:grass"
+          }
+        },
+        "food_component": {
+          "hunger": 2,
+          "saturation": 1,
+          "meat": true
+        },
+        "use_action": "eat"
+      },
+      "name": "Hungry.",
+      "description": "This large metabolism needs more food for sustenance and your digestive system can't digest as good as others.",
+      "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "You need to eat twice as much!"
+        },
+        {
+          "sprite": "minecraft:textures/mob_effect/saturation.png",
+          "text": "You have 25% less saturation and food overall."
+      },
+      {
+        "sprite": "minecraft:textures/block/grass.png",
+        "text": "Grass."
+    }
+    ]
+  }

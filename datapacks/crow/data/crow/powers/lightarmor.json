@@ -1,0 +1,50 @@
+{
+  "name": "Fragile Feathers",
+  "description": "When exposed to the sky your armor is devoted to shading you from the sun instead of defense making it not as affective (if wearing full prot 4 netherite, it will feel like you are wearing full prot 4 chain when in sunlight).",
+  "type": "origins:multiple",
+
+  "armor": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.armor",
+        "operation": "addition",
+        "value": -8,
+        "name": "redused armor in sunlight"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+          {
+            "type": "origins:daytime"
+          },
+          {      
+            "type": "origins:exposed_to_sky"
+          }
+        ]
+      }
+  },
+
+  "armor_tough": {
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.armor_toughness",
+        "operation": "addition",
+        "value": -12,
+        "name": "redused armor toughness in sunlight"
+    },
+    "tick_rate": 20,
+    "condition": {
+      "type": "origins:and",
+      "conditions": [
+          {
+            "type": "origins:daytime"
+          },
+          {      
+            "type": "origins:exposed_to_sky"
+          }
+        ]
+      }
+    }
+}
+

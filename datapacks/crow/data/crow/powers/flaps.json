@@ -1,0 +1,79 @@
+{
+	"type": "origins:multiple",
+	"resource": {
+	"type":"origins:resource",
+	"min":0,
+	"max":10,
+	"start_value":10,
+	"hud_render":{
+		"should_render":true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 2
+	}
+},
+	"launch": {
+    "type": "origins:active_self",
+    "cooldown": 20,
+    "key": "key.jump",
+	"continuous": true,
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+			{
+                "type": "origins:add_velocity",
+				"space": "world",
+                "y": 1
+			},
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "particle minecraft:dust 1 1 1 3 ~ ~ ~ 0.3 0.1 0.3 0 10"
+            },
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "resource change @s crow:flaps_resource -1"
+            },
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "playsound minecraft:entity.ender_dragon.flap master @a ~ ~ ~ 0.3 0.6"
+            }
+        ]
+    },
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 4
+    },
+	"condition": {
+        "type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:fall_flying"
+	},
+	{
+            "type": "origins:resource",
+            "resource": "crow:flaps_resource",
+            "comparison":"<=",
+            "compare_to": 0,
+			"inverted": true
+		}
+	]
+}
+},
+	"charge": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "crow:flaps_resource",
+	    "change": 1
+	},
+	"condition": {
+		"type": "origins:on_block"
+	},
+	"interval": 90
+},
+	"name": "Updraft",
+    "description": "You can boost yourself into the air a total of 10 times until you have to land and recharge."
+}

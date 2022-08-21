@@ -1,0 +1,125 @@
+{
+    "type": "origins:multiple",
+
+"swirl":
+    {
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/block/tube_coral.png",
+        "speed": 0.004,
+        "condition":
+        {
+            "type": "origins:resource",
+            "resource": "hydra:headswap_head",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+
+    "air":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": 20
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+    {
+        "type": "origins:resource",
+        "resource": "hydra:headswap_head",
+        "comparison": "==",
+        "compare_to": 2
+    },
+    {
+        "type": "origins:submerged_in",
+        "fluid": "minecraft:water",
+        "inverted": false
+    }
+    ]
+    }
+    },
+
+    "air_opposite":{
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:gain_air",
+            "value": -2
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+    {
+        "type": "origins:resource",
+        "resource": "hydra:headswap_head",
+        "comparison": "==",
+        "compare_to": 2
+    },
+    {
+        "type": "origins:submerged_in",
+        "fluid": "minecraft:water",
+        "inverted": true
+    }
+    ]
+    }
+    },
+
+    "use":
+{
+    "type": "origins:active_self",
+    "entity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 2,
+                                "space": "local"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:poof ~ ~ ~ 0.3 0.3 0.3 3 300",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:dust 1 1 1 10 ~ ~ ~ 0.3 0.3 0.3 3 300",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.puffer_fish.blow_up player @s ~ ~ ~ 3 0.5",
+                                "permission_level": 4
+                }
+            ]
+    },
+    "cooldown": 600,
+    "key": {
+        "key": "primary"
+    },
+    "hud_render": {
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+        "bar_index": 10
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+{
+    "type": "origins:resource",
+    "resource": "hydra:headswap_head",
+    "comparison": "==",
+    "compare_to": 2
+}
+]
+}
+},
+    
+    "name": "Water Head",
+    "description": "The water head will grant you water breathing and a special water dash.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+            "text": "The dash will only work whilst in water!"
+        }
+    ]
+}

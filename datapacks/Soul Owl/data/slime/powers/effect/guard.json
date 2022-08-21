@@ -1,0 +1,121 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 100,
+        "hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+			"bar_index": 20
+			},
+        "min_action": {
+                "type": "origins:and",
+                "actions": [{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "power remove @e slime:effect/guard"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s[tag=core]"
+                }
+            ]
+        }
+    },
+        {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+            "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "kill @e[type=minecraft:falling_block,tag=guard]"
+                    }
+                    ]
+                }
+            }
+        ]
+    }
+},
+"activation":{
+    "type": "origins:action_on_callback",
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:sculk_soul ~ ~ ~ 1 1 1 1 100",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:sonic_boom ~ ~1 ~ 1 1 1 1 1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.sculk_shrieker.shriek player @a[distance=..50] ~ ~ ~ 3 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "function slime:guard",
+                "permission_level": 4
+            }
+        ]
+    }
+},
+
+"power_grant": {
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:area_of_effect",
+        "radius": 6,
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [{
+                        "type": "origins:execute_command",
+                        "command": "power grant @s slime:effect/undying"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "resource change @s slime:effect/undying_resource 10"
+                    }
+                    ]
+                }
+            }
+        },
+        "interval": 10
+    },
+
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "slime:effect/guard_resource",
+        "change": -10
+    },
+    "interval": 10
+},
+    "particles": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function slime:guard",
+            "permission_level": 4
+        },
+        "interval": 5
+    },
+    "hidden": true
+}

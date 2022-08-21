@@ -1,0 +1,71 @@
+{
+  "type":"origins:multiple",
+  
+  "damage":{
+    "type": "origins:conditioned_attribute",
+    "tick_rate": 20,
+    "modifiers": {
+        "attribute": "minecraft:generic.attack_damage",
+        "operation": "multiply_total",
+        "value": -0.25
+    },
+    "condition": {
+      "type": "origins:in_rain",
+      "inverted": true
+    }
+  },
+  "health":
+  {
+    "type": "origins:conditioned_attribute",
+    "tick_rate": 20,
+    "modifiers": {
+        "attribute": "minecraft:generic.max_health",
+        "operation": "addition",
+        "value": -4
+    },
+    "condition": {
+      "type": "origins:in_rain",
+      "inverted": true
+    }
+  },
+  "attackspeed":{
+    "type": "origins:conditioned_attribute",
+    "tick_rate": 20,
+    "modifiers": {
+        "attribute": "minecraft:generic.attack_speed",
+        "operation": "multiply_total",
+        "value": -0.25
+    },
+    "condition": {
+      "type": "origins:in_rain",
+      "inverted": true
+    }
+  },
+  "mining_speed":{
+    "type": "origins:modify_break_speed",
+    "modifier": {
+        "operation": "multiply_base",
+        "value": -0.25
+    },
+    "condition": {
+      "type": "origins:in_rain",
+      "inverted": true
+    }
+},
+"hunger":{
+  "type": "origins:modify_exhaustion",
+  "modifier": {
+    "value": 1,
+    "operation": "multiply_total"
+  }
+},
+    "name": "Dry Air",
+    "description": "The dry air is less conductive and doesn't help the chanelling your electricity. You deal less damage and have less hearts when it is not storming.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/wither.png",
+          "text": "You also have less exhaustion, less attack speed and less mining speed."
+      }
+  ]
+  }
+  

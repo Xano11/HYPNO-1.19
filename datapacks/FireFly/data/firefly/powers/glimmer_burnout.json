@@ -1,0 +1,161 @@
+{
+    "type": "origins:multiple",
+
+    "glimmer_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    
+    "drain": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "firefly:glimmer_burnout_glimmer_resource",
+            "change": -1
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "firefly:glimmer_burnout_glimmer_resource",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+
+    "glimmer_activate": {
+    "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "firefly:light_resource",
+                    "change": -6
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:electric_spark ~ ~0.3 ~ 12 0.1 12 0.0001 1000 force"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "firefly:glimmer_burnout_glimmer_resource",
+                    "change": 5
+                }
+            ]
+        },
+        "cooldown": 100,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime"
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 5
+                }
+            ]
+        }
+    },
+
+    "glimmer_vision": {
+        "type": "origins:entity_glow",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime"
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:glimmer_burnout_glimmer_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:distance",
+            "comparison": "<=",
+            "compare_to": 24
+        },
+        "use_teams": false,
+        "red": 1.0,
+        "green": 1.0,
+        "blue": 0.0
+    },
+
+    "burnout_activate": {
+        "type": "origins:active_self",
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "firefly:light_resource",
+                        "change": -12
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:flame ~ ~0.3 ~ 12 0.1 12 0.0001 1000 force"
+                    },
+                    {
+                        "type": "origins:area_of_effect",
+                        "radius": 12,
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "power grant @s firefly:ignite"
+                            }
+                        }
+                    }
+                ]
+            },
+            "cooldown": 200,
+            "hud_render": {
+                "should_render": false
+            },
+            "key": {
+                "key": "key.origins.secondary_active",
+                "continuous": false
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:daytime",
+                        "inverted": true
+                    },
+                    {      
+                        "type": "origins:resource",
+                        "resource": "firefly:light_resource",
+                        "comparison": ">",
+                        "compare_to": 11
+                }
+            ]
+        }
+    },
+    
+    "name": "Glimmer/Burnout",
+    "description": "§7During the day at the cost of 6 §eLight§7, give every entity within a 24 block radius §6Shine §7that only you can see. during night, spend 12 §eLight §7to Ignite all entities that currently have §6Shine§7/All entities within a 12 block radius, Igniting a entity will light them on fire and decrease there healing by half for 10 seconds, the fire can be extinguished but the halved healing will last the full duration. (cooldown of 10 seconds).",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "Firefly, but the \"fire\" part is quite literal"
+        }
+    ]
+}

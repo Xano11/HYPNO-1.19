@@ -1,0 +1,510 @@
+{
+	"type": "origins:multiple",
+    "melting": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "ooze:mass_resource",
+            "change": -8
+        },
+        "condition": {
+            "type": "origins:on_fire"
+        },
+		"interval": 20
+	},
+    "starve_loss": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "ooze:mass_resource",
+            "change": -8
+            },
+            "interval": 20,
+            "condition": {
+                "type": "origins:food_level",
+                "comparison": "<=",
+                "compare_to": 6
+            }
+    },
+    "no_regen": {
+        "type": "origins:disable_regen"
+        },
+	"reform": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:heal",
+                    "amount": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "ooze:mass_resource",
+                    "change": -2
+                }
+            ]
+        },
+        "cooldown": 10,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:relative_health",
+                    "comparison": "<",
+                    "compare_to": 1.0
+                }
+            ]
+        }
+    },
+    "size_1": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_1",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 80
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_2": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_2",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 81
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 160
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_3": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_3",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 161
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 240
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_4": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_4",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 241
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 320
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_5": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_5",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 321
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 400
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_6": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_6",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 401
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 480
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_7": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_7",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 481
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 560
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "size_8": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "function ooze:size_8",
+            "permission_level": 4
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": ">=",
+                "compare_to": 561
+            },
+            {
+                "type": "origins:resource",
+                "resource": "ooze:mass_resource",
+                "comparison": "<=",
+                "compare_to": 640
+            }
+        ]
+    },
+        "interval": 20
+    },
+    "new_life": {
+    "type": "origins:action_on_callback",
+	"entity_action_respawned": {
+        "type": "origins:and",
+        "actions": [
+			{
+				"type": "origins:change_resource",
+				"resource": "ooze:mass_resource",
+				"operation": "set",
+                "change": 0
+			}
+    		]
+        }
+    },
+    "str": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "addition",
+			"value": 4
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "ooze:mass_resource",
+					"comparison": ">=",
+					"compare_to": 481
+				}
+			]
+		}
+	},
+    "low_str": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "addition",
+			"value": -4
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "ooze:mass_resource",
+					"comparison": "<=",
+					"compare_to": 160
+				}
+			]
+		}
+	},
+    "con_1": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.max_health",
+            "value": -2.0,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": "<=",
+                    "compare_to": 80
+                }
+            ]
+        }
+    },
+    "con_2": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.max_health",
+            "value": -2.0,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": "<=",
+                    "compare_to": 160
+                }
+            ]
+        }
+    },
+    "con_3": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.max_health",
+            "value": -2.0,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": "<=",
+                    "compare_to": 240
+                }
+            ]
+        }
+    },
+    "con_5": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.max_health",
+            "value": 2.0,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 321
+                }
+            ]
+        }
+    },
+    "con_6": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.max_health",
+            "value": 2.0,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 401
+                }
+            ]
+        }
+    },
+    "con_7": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.max_health",
+            "value": 2.0,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 481
+                }
+            ]
+        }
+    },
+    "con_8": {
+		"type":"origins:conditioned_attribute",
+		"modifier":{
+		   "attribute": "minecraft:generic.max_health",
+		   "value": 2.0,
+		   "operation": "addition"
+        },
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 561
+                }
+			]
+		}
+	},
+    "slow": {
+        "type": "origins:conditioned_attribute",
+        "modifier":{
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -0.02,
+            "operation": "addition"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 481
+                }
+            ]
+        }
+    },
+    "slow_2": {
+		"type":"origins:conditioned_attribute",
+		"modifier":{
+           "attribute": "minecraft:generic.movement_speed",
+           "value": -0.02,
+		   "operation": "addition"
+        },
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+                    "type": "origins:resource",
+                    "resource": "ooze:mass_resource",
+                    "comparison": ">=",
+                    "compare_to": 561
+                }
+			]
+		}
+	},
+	"name": "Reform",
+    "description": "You can't regen naturally, use your own mass to reform yourself.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/regeneration.png",
+            "text": "Oozy."
+        }
+    ]
+}

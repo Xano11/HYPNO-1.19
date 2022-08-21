@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Hogfish"
+        },
+        "description": {
+            "text": "Spend a full consecutive hour submerged in water."
+        },
+        "icon": {
+            "item": "minecraft:pufferfish"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "wereboar:root"
+}

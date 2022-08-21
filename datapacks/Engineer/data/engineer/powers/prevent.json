@@ -1,0 +1,34 @@
+{
+    "type": "origins:multiple",
+
+    "prevent1": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:furnace"
+	  }
+    },
+	"prevent2": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:blast_furnace"
+	  }
+    },
+	"prevent3": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:smoker"
+	  }
+    },
+	"prevent4": {
+    "type": "origins:prevent_block_use",
+    "block_condition": {
+      "type": "origins:block",
+      "block": "minecraft:brewing_stand"
+	  }
+	},
+	"name": "Low tech",
+    "description": "Because of your high IQ you refuse to use old technology."
+}

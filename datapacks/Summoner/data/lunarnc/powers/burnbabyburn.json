@@ -1,0 +1,66 @@
+{
+    "name": "IT BURNS",
+    "description": "You burn in daylight but if you wear a helmet you won't yet it will reduce its duribility.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/iron_helmet.png",
+            "text": "Wearing a helmet reduces risks of premature deaths."
+        }
+    ],
+    
+    "type": "origins:multiple",
+
+    "no_helmet": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:set_on_fire",
+            "duration": 2
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "head",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    }
+                },
+                {      
+                    "type": "origins:exposed_to_sun"
+                }
+            ]
+        }
+    },
+
+    "helmet": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:equipped_item_action",
+            "equipment_slot": "head",
+            "action": {
+                "type": "origins:damage",
+                "amount": 2,
+                "ignore_unbreaking": false
+            }
+        },
+        "interval": 20,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "head",
+                    "item_condition": {
+                        "type": "origins:empty"
+                    },
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:exposed_to_sun"
+                }
+            ]
+        }
+    }
+}

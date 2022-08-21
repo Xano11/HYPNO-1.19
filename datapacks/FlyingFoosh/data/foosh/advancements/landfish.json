@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Landfish?"
+        },
+        "description": {
+            "text": "You stayed an hour on land! How do you feel?"
+        },
+        "icon": {
+            "item": "minecraft:cooked_salmon"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "Landfish": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "foosh:root"
+}

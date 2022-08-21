@@ -1,0 +1,100 @@
+{
+	"type": "origins:multiple",
+
+	"activate": {
+	"type": "origins:active_self",
+	"cooldown": 9600,
+	"hud_render": {
+		"should_render": true,
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+    "bar_index": 0
+	},
+	"key": {
+		"key": "key.origins.primary_active",
+		"continuous": true
+	},
+	"entity_action": {
+		"type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:change_resource",
+			    "resource": "childofhades:deadly_command_resource",
+			    "change": 7200
+			},
+			{
+				"type": "origins:execute_command",
+            	"command": "execute as @s run function center",
+            	"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+            	"command": "execute as @s run function outedge",
+            	"permission_level": 4
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:choice",
+					"actions": [
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "execute as @s run function childofhades:wither_brute"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "execute as @s run function childofhades:archers"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "execute as @s run function childofhades:headless"
+							},
+							"weight": 10
+						}
+						]
+					}
+				}
+			]
+		}
+	},
+
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 7200,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "kill @e[tag=Summoned]"
+        }
+	},
+
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "childofhades:deadly_command_resource",
+			"change": -1
+		},
+		"interval": 20
+	},
+
+	"name": "Deadly Command",
+	"description": "You can reanimate old corpses and have them fight for you.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/bone.png",
+            "text": "Not dead enough."
+        }
+    ]
+}

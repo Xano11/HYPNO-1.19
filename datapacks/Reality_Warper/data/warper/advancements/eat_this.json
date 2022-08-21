@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Eat This!"
+        },
+        "description": {
+            "text": "Inflict your distortion on someone else."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "Eat This.": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:root"
+}

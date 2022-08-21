@@ -1,0 +1,52 @@
+{
+  "type":"origins:multiple",
+
+  "normal":{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+      "type": "origins:projectile",
+      "projectile": "minecraft:spectral_arrow"      
+        },
+        {
+          "type": "origins:projectile",
+          "projectile": "minecraft:arrow"      
+        }
+      ]
+    },
+    "modifier": {
+      "value": 0.5,
+      "operation": "multiply_total"
+    }
+  },
+  "passive":{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+      "type": "origins:projectile",
+      "projectile": "minecraft:spectral_arrow"      
+        },
+        {
+          "type": "origins:projectile",
+          "projectile": "minecraft:arrow"      
+        }
+      ]
+    },
+    "modifier": {
+      "value": 0.5,
+      "operation": "multiply_total"
+    }
+  },
+    "name": "Wereboar Trauma",
+    "description": "You hate projectiles because they make you remember the arrows that the piglins would shoot at you.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/arrow.png",
+          "text": "You take 2x damage from arrows to be specific. But, whilst transformed, you take 1.5x damage."
+      }
+  ]
+}

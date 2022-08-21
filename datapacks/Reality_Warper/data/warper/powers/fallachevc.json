@@ -1,0 +1,31 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+    "type": "origins:execute_command",
+    "command": "advancement grant @s only warper:save5",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource change @s warper:fallcount 1",
+    "permission_level": 4
+  }
+  ]
+  },
+  "cooldown": 160,
+  "condition": {
+    "type": "origins:fall_distance",
+    "comparison": ">=",
+    "compare_to": 100
+},
+  "hud_render": {
+    "should_render": false,
+    "bar_index": 3
+  },
+  "key": {
+    "key": "key.origins.primary_active"
+  },
+  "hidden": true
+}

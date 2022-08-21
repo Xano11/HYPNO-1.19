@@ -1,0 +1,43 @@
+{
+	"type": "origins:stacking_status_effect",
+	"min_stacks": 0,
+	"max_stacks": 2,
+	"duration_per_stack": 20,
+	"effects": [
+	{
+		"effect": "minecraft:weakness",
+		"duration": 20,
+		"amplifier": 0,
+		"is_ambient": false,
+		"show_particles": false,
+		"show_icon": false
+	},
+	{
+		"effect": "minecraft:slowness",
+		"duration": 20,
+		"amplifier": 1,
+		"is_ambient": false,
+		"show_particles": false,
+		"show_icon": false
+	}
+	],
+	"condition": {
+		"type": "origins:block_in_radius",
+		"block_condition": {
+			"type": "origins:in_tag",
+            "tag": "raiju:copper"
+		},
+		"radius": 3,
+		"shape": "cube",
+		"comparison": ">=",
+		"compare_to": 1
+	},
+	"name":"Fear of Copper",
+    "description":"Being near clean copper makes you weaker and unable to use your abilities.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/block/copper_block.png",
+            "text": "Watch out for copper. It will render you weaker overall."
+        }
+    ]
+}

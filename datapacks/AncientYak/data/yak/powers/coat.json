@@ -1,0 +1,44 @@
+{
+    "type": "origins:multiple",
+    
+    "resource":{
+      "type": "origins:resource",
+      "min": 0,
+      "max": 3,
+      "start_value": 3,
+      "hud_render": {
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+          "bar_index": 8
+      },
+      "min_action": 
+      {
+        "type": "origins:and",
+        "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "power remove @s yak:coat",
+          "permission_level": 4
+        }
+      ]
+    }
+  },
+  "reduction":
+  {
+    "type": "origins:modify_damage_taken",
+    "modifier": {
+        "name": "Resistance",
+        "operation": "multiply_total",
+        "value": -0.25
+    }
+},
+"usage":
+{
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+        "type": "origins:change_resource",
+        "resource": "yak:coat_resource",
+        "change": -1
+    }
+},
+    "hidden": true
+}

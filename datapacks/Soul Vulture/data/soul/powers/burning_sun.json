@@ -1,0 +1,136 @@
+{
+	"type": "origins:multiple",
+	"attackspeed": {
+		"type": "origins:modify_attribute",
+		"attribute": "minecraft:generic.attack_speed",
+		"modifiers": {
+			"operation": "multiply_total",
+			"value": -0.2
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:time_of_day",
+					"comparison": ">=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:time_of_day",
+					"comparison": "<=",
+					"compare_to": 13000
+				},
+				{
+					"type": "origins:exposed_to_sun"
+				}
+			]
+		}
+	},
+	"movementspeed": {
+		"type": "origins:modify_attribute",
+		"attribute": "minecraft:generic.movement_speed",
+		"modifiers": {
+			"operation": "multiply_total",
+			"value": -0.60
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:time_of_day",
+					"comparison": ">=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:time_of_day",
+					"comparison": "<=",
+					"compare_to": 13000
+				},
+				{
+					"type": "origins:exposed_to_sun"
+				}
+			]
+		}
+	},
+	"movementdmg": {
+		"type": "origins:modify_attribute",
+		"attribute": "minecraft:generic.attack_damage",
+		"modifiers": {
+			"operation": "multiply_total",
+			"value": -0.2
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:time_of_day",
+					"comparison": ">=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:time_of_day",
+					"comparison": "<=",
+					"compare_to": 13000
+				},
+				{
+					"type": "origins:exposed_to_sun"
+				}
+			]
+		}
+	},
+	"velo":{
+		"type": "origins:modify_velocity",
+		"modifier": {
+		  "value": -0.4,
+		  "operation": "multiply_total"
+		},
+		"axes": [
+		  "x",
+		  "z"
+		],
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:time_of_day",
+					"comparison": ">=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:time_of_day",
+					"comparison": "<=",
+					"compare_to": 13000
+				},
+				{
+					"type": "origins:exposed_to_sun"
+				}
+			]
+		}
+	  },
+	"particle": {
+		"type": "origins:particle",
+		"particle": "minecraft:smoke",
+		"frequency": 2,
+		    "condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:time_of_day",
+					"comparison": ">=",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:time_of_day",
+					"comparison": "<=",
+					"compare_to": 13000
+				},
+				{
+					"type": "origins:exposed_to_sun"
+				}
+			]
+		}
+	},
+	"name": "Burning Sun",
+	"description": "Sunlight makes you weak and sluggish.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/fire_charge.png",
+            "text": "While in sunlight, you will have -20% attack speed & damage, as well as -60% movement speed and -40% flight speed."
+        }
+	]
+}

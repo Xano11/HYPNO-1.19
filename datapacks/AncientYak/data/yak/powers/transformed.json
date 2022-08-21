@@ -1,0 +1,107 @@
+{
+  "type": "origins:multiple",
+  
+  "resource":{
+    "type": "origins:resource",
+    "min": 0,
+    "max": 600,
+    "start_value": 600,
+    "hud_render": {
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 0
+    },
+    "min_action": 
+    {
+      "type": "origins:and",
+      "actions": [
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s yak:exhausted",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "function yak:resize",
+        "permission_level": 4
+      },
+      {
+        "type": "origins:delay",
+        "ticks": 1,
+        "action": {
+            "type": "origins:and",
+            "actions": [
+              {
+                "type": "origins:execute_command",
+                    "command": "power remove @s yak:transformed",
+                    "permission_level": 4
+              }
+            ]
+        }
+    }
+    ]
+  }
+},
+
+
+    "remove_resource": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "yak:transformed_resource",
+        "change": -10
+    },
+    "interval": 10
+    },
+
+    "aura":
+    {
+      "type": "apugli:energy_swirl",
+      "texture_location": "minecraft:textures/block/blue_ice.png",
+      "speed": 0.005
+    },
+    
+
+
+  "armor":{
+
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.armor",
+      "operation": "addition",
+      "value": 4
+    }
+  },
+
+  "armor_toughness":{
+
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.armor_toughness",
+      "operation": "addition",
+      "value": 2
+    }
+  },
+
+
+  "mining_speed":{
+      "type": "origins:modify_break_speed",
+      "modifier": {
+          "operation": "multiply_base",
+          "value": 0.5
+      }
+  },
+
+
+"footstep":
+{
+  "type": "apugli:custom_footstep",
+  "sound": "minecraft:entity.polar_bear.step"
+},
+"hurt_sound":
+{
+  "type": "apugli:custom_hurt_sound",
+  "sound": "minecraft:entity.polar_bear.hurt"
+},
+  "hidden": true
+}

@@ -1,0 +1,16 @@
+{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "operation": "addition",
+        "value": -6
+    },
+    "name": "Fragile",
+	"description": "Due to your smaller and weaker frame you have 3 less hearts.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "Imps are not well known for being units on the field."
+        }
+    ]
+}

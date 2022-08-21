@@ -1,0 +1,12 @@
+{
+	"type": "origins:effect_immunity",
+	"effects": [
+	"minecraft:poison",
+	"minecraft:hunger"
+	],
+  "name": "Scavenger",
+    "description": "You are immune to poison hunger."
+}
+
+
+

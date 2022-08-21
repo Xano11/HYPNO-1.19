@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Traitor."
+        },
+        "description": {
+            "text": "They are monsters."
+        },
+        "icon": {
+            "item": "minecraft:pufferfish"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Puffer": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "foosh:root"
+}

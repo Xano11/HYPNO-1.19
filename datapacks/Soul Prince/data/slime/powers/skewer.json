@@ -1,0 +1,91 @@
+{
+    "name": "Soul Skewer",
+    "description": "Throw a harpoon of souls going 16 blocks, dealing 10 player damage to the first enemy hit and pulling them towards you. They are then slowed by 90% for 1 second. This ability's cooldown is refunded by 50% if it hits a entity.",
+    "badges": [
+        {
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Using the \"Ability Switch\" secondary, select \"Soul Skewer\" then use your primary to use (can go through walls)!"
+        },
+        {
+            "sprite": "minecraft:textures/particle/soul_7.png",
+            "text": "Come over here or whatever."
+        }
+    ],
+    
+    "type": "origins:multiple",
+
+    "skewer": {
+    "type": "origins:active_self",
+    "entity_action": {
+    "type": "origins:raycast",
+    "distance": 16,
+    "block": false,
+    "entity": true,
+    "shape_type": "collider",
+    "fluid_handling": "none",
+    "bientity_action": {
+        "type": "origins:and",
+    "actions": [
+        {
+            "type": "origins:add_velocity",
+            "z": -4.5
+        },
+        {
+            "type": "origins:damage",
+            "amount": 10,
+            "source": {
+                "name": "thrown"
+            }
+        },
+        {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:grant_power",
+                "power": "*:effect/slow",
+                "source": "*:*"
+                }
+            }
+        ]
+    },
+    "hit_action": {
+        "type": "origins:and",
+		"actions": [{
+            "type": "origins:swing_hand",
+            "hand": "OFF_HAND"
+        },
+        {
+            "type": "origins:delay",
+            "ticks": 5,
+            "action": {
+            "type": "origins:execute_command",
+            "command": "resource set @s slime:skewer_skewer 150"
+            }
+        }
+        ]
+    },
+    "before_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:entity.ghast.hurt player @a[distance=..10] ~ ~ ~ 10 2"
+    },
+    "command_at_hit": "particle minecraft:dust_color_transition 0.2 0.6 0.6 1 0 0 10 ~ ~ ~ 0.2 0.6 0.2 0.001 100 force",
+    "command_along_ray": "particle minecraft:sculk_charge_pop ~ ~ ~ 0.005 0.005 0.005 0.00001 25 force",
+    "command_step": 1,
+    "command_along_ray_only_on_hit": false
+    },
+    "cooldown": 300,
+    "hud_render": {
+    "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+    "should_render": true,
+    "bar_index": 22
+    },
+    "condition": {
+        "type": "origins:resource",
+            "resource": "*:powerswap_bit",
+            "comparison": "==",
+            "compare_to": 0
+        },
+    "key": {
+        "key": "key.origins.primary_active"
+        }
+    }
+}

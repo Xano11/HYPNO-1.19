@@ -1,0 +1,22 @@
+{
+    "powers": [
+		"ooze:metal_eater",
+		"ooze:gear_wrecker",
+		"ooze:block_eater",
+		"ooze:immune",
+		"ooze:feed_me",
+		"ooze:mass_resource",
+		"ooze:mass_abilities",
+		"ooze:armor",
+		"ooze:acid_miner",
+		"ooze:burn_it",
+		"ooze:starve_fast",
+		"ooze:spawn",
+		"ooze:particles_and_noises"
+    ],
+    "icon": "minecraft:slime_spawn_egg",
+    "order": 20,
+    "impact": 3,
+    "name": "The Great Gooper",
+    "description": "A highly corrosive species of slime known to eat other slimes and metals."
+}

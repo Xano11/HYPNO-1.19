@@ -1,0 +1,199 @@
+{
+	"type": "origins:multiple",
+	"particles": {
+		"type": "origins:particle",
+		"particle": "minecraft:crit",
+		"frequency": 1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:disarm_bop_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"1_oops_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 90,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 0,
+        "inverted": true
+		}
+	},
+	"butterfinger": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:disarm_1_oops_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:using_item",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:shield"
+				}
+			}
+		},
+		"interval": 1
+	},
+	"grip": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:disarm_1_oops_resource",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:using_item",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:shield"
+				}
+			},
+			"inverted": true
+		},
+		"interval": 3
+	},
+	"drop": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+		"type": "origins:drop_inventory",
+		"retain_ownership": true,
+		"slots": [
+			"weapon.mainhand",
+			"weapon.offhand"
+		],
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:shield"
+				}
+			}
+    	},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:disarm_bop_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:disarm_1_oops_resource",
+					"comparison": "==",
+					"compare_to": 90
+        		},
+				{
+					"type": "origins:using_item",
+					"item_condition": {
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:shield"
+						}
+					}
+				}
+			]
+        }
+	},
+	"bop_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": false
+		}
+	},
+	"bop_gain": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:disarm_bop_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:disarm_bop_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:disarm_1_oops_resource",
+					"comparison": "==",
+					"compare_to": 90
+        		}
+			]
+        },
+		"interval": 1
+	},
+	"bop_drain": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hyrule:stamina_resource",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:disarm_bop_resource",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hyrule:disarm_1_oops_resource",
+					"comparison": "==",
+					"compare_to": 0
+        		}
+			]
+        },
+		"interval": 1
+	},
+	"tired": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:shield"
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:disarm_bop_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"remove": {
+        "type": "origins:action_over_time",
+		"entity_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s hyrule:disarm",
+            "permission_level": 4
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hyrule:disarm_1_oops_resource",
+			"comparison": "==",
+			"compare_to": 0
+        },
+		"interval": 1
+	},
+	"hidden": true	
+}

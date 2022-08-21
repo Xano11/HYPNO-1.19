@@ -1,0 +1,234 @@
+{
+    "type": "origins:multiple",
+
+    "zip_not_gliding": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 6,
+                    "block": true,
+                    "entity": false,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "before_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ^ ^0.5 ^6"
+                    },
+                    "command_at_hit": "tp @s ~ ~ ~",
+                    "command_along_ray": "particle minecraft:dust_color_transition 1 1 0 1 0.6 0.4 0 ~ ~ ~ 0.01 0.01 0.01 1 3 force",
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": false
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "firefly:light_resource",
+                    "change": -4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.09 2"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime"
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:fall_flying",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "zip_gliding": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.7,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "firefly:light_resource",
+                    "change": -4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.lightning_bolt.thunder player @a ~ ~ ~ 0.09 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 1 1 0 1 0.6 0.4 0 ~ ~ ~ 0.3 0.1 0.3 0.001 50 force"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime"
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 3
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
+            ]
+        }
+    },
+
+    "liftoff_not_gliding": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.6,
+                    "y": 0.6,
+                    "space": "local_horizontal_normalized",
+                    "set": true
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "firefly:light_resource",
+                    "change": -6
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0.9 0.9 0 ~ ~ ~ 0.2 0.1 0.2 1 50 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.throw player @a ~ ~ ~ 0.2 0.5"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:fall_flying",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "liftoff_gliding": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.1,
+                    "y": 0.9,
+                    "space": "local_horizontal_normalized"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "firefly:light_resource",
+                    "change": -6
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0 0 0 1 0.9 0.9 0 ~ ~ ~ 0.2 0.1 0.2 1 50 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.throw player @a ~ ~ ~ 0.2 0.5"
+                }
+            ]
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "firefly:light_resource",
+                    "comparison": ">",
+                    "compare_to": 5
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
+            ]
+        }
+    },
+    
+    "name": "Zip/Liftoff",
+    "description": "§7During the day at the cost of 4 §eLight §7instantly transmit 6 blocks in the direction you are facing, if you are elytra gliding instead it will dash you forward very quickly. During night, spend 6 §eLight §7to project yourself into the air at a diagnal angle, if elytra gliding it will just launch you straight upwards a little distance.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "PREPARE FOR LIFTOFF"
+        }
+    ]
+}

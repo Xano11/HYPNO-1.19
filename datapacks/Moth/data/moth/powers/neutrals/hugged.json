@@ -1,0 +1,101 @@
+{
+	"type": "origins:multiple",
+	"gain": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:slowness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:mining_fatigue"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:nausea"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:blindness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:hunger"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:weakness"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:poison"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:wither"
+                },
+                {
+                    "type": "origins:clear_effect",
+                    "effect": "minecraft:darkness"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:regeneration",
+                        "duration": 300,
+                        "amplifier": 0
+                    }
+                }
+            ]
+        }
+    },
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 15,
+		"start_value": 15,
+		"hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 18
+		},
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power remove @s moth:neutrals/hugged",
+                    "permission_level": 4
+                }
+            ]
+        }
+	},
+	"decay": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:*_resource",
+			"change": -1
+		},
+		"interval": 20
+	},
+    "warm": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+            "type": "origins:name",
+            "name": "freeze"
+        }
+	},
+    "satiated": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Decreased exhaustion",
+            "operation": "multiply_base",
+            "value": -1.0
+        }
+    },
+	"hidden": true	
+}

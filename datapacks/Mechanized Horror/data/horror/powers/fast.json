@@ -1,0 +1,17 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.movement_speed",
+    "value": 0.00700002149011612,
+    "operation": "addition"
+  },
+  "name": "Faster",
+  "description": "You're faster than normal.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/speed.png",
+        "text": "Have you ever heard of Sonic?"
+    }
+]
+}

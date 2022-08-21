@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Infection Connoisseur"
+        },
+        "description": {
+            "text": "Infect 100 entities with your distortion."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "50": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:eat_this"
+}

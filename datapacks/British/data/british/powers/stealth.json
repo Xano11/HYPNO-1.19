@@ -1,0 +1,160 @@
+{
+"type": "origins:multiple",
+"a": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 0
+	},
+    "key": {
+      "key": "key.left",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"d": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 0
+	},
+    "key": {
+      "key": "key.right",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"s": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 3
+	},
+    "key": {
+      "key": "key.back",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"w": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 3
+	},
+    "key": {
+      "key": "key.forward",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"right": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 3
+	},
+    "key": {
+      "key": "key.use",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"left": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 3
+	},
+    "key": {
+      "key": "key.attack",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"jump": {
+  "type": "origins:active_self",
+   "entity_action":
+    {
+	"type": "origins:change_resource",
+	"resource": "british:stealth_timer",
+	"change": 3
+	},
+    "key": {
+      "key": "key.jump",
+      "continuous": true
+    },
+	"cooldown": 4,
+    "hud_render": {
+      "should_render": false
+   }
+},
+"countdown": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:change_resource",
+		"resource":"british:stealth_timer",
+		"change":-1
+	},
+	"interval": 15
+},
+"timer": {
+	"type":"origins:resource",
+	"min":0,
+	"max":3,
+	"start_value":3,
+	"hud_render":{
+		"should_render":false
+	}
+},
+"trans": {
+    "type": "origins:invisibility",
+    "render_armor": false,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+        {
+            "type": "origins:sneaking"
+        },
+        {      
+            "type": "origins:resource",
+            "resource": "british:stealth_timer",
+            "comparison":"==",
+            "compare_to": 0
+        }
+        ]    
+    }
+},
+	"name": "Master of The Shadows",
+	"description": "When sneaking you gain invisibility and night vision, but you cannot attack."
+}

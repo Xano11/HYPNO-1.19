@@ -1,0 +1,78 @@
+{
+    "hidden": false,
+    "type": "origins:active_self",
+    "name": "Switch",
+    "description": "(saveToolbarActivator) You can switch between two forms. (Offensive and Defensive)",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "Have you ever heard of boss phases?"
+        }
+    ],
+    "cooldown": 0,
+    "key": "key.saveToolbarActivator",
+	"continuous": false,
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+				"type": "origins:execute_command",
+				"command": "origin set @s origins:origin horror:horror_off",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "advancement grant @s only horror:first",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "horror:achievements_adept_switcher",
+				"change": 1
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "horror:achievements_veteran_switcher",
+				"change": 1
+			},
+			{
+				"type": "origins:change_resource",
+				"resource": "horror:achievements_master_switcher",
+				"change": 1
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "resource set @s horror:switchres 0",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "effect give @e[distance=..5] blindness 1",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:dust_color_transition 0.5 0.3 0.5 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 0.1 100",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.ender_dragon.growl master @a[distance=..10] ~ ~ ~ 1 0.8",
+				"permission_level": 4
+			}
+        ]
+    },
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+		"bar_index": 19
+    },
+	"condition":
+            {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 7200,
+                "resource": "horror:switchres"
+            }
+}

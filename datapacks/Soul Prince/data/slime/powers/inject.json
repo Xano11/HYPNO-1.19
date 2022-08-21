@@ -1,0 +1,36 @@
+{
+    "name": "Soul Injection",
+    "description": "Fill your opponents with some of the soul essence that fills your body, making them go insane, inverts controls and become unable to attack or hear for 3 seconds",
+    "badges": [
+        {
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Using the \"Ability Switch\" secondary, select \"Soul Injection\" then hit someone when it is off cooldown to inflict!"
+        },
+        {
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "I don't think sharing your body with more consciousness is super fun."
+        }
+    ],
+    
+    "type": "origins:multiple",
+
+    "action": {
+        "type": "origins:target_action_on_hit",
+        "condition": {
+            "type": "origins:resource",
+                "resource": "*:powerswap_bit",
+                "comparison": "==",
+                "compare_to": 1
+            },
+    "entity_action": {
+        "type": "origins:grant_power",
+                "power": "*:effect/inje",
+                "source": "*:*"
+        },
+        "cooldown": 600,
+        "hud_render": {
+        "should_render": true,
+        "bar_index": 5
+        }
+    }
+}

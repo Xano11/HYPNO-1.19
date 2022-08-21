@@ -1,0 +1,15 @@
+{
+	"name": "Scram!",
+	"description": "Getting hurt causes you to panic allowing you to run away at high speeds from your attacker",
+    "type": "origins:self_action_when_hit",
+	"entity_action": {
+        "type": "origins:and",
+        "actions": [
+		{
+        "type": "origins:execute_command",
+        "command": "effect give @s speed 5 1 true"
+        }
+        ]
+    },
+    "cooldown": 20
+}

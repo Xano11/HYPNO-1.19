@@ -1,0 +1,287 @@
+{
+    "type":"origins:multiple",
+
+    "more_dmg":
+{
+    "type": "origins:modify_projectile_damage",
+    "damage_condition": {
+        "type": "origins:projectile",
+        "projectile": "minecraft:trident"
+    },
+    "modifier": {
+        "operation": "addition",
+        "value": 12
+    }, 
+    "target_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+                "type": "origins:execute_command",
+                "command": "execute as @e[type=minecraft:item,distance=..15] run data modify entity @s Invulnerable set value 1",
+                "permission_level": 4
+            },
+            {
+            "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                "type": "origins:execute_command",
+                "command": "execute as @e[type=minecraft:item,distance=..15] run data modify entity @s Invulnerable set value 1",
+                "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                        "ticks": 2,
+                        "action": {
+                        "type": "origins:execute_command",
+                        "command": "execute as @e[type=minecraft:item,distance=..15] run data modify entity @s Invulnerable set value 1",
+                        "permission_level": 4
+                            }
+                        },
+                        {
+                            "type": "origins:delay",
+                                "ticks": 3,
+                                "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute as @e[type=minecraft:item,distance=..15] run data modify entity @s Invulnerable set value 1",
+                                "permission_level": 4
+                                    }
+                                },
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type":"origins:execute_command",
+                            "command":"power grant @s raiju:lightning_dmg",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power remove @s raiju:lightning_dmg",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+},
+
+"speed": 
+{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "addition",
+        "value": 0.3,
+        "name": "Increased speed while charging"
+    },
+    "tick_rate": 1,
+    "condition": {
+        "type": "origins:using_item",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+              "type": "origins:ingredient",
+              "ingredient": {
+                  "item": "minecraft:trident"
+              }
+            },
+            {
+                "type": "origins:enchantment",
+                "enchantment": "minecraft:channeling",
+                "comparison": ">=",
+                "compare_to": 1
+            }
+        ]
+          }
+    }
+},
+"thunderstrike":
+{
+    "type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+                "type": "origins:delay",
+                "ticks": 10,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~ ~ ~3 run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~ ~ ~-3 run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~3 ~ ~ run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~-3 ~ ~ run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 25,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~ ~ ~5 run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~ ~ ~-5 run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~5 ~ ~ run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "execute positioned ~-5 ~ ~ run particle minecraft:dust_color_transition 1 1 1 3 1 1 0 ~ ~ ~ 0.6 0.2 0.6 1 100",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 20,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~ ~ ~3",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~ ~ ~-3",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~3 ~ ~",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~-3 ~ ~",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "origins:delay",
+                "ticks": 35,
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~ ~ ~5",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~ ~ ~-5",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~5 ~ ~",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "summon minecraft:lightning_bolt ~-5 ~ ~",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "damage_condition": {
+        "type": "origins:projectile",
+        "projectile": "minecraft:trident"
+    },
+    "cooldown": 300,
+    "hud_render": {
+        "should_render":true,
+        "sprite_location":"origins:textures/gui/community/huang/resource_bar_01.png",
+        "bar_index": 8
+    }
+},
+"melee":{
+    "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.attack_damage",
+        "operation": "addition",
+        "value": 4,
+        "name": "trident"
+        },
+    "tick_rate": 20,
+      "condition": {
+          "type": "origins:equipped_item",
+          "equipment_slot": "mainhand",
+          "item_condition": {
+            "type": "origins:and",
+			"conditions": [
+				{
+              "type": "origins:ingredient",
+              "ingredient": {
+                  "item": "minecraft:trident"
+              }
+            },
+            {
+                "type": "origins:enchantment",
+                "enchantment": "minecraft:channeling",
+                "comparison": ">=",
+                "compare_to": 1
+            }
+        ]
+          }
+      }
+},
+"name": "Trident of the storms",
+"description": "You like tridents due to their ability to channel lightning. For that reason, you deal more damage with them. But, other weapons are less effective.",
+"badges": [
+    {
+        "sprite": "minecraft:textures/entity/trident_riptide.png",
+        "text": "You deal +4 damage with tridents and will do more throw damage."
+    }
+]
+}

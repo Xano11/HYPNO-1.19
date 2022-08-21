@@ -1,0 +1,17 @@
+{
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "origins:shields"
+      }
+    },
+    "name": "Unwieldy",
+	"description": "Shields are too big and brutish for you to use or learn how to use.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/resistance.png",
+        "text": "Is that even a downside?"
+    }
+]
+  }

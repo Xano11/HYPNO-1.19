@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Lavafish?"
+        },
+        "description": {
+            "text": "Uhhh.... Why?"
+        },
+        "icon": {
+            "item": "minecraft:lava_bucket"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Lava": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "foosh:landfish"
+}

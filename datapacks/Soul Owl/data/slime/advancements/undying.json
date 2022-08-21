@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Life Saver"
+        },
+        "description": {
+            "text": "Save a Players life using your totem."
+        },
+        "icon": {
+            "item": "minecraft:totem_of_undying"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 1
+    },
+    "parent": "slime:root"
+}

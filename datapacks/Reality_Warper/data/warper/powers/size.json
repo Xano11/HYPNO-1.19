@@ -1,0 +1,27 @@
+{
+    "name": "never so slightly shorter",
+    "description": "All your reality distortion took a toll on your body.",
+	"hidden": true,
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 0.9",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 0.9",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:step_height 1",
+                "permission_level": 4
+            }
+        ]
+    }
+}

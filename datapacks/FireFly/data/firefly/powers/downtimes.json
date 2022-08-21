@@ -1,0 +1,41 @@
+{
+    "type": "origins:multiple",
+
+    "daytime_health": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": -0.06,
+            "name": "decreased sprinting speed"
+        },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:daytime"
+        } 
+    },
+
+    "night_speed": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "addition",
+            "value": 0.04,
+            "name": "Increased sprinting speed"
+        },
+    "tick_rate": 20,
+    "condition": {
+        "type": "origins:daytime",
+        "inverted": true
+        } 
+    },
+    
+    "name": "Downtimes",
+    "description": "§7While the time is day, you are relaxed and slow granting you slowness III passively, but during the night, your body is ready to move, granting you speed II passively.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/light.png",
+            "text": "Time goes bruh."
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+{
+        "name": "Reality Warping",
+    "description": "(Secondary) You can distort reality around you to walk through walls.",
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+        "key": "key.origins.secondary_active"
+    }
+}

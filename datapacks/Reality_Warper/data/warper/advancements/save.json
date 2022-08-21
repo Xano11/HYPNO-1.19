@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Cheat Death"
+        },
+        "description": {
+            "text": "Save yourself from falling to death by teleporting to the ground."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "cheat death": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:teleport"
+}

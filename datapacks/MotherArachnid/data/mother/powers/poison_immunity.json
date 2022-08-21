@@ -1,0 +1,14 @@
+{
+  "name": "Arachno-Immunity",
+  "description": "Your body does not react to poison as it is immune to it",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/poison.png",
+        "text": "POISON IMMUNITY WOOOO-"
+    }
+],
+  "type": "origins:effect_immunity",
+  "effects": [
+      "minecraft:poison"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Determination."
+        },
+        "description": {
+            "text": "Deal 100 hearts of damage to yourself from maximum berserk."
+        },
+        "icon": {
+            "item": "minecraft:magma_block"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "determination": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "wereboar:berserk"
+}

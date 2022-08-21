@@ -1,0 +1,9 @@
+{
+    "type": "origins:modify_swim_speed",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.50
+    },
+    "name": "Poor Swimmer",
+    "description": "It has been years since you last swam, you are 50% slower while swimming."
+}

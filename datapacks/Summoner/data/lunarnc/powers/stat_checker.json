@@ -1,0 +1,9 @@
+{
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "execute as @e[distance=..24,type=!player,type=!#lunarnc:untargetable] at @s run function lunarnc:set_stats"
+    },
+    "interval": 1,
+    "hidden": true
+}

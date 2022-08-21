@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_falling",
+    "velocity": 0.1,
+    "take_fall_damage": true,
+	"name": "Heavy",
+	"description": "You fall faster than normal and sink in water, you are too heavy to use riptide.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/slowness.png",
+            "text": "Have you ever heard of anvils?"
+        }
+    ]
+}

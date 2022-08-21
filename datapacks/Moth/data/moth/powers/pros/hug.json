@@ -1,0 +1,168 @@
+{
+	"type": "origins:multiple",
+    "receiver": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @s {\"text\":\"You were hugged by something fluffy, you feel very warm.\",\"color\":\"dark_aqua\",\"hoverEvent\":{\"action\":\"show_text\",\"contents\":[{\"text\":\"♥\",\"color\":\"red\"}]},\"clickEvent\":{\"action\":\"open_url\",\"value\":\"https://youtu.be/xvFZjo5PgG0\"}}"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s moth:neutrals/hugged",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:heart ~ ~2 ~ 0.3 0.01 0.3 1 5 force",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "moth:friendly"
+                }]
+            }
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "moth:pros/hug_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "giver": {
+        "type": "origins:action_on_entity_use",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "title @s title {\"text\":\"♥\",\"color\":\"red\"}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "moth:pros/hug_cooldown"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:heart ~ ~1 ~ 0.3 0.01 0.3 1 5 force",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "moth:friendly"
+                }]
+            }
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "moth:pros/hug_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+	"cooldown": {
+		"type": "origins:cooldown",
+		"cooldown": 600,
+		"hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 4
+        }
+	},
+    "ride": {   
+        "type": "origins:action_on_entity_use", 
+        "bientity_action": {
+            "type": "origins:mount"
+        },
+        "bientity_condition": {
+        "type": "origins:target_condition",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:in_tag",
+                    "tag": "moth:friendly"
+                }]
+            }
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "condition": {
+            "type": "origins:sneaking",
+            "inverted": true
+        }
+    },
+    "name": "Fren",
+    "description": "You can ride/hug certain mobs including players.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/regeneration.png",
+            "text": "[Right click with an empty hand to ride.][Sneak + Right click with an empty hand to hug.]"
+        }
+    ]
+}

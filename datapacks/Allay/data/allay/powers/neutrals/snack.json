@@ -1,0 +1,206 @@
+{
+  "type": "origins:multiple",
+  "prevent": {
+  "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+          "tag": "allay:not_snacks"
+        }
+      }
+  },
+  "giant_food": {
+    "type": "origins:modify_food",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "tag": "allay:snacks"
+        }
+    },
+    "food_modifier": {
+        "name": "Increased food points",
+        "operation": "addition",
+        "value": 2
+    },
+    "saturation_modifier": {
+        "name": "Increased saturation points",
+        "operation": "addition",
+        "value": 0.1
+    }
+  },
+  "treat": {
+    "type": "origins:action_on_being_used",
+    "bientity_action": {
+      "type": "origins:actor_action",
+      "action": {
+        "type": "origins:and",
+            "actions": [
+            {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "mainhand",
+                "action": {
+                    "type": "origins:consume",
+                    "amount": 1
+                }
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "effect give @s minecraft:regeneration 3 1",
+                "permission_level": 4
+            }
+          ]
+        }
+      },
+      "bientity_condition": {
+        "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                      "tag": "allay:snacks"
+                    }
+                }
+            }
+        }
+    },
+  "tasty": {
+  "type": "origins:action_on_being_used",
+  "bientity_action": {
+      "type": "origins:target_action",
+      "action": {
+          "type": "origins:and",
+          "actions": [
+                  {    
+                      "type": "origins:play_sound",
+                      "sound": "minecraft:entity.allay.item_given",
+                      "volume": 1,
+                      "pitch": 1
+                  },
+                  {
+                      "type": "origins:execute_command",
+                      "command": "particle minecraft:heart ~ ~1 ~ 0.1 0.5 0.5 7 7 force",
+                      "permission_level": 4
+                  },
+                  {
+                      "type": "origins:feed",
+                      "food": 4,
+                      "saturation": 0.2
+                  }
+                  ]   
+              }
+          },
+      "bientity_condition": {
+          "type": "origins:actor_condition",
+              "condition":
+              {
+                  "type": "origins:equipped_item",
+                  "equipment_slot": "mainhand",
+                  "item_condition": {
+                      "type": "origins:ingredient",
+                      "ingredient": {
+                        "tag": "allay:snacks"
+                      }
+                  }
+              }
+          }
+  },
+  "treat_secret": {
+  "type": "origins:action_on_being_used",
+  "bientity_action": {
+      "type": "origins:actor_action",
+      "action": {
+      "type": "origins:and",
+          "actions": [
+          {
+              "type": "origins:equipped_item_action",
+              "equipment_slot": "mainhand",
+              "action": {
+                  "type": "origins:consume",
+                  "amount": 1
+                  }
+          },
+          {
+              "type": "origins:execute_command",
+              "command": "effect give @s minecraft:regeneration 10 1",
+              "permission_level": 4
+          },
+          {
+              "type": "origins:execute_command",
+              "command": "effect give @s minecraft:glowing 10 0",
+              "permission_level": 4
+          },
+          {
+              "type": "origins:execute_command",
+              "command": "advancement grant @s only minecraft:husbandry/allay_deliver_cake_to_note_block",
+              "permission_level": 4
+          }
+          ]
+      }
+  },
+  "bientity_condition": {
+    "type": "origins:actor_condition",
+    "condition":
+        {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "item": "minecraft:cake"
+                }
+            }
+        }
+    }
+  },
+  "tasty_secret": {
+  "type": "origins:action_on_being_used",
+  "bientity_action": {
+      "type": "origins:target_action",
+      "action": {
+          "type": "origins:and",
+          "actions": [
+              {    
+                  "type": "origins:play_sound",
+                  "sound": "minecraft:entity.allay.item_given",
+                  "volume": 1,
+                  "pitch": 1
+              },
+              {
+                  "type": "origins:execute_command",
+                  "command": "particle minecraft:heart ~ ~1 ~ 0.1 0.5 0.5 10 14 force",
+                  "permission_level": 4
+              },
+              {
+                  "type": "origins:feed",
+                  "food": 14,
+                  "saturation": 2.8
+              }
+              ]            
+          }
+      },
+      "bientity_condition": {
+          "type": "origins:actor_condition",
+              "condition":
+              {
+                  "type": "origins:equipped_item",
+                  "equipment_slot": "mainhand",
+                  "item_condition": {
+                      "type": "origins:ingredient",
+                      "ingredient": {
+                        "item": "minecraft:cake"
+                      }
+                  }
+              }
+          }
+  },
+  "name": "§6§l§nSweet Tooth",
+  "description": "Sweet food gets a slight boost but it's all you can eat, also others can feed you.",
+  "badges": [
+      {
+          "sprite": "minecraft:textures/item/sugar.png",
+          "text": "Just have another player [use] you while holding a treat, try it with cake!"
+      }
+  ]
+}

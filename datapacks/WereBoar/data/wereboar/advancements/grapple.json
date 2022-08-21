@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "COME OVER HERE-"
+        },
+        "description": {
+            "text": "Use your hook for the first time."
+        },
+        "icon": {
+            "item": "comforts:rope_and_nail"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "leap": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "wereboar:root"
+}

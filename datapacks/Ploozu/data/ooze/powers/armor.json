@@ -1,0 +1,60 @@
+{
+	"type": "origins:multiple",
+	"armorless":{
+            "type": "origins:restrict_armor",
+        "head": {
+            "type": "origins:armor_value",
+            "comparison": "<",
+            "compare_to": 3
+        },
+        "chest": {
+            "type": "origins:armor_value",
+            "comparison": "<",
+            "compare_to": 8
+        },
+        "legs": {
+            "type": "origins:armor_value",
+            "comparison": "<",
+            "compare_to": 6
+        },
+        "feet": {
+            "type": "origins:armor_value",
+            "comparison": "<",
+            "compare_to": 3
+        }
+    },
+	"no_range": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:trident"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:bow"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:crossbow"
+					}
+				}
+			]
+		}
+	},
+    "name": "High-Quality Needs",
+    "description": "Trying to wear armor below diamond tier is not possible as it would just melt.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/diamond_chestplate.png",
+            "text": "Fancy, just indirectly."
+        }
+    ]
+}

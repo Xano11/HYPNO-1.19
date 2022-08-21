@@ -1,0 +1,54 @@
+{
+"type": "origins:multiple",
+"leap": {
+    "type": "origins:active_self",
+    "cooldown": 150,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+                "type": "origins:add_velocity",
+                "z": 1.0,
+				"space": "local"
+            },
+			{
+                "type": "origins:add_velocity",
+                "y": 0.3
+            },
+			{
+                "type": "origins:exhaust",
+                "amount": 10
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.rabbit.jump"
+            },
+			{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s rabbit:fall_res 1"
+            },
+			{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dust 1 1 1 2 ~ ~.1 ~ 0.2 0.2 0.2 1 25"
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.rabbit.ambient"
+            }
+        ]
+    },
+    "hud_render": {
+        "should_render": true,
+        "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 2
+    },
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    }
+},
+    "name": "Leap",
+    "description": "(Primary) You can leap up into the air."
+}

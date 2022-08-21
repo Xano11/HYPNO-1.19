@@ -1,0 +1,15 @@
+{
+    "name": "Fuel Bar",
+    "description": "(Secondary toggle) You can consume coal to build up fuel, you can use this fuel to keep yourself on fire, the more fuel you have the faster you move.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/charcoal.png",
+            "text": "Born from the embers."
+        }
+    ],
+    "type": "origins:toggle",
+    "active_by_default": false,
+    "key": {
+        "key": "key.origins.secondary_active"
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "origins:simple",
+    "name": "Inconsistencies",
+    "description": "When traveling between worlds, you gain weakness for 3 seconds.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "Watch out; 3 seconds is enough for great trouble."
+        }
+    ],
+    "comment": "The name of this used to be \"Interdimensional Inconsistencies\", but that was too long and got cut off D:"
+}

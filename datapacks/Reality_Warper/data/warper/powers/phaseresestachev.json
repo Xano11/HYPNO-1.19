@@ -1,0 +1,15 @@
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:phaseresachev",
+	    "change": -10
+	},
+		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on",
+	"inverted": true
+  },
+	"interval": 10,
+	"hidden": true
+}

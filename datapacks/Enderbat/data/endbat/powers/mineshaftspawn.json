@@ -1,0 +1,14 @@
+{   
+    "type": "origins:modify_player_spawn",
+    "dimension": "minecraft:overworld",
+    "structure": "minecraft:mineshaft",
+    "spawn_strategy": "center",
+    "name":"Cave Spawn",
+    "description":"You spawn in an Abandoned Mineshaft.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/iron_pickaxe.png",
+            "text": "You can spend time with your bat friends!"
+        }
+    ]
+}

@@ -1,0 +1,56 @@
+{
+	"type": "origins:multiple",
+	"water": {
+    "type": "origins:ignore_water"
+},
+"air": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": -0.7
+             },
+			"condition": {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 0.0
+            }
+ },
+"speed": {
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "value": -0.01900002149011612,
+        "operation": "addition"
+    },
+		"tick_rate": 20,
+			"condition": {
+        "type": "origins:or",
+        "conditions": [
+		{
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 0.0
+            },
+            {
+                "type": "origins:in_rain"
+            }
+        ]
+            }
+		},
+		"fall": {
+    "type": "origins:modify_falling",
+    "velocity": 0.1,
+    "take_fall_damage": true,
+	"condition": {
+		"type": "origins:entity_type",
+		"entity_type": "minecraft:player",
+		"type": "origins:origin",
+		"origin": "engineer:engineer",
+		"layer": "origins:origin"
+}
+},
+	"name": "Heavy",
+	"description": "You fall faster than normal and sink in water."
+}

@@ -1,0 +1,223 @@
+{
+	"type": "origins:multiple",
+"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 3,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 5
+	}
+},
+"1": {
+    "type": "origins:model_color",
+	"red": 0.3,
+	"green": 0.1,
+	"blue": 0.3,
+	"condition":{
+	"type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:resource",
+		"resource": "warper:skin_res",
+		"comparison": "==",
+		"compare_to": 2
+	},
+	{
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+  ]
+  }
+},
+"2": {
+    "type": "origins:model_color",
+	"red": 0.6,
+	"green": 0.4,
+	"blue": 0.6,
+	"condition":{
+	"type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:resource",
+		"resource": "warper:skin_res",
+		"comparison": "==",
+		"compare_to": 1
+	},
+	{
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+  ]
+  }
+},
+"3": {
+    "type": "origins:model_color",
+	"red": 0.9,
+	"green": 0.7,
+	"blue": 0.9,
+	"condition":{
+	"type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:resource",
+		"resource": "warper:skin_res",
+		"comparison": "==",
+		"compare_to": 0
+	},
+	{
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+  ]
+  }
+},
+"4": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s warper:skin_res 0"
+             },
+			"interval": 1,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:skin_res",
+				"comparison": "==",
+				"compare_to": 3
+			}
+		},
+"5": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:skin_res 1"
+             },
+			"interval": 2,
+			"condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+		},
+"6": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:enchant ~ ~1.2 ~ 0.5 0.4 0.5 0 4 force"
+             },
+			"interval": 2,
+			"condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+		},
+"res2": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 3,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 5
+	}
+},
+"d1": {
+    "type": "origins:model_color",
+	"red": 0.8,
+	"green": 0.5,
+	"blue": 0.5,
+	"condition":{
+	"type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:resource",
+		"resource": "warper:skin_res2",
+		"comparison": "==",
+		"compare_to": 2
+	},
+	{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+				}
+  ]
+  }
+},
+"d2": {
+    "type": "origins:model_color",
+	"red": 0.5,
+	"green": 0.8,
+	"blue": 0.5,
+	"condition":{
+	"type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:resource",
+		"resource": "warper:skin_res2",
+		"comparison": "==",
+		"compare_to": 1
+	},
+	{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+				}
+  ]
+  }
+},
+"d3": {
+    "type": "origins:model_color",
+	"red": 0.5,
+	"green": 0.5,
+	"blue": 0.8,
+	"condition":{
+	"type": "origins:and",
+        "conditions": [
+		{
+		"type": "origins:resource",
+		"resource": "warper:skin_res2",
+		"comparison": "==",
+		"compare_to": 0
+	},
+	{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+				}
+  ]
+  }
+},
+"d4": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s warper:skin_res2 0"
+             },
+			"interval": 1,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:skin_res2",
+				"comparison": "==",
+				"compare_to": 3
+			}
+		},
+"d5": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:skin_res2 1"
+             },
+			"interval": 2
+		},
+"hidden": true
+}

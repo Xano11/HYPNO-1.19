@@ -1,0 +1,55 @@
+{
+    "type": "origins:multiple",
+
+    "velo": {
+        "type": "origins:modify_velocity",
+        "modifier": {
+            "value": -2,
+            "operation": "multiply_total"
+        },
+    "axes": [
+            "x",
+            "z"
+        ]
+    },
+
+    "shader":{
+        "type": "origins:shader",
+        "shader": "minecraft:shaders/post/invert.json",
+        "toggleable": false
+    },
+
+    "attack_speed_no_more": {
+        "type": "origins:attribute",
+            "modifier": {
+                "name": "no more attacking",
+                "attribute": "generic.attack_speed",
+                "value": -1,
+                "operation": "multiply_total"
+        }
+    },
+
+    "resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"start_value": 3,
+		"hud_render": {
+		"should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s slime:effect/inje"
+        }
+	},
+
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "slime:effect/inje_resource",
+			"change": -1
+		},
+		"interval": 40
+	}
+}

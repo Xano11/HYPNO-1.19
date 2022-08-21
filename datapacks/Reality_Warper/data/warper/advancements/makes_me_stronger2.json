@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "You Have A Problem"
+        },
+        "description": {
+            "text": "Warp reality for triple the amount of time you should."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "You Have A Problem.": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:makes_me_stronger"
+}

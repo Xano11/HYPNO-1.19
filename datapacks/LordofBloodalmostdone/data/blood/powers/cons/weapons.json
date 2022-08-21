@@ -1,0 +1,50 @@
+{
+	"type": "origins:multiple",
+	"prevent": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": [{
+                "item": "minecraft:bow"
+            },
+            {
+                "item": "minecraft:crossbow"
+            },
+            {
+                "item": "minecraft:ender_pearl"
+            }]
+        }
+    },
+    "weak": {
+        "type": "origins:modify_damage_dealt",
+        "damage_condition": {
+            "type": "origins:attacker",
+            "entity_condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": [{
+                        "item": "minecraft:air"
+                    },
+                    {
+                        "item": "minecraft:trident"
+                    }]
+                },
+                "inverted": true
+            }
+        },
+        "modifier": {
+            "operation": "multiply_base_multiplicative",
+            "value": -0.8
+        }
+    },
+    "name": "One Trick Demon",
+    "description": "The only weapon you can use effectively is tridents. If you dont have one just use your claws.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "No bows, crossbows, or any other melee weapon."
+        }
+    ]
+}

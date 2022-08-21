@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Nature"
+        },
+        "description": {
+            "text": "Be affected by strength."
+        },
+        "icon": {
+            "item": "minecraft:flowering_azalea"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 1
+    },
+    "parent": "hydra:root"
+}

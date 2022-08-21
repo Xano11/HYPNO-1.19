@@ -1,0 +1,65 @@
+{
+    "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1.5 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 1.5 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:flight 0.40 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:held_item 0.7 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "scale set pehkui:flight 1 @s",
+            "permission_level": 4
+        },
+        "entity_action_respawn": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 1.5 @s",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 1.5 @s",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:flight 0.40 @s",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:held_item 0.7 @s",
+                "permission_level": 4
+            }
+            ]
+        },
+    "execute_chosen_when_orb": true,
+    "name": "Big Ghost Boy",
+    "description": "You're 3 blocks tall and 2 blocks wide",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/jump_boost.png",
+            "text": "Big boy Casper."
+        }
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Weapon of choice"
+        },
+        "description": {
+            "text": "It resonates within you... (Equip a channeling trident)"
+        },
+        "icon": {
+            "item": "minecraft:trident"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "raiju:root"
+}

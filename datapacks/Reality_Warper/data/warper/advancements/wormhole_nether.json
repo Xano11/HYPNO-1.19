@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Cross Dimensional Travel"
+        },
+        "description": {
+            "text": "Make a connection from another dimension to the nether."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "Cross Dimensional Travel.": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:wormhole"
+}

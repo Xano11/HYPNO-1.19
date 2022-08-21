@@ -1,0 +1,19 @@
+{
+    "name": "§2§l§nCollector",
+    "description": "Dropped items glow for you.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hero_of_the_village.png",
+            "text": "You make cute noises when you throw stuff!"
+        }
+    ],
+    "type": "origins:entity_glow",
+    "entity_condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:item"
+    },
+    "use_teams": false,
+    "red": 0.0,
+    "green": 1.0,
+    "blue": 1.0
+}

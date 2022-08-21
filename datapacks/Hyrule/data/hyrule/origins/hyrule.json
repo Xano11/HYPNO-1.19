@@ -1,0 +1,20 @@
+{
+	"unchoosable": false,
+	"powers": [
+		"hyrule:effective_archer",
+		"hyrule:dodge",
+		"hyrule:crossbow",
+		"hyrule:fletcher",
+		"hyrule:stamina",
+		"hyrule:physique"
+	],
+	"icon": {
+		"item": "minecraft:tipped_arrow",
+		"tag": "{Enchantments:[{}],CustomPotionColor:1788508}"
+	},
+	"order": 10,
+	"impact": 1,
+	"name": "Archaic Archer",
+	"loading_priority": 1,
+	"description": "One who keeps his distance is a ma- Oh Forget the monologue just... https://en.wikipedia.org/wiki/Ranged_weapon   After 10 years of practicing dark arts, and pushing technological and physical limits, you've mastered the art of archery, and discovered the effectiveness of strategic planning. At a distance!"
+}

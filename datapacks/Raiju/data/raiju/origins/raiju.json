@@ -1,0 +1,24 @@
+{
+	"powers": [
+		"raiju:lightning_infused",
+		"raiju:callback",
+		"raiju:thunderstorm",
+		"raiju:thunder",
+		"raiju:dry_air",
+		"raiju:resource",
+		"origins:carnivore",
+		"raiju:concentrated_lightning",
+		"raiju:fear_of_copper",
+		"raiju:trident",
+		"raiju:absorb",
+		"raiju:dash",
+		"raiju:conductivity",
+		"raiju:unuse",
+		"raiju:achievements"
+	],
+	"icon": "minecraft:bell",
+	"order": 4,
+	"impact": 3,
+	"name": "Raiju",
+	"description": "Born in the land of the roaring thunder, this beast has learned to channel the energy of lightning to strike its foes."
+}

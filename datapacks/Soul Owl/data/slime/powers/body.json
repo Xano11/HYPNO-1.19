@@ -1,0 +1,133 @@
+{
+    "type": "origins:multiple",
+    "size": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function flightutil:transform/rotation/query/internal/load",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "advancement grant @s only slime:root",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scoreboard objectives add player_killz minecraft.custom:minecraft.player_kills 3",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 1 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "advancement revoke @s through slime:root",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_respawn": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "health": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.max_health",
+            "value": -8,
+            "operation": "addition"
+        },
+        "condition": {
+			"type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+		}
+    },
+
+    "soul": {
+        "type": "epoli:prevent_soulsand_slowness"
+    },
+
+    "teamremove": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:execute_command",
+            "command": "team @e remove soul",
+            "permission_level": 4
+        },
+        "execute_chosen_when_orb": true
+    },
+    
+    "teamjoinandleave": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:execute_command",
+            "command": "tag @s add soul",
+            "permission_level": 4
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove soul",
+            "permission_level": 4
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "footstep":{
+        "type": "apugli:custom_footstep",
+        "sound": "minecraft:entity.parrot.step"
+    },
+
+    "hurt_sound":{
+        "type": "apugli:custom_hurt_sound",
+        "sound": "minecraft:entity.parrot.imitate.wither"
+    },
+
+    "name": "Trapped Within",
+    "description": "You're trapped within the body of a Owl, meaning you're quite short",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/cocoa_beans.png",
+            "text": "Even Though I Have A Human Brain I'll Still Shit On Your Lawn, Bitch."
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+	"powers": [
+		"engineer:switch",
+		"engineer:glass",
+		"engineer:fly",
+		"engineer:extdmg",
+		"engineer:smoking",
+		"engineer:engineer_tag",
+		"engineer:prevent_death",
+		"engineer:recipe",
+		"engineer:no_power",
+		"engineer:nouse",
+		"engineer:hunger_fast",
+		"engineer:ignore_water",
+		"engineer:health",
+		"engineer:prevent"
+	
+	],
+	"icon": "minecraft:iron_block",
+	"order": 20,
+	"impact": 3,
+	"unchoosable": true,
+	"name": "Omicron",
+	"description": "A robot is a machine - especially one programmable by a computer - capable of carrying out a complex series of actions automatically, basically a big thing made out of metal I use to fly around and kick your ass, Anyway speaking of kicking your ass, check this out!"
+}

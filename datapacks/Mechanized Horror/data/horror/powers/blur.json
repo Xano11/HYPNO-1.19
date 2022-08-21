@@ -1,0 +1,33 @@
+{
+	"type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+        "type": "origins:execute_command",
+        "command": "power grant @s horror:blurb"
+        },
+		{
+                "type": "origins:delay",
+                "ticks": 10,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s horror:blurb"
+                }
+            }
+			]
+			},
+    "cooldown": 0,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 14
+		},
+    "name": "Right in the eyes",
+    "description": "You blur your target's vision on hit.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/blindness.png",
+            "text": "Have you ever played Mario Kart?"
+        }
+    ]
+}

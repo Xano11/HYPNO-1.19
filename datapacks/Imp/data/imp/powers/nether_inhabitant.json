@@ -1,0 +1,14 @@
+{
+    "type": "origins:modify_player_spawn",
+    "dimension": "the_nether",
+    "dimension_distance_multiplier": 0.125,
+    "spawn_strategy": "center",
+    "name": "Nether Inhabitant",
+	"description": "Your ancestors have inhabited the Nether since their creation.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/netherrack.png",
+            "text": "IM ON A HIGHWAY TO HELL"
+        }
+    ]
+}

@@ -1,0 +1,1195 @@
+{
+	"name": "Buzzing Flight",
+	"description": "You can fly and dash by spriting, unless you're exhausted or in a fluid.",
+	"badges": [
+        {
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "\"Outline Spectators\" keybind to toggle on and off."
+        },
+        {
+            "sprite": "minecraft:textures/item/elytra.png",
+            "text": "Buzz like a birb, sting like a bee... wait a minute."
+        }
+    ],
+	"type": "origins:multiple",
+
+	"toggle": {
+		"type": "origins:toggle",
+		"key": {
+			"key": "key.spectatorOutlines"
+		},
+		"condition": {
+			"type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+		}
+	},
+
+	"state": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 3,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+	
+	"soulvfx": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:soul_fire_flame ~ ~ ~ 0.2 0 0.2 0.03 10"
+
+		},
+		"condition": {
+			"type": "origins:power_active",
+			"power": "slime:buzzing_flight_toggle",
+			"inverted": false
+		}
+	},
+	
+	"vfx": {
+		"type": "origins:action_over_time",
+		"interval": 10,
+		"entity_action": {
+			"type": "origins:chance",
+			"chance": 0.25,
+			"action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:dust 1.0 1.0 1.0 0.25 ~ ~ ~ 0.0625 0.0625 0.0625 0 2 normal"
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+
+	"update_state": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"entity_action": {
+			"type": "origins:if_else_list",
+			"actions": [
+				{
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:power_active",
+								"power": "slime:buzzing_flight_toggle",
+								"inverted": true
+							},
+							{
+								"type": "origins:fluid_height",
+								"fluid": "minecraft:water",
+								"comparison": ">",
+								"compare_to": 0.2
+							},
+							{
+								"type": "origins:fluid_height",
+								"fluid": "minecraft:lava",
+								"comparison": ">",
+								"compare_to": 0.1
+							},
+							{
+								"type": "origins:submerged_in",
+								"fluid": "minecraft:water",
+								"comment": "The above checks are unreliable"
+							},
+							{
+								"type": "origins:submerged_in",
+								"fluid": "minecraft:lava",
+								"comment": "The above checks are unreliable"
+							}
+						]
+					},
+					"action": {
+						"type": "origins:and",
+						"actions": [
+							{
+								"type": "origins:execute_command",
+								"command": "resource set @s slime:buzzing_flight_state 0"
+							},
+							{
+								"type": "origins:execute_command",
+								"command": "effect clear @s minecraft:levitation"
+							}
+						]
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "slime:input_axis_y",
+								"comparison": "<",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:power_active",
+								"power": "slime:fast_heart_slower"
+							}
+						]
+					},
+					"action": {
+						"type": "origins:execute_command",
+						"command": "resource set @s slime:buzzing_flight_state 1"
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "slime:input_axis_y",
+								"comparison": "<=",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:power_active",
+								"power": "slime:fast_heart_slow"
+							}
+						]
+					},
+					"action": {
+						"type": "origins:execute_command",
+						"command": "resource set @s slime:buzzing_flight_state 2"
+					}
+				},
+				{
+					"condition": {
+						"type": "origins:constant",
+						"value": true
+					},
+					"action": {
+						"type": "origins:execute_command",
+						"command": "resource set @s slime:buzzing_flight_state 3"
+					}
+				}
+			]
+		}
+	},
+
+	"exhaust_stable": {
+		"type": "origins:exhaust",
+		"interval": 30,
+		"exhaustion": 0.1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": "==",
+			"compare_to": 2
+		}
+	},
+
+	"exhaust_rising": {
+		"type": "origins:exhaust",
+		"interval": 10,
+		"exhaustion": 0.1,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": "==",
+			"compare_to": 3
+		}
+	},
+
+	"slow_falling": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 12,
+		"effect": {
+			"effect": "minecraft:slow_falling",
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+
+	"levitation_keep": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 12,
+		"effect": {
+			"effect": "minecraft:levitation",
+			"amplifier": -1,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": "==",
+			"compare_to": 2
+		}
+	},
+
+	"levitation_rise": {
+		"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 12,
+		"effect": {
+			"effect": "minecraft:levitation",
+			"amplifier": 2,
+			"is_ambient": true,
+			"show_particles": false,
+			"show_icon": false
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": "==",
+			"compare_to": 3
+		}
+	},
+
+	"kinetic_damage_immunity": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:name",
+					"name": "fall"
+				},
+				{
+					"type": "origins:name",
+					"name": "flyIntoWall"
+				}
+			]
+		}
+	},
+
+	"block_breaking_speed_fix": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 5.0
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+
+	"air_speed_fix": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.5
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+
+	"dash": {
+		"type": "origins:active_self",
+		"cooldown": 20,
+		"entity_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:or",
+						"conditions": [
+							{
+								"type": "origins:resource",
+								"resource": "slime:input_axis_x",
+								"comparison": "!=",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:resource",
+								"resource": "slime:input_axis_y",
+								"comparison": "!=",
+								"compare_to": 0
+							},
+							{
+								"type": "origins:resource",
+								"resource": "slime:input_axis_z",
+								"comparison": "!=",
+								"compare_to": 0
+							}
+						]
+					}
+				]
+			},
+			"if_action": {
+
+				"type": "origins:and",
+				"actions": [
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": ">",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"z": 1.41421356,
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": ">",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": "==",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": ">",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": "<",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"z": -1.41421356,
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": "==",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"z": 2,
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": "==",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": "==",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": "==",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": "<",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"z": -2,
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": "<",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": ">",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"z": 1.41421356,
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": "<",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": "==",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"space": "local",
+									"set": true
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:and",
+									"conditions": [
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_x",
+											"comparison": "<",
+											"compare_to": 0
+										},
+										{
+											"type": "origins:resource",
+											"resource": "slime:input_axis_z",
+											"comparison": "<",
+											"compare_to": 0
+										}
+									]
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"z": -1.41421356,
+									"space": "local",
+									"set": true
+								}
+							}
+						]
+					},
+					{
+						"type": "origins:if_else",
+						"condition": {
+							"type": "origins:resource",
+							"resource": "slime:input_axis_x",
+							"comparison": "!=",
+							"compare_to": 0
+						},
+						"if_action": {
+							"type": "origins:if_else",
+							"condition": {
+								"type": "origins:resource",
+								"resource": "slime:input_axis_x",
+								"comparison": ">",
+								"compare_to": 0
+							},
+
+							"if_action": { "comment": "x > 0",
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "slime:input_axis_z",
+									"comparison": "==",
+									"compare_to": 0
+								},
+								"if_action": {
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": -2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1.41421356,
+												"z": -1.41421356
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 0
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1.41421356,
+												"z": 1.41421356
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": 2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1.41421356,
+												"z": 1.41421356
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:constant",
+												"value": true
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1.41421356,
+												"z": -1.41421356
+											}
+										}
+									]
+								},
+								"else_action": {
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": -1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1,
+												"z": -1
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 0
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1,
+												"z": 1
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": 1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1,
+												"z": 1
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:constant",
+												"value": true
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1,
+												"z": -1
+											}
+										}
+									]
+								}
+
+							},
+
+							"else_action": { "comment": "x < 0",
+
+								"type": "origins:if_else",
+								"condition": {
+									"type": "origins:resource",
+									"resource": "slime:input_axis_z",
+									"comparison": "==",
+									"compare_to": 0
+								},
+								"if_action": {
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": 2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1.41421356,
+												"z": 1.41421356
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 0
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1.41421356,
+												"z": -1.41421356
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": -2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1.41421356,
+												"z": -1.41421356
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 2,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:constant",
+												"value": true
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1.41421356,
+												"z": 1.41421356
+											}
+										}
+									]
+								},
+								"else_action": {
+									"type": "origins:if_else_list",
+									"actions": [
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": 1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1,
+												"z": 1
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": -45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 0
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": -1,
+												"z": -1
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 45
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"z": -1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 90
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1,
+												"z": -1
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:resource",
+												"resource": "slime:input_yaw_offset",
+												"comparison": "<",
+												"compare_to": 135
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1.41421356,
+												"comment": "Global, not local, and add, not set"
+											}
+										},
+										{
+											"condition": {
+												"type": "origins:constant",
+												"value": true
+											},
+											"action": {
+												"type": "origins:add_velocity",
+												"x": 1,
+												"z": 1
+											}
+										}
+									]
+								}
+
+							}
+						}
+					},
+					{
+						"type": "origins:if_else_list",
+						"actions": [
+							{
+								"condition": {
+									"type": "origins:resource",
+									"resource": "slime:input_axis_y",
+									"comparison": ">",
+									"compare_to": 0
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"y": 2
+								}
+							},
+							{
+								"condition": {
+									"type": "origins:resource",
+									"resource": "slime:input_axis_y",
+									"comparison": "<",
+									"compare_to": 0
+								},
+								"action": {
+									"type": "origins:add_velocity",
+									"y": -2
+								}
+							}
+						]
+					},
+					{
+						"type": "origins:play_sound",
+						"sound": "minecraft:entity.ghast.ambient",
+						"volume": 0.4,
+						"pitch": 2
+					},
+					{
+						"type": "origins:exhaust",
+						"amount": 0.35
+					},
+					{
+						"type": "origins:delay",
+						"ticks": 2,
+						"action": {
+							"type": "origins:execute_command",
+							"command": "particle minecraft:sculk_soul ~ ~-0.25 ~ 0.2 0.1 0.2 0.02 5 normal"
+						}
+					},
+					{
+						"type": "origins:delay",
+						"ticks": 2,
+						"action": {
+							"type": "origins:execute_command",
+							"command": "particle minecraft:soul ~ ~-0.25 ~ 0.2 0.1 0.2 0.02 5 normal"
+						}
+					},
+					{
+						"type": "origins:delay",
+						"ticks": 2,
+						"action": {
+							"type": "origins:execute_command",
+							"command": "particle minecraft:dust_color_transition 0.7 0.39 0.11 0.7 0 0.54 0.54 ~ ~-0.25 ~ 0.25 0.1 0.25 0.02 9 normal"
+						}
+					},
+					{
+						"type": "origins:delay",
+						"ticks": 2,
+						"action": {
+							"type": "origins:execute_command",
+							"command": "particle minecraft:dust_color_transition 0 0.54 0.54 0.7 0.7 0.39 0.11 ~ ~-0.25 ~ 0.2 0.1 0.2 0.02 9 normal"
+						}
+					},
+					{
+						"type": "origins:delay",
+						"ticks": 3,
+						"action": {
+							"type": "origins:add_velocity",
+							"set": true
+						}
+					}
+				]
+
+			},
+			"else_action": {
+				"type": "origins:play_sound",
+				"sound": "minecraft:entity.ghast.ambient",
+				"volume": 0.15,
+				"pitch": 0.675
+			}
+		},
+		"key": {
+			"key": "key.sprint",
+			"continuous": true
+		},
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 13,
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "slime:buzzing_flight_state",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					{
+						"type": "origins:resource",
+						"resource": "slime:buzzing_flight_dash",
+						"comparison": "!=",
+						"compare_to": 0,
+						"comment": "From the mod's code (CooldownPower.shouldRender(){ return (player.getEntityWorld().getTime() - lastUseTime) <= cooldownDuration; }), we know the bar still renders if the cooldown *just* hit zero, which would lead to flickering here, so we exclude 0"
+					}
+				]
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "slime:buzzing_flight_state",
+			"comparison": ">",
+			"compare_to": 0
+		}
+	},
+
+	"availability_bar": {
+		"type": "origins:resource",
+		"comment": "Purely cosmetic UI, keeps the bar shown when the dash cooldown isn't recharging",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"bar_index": 13,
+			"condition": {
+				"type": "origins:and",
+				"conditions": [
+					{
+						"type": "origins:resource",
+						"resource": "slime:buzzing_flight_state",
+						"comparison": ">",
+						"compare_to": 0
+					},
+					{
+						"type": "origins:resource",
+						"resource": "slime:buzzing_flight_dash",
+						"comparison": "==",
+						"compare_to": 0
+					}
+				]
+			}
+		}
+	}
+}

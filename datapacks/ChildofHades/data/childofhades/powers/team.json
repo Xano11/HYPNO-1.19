@@ -1,0 +1,54 @@
+{
+    "type": "origins:multiple",
+
+    "team": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "team join Undead @s"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "team leave @s[team=Undead]"
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "tag": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "tag @s add fighter"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove fighter"
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 2,
+		"start_value": 2,
+		"hud_render": {
+		"should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power revoke @s childofhades:team"
+        }
+	},
+
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "childofhades:team_resource",
+			"change": -1
+		},
+		"interval": 10
+	},
+    "hidden": true
+}

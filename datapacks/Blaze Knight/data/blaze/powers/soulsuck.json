@@ -1,0 +1,40 @@
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+					"type": "origins:damage",
+					"amount": 2,
+					"source": {
+						"name": "magic",
+						"unblockable": true,
+						"bypasses_armor": true
+					}
+				},
+    "condition": {
+		"type": "origins:or",
+		"conditions": [
+		{
+		"type": "origins:on_block",
+        "block_condition": {
+         	 "type": "origins:block",
+          	"block": "minecraft:soul_sand"
+        	}
+		},
+		{
+			"type": "origins:on_block",
+			"block_condition": {
+				  "type": "origins:block",
+				  "block": "minecraft:soul_soil"
+				}
+			}
+	]
+      },
+	"interval": 15,
+    "name": "Soul Suck",
+    "description": "When standing on soul sand or soul soil, it will begin sucking you off draining your soul from your body which causes you to slowly die.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/particle/soul_7.png",
+            "text": "Souls kinda hate you for some reason."
+        }
+    ]
+}

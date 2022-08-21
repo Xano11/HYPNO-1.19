@@ -1,0 +1,48 @@
+{
+"type": "origins:multiple",
+  "crossbow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:crossbow"
+          }
+    }
+  },
+  "bow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:bow"
+          }
+    }
+  },
+  "trident": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:trident"
+          }
+    }
+  },
+  "enderpearl": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:ender_pearl"
+          }
+    }
+  },
+    "name": "No Range",
+    "description": "Cope.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/bow.png",
+          "text": "No ender pearls, bows, crossbows and tridents."
+      }
+  ],
+	"hidden": false
+}

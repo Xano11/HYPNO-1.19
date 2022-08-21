@@ -1,0 +1,16 @@
+{
+    "powers": [
+		"kibi:blast",
+		"kibi:heal",
+		"kibi:forcefield",
+		"kibi:falldmg",
+		"kibi:immune",
+		"kibi:hunger_fast",
+		"kibi:health"
+    ],
+    "icon": "minecraft:string",
+    "order": 20,
+    "impact": 3,
+    "name": "Divine Deity",
+    "description": "Ancient power passed down for generations."
+}

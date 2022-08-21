@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Now we're thinking with portals"
+        },
+        "description": {
+            "text": "Tear a hole in the fabric of reality."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "Tear a hole in the fabric of reality.": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:root"
+}

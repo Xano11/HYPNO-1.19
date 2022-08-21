@@ -1,0 +1,210 @@
+{
+	"type": "origins:multiple",
+	"toggle": {
+		"type": "origins:toggle",
+		"key": {
+		  "key": "key.origins.secondary_active"
+	  }
+	},
+	"climb_up": {
+		"type": "origins:climbing",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting",
+					"inverted": true
+				},
+				{
+					"type": "origins:power_active",
+					"power": "allay:pros/flight_toggle"
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:block_in_radius",
+					"block_condition": {
+						"type": "origins:in_tag",
+						"tag": "allay:air",
+						"inverted": true
+					},
+					"radius": 15,
+					"shape": "sphere",
+					"comparison": ">=",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 6.0
+				}
+			]
+		},
+		"allow_holding": false
+	},
+	"hover": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effect": {
+				"effect": "minecraft:levitation",
+				"duration": 10,
+				"amplifier": -1,
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": false
+			},
+			"condition": {
+				"type": "origins:power_active",
+				"power": "allay:pros/flight_toggle"
+			}
+		},
+		"falling_action": {
+			"type": "origins:clear_effect",
+    		"effect": "minecraft:levitation"
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting",
+					"inverted": true
+				},
+				{
+					"type": "origins:power_active",
+					"power": "allay:pros/flight_toggle"
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				},
+				{
+					"type": "origins:block_in_radius",
+					"block_condition": {
+						"type": "origins:in_tag",
+						"tag": "allay:air",
+						"inverted": true
+					},
+					"radius": 15,
+					"shape": "sphere",
+					"comparison": ">=",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 6.0
+				}
+			]
+		}
+	},
+	"feather_weight": {
+		"type": "origins:modify_falling",
+		"velocity": 0.01,
+		"take_fall_damage": false,
+		"condition": {
+		  "type": "origins:and",
+		  "conditions": [
+				{
+				  "type": "origins:sneaking",
+				  "inverted": true
+				},
+				{
+				  "type": "origins:fall_flying",
+				  "inverted": true
+				}
+			]
+		}
+	},
+	"glide_speed": {
+		"type": "origins:modify_falling",
+		"velocity": 0.0045,
+		"take_fall_damage": false,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:power_active",
+					"power": "allay:pros/flight_toggle"
+				},
+				{
+					"type": "origins:sprinting"
+				},
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:on_block",
+					"inverted": true
+				}
+			]
+		}
+	},
+    "motion_counter": {
+        "type": "origins:attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "value": -0.3,
+            "operation": "multiply_total"
+        }
+    },
+	"acrobatics": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+		  "type": "origins:name",
+		  "name": "fall"
+		}
+	},
+	"mining_speed_in_air": {
+		"type": "origins:modify_break_speed",
+		"modifier": {
+			"operation": "multiply_base",
+			"value": 4
+		},
+		"condition": {
+			"type": "origins:on_block",
+			"inverted": true
+		}
+	},
+	"exhaust": {
+		"type": "origins:exhaust",
+		"interval": 10,
+		"exhaustion": 0.1,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:power_active",
+				"power": "allay:pros/flight_toggle"
+			},
+			{
+				"type": "origins:sprinting"
+			},
+			{
+				"type": "origins:on_block",
+				"inverted": true
+			}
+		]
+		}
+	},
+	"name": "§2§l§nFlight",
+    "description": "Go up by holding space, down by crouching or glide by sprinting.",    
+	"badges": [
+		{
+			"sprite": "minecraft:textures/mob_effect/jump_boost.png",
+			"text": "You can only go up if there's a block in a 15 radius sphere from you."
+		},
+		{
+			"sprite": "origins:textures/gui/badge/active.png",
+			"text": "Active ability, use with [Secondary]"
+		}
+	]
+}

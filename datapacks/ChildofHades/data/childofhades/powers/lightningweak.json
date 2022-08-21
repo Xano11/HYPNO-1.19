@@ -1,0 +1,21 @@
+{
+	"type": "origins:modify_damage_taken",
+	"name": "Fault Of Creation",
+	"description": "The higher beings of this world do not appreciate your unwarranted existance, as such you will take triple damage from lightning.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/particle/sonic_boom_9.png",
+            "text": "Zeus hates you."
+        }
+    ],
+	"damage_condition": 
+	{
+		"type": "origins:name",
+		"name": "lightningBolt"
+	},
+	"modifier":
+	{
+		"operation": "multiply_base",
+		"value": 2
+	}
+}

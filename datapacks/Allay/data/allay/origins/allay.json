@@ -1,0 +1,27 @@
+{
+	"powers": [
+		"allay:pros/jukebox",
+		"allay:pros/flight",
+		"allay:pros/mitosis",
+		"allay:pros/glowing",
+		"allay:pros/deathless",
+		"allay:pros/regen",
+		"allay:neutrals/small",
+		"allay:neutrals/snack",
+		"allay:cons/prey",
+		"allay:cons/totem",
+		"allay:cons/armorless",
+		"allay:cosmetic/attack",
+		"allay:cosmetic/damage",
+		"allay:cosmetic/death",
+		"allay:cosmetic/mental_breakdown",
+		"allay:cosmetic/passive",
+		"allay:cosmetic/sing",
+		"allay:cosmetic/toss"
+	],
+	"icon": "minecraft:cookie",
+	"order": 10,
+	"impact": 3,
+	"name": "§lAllay",
+	"description": "Definition of cute and useless.                (Read the badges for more info)"
+}

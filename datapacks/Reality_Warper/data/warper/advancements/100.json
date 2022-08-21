@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Infection Master"
+        },
+        "description": {
+            "text": "Infect 1000 entities with your distortion."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "100": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:50"
+}

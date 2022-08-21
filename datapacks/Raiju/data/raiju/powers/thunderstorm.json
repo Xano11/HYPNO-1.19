@@ -1,0 +1,97 @@
+{
+        "type":"origins:multiple",
+    
+    "use":{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+            {
+                "type":"origins:execute_command",
+                "command":"execute in minecraft:overworld run weather thunder",
+                "permission_level":4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.beacon.power_select player @a ~ ~ ~ 10 0.5",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:dust_color_transition 1 1 1 4 1 1 0 ~ ~ ~ 1 1 1 1 100",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:swing_hand",
+                "hand": "MAIN_HAND"
+            }
+        ]
+    },
+    "cooldown":60,
+    "hud_render":{
+        "should_render":false,
+        "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+        "bar_index":9
+    },
+    "key":{
+        "key":"key.use"
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+    {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Stormcaller\",\"italic\":false,\"color\":\"yellow\"}]',Lore:['[{\"text\":\"A relic used by the beast of lightning to summon thunderstorms.\",\"italic\":false,\"color\":\"gold\"}]']},Enchantments:[{id:vanishing_curse,lvl:1}]}"
+        }
+    },
+    {
+        "type": "origins:in_rain"
+    },
+    {
+        "type": "origins:predicate",
+        "predicate": "raiju:weather_thunderstorm",
+        "inverted": true
+    }    
+]
+}
+},
+"craft":{
+    "type": "origins:modify_grindstone",
+    "result_type": "specified",
+    "top_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:nether_star"
+        }
+    },
+    "bottom_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:heart_of_the_sea"
+        }
+    },
+    "result_stack": {
+        "item": "minecraft:heart_of_the_sea",
+        "tag": "{display:{Name:'[{\"text\":\"Stormcaller\",\"italic\":false,\"color\":\"yellow\"}]',Lore:['[{\"text\":\"A relic used by the beast of lightning to summon thunderstorms.\",\"italic\":false,\"color\":\"gold\"}]']},Enchantments:[{id:vanishing_curse,lvl:1}]}"
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:block.beacon.activate player @s ~ ~ ~ 4 2"
+    },
+    "block_action": {
+        "type": "origins:execute_command",
+        "command": "summon minecraft:lightning_bolt"
+    }
+},
+    "name":"Lightning Charged",
+    "description":"Using a Nether star and a Heart of the sea, you can create a relic allowing you to convert rain to thunderstorms.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/heart_of_the_sea.png",
+            "text": "This item needs to be crafted once; it has infinite uses!"
+        }
+    ]
+}

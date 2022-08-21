@@ -1,0 +1,304 @@
+{
+        "type": "origins:multiple",
+        "broken_axe": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 1,
+            "name": "axe dmg"
+                },
+        "tick_rate": 2,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:iron_axe"
+                    }
+                }
+            },
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[Axe1]}"
+                }
+            }
+        ]
+    }
+    },
+    "sharpened_axe": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 4,
+            "name": "axe dmg"
+                },
+        "tick_rate": 2,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:iron_axe"
+                    }
+                }
+            },
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[Axe2]}"
+                }
+            }
+        ]
+    }
+    },
+    "glacialis": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 6,
+            "name": "axe dmg"
+                },
+        "tick_rate": 2,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:iron_axe"
+                    }
+                }
+            },
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[Axe3]}"
+                }
+            }
+        ]
+    }
+    },
+    "tooltip":
+    {
+        "type": "origins:tooltip",
+        "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+        "item": "minecraft:iron_axe"
+        }
+        },
+        "text": "For the Refined Gentlemen."
+    },
+    "craft":{
+    "type": "origins:modify_grindstone",
+    "result_type": "specified",
+    "block_action": {
+        "type": "origins:set_block",
+        "block": "minecraft:air"
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only yak:craft",
+        "permission_level": 4
+    },
+    "top_condition": {
+        "type": "origins:nbt",
+        "nbt": "{Tags:[Axe1]}"
+    },
+    "bottom_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result_stack": {
+        "item": "minecraft:iron_axe",
+        "tag": "{Tags:[Axe2],display:{Name:'[{\"text\":\"Sharpened Axe\",\"italic\":false}]',Lore:['[{\"text\":\"Sharpened for better chopping and slashing...\",\"italic\":false,\"color\":\"gray\"}]']},Enchantments:[{}]}"
+    }
+},
+"freeze":{
+    "type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type": "origins:change_resource",
+        "resource": "yak:iced_resource",
+        "change": 50
+    },
+    "cooldown": 1,
+    "damage_condition": {
+        "type": "origins:amount",
+        "comparison": ">=",
+        "compare_to": 10.0
+    },
+    "hud_render": {
+        "should_render": false
+    }
+},
+"spread":{
+    "type": "origins:action_on_hit",
+    "bientity_action": {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:area_of_effect",
+            "radius": 3,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s yak:iced",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 3 0.5 0",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:block minecraft:ice ~ ~ ~ 0.1 0.1 0.1 0.1 40",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:snowflake ~ ~ ~ 0.1 0.1 0.1 0.4 40",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:dust_color_transition 1 1 1 1 0 0.3 1 ~ ~ ~ 0.1 0.1 0.1 1 40",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            },
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:origin",
+                    "origin": "yak:yak",
+                    "inverted": true
+                }
+            }
+        }
+    },
+    "bientity_condition": {
+        "type": "origins:target_condition",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power",
+                    "power": "yak:iced"
+                },
+                {
+                    "type": "origins:living"
+                }                
+    ]
+}
+    },
+    "damage_condition": {
+        "type": "origins:amount",
+        "comparison": ">=",
+        "compare_to": 10.0
+    }
+},
+"craft2":{
+    "type": "origins:modify_grindstone",
+    "result_type": "specified",
+    "block_action": {
+        "type": "origins:set_block",
+        "block": "minecraft:air"
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only yak:craft1",
+        "permission_level": 4
+    },
+    "top_condition": {
+        "type": "origins:nbt",
+        "nbt": "{Tags:[Axe2]}"
+    },
+    "bottom_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:netherite_ingot"
+        }
+    },
+    "result_stack": {
+        "item": "minecraft:iron_axe",
+        "tag": "{Tags:[Axe3],display:{Name:'[{\"text\":\"G\",\"italic\":false,\"color\":\"aqua\"},{\"text\":\"l\",\"color\":\"dark_aqua\"},{\"text\":\"a\"},{\"text\":\"c\",\"color\":\"dark_aqua\"},{\"text\":\"i\"},{\"text\":\"a\",\"color\":\"dark_aqua\"},{\"text\":\"l\"},{\"text\":\"i\",\"color\":\"dark_aqua\"},{\"text\":\"s\"}]',Lore:['[{\"text\":\"Tundra\\'s finest weapon.\",\"italic\":false,\"color\":\"blue\"}]']},Enchantments:[{}]}"
+    }
+},
+"weaker":
+{
+    "type": "origins:modify_damage_dealt",
+    "damage_condition": {
+        "type": "origins:attacker",
+        "entity_condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "yak:proficient"
+                }
+            },
+            "inverted": true
+        }
+    },
+    "modifier": {
+        "operation": "set_total",
+        "value": 1
+    }
+},
+"strong":
+{
+    "type": "origins:modify_damage_dealt",
+    "damage_condition": {
+        "type": "origins:attacker",
+        "entity_condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:empty"
+            },
+            "inverted": false
+        }
+    },
+    "modifier": {
+        "operation": "addition",
+        "value": 2
+    }
+},
+    "name": "Axe Virtuoso",
+    "description": "You once found a Axe and decided to use it to protect yourself. You have grown to only use it, being quite unable to use any other weapons.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/iron_axe.png",
+            "text": "You can upgrade your Axe in the grindstone twice! Once with your special weapon and a diamond, and a second time with a netherite ingot."
+        }
+    ]
+}

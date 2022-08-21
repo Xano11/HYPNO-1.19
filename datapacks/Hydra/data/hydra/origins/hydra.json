@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"hydra:headswap",
+		"hydra:base",
+		"hydra:achievements"
+	],
+	"icon": {
+        "item": "minecraft:dragon_head",
+        "tag": "{Enchantments:[{}],CustomModelData:1}"
+    },
+	"order": 10,
+	"impact": 3,
+	"name": "Multi-Headed Hydra",
+	"description": "a gigantic water-snake-like monster with nine heads, one of which was said to be immortal..."
+}

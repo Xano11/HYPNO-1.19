@@ -1,0 +1,16 @@
+{
+    "type": "origins:attribute",
+    "modifier": {
+      "attribute": "minecraft:generic.max_health",
+      "value": -4.0,
+      "operation": "addition"
+    },
+    "name":"Fragile Spider",
+    "description":"You have 2 lesser hearts.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/wither.png",
+          "text": "Yeah... Spider issue."
+      }
+  ]
+}

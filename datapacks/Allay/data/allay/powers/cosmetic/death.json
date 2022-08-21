@@ -1,0 +1,16 @@
+{
+    "hidden": true,
+    "type": "origins:self_action_when_hit",
+    "entity_action": {    
+      "type": "origins:play_sound",
+      "sound": "minecraft:entity.allay.death",
+      "volume": 1,
+      "pitch": 1
+    },
+    "condition": {
+        "type": "origins:health",
+        "comparison": "<=",
+        "compare_to": 0
+    },
+  "cooldown": 100
+}

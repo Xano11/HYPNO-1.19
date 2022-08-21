@@ -1,0 +1,15 @@
+{
+    "type": "origins:self_action_when_hit",
+    "entity_action": {
+      "type": "origins:execute_command",
+      "command": "kill @e[tag=lnc_Minion,type=!player]",
+        "permission_level": 4
+    },
+    "condition": {
+        "type": "origins:health",
+        "comparison": "<=",
+        "compare_to": 0
+    },
+  "hidden": true,
+  "cooldown": 1
+}

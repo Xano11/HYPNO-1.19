@@ -1,0 +1,53 @@
+{
+    "type": "origins:multiple",
+    "vegan": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                    {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+            "type": "origins:ingredient",
+            "ingredient": {
+              "tag": "origins:meat"
+                    }
+                },
+            {
+                "type": "origins:meat"
+            }
+            ]
+        },
+        {
+            "type": "origins:food"
+        },
+        {
+            "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "origins:ignore_diet"
+                    },
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "exhaustion": {
+        "type": "origins:modify_exhaustion",
+        "modifier": {
+            "name": "Extra exhaustion from veganism",
+            "value": 0.8,
+            "operation": "multiply_base"
+        }
+    },
+    
+    "name": "Eat Your Greens",
+    "description": "§7Do to you being a harmless insect, you have adapted to eating primarily plants making you vegan, also since your body is always being filled with light-producing organs they take more food to operate.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/carrot.png",
+            "text": "Vegan <3"
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "type":"origins:modify_damage_taken",
+  "modifier":{
+    "value": 100.00,
+    "operation":"multiply_total"
+  },
+  "damage_condition":{
+        "type": "origins:name",
+        "name": "flyIntoWall"
+      },
+    "name": "Explosive",
+    "description": "Flying into a wall will cause Omicron to explode violently and crash into the ground."
+}

@@ -1,0 +1,21 @@
+{
+	"name": "Dense Body",
+	"description": "Getting hurt causes you to absorb the pressure and kinetic energy from the blow and store it inside yourself.",
+	"hidden": true,
+    "type": "origins:self_action_when_hit",
+	"entity_action": {
+        "type": "origins:and",
+        "actions": [
+		{
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:entity.blaze.hurt master @a[distance=..10] ~ ~ ~ 0.5 1"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "particle minecraft:lava ~ ~1 ~ 0.3 0.5 0.3 0 3"
+        }
+        ]
+    },
+    "cooldown": 1
+}
+

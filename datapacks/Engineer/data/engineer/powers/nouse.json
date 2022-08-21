@@ -1,0 +1,42 @@
+{
+"type": "origins:multiple",
+    "pearl": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:ender_pearl"
+          }
+    }
+  },
+  "crossbow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:crossbow"
+          }
+    }
+  },
+  "bow": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:bow"
+          }
+    }
+  },
+  "trident": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:trident"
+          }
+    }
+  },
+    "name": "No Range",
+    "description": "Your inside a robot how would you throw it.",
+	"hidden": false
+}

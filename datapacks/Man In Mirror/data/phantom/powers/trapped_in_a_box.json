@@ -1,0 +1,190 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 200,
+        "hud_render": {
+            "sprite_location": "minecraft:textures/block/glass.png",
+            "bar_index": 35
+        }
+    },
+    "actions_i_dont_have_a_good_name_here": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:constant",
+            "value": true
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_timer",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @e[tag=GlassBoxStandForMirror, distance=..5, type=minecraft:armor_stand, limit=1] run setblock ~ ~ ~ minecraft:black_stained_glass",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute at @e[tag=GlassBoxStandForMirror, distance=..5, type=minecraft:armor_stand, limit=1] run setblock ~ ~1 ~ minecraft:black_stained_glass",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s @e[tag=GlassBoxStandForMirror, distance=..5, type=minecraft:armor_stand, limit=1]",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute align xyz run tp @s ~0.5 ~ ~0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "setblock ~ ~ ~ minecraft:black_stained_glass",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "setblock ~ ~1 ~ minecraft:black_stained_glass",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "summon armor_stand ~ ~ ~ {Tags:[\"GlassBoxStandForMirror\"], Invisible: 1, Invulnerable: 1, Marker:1, NoGravity:1}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:motion 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:mining_fatigue 1000000 255 true",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bat.takeoff player @a[distance=..15] ~ ~ ~ 0.3 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:end_rod ~ ~1 ~ 0.3 0.3 0.3 0.01 50 normal",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "timer_end_action": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_timer",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s phantom:trapped_in_a_box",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[tag=GlassBoxStandForMirror, distance=..5, type=minecraft:armor_stand, limit=1]",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "setblock ~ ~ ~ air",
+                        "permission_level": 4
+                    }
+                },
+                {   
+                    "type": "origins:delay",
+                    "ticks": 20,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "setblock ~ ~1 ~ air",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect clear @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "scale reset pehkui:motion",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:damage",
+                    "amount": 6,
+                    "source": {
+                        "name": "inWall",
+                        "bypass_armor": true,
+                        "unblockable": true
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.glass.break player @a[distance=..15] ~ ~ ~ 5 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.glass.break player @a[distance=..15] ~ ~ ~ 5 0.7",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.glass.break player @a[distance=..15] ~ ~ ~ 5 1.3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.amethyst_block.chime player @s ~ ~ ~ 10 0.1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~1.5 ~ 0.1 0.3 0.1 0.1 100 normal",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/block/black_stained_glass.png",
+        "draw_mode": "texture",
+        "draw_phase": "above_hud",
+        "hide_with_hud": false
+    }
+}

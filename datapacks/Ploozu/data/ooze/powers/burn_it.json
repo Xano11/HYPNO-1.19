@@ -1,0 +1,18 @@
+{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+        "type": "origins:fire"
+    },
+    "modifier": {
+        "operation": "multiply_total",
+        "value": 2
+    },
+    "name": "Burn It With Fire",
+    "description": "Fire is the only conceivable way to kill you.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/flint_and_steel.png",
+            "text": "You take 3x damage from fire + you lose mass."
+        }
+    ]
+  }

@@ -1,0 +1,10 @@
+{
+    "type": "origins:modify_swim_speed",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.75
+    },
+    "name": "§c§l§n",
+    "description": "Your dense as fuck bone structure has made it harder to swim (50% slower swimming).",
+	"hidden": true
+}

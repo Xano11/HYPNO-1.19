@@ -1,0 +1,46 @@
+{
+	"type": "origins:multiple",
+	"particles": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:landing_honey ~ ~.6 ~ .5 .5 .5 100 5 normal",
+				"permission_level": 4
+			},
+		"interval": 100
+	},
+	"ouch": {
+		"type": "origins:self_action_when_hit",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:entity.slime.death master @a[distance=..6] ~ ~ ~ 100 1 1",
+			"permission_level": 4
+		},
+		"cooldown": 140,
+		"hud_render": {
+			"should_render": false
+		}
+	},
+    "jump": {
+        "type": "origins:active_self",
+         "entity_action": {
+            "type": "origins:chance",
+            "action":
+            {    
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.slime.jump master @a[distance=..6] ~ ~ ~ 100 1 1",
+                "permission_level": 4
+            },
+            "chance": 0.2
+          },
+          "key": {
+            "key": "key.jump",
+            "continuous": false
+          },
+          "cooldown": 10,
+          "hud_render": {
+            "should_render": false
+         }
+      },
+	  "hidden": true
+}

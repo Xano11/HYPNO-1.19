@@ -1,0 +1,32 @@
+{
+    "powers": [
+        "lunarnc:small_shot",
+        "lunarnc:petrified_heart",
+        "lunarnc:appraisal",
+        "lunarnc:stat_checker",
+        "lunarnc:join_team",
+        "lunarnc:soul",
+        "lunarnc:summon",
+        "lunarnc:command",
+        "lunarnc:special",
+        "lunarnc:equip",
+        "lunarnc:freeze",
+        "lunarnc:take_soul",
+        "lunarnc:disconnect",
+        "lunarnc:night_lover",
+        "lunarnc:no_melee",
+        "lunarnc:no_trades",
+        "lunarnc:take_all_souls",
+        "lunarnc:unusable",
+        "lunarnc:burnbabyburn",
+        "lunarnc:banner"
+    ],
+    "icon": {
+      "item": "heart_of_the_sea",
+      "nbt": "{display:{Name:'{\"text\":\"Petrified Heart\"}'}}"  
+    },
+    "order": 1,
+    "impact": 3,
+    "name": "Deathsworn",
+    "description": "You are a necromancer with control over everything belonging to the afterlife."
+}

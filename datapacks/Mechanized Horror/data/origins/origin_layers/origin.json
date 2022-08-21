@@ -1,0 +1,7 @@
+{
+    "replace": false,
+    "origins" : [
+        "horror:horror_off",
+        "horror:horror_def"
+    ]
+}

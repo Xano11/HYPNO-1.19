@@ -1,0 +1,148 @@
+{
+    "name": "Corruption",
+    "description": "(Highlight Spectator Players) Harness the same corruption that infects you to inflict it apon others.",
+    "type": "origins:multiple",
+    "charge":
+    {
+        "type": "origins:active_self",
+        "cooldown": 0,
+        "key":
+        {
+            "key": "key.spectatorOutlines",
+            "continuous": true
+        },
+        "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dust_color_transition 0 0.8 0.7 0.6 0 0 0 ~ ~0.9 ~ 0.3 0.4 0.3 1 5 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dust_color_transition 0.8 0 0.7 0.6 0 0 0 ~ ~0.9 ~ 0.3 0.4 0.3 1 5 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s warper:corees 1"
+			 }
+		]
+	}
+},
+	"fix": 
+	{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:corees",
+	    "change": -1
+	},
+	"interval": 10
+},
+	"hit": 
+	{
+	"type": "origins:self_action_on_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+        "type": "origins:execute_command",
+        "command": "resource change @s warper:distortion 125"
+        },
+		{
+        "type": "origins:execute_command",
+        "command": "resource change @s warper:infectres 1"
+        },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:eat_this"
+             },
+		{
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:entity.warden.listening_angry master @a[distance=..10] ~ ~ ~ 1 1.5"
+        }
+		]
+		},
+    "cooldown": 120,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 14
+		},
+		"condition":
+            {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 1,
+                "resource": "warper:corees"
+            }
+	},
+	"althit": 
+	{
+	"type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+        "type": "origins:execute_command",
+        "command": "power grant @s warper:painb"
+        }
+				]
+				},
+    "cooldown": 120,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 14
+		},
+		"condition":
+            {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 1,
+                "resource": "warper:corees"
+            }
+	},
+
+	"dmg": 
+	{
+	"type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+		
+        {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+					"type": "origins:damage",
+					"amount": 5,
+					"source": {
+						"name": "magic",
+						"unblockable": false,
+						"bypasses_armor": false
+					}
+        }
+		}
+				]
+				},
+    "cooldown": 0,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 14
+		},
+		"condition":
+            {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 1,
+                "resource": "warper:corees"
+            }
+	}
+}

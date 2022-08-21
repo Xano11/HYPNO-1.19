@@ -1,0 +1,35 @@
+{
+  "type": "origins:multiple",
+  "tag_add": {
+  	"type": "origins:action_over_time",
+  	"entity_action":
+        {
+          "type": "origins:execute_command",
+          "command": "tag @s add myasshole"
+        },
+    "interval": 1
+  },
+  "tag_remove": {
+    "type": "origins:action_on_callback",
+    "entity_action_removed": {
+          "type": "origins:execute_command",
+          "command": "tag @s remove myasshole"
+        }  
+  },
+  "footstep":
+  {
+    "type": "apugli:custom_footstep",
+    "sound": "minecraft:block.netherite_block.place"
+},
+"hurt_sound":
+{
+  "type": "apugli:custom_hurt_sound",
+  "sound": "minecraft:block.netherite_block.break"
+},
+"death_sound":
+{
+  "type": "apugli:custom_death_sound",
+  "sound": "minecraft:block.respawn_anchor.deplete"
+},
+  "hidden": true
+}

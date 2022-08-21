@@ -1,0 +1,181 @@
+{
+	"type": "origins:multiple",
+    "name": "Rocket Boots",
+    "description": "(Primary, Primary + Sneak) You have rocket boots that allow you to propel yourself fowards in short bursts, while sneaking focus your boots directly forward.",
+	"up": {
+    "type": "origins:active_self",
+    "hidden": false,
+    "cooldown": 50,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type":"origins:execute_command",
+                "command":"particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 50 force @a[distance=..30]",
+                "permission_level":4
+            },
+            {
+                "type": "origins:add_velocity",
+                "y": 0.2
+            },
+			{
+                "type": "origins:add_velocity",
+                "z": 0.8,
+				"space": "local"
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.firework_rocket.launch"
+            },
+            {
+                "type": "origins:change_resource",
+                  "resource": "engineer:power_res",
+                  "change": -150
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.3 0.2 0.05 3 force"
+                }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 4,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.3 0.2 0.05 3 force"
+                }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 6,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.3 0.2 0.05 3 force"
+                }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 8,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.3 0.2 0.05 3 force"
+                }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 10,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.3 0.2 0.05 3 force"
+                }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 12,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~ ~ 0.2 0.3 0.2 0.05 3 force"
+                }
+            }
+        ]
+    },
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/resource_bar.png"
+    },
+    "condition": {
+            "type": "origins:and",
+            "inverted": false,
+            "conditions": [
+                {
+        "type": "origins:resource",
+        "resource": "engineer:power_res",
+        "comparison": ">",
+        "compare_to": 150
+    },
+	
+                {
+                    "type": "origins:sneaking",
+					"inverted": true
+                },
+    {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": "==",
+        "compare_to": 0,
+        "inverted": false
+        }
+    ]
+    },
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": true
+    }
+},
+"forward": {
+    "type": "origins:active_self",
+    "cooldown": 50,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type":"origins:execute_command",
+                "command":"particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 50 force @a[distance=..30]",
+                "permission_level":4
+            },
+            {
+                "type": "origins:add_velocity",
+                "y": 0.05
+            },
+			{
+                "type": "origins:add_velocity",
+                "z": 1.0,
+				"space": "local"
+            },
+            {
+                "type": "origins:play_sound",
+                "sound": "minecraft:entity.firework_rocket.launch"
+            },
+            {
+                "type": "origins:change_resource",
+                  "resource": "engineer:power_res",
+                  "change": -150
+            }
+        ]
+    },
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/resource_bar.png"
+    },
+    "condition": {
+            "type": "origins:and",
+            "inverted": false,
+            "conditions": [
+                {
+        "type": "origins:resource",
+        "resource": "engineer:power_res",
+        "comparison": ">",
+        "compare_to": 150
+    },
+                {
+                    "type": "origins:sneaking",
+					"inverted": false
+                },
+    {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": "==",
+        "compare_to": 0,
+        "inverted": false
+        }
+    ]
+    },
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": true
+    }
+}
+}

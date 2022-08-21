@@ -1,0 +1,15 @@
+{
+    "type": "origins:multiple",
+	"elytra": {
+		"type": "origins:elytra_flight",
+		"render_elytra": true
+},
+	"name": "Impish Wings",
+	"description": "After immense loyalty as servants to the devil, imps were gifted wings suitable for flight.",
+	"badges": [
+		{
+			"sprite": "minecraft:textures/item/elytra.png",
+			"text": "DO A BARREL ROLL-"
+		}
+	]
+}

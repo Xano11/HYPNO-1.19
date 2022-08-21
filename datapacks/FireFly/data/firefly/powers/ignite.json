@@ -1,0 +1,42 @@
+{
+    "type": "origins:multiple",
+
+    "resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 10,
+		"start_value": 10,
+		"hud_render": {
+		"should_render": false
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s firefly:ignite"
+        }
+	},
+
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "firefly:ignite_resource",
+			"change": -1
+		},
+		"interval": 20
+	},
+
+    "healthing": {
+    "type": "origins:modify_healing",
+    "modifier": {
+        "operation": "multiply_total",
+        "value": -0.5
+        }
+    },
+
+    "burn": {
+        "type": "origins:burn",
+    "interval": 20,
+    "burn_duration": 1
+    },
+    "hidden": true
+}

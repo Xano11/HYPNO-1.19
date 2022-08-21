@@ -1,0 +1,26 @@
+{
+    "type": "origins:multiple",
+	"soul_speed": {
+    "type": "apugli:modify_soul_speed",
+    "modifier": {
+        "operation": "addition",
+        "value": 1
+        },
+    "condition": {
+        "type": "apoli:enchantment",
+        "enchantment": "minecraft:soul_speed",
+        "calculation": "max",
+        "comparison": "==",
+        "compare_to": 0
+        }
+    },
+    "name": "Soul Stepper",
+    "description": "You naturally move a bit quicker than others on soul sand/soil.",
+    "badges": [
+    {
+        "sprite": "minecraft:textures/item/netherite_boots.png",
+        "text": "You have passive Soul Speed 1. Does not stack with the Soul Speed enchant."
+    }
+]
+}
+    

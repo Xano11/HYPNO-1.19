@@ -1,0 +1,24 @@
+{
+    "display": {
+        "title": {
+            "text": "Hydra",
+            "color": "green"
+        },
+        "description": {
+            "text": "Become Hydra."
+        },
+        "icon": {
+            "item": "minecraft:ender_chest"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": true,
+        "background": "minecraft:textures/block/tinted_glass.png"
+    },
+    "criteria": {
+        "choose_hydra": {
+            "trigger": "minecraft:impossible"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+	"hidden": true,
+	"type": "origins:action_over_time",
+	"entity_action": {
+		"type": "origins:chance",
+		"action":
+		{    
+			"type": "origins:play_sound",
+			"sound": "minecraft:entity.allay.ambient_without_item",
+			"volume": 1,
+			"pitch": 1
+		},
+		"chance": 0.1
+	},
+	"interval": 60
+}

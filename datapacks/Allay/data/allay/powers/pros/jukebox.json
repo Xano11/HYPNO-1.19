@@ -1,0 +1,26 @@
+{
+    "type": "origins:inventory",
+    "title": "Jukebox",
+        "condition": {
+            "type": "origins:on_block",
+            "block_condition": {
+                "type": "origins:block",
+                "block": "minecraft:jukebox"
+            }
+        },
+    "key": {
+        "key": "key.origins.primary_active"
+        },
+    "name": "§2§l§nJukebox Stash",
+    "description": "Stand on a Jukebox to open a separate inventory.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/jukebox_top.png",
+            "text": "It's the same logic as putting a pb&j in a vcr player!"
+        },
+        {
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Active ability, use with [Primary]"
+        }
+    ]
+}

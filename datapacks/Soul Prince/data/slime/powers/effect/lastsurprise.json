@@ -1,0 +1,447 @@
+{    
+    "type": "origins:multiple",
+
+    "speed":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "double speed speed",
+            "attribute": "generic.movement_speed",
+            "value": 1,
+            "operation": "multiply_total"
+        }
+    },
+
+    "air_speed":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "value": 0.6,
+            "operation": "multiply_total"
+        }
+    },
+
+	"jump":{
+        "type": "origins:modify_jump",
+    	"modifier": {
+        "operation": "addition",
+        "value": 0.4
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:sculk_soul ~ ~ ~ 0.3 0.3 0.3 0.01 16 normal @a"
+    	}
+	},
+
+	"break":{
+	"type": "origins:modify_break_speed",
+    	"modifier": {
+        "operation": "multiply_base",
+        "value": 3
+    	}
+	},
+	
+	"no_items":{
+	"type": "origins:action_over_time",
+    	"entity_action": {
+			"type": "origins:drop_inventory"
+    	},
+    "interval": 10
+    },
+	
+
+	"pickup":{
+	"type": "origins:modify_harvest",	
+	"allow": true
+	},
+
+	"damage":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "no melee",
+            "attribute": "generic.attack_damage",
+            "value": -0.999,
+            "operation": "multiply_total"
+        }
+    },
+
+	"swirl":
+	{
+		"type": "apugli:energy_swirl",
+		"texture_location": "minecraft:textures/particle/sculk_soul_7.png",
+		"speed": 0.01
+	},
+
+	"attack": {
+		"type": "origins:action_on_hit",
+		"bientity_action": {
+			"type": "origins:and",
+    		"actions": [
+			{
+				"type": "origins:add_velocity",
+				"z": 1
+			},
+			{
+				"type": "origins:damage",
+				"amount": 17,
+				"source": {
+					"name": "thrown"
+					}
+				},
+				{
+					"type": "origins:actor_action",
+					"action": {
+						"type": "origins:change_resource",
+			    		"resource": "slime:effect/lastsurprise_resource",
+			    		"change": 3
+					}
+				}
+			]
+		},
+		"cooldown": 26,
+		"hud_render": {
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+			"should_render": true,
+			"bar_index": 20
+		}
+	},
+
+	"respawn": {
+	"type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1.5 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 1.5 @s",
+                    "permission_level": 4
+                },
+				{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:reach 1.5 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                },
+				{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:reach 1 @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+	},
+
+	"live": {
+		"type": "origins:action_on_callback",
+        "entity_action_respawn": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                }
+            ]
+        }
+	},
+
+	"health":{
+	"type": "origins:attribute",
+    	"modifier": {
+        "name": "Max health increase",
+        "attribute": "minecraft:generic.max_health",
+        "value": 20,
+        "operation": "addition"
+    	}
+	},
+	
+
+    "resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 15,
+		"start_value": 15,
+		"hud_render": {
+		"should_render": true
+        },
+        "min_action": {
+            "type": "origins:and",
+		"actions": [
+			{
+				"type": "origins:execute_command",
+				"command": "gamerule showDeathMessages false"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "kill @s"
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "gamerule showDeathMessages true"
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:choice",
+					"actions": [
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" will be back...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\", the king will return...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\"'s rampage is done... for now...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" failed the skill check!\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" got nerfed!\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\"'s supports wouldn't heal him...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" was voted out... s u s\"}]"
+							},
+							"weight": 5
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" got ratio'd by his father!!\"}]"
+							},
+							"weight": 5
+						}
+					]
+				}
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.evoker.prepare_summon master @a ~ ~ ~ 0.5 0.8"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sonic_boom ~ ~0.9 ~ 0.25 0.4 0.25 3 10 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_charge_pop ~ ~0.9 ~ 0.25 0.4 0.25 1 100 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_soul ~ ~0.9 ~ 0.25 0.4 0.25 1 10 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_soul ~ ~0.9 ~ 0.25 0.4 0.25 1 10 normal"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 2,
+				"action": {
+				"type": "origins:change_resource",
+			    "resource": "slime:lastsurprise_resource",
+			    "change": -1
+				}
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "power remove @s slime:effect/lastsurprise"
+			}
+		    ]
+        }
+	},
+
+	"action": {
+        "type": "origins:prevent_death",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+               {
+				"type": "origins:execute_command",
+				"command": "gamerule showDeathMessages false"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "kill @s"
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:execute_command",
+					"command": "gamerule showDeathMessages true"
+				}
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 1,
+				"action": {
+					"type": "origins:choice",
+					"actions": [
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" will be back...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\", the king will return...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\"'s rampage is done... for now...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" failed the skill check!\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" got nerfed!\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\"'s supports wouldn't heal him...\"}]"
+							},
+							"weight": 10
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" was voted out... s u s\"}]"
+							},
+							"weight": 5
+						},
+						{
+							"element": {
+								"type": "origins:execute_command",
+								"command": "tellraw @a [{\"selector\":\"@s\",\"italic\":false},{\"text\":\" got ratio'd by his father!!\"}]"
+							},
+							"weight": 5
+						}
+					]
+				}
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.evoker.prepare_summon master @a ~ ~ ~ 0.5 0.8"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sonic_boom ~ ~0.9 ~ 0.25 0.4 0.25 3 10 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_charge_pop ~ ~0.9 ~ 0.25 0.4 0.25 1 100 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_soul ~ ~0.9 ~ 0.25 0.4 0.25 1 10 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_soul ~ ~0.9 ~ 0.25 0.4 0.25 1 10 normal"
+			},
+			{
+				"type": "origins:delay",
+				"ticks": 2,
+				"action": {
+				"type": "origins:change_resource",
+			    "resource": "slime:lastsurprise_resource",
+			    "change": -1
+				}
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "power remove @s slime:effect/lastsurprise"
+			}
+            ]
+        }
+    },
+
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "slime:effect/lastsurprise_resource",
+			"change": -1
+		},
+		"interval": 20
+	}
+}

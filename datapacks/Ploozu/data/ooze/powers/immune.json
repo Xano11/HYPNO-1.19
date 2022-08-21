@@ -1,0 +1,65 @@
+{
+    "type": "origins:multiple",
+    "no_suf": {
+        "type":"origins:modify_damage_taken",
+        "modifier":{
+        "value": -1.00,
+        "operation":"multiply_total"
+                },
+            "damage_condition":{
+            "type":"origins:and",
+            "conditions":[
+                {
+                    "type": "origins:name",
+                    "name": "inWall"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "no_starve": {
+        "type":"origins:modify_damage_taken",
+        "modifier":{
+        "value": -1.00,
+        "operation":"multiply_total"
+                },
+            "damage_condition":{
+            "type":"origins:and",
+            "conditions":[
+                {
+                    "type": "origins:name",
+                    "name": "starve"
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "no_drown":{
+    "type": "origins:action_over_time",
+    "entity_action": {
+        "type": "origins:gain_air",
+        "value": 50
+    },
+    "interval": 1,
+    "condition": {
+        "type": "origins:submerged_in",
+        "fluid": "minecraft:water"
+        }
+    },
+	"name": "Breathing?",
+	"description": "You dont understand the concept of breathing, so why would you drown?.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+            "text": "air."
+        }
+    ]
+}

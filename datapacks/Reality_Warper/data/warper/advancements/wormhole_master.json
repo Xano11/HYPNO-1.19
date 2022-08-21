@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Wormhole Master"
+        },
+        "description": {
+            "text": "Travel between your wormholes 1000 times."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Wormhole Master.": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:wormhole_connoisseur"
+}

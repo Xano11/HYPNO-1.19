@@ -1,0 +1,111 @@
+{
+    "type": "origins:multiple",
+
+    "night_time_speed_buff": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": 0.20,
+            "name": "Move 20% Faster During Night"
+            },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "day_time_resistance_nerf": {
+        "type": "origins:modify_damage_taken",
+        "modifier": {
+            "name": "20% More Damage During Day",
+            "operation": "multiply_total",
+            "value": 0.2
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:exposed_to_sky",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+
+    "day_time_speed_nerf": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.movement_speed",
+            "operation": "multiply_total",
+            "value": -0.20,
+            "name": "Move 20% Slower During Day"
+            },
+        "tick_rate": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime"
+                },
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                },
+                {
+                    "type": "origins:exposed_to_sky"
+                }
+            ]
+        }
+    },
+
+    "day_time_weakness": {
+        "type": "origins:stacking_status_effect",
+            "min_stacks": 0,
+            "max_stacks": 1,
+            "duration_per_stack": 20,
+            "effects": [
+                {
+                    "effect": "minecraft:weakness",
+                    "is_ambient": true,
+                    "show_particles": false,
+                    "show_icon": true,
+                    "amplifier": 0
+                }
+            ],
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:daytime"
+                    },
+                    {    
+                        "type": "origins:dimension",
+                        "dimension": "minecraft:overworld"
+                    },
+                    {
+                        "type": "origins:exposed_to_sky"
+                    }
+                ]
+            }
+        },
+    "name": "Lunar Prowess",
+    "description": "During night, you move 20% faster but during day you have weakness and move 20% slower.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/environment/moon_phases.png",
+            "text": "Time matters and use it in your advantage."
+        }
+    ]
+}

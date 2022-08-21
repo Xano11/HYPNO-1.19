@@ -1,0 +1,38 @@
+{
+	"type": "origins:multiple",
+	"ooze": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 4,
+			"operation": "multiply_total"
+		}
+	},
+	"food": {
+		"type": "origins:modify_food",
+		"food_modifier": {
+			"operation": "multiply_base",
+			"value": -0.5
+		},
+		"saturation_modifier": {
+			"operation": "multiply_base",
+			"value": -0.5
+		}
+	},
+	"picky": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+			  "tag": "ooze:food"
+			}
+		  }
+	},
+	"name": "Gluttony",
+	"description": "You starve 500% faster, and you cant eat non-sweet food. Hunger has driven you to consume anything and everything including the very ground.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/block/dirt.png",
+            "text": "Healing and souls go together hand in hand."
+        }
+    ]	
+}

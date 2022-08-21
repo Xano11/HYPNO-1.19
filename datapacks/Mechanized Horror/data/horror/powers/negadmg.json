@@ -1,0 +1,18 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.attack_damage",
+    "value": -3,
+    "operation": "addition"
+  },
+  "name": "Weak Arms",
+  "description": "Putting so much power into making you tankier has left you dealing less damage.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/weakness.png",
+        "text": "Have you ever heard of arthritis?"
+    }
+],
+  "hidden": false
+}

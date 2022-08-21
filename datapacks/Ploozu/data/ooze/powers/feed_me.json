@@ -1,0 +1,88 @@
+{
+    "type": "origins:multiple",
+    "treat": {
+    "type": "origins:action_on_being_used",
+    "bientity_action": {
+      "type": "origins:actor_action",
+      "action": {
+            "type": "origins:equipped_item_action",
+            "equipment_slot": "mainhand",
+            "action": {
+                "type": "origins:consume",
+                "amount": 1
+              }
+            }    
+      },
+      "bientity_condition": {
+        "type": "origins:actor_condition",
+            "condition":
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                      "tag": "ooze:sweets"
+                    }
+                }
+            }
+        },
+    "cooldown": 20,
+      "hud_render": {
+        "should_render": false
+      }
+    },
+    "tasty": {
+      "type": "origins:action_on_being_used",
+      "bientity_action": {
+          "type": "origins:target_action",
+          "action": {
+              "type": "origins:and",
+              "actions": [
+                      {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.cat.purreow master @a[distance=..15] ~ ~ ~ 2 2 1",
+                        "permission_level": 4
+                      },
+                      {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:heart ~ ~1 ~ 0.1 0.5 0.5 7 7 force @a[distance=..15]",
+                        "permission_level": 4
+                      },
+                      {
+                        "type": "origins:feed",
+                        "food": 2,
+                        "saturation": 0.4
+                      }
+                      ]
+                          
+                  }
+              },
+          "bientity_condition": {
+              "type": "origins:actor_condition",
+                  "condition":
+                  {
+                      "type": "origins:equipped_item",
+                      "equipment_slot": "mainhand",
+                      "item_condition": {
+                          "type": "origins:ingredient",
+                          "ingredient": {
+                            "tag": "ooze:sweets"
+                          }
+                      }
+                  }
+              },
+          "cooldown": 20,
+            "hud_render": {
+              "should_render": false
+          }
+      },
+      "name": "Feed Me",
+      "description": "Other people can feed you sweets, there isnt much point to this :D",
+      "badges": [
+        {
+            "sprite": "minecraft:textures/item/cookie.png",
+            "text": "Anything that is relatively sweet will work."
+        }
+      ]
+}

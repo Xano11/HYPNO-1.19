@@ -1,0 +1,29 @@
+{
+    "type": "origins:action_on_callback",
+    "entity_action_chosen": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "team join lc_Necro @s"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "advancement grant @s only lunarnc:root"
+            }
+        ]
+    },
+    "entity_action_lost": {
+        "type": "origins:execute_command",
+        "command": "team leave @s"
+    },
+    "execute_chosen_when_orb": true,
+    "name": "Occultist's Eulogy",
+    "description": "Mobs you summon won't attempt to attack you.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hero_of_the_village.png",
+            "text": "They have to be loyal... or else that would make no sense, right?"
+        }
+    ]
+}

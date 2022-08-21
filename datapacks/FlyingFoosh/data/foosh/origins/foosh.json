@@ -1,0 +1,36 @@
+{
+	"powers": [
+		"origins:water_breathing",
+		"origins:water_vision",
+		"foosh:trident",
+		"foosh:trident_thrown",
+		"foosh:merling_grace",
+		"origins:aqua_affinity",
+		"origins:swim_speed",
+		"origins:like_water",
+		"origins:aquatic",
+		"origins:conduit_power_on_land",
+		"origins:air_from_potions",
+		"origins:claustrophobia",
+		"origins:more_kinetic_damage",
+		"foosh:water_dash",
+		"foosh:callback",
+		"foosh:lovers",
+		"foosh:resource",
+		"foosh:elytra_toggle",
+		"foosh:elytra",
+		"foosh:advancement",
+		"foosh:concoction",
+		"foosh:regeneration",
+		"foosh:graceful"
+	],
+	"icon": {
+		"item": "minecraft:tropical_fish",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"name": "Flying Fish",
+	"loading_priority": 1,
+	"description": "You are a fish-person that was born with a rare genetic condition : The one of flight.",
+	"order": 3,
+	"impact": 2
+}

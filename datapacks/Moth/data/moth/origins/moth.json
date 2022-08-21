@@ -1,0 +1,25 @@
+{
+	"powers": [
+		"moth:pros/crawl",
+		"moth:pros/slowfall",
+		"moth:pros/flight",
+		"moth:pros/camo",
+		"moth:pros/hug",
+		"moth:neutrals/small",
+		"moth:neutrals/snack",
+		"moth:neutrals/insect",
+		"moth:cons/fluffy",
+		"moth:cons/swim",
+		"moth:cons/stupid",
+		"moth:cons/bugzapper",
+		"moth:cosmetic/damage",
+		"moth:cosmetic/death",
+		"moth:cosmetic/mental_breakdown",
+		"moth:cosmetic/passive"
+	],
+	"icon": "minecraft:elytra",
+	"order": 10,
+	"impact": 3,
+	"name": "§lMoth",
+	"description": "The controls for this origin are extremely obtuse!"
+}

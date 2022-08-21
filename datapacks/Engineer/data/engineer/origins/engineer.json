@@ -1,0 +1,24 @@
+{
+	"powers": [
+		"engineer:switch",
+		"engineer:power",
+		"engineer:rocket",
+		"engineer:charge",
+		"engineer:build",
+		"engineer:engineer_tag",
+		"engineer:recipe",
+		"engineer:beacon",
+		"engineer:crafting",
+		"engineer:health",
+		"engineer:explosions",
+		"engineer:hunger_fast",
+		"engineer:ignore_water",
+		"engineer:prevent"
+	
+	],
+	"icon": "minecraft:redstone_block",
+	"order": 20,
+	"impact": 3,
+	"name": "Engineer",
+	"description": "The Engineer is engihere."
+}

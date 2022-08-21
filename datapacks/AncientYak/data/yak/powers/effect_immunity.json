@@ -1,0 +1,15 @@
+{
+    "type": "origins:effect_immunity",
+    "effects": [
+        "minecraft:strength",
+        "minecraft:fire_resistance"
+    ],
+"name": "Born different",
+"description": "You don't get affected by the effect \"Strength\" due to your innate power and fire resistance does not work with your wool.",
+"badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/strength.png",
+        "text": "Already strong enough."
+    }
+]
+}

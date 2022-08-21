@@ -1,0 +1,22 @@
+{
+	"powers": [
+		"slime:skewer",
+		"slime:inject",
+		"slime:medi",
+		"slime:powerswap",
+		"slime:lastsurprise",
+		"slime:health",
+		"slime:soul_spawn",
+		"slime:no_sleep",
+		"slime:royal",
+		"slime:body",
+		"slime:food",
+		"slime:healing",
+		"slime:swim"
+	],
+	"icon": "minecraft:golden_helmet",
+	"order": 10,
+	"impact": 3,
+	"name": "Prince of the Souls",
+	"description": "A young prince filled with the essence of the souls that his father had killed before his birth, allowing him to accomplish feats unhuman."
+}

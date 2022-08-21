@@ -1,0 +1,79 @@
+{
+	"type": "origins:multiple",
+	"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 1000,
+	"start_value": 1000,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 2
+	}
+	},
+	"gain": {
+        "type": "origins:action_over_time",
+	        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "engineer:power_res",
+            "change": 2
+        },
+    "interval": 4,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+                {
+                    "type": "origins:sprinting"
+                }
+            ]
+        }
+    },
+	"gain2": {
+        "type": "origins:action_over_time",
+	        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "engineer:power_res",
+            "change": 2
+        },
+    "interval": 50
+    },
+	"low": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effects": [
+			{
+				"effect": "minecraft:mining_fatigue",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 1
+			},
+			{
+				"effect": "minecraft:slowness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 1
+			}
+		],
+		"condition": {
+				"type": "origins:resource",
+				"resource": "engineer:power_res",
+				"comparison": "<=",
+				"compare_to": 250
+				}
+	},
+	"refill": {
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+     "entity_action_respawned": {
+        "type": "origins:execute_command",
+        "permission_level": 4,
+        "command": "resource set @s engineer:power_res 1000"
+		}
+},
+  "name": "Feel The Energy",
+  "description": "You can charge up electricity inside your robotic suit by running to use in various different ways, but being on low power will cause you to be slower."
+}

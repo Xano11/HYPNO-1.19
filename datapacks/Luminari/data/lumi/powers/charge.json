@@ -1,0 +1,190 @@
+{
+    "name": "Channel",
+    "description": "(Highlight Spectator Players) Channel the power of the stars into your body charging up your star power bar.",
+    "type": "origins:multiple",
+    "charge":
+    {
+        "type": "origins:active_self",
+        "cooldown": 0,
+        "key":
+        {
+            "key": "key.spectatorOutlines",
+            "continuous": true
+        },
+        "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:electric_spark ~ ~0.9 ~ 0.3 0.4 0.3 1 5 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:witch ~ ~0.9 ~ 0.3 0.4 0.3 1 5 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s lumi:charge_res 1"
+			 }
+		]
+	},
+	"condition":{
+        "type": "origins:and",
+        "conditions": [ {
+				"type": "origins:resource",
+				"resource": "lumi:power_res",
+				"comparison": "<",
+				"compare_to": 1000
+			},
+			{
+				"type": "origins:on_block"
+			}
+			]
+			}
+},
+	"fix": 
+	{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "lumi:charge_res",
+	    "change": -1
+	},
+	"interval": 10
+},
+"no_more_jump": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "set_total",
+			"value": 0
+		},
+		"condition":{
+				"type": "origins:resource",
+				"resource": "lumi:charge_res",
+				"comparison": "==",
+				"compare_to": 1
+			}
+	},
+"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 1,
+	"start_value": 1,
+	"hud_render": {
+          "should_render": false,
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+          "bar_index": 0
+	}
+	},
+"stop": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": -1
+             },
+			"condition":{
+				"type": "origins:resource",
+				"resource": "lumi:charge_res",
+				"comparison": "==",
+				"compare_to": 1
+			}
+ },
+		"resup": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s lumi:power_res 3"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "effect give @s blindness 2 0 true"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "effect give @s darkness 2 0 true"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "effect give @s slowness 1 7 true"
+             }
+			 ]
+			 },
+			"interval": 1,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "lumi:charge_res",
+				"comparison": "==",
+				"compare_to": 1
+			}
+		},
+		"reesup": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s lumi:power_res 1"
+             }
+			 ]
+			 },
+			"interval": 1,
+			"condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:daytime",
+                    "inverted": true
+                },
+				{
+				"type": "origins:resource",
+				"resource": "lumi:charge_res",
+				"comparison": "==",
+				"compare_to": 1
+				},
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+            ]
+        }
+		},
+		"nether": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s lumi:power_res -1"
+             }
+			 ]
+			 },
+			"interval": 3,
+			"condition": {
+            "type": "origins:and",
+            "conditions": [
+				{
+				"type": "origins:resource",
+				"resource": "lumi:charge_res",
+				"comparison": "==",
+				"compare_to": 1
+				},
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld",
+					"inverted": true
+                }
+            ]
+        }
+		}
+}

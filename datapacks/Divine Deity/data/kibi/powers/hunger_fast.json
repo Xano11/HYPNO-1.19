@@ -1,0 +1,12 @@
+{
+	"type": "origins:multiple",
+	"name": "Magic Exhaustion",
+	"description": "Using so much magic takes a toll on you causing you to exhaust faster. (300% faster)",
+	"hunger": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 3,
+			"operation": "multiply_total"
+		}
+	}
+}

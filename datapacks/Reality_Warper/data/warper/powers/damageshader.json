@@ -1,0 +1,17 @@
+{
+  "type": "origins:shader",
+  "shader": "minecraft:shaders/post/bits.json",
+  "toggleable": false,
+			"condition": {
+			"type": "origins:and",
+				"conditions": [
+				{
+				"type": "origins:resource",
+				"resource": "warper:distort_shaderres",
+				"comparison": ">=",
+				"compare_to": 1
+			}
+			]
+			},
+  "hidden": true
+}

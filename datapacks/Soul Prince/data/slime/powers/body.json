@@ -1,0 +1,100 @@
+{
+    "type": "origins:multiple",
+    "size": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 1 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_respawn": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 0.67 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:width 0.67 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "fall_immunity_partly": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+            },
+            "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "condition": {
+            "type": "origins:fall_distance",
+            "comparison": "<=",
+            "compare_to": 5
+        }
+    },
+
+    "teamremove": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:execute_command",
+            "command": "team @e remove soul",
+            "permission_level": 4
+        },
+        "execute_chosen_when_orb": true
+    },
+    
+    "teamjoinandleave": {
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:execute_command",
+            "command": "tag @s add soul",
+            "permission_level": 4
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove soul",
+            "permission_level": 4
+        },
+        "execute_chosen_when_orb": true
+    },
+    
+    "name": "Young",
+    "description": "You're short, and don't take fall damage but upon falling 5 or more blocks you do.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/nether_star.png",
+            "text": "Young blood."
+        }
+    ]
+}

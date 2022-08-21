@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Fresh air"
+        },
+        "description": {
+            "text": "Go touch some grass."
+        },
+        "icon": {
+            "item": "minecraft:potion"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "Fresh": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "foosh:root"
+}

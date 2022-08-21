@@ -1,0 +1,9 @@
+{
+  "type": "origins:modify_xp_gain",
+  "modifier": {
+	"operation": "multiply_total",
+	"value": -0.25
+	},
+	"name": "Fractured Experience",
+	"description": "You gain 25% less xp than others."
+}

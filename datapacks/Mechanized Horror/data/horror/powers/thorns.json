@@ -1,0 +1,20 @@
+{
+    "type": "origins:attacker_action_when_hit",
+    "entity_action": {
+       "type": "origins:damage",
+       "amount": 2.0,
+       "source": {
+          "name": "thorns",
+          "bypasses_armor": false
+       }
+    },
+    "cooldown": 0,
+	"name": "Hot Bod",
+	"description": "Your foe will be burned by your hot body.",
+   "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/fire_resistance.png",
+          "text": "Have you ever heard of abs?"
+      }
+  ]
+}

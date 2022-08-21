@@ -1,0 +1,159 @@
+{
+    "type": "origins:multiple",
+    
+    "swirl":
+        {
+            "type": "apugli:energy_swirl",
+            "texture_location": "minecraft:textures/block/warped_wart_block.png",
+            "speed": 0.01
+        },
+    "resource":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 200,
+        "start_value": 0,
+        "hud_render": {
+        "should_render": false
+    },
+    "max_action": 
+    {
+      "type": "origins:and",
+      "actions": [
+        {
+        "type": "origins:execute_command",
+        "permission_level": 4,
+        "command": "power remove @s foosh:bubble"
+                }
+            ]
+            }
+        },
+
+        "gain1":
+        {
+            "type": "origins:action_over_time",
+            "entity_action": {
+                "type": "origins:change_resource",
+                "resource": "foosh:bubble_resource",
+                "change": 4
+            },
+            "interval": 4
+        },
+
+        "air":
+        {
+            "type": "origins:action_over_time",
+            "entity_action": {
+                "type": "origins:gain_air",
+                "value": 2
+            },
+            "interval": 4
+        },
+    
+        "particle":
+        {
+            "type": "origins:action_over_time",
+            "entity_action":  {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:bubble_pop ~ ~1 ~ 0.6 0.5 0.6 0.001 100"
+            },
+            "interval": 5
+        },
+        "particle2":
+        {
+            "type": "origins:action_over_time",
+            "entity_action":  {
+                "type": "origins:execute_command",
+                "command": "particle minecraft:dust_color_transition 0 0.6 1 1 1 1 1 ~ ~1 ~ 0.6 0.5 0.6 0.001 100"
+            },
+            "interval": 5
+        },
+        "invincible":
+        {
+            "type": "origins:modify_damage_taken",
+            "modifier": {
+                "name": "Invincible",
+                "operation": "multiply_total",
+                "value": -1
+            }
+        },
+        "pacifist":
+        {
+            "type": "origins:modify_damage_dealt",
+            "modifier": {
+                "name": "Pacifist",
+                "operation": "multiply_total",
+                "value": -1
+            }
+        },
+        "no_mining":
+        {
+            "type": "origins:modify_break_speed",
+            "modifier": {
+                "operation": "multiply_total",
+                "value": -1
+            }
+        },
+        "prevent_use":
+        {
+            "type": "origins:prevent_item_use"
+        },
+        "heal":
+        {
+            "type": "origins:action_over_time",
+            "entity_action":  {
+                "type": "origins:heal",
+                "amount": 2
+            },
+            "interval": 40
+        },
+        "sounds":
+        {
+            "type": "origins:action_over_time",
+            "entity_action":  {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.dolphin.splash player @s ~ ~ ~ 2 2"
+            },
+            "interval": 40
+        },
+        "break":
+        {
+            "type":"origins:active_self",
+            "entity_action":{
+                "type":"origins:and",
+                "actions":[
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "foosh:bubble_resource",
+                        "change": 40
+                    },
+                    {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.bubble_column.bubble_pop player @a ~ ~ ~ 2 0.5",
+                    "permission_level": 4
+                    }
+                ]
+            },
+            "cooldown": 2,
+            "hud_render":{
+                "should_render":false
+            },
+            "key":{
+                "key":"key.jump"
+            }
+        },
+        
+"immobile":
+    {
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -1,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "x",
+          "z",
+          "y"
+        ]
+    },
+   "hidden": true
+}

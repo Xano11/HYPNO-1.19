@@ -1,0 +1,131 @@
+{
+    "type":"origins:multiple",
+"particles":
+{
+  "type": "origins:action_over_time",
+  "entity_action":
+      {
+    "type": "origins:area_of_effect",
+    "radius": 5,
+    "bientity_action": {
+      "type":"origins:and",
+      "actions":[{
+          "type": "origins:add_velocity",
+          "z": 0.4,
+          "y": 0.2
+      },
+      {
+        "type": "origins:actor_action",
+        "action": {
+          "type": "origins:execute_command",
+          "command": "particle minecraft:dust_color_transition 1 1 1 1 0.9 0.9 0.9 ~ ~1 ~ 1.5 0.5 1.5 0.01 5"
+        }
+      },
+      {
+        "type": "origins:actor_action",
+        "action": {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:block.beacon.power_select master @a[distance=..20] ~ ~ ~ 0.01 2"
+        }
+      }
+    ]
+  }
+},
+  "interval": 3,
+"condition": {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": ">=",
+                "compare_to": 1,
+                "resource": "kibi:forcefield_res"
+            }
+},
+"down":
+{
+  "type": "origins:action_over_time",
+  "entity_action":
+      {
+      "type":"origins:and",
+      "actions":[{
+          "type": "origins:execute_command",
+          "command": "resource change @s kibi:forcefield_res -1"
+        },
+		{
+          "type": "origins:execute_command",
+          "command": "effect give @s resistance 1 1 true"
+        }
+		]
+		},
+  "interval": 1,
+"condition": {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": ">=",
+                "compare_to": 1,
+                "resource": "kibi:forcefield_res"
+            }
+},
+"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 140,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 0
+	}
+},
+"activate": {
+    "type": "origins:active_self",
+    "cooldown": 600,
+    "key": "key.loadToolbarActivator",
+	"continuous": false,
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+			{
+				"type": "origins:execute_command",
+				"command": "resource set @s kibi:forcefield_res 400",
+				"permission_level": 4
+			},
+			{
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:block.beacon.activate master @a[distance=..20] ~ ~ ~ 0.2 2"
+			},
+			{
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:block.beacon.ambient master @a[distance=..20] ~ ~ ~ 0.5 2"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "power grant @s kibi:proj",
+				"permission_level": 4
+			},
+			{
+                "type": "origins:delay",
+                "ticks": 200,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s kibi:proj"
+                }
+            }
+        ]
+    },
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+		"bar_index": 19
+    },
+	"condition":
+            {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 0,
+                "resource": "kibi:forcefield_res"
+            }
+},
+"name": "Force Field",
+    "description": "(loadToolbarActivator) You can create a force field around yourself that protects you from projectiles and pushes mobs away from you."
+}

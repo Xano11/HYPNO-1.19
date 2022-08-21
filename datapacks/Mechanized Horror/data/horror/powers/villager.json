@@ -1,0 +1,25 @@
+{
+    "type": "origins:prevent_entity_use",
+    "bientity_action": {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar {\"text\": \"ugly\", \"color\": \"red\"}"
+        }
+    },
+    "bientity_condition": {
+        "type": "origins:target_condition",
+        "condition": {
+            "type": "origins:entity_type",
+            "entity_type": "minecraft:villager"
+        }
+    },
+    "name": "Ugly",
+    "description": "You can't trade with villagers.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/bad_omen.png",
+            "text": "Have you ever heard of marketing?"
+        }
+    ]
+}

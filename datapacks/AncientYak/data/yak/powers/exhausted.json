@@ -1,0 +1,78 @@
+{
+    "type": "origins:multiple",
+    
+    "resource":{
+      "type": "origins:resource",
+      "min": 0,
+      "max": 300,
+      "start_value": 300,
+      "hud_render": {
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+          "bar_index": 0
+      },
+      "min_action": 
+      {
+        "type": "origins:and",
+        "actions": [
+        {
+          "type": "origins:delay",
+          "ticks": 1,
+          "action": {
+              "type": "origins:and",
+              "actions": [
+                {
+                  "type": "origins:execute_command",
+                      "command": "power remove @s yak:exhausted",
+                      "permission_level": 4
+                }
+              ]
+          }
+      }
+      ]
+    }
+  },
+  
+  
+      "remove_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "yak:exhausted_resource",
+          "change": -10
+      },
+      "interval": 10
+      },
+
+      "weaker":{
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "name": "Weaker",
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+      "hunger": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+        "type": "origins:feed",
+        "food": -1,
+        "saturation": -1
+    },
+      "interval": 20
+      },
+  
+    "no_sprint":{
+        "type": "origins:prevent_sprinting"
+    },
+  
+    "mining_speed":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.5
+        }
+    },
+    "hidden": true
+  }

@@ -1,0 +1,119 @@
+{	
+	"name": "Fireball",
+	"description": "You can release fireballs from your body (sneak to shotgun them).",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/fire_charge.png",
+            "text": "Fireball (Cue that Pitbull song)"
+        }
+    ],
+	"type": "origins:multiple",
+	"normal": {
+    "type": "origins:fire_projectile",
+    "entity_type": "minecraft:fireball",
+	"cooldown": 100,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+    "bar_index": 7
+  },
+  "count": 1,
+  "speed": 0.5,
+  "start_delay": 30,
+  "interval": 5,
+  "condition": {
+				"type": "origins:sneaking",
+				"inverted": true
+				},
+  "key": "primary"
+  },
+  	"sneak": {
+    "type": "origins:fire_projectile",
+    "entity_type": "minecraft:small_fireball",
+	"cooldown": 100,
+  "hud_render": {
+    "should_render": true,
+    "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+    "bar_index": 7
+  },
+  "count": 7,
+  "speed": 0.1,
+  "divergence": 100,
+  "interval": 1,
+  "condition": {
+				"type": "origins:sneaking",
+				"inverted": false
+				},
+  "key": "primary"
+  },
+    	"sound": {
+"type": "origins:active_self",
+    "cooldown": 100,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type":"origins:execute_command",
+                "command":"playsound minecraft:entity.blaze.shoot master @a[distance=..10] ~ ~ ~ 1 1",
+                "permission_level":4
+            },
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "resource change @s blaze:heat_resource -300"
+            }
+			]
+    },
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/resource_bar.png"
+    },
+	  "condition": {
+				"type": "origins:sneaking",
+				"inverted": false
+				},
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    }
+  },
+      	"sound2": {
+"type": "origins:active_self",
+    "cooldown": 100,
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type":"origins:execute_command",
+                "command":"playsound minecraft:entity.warden.sonic_charge master @a[distance=..10] ~ ~ ~ 0.5 1",
+                "permission_level":4
+            },
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "resource change @s blaze:heat_resource -300"
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 30,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.blaze.shoot master @a[distance=..10] ~ ~ ~ 1 1"
+                }
+            }
+			]
+    },
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/resource_bar.png"
+    },
+	  "condition": {
+				"type": "origins:sneaking",
+				"inverted": true
+				},
+    "key": {
+        "key": "key.origins.primary_active",
+        "continuous": false
+    }
+  }
+}

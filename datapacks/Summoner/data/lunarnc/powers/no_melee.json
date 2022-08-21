@@ -1,0 +1,17 @@
+{
+    "type": "origins:attribute",
+        "modifier": {
+            "name": "no melee",
+            "attribute": "generic.attack_damage",
+            "value": -0.75,
+            "operation": "multiply_total"
+    },
+    "name": "Wrong Class",
+    "description": "You barely deal any melee damage (75% less).",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "75% less is alot."
+        }
+    ]
+}

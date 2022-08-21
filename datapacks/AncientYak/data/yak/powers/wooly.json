@@ -1,0 +1,116 @@
+{   
+    "type":"origins:multiple",
+
+    "cooldown":{
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1200,
+        "start_value": 0,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+            "bar_index": 12,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "yak:wooly_cooldown",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        }
+    },
+    
+    
+        "remove_cooldown": 
+        {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "yak:wooly_cooldown",
+            "change": -10
+        },
+        "interval": 10
+        },
+
+    "wool":{
+        "type": "origins:action_on_entity_use", 
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [{
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power grant @s yak:coat"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:block minecraft:white_wool ~ ~1 ~ 0.3 0.3 0.3 1 100"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.wool.place player @s ~ ~ ~ 3 1 1"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "yak:wooly_cooldown",
+                        "change": 1200
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "advancement grant @s only yak:wooly"
+                    }
+                ]
+            }
+        }
+        ]
+        },
+        "bientity_condition": {
+        "type": "origins:target_condition",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                }
+        ]
+            }
+        },
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "main_hand"
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [{
+            "type": "origins:sneaking",
+            "inverted": false
+    },
+    {
+        "type": "origins:resource",
+        "resource": "yak:wooly_cooldown",
+        "comparison": "==",
+        "compare_to": 0
+    }
+]
+}
+},
+"name": "Wooly",
+    "description": "By [Sneaking & Use], you can give a coat of wool to an entity. The next 3 hits they will endure will have it's damage negated by 25%.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/white_wool.png",
+            "text": "It has a minute cooldown!"
+        }
+    ]
+}

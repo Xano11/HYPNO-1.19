@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Eradication 3"
+        },
+        "description": {
+            "text": "You just entered the american school system."
+        },
+        "icon": {
+            "item": "minecraft:wither_skeleton_skull"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "slime:30"
+}

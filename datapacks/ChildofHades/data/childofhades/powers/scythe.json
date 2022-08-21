@@ -1,0 +1,480 @@
+{
+    "name":"Hades Scythe",
+    "description":"You can recreate Hades Scythe (look at document)",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/stone_hoe.png",
+            "text": "Weapon of mass destruction."
+        }
+    ],
+    "type": "origins:multiple",
+
+    "beam":{
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:wither_skeleton_skull"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+                "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @p piglin_banner_pattern{display:{Name:'{\"text\":\"Withering Beam\",\"color\":\"gold\",\"italic\":true}',Lore:['[{\"text\":\"Combine with a Reinforced Handle to rebuild\"},{\"text\":\" Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}]']},HideFlags:127,Enchantments:[{}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron player @p ~ ~ ~ 10 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "handle":{ 
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:diamond"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @p amethyst_shard{display:{Name:'{\"text\":\"Reinforced Handle\",\"color\":\"gold\",\"italic\":true}',Lore:['[{\"text\":\"Combine with a Withering Beam to rebuild\",\"italic\":true},{\"text\":\" Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}]']}} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron player @p ~ ~ ~ 10 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+    
+    "teirone":{ 
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Withering Beam\",\"color\":\"gold\",\"italic\":true}',Lore:['[{\"text\":\"Combine with a Reinforced Handle to rebuild\"},{\"text\":\" Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}]']},HideFlags:127,Enchantments:[{}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Reinforced Handle\",\"color\":\"gold\",\"italic\":true}',Lore:['[{\"text\":\"Combine with a Withering Beam to rebuild\",\"italic\":true},{\"text\":\" Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}]']}}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @p stone_hoe{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1293903457,1014517721,-1667665136,412875136],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;-2141222459,295259940,-1802046332,825987174],Slot:\"mainhand\"}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron player @p ~ ~ ~ 10 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "wither":{ 
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1293903457,1014517721,-1667665136,412875136],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;-2141222459,295259940,-1802046332,825987174],Slot:\"mainhand\"}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:wither_skeleton_skull"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @p stone_hoe{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_gray\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Withering\",\"color\":\"dark_gray\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron player @p ~ ~ ~ 10 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "wither_effect1":{
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [{
+                "type": "origins:actor_action",
+                "action": {
+                "type": "origins:change_resource",
+			    "resource": "*:scythe_cooldown",
+			    "change": 7
+                }
+            },
+            {
+                "type": "origins:target_action",
+                "action": {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:wither",
+                    "duration": 100,
+                    "amplifier": 1
+                        }
+                    }
+                }
+            ]
+        },
+        "bientity_condition": {
+            "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:actor_condition",
+                        "condition": {
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_gray\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Withering\",\"color\":\"dark_gray\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]}"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:scythe_cooldown",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                }
+            ]
+        }
+    },
+
+    "wither_effect2":{
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:change_resource",
+			        "resource": "*:scythe_cooldown",
+			        "change": 7
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:warped_spore ~ ~ ~ 1 1 1 0.1 100 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:crimson_spore ~ ~ ~ 1 1 1 0.1 100 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:ash ~ ~ ~ 0.2 1 0.2 0.001 1000 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.hurt player @s ~ ~ ~ 10 1"
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 4,
+                        "bientity_action": {
+                        "type": "origins:target_action",
+                        "action": {
+                            "type": "origins:apply_effect",
+                                "effect": {
+                                "effect": "minecraft:wither",
+                                "duration": 120,
+                                "amplifier": 0
+                            }
+                        }
+                    },
+                    "bientity_condition": {
+                        "type": "origins:can_see"
+                    }
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_gray\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Withering\",\"color\":\"dark_gray\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]}"
+                        }
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:scythe_cooldown",
+                        "comparison": "==",
+                        "compare_to": 0
+                }
+            ]
+        },
+            "cooldown": 1,
+            "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        }
+    },
+
+    "bouncy":{ 
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1293903457,1014517721,-1667665136,412875136],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;-2141222459,295259940,-1802046332,825987174],Slot:\"mainhand\"}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:slime_ball"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @p stone_hoe{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"green\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Bouncy\",\"color\":\"green\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron player @p ~ ~ ~ 10 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "bouncy_effect1":{
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:name",
+            "name": "fall"
+            },
+            "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"green\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Bouncy\",\"color\":\"green\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]}"
+            }
+        }
+    },
+
+    "bouncy_effect2":{
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:change_resource",
+			        "resource": "*:scythe_cooldown",
+			        "change": 7
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:item_slime ~ ~ ~ 0.1 0.1 0.1 1 100 force"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust_color_transition 0.2 01 0.2 1 0.1 0.3 0.1 ~ ~ ~ 0.4 1 0.4 0.1 50"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.squish player @p ~ ~ ~ 10 1"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.slime.jump player @p ~ ~ ~ 10 2"
+                },
+                {
+                    "type": "origins:add_velocity",
+                    "z": 2,
+                    "set": true,
+                    "space": "local"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+                "conditions": [{
+                        "type": "origins:equipped_item",
+                        "equipment_slot": "mainhand",
+                        "item_condition": {
+                            "type": "origins:nbt",
+                            "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"green\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Bouncy\",\"color\":\"green\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]}"
+                        }
+                    },
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:scythe_cooldown",
+                        "comparison": "==",
+                        "compare_to": 0
+                }
+            ]
+        },
+            "cooldown": 1,
+            "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.use",
+            "continuous": true
+        }
+    },
+
+    "sharp":{ 
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"dark_red\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:6,Operation:0,UUID:[I;1293903457,1014517721,-1667665136,412875136],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;-2141222459,295259940,-1802046332,825987174],Slot:\"mainhand\"}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_ingot"
+            }
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @p stone_hoe{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"gold\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Sharp\",\"color\":\"gold\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:9,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron player @p ~ ~ ~ 10 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+
+    "sharp_effect2":{
+        "type": "origins:modify_damage_taken",
+            "modifier": {
+            "operation": "multiply_total",
+            "value": -0.05
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{display:{Name:'{\"text\":\"Hades Scythe\",\"color\":\"gold\",\"bold\":true}',Lore:['{\"text\":\"Rebuild by his child, made to strike fear into all their foes\",\"color\":\"dark_purple\",\"italic\":true}','{\"text\":\"Sharp\",\"color\":\"gold\",\"bold\":true}']},HideFlags:127,Enchantments:[{id:\"minecraft:unbreaking\",lvl:4s},{id:\"minecraft:mending\",lvl:1s}],AttributeModifiers:[{AttributeName:\"generic.attack_damage\",Name:\"generic.attack_damage\",Amount:9,Operation:0,UUID:[I;1377018805,1795048563,-1694336237,203488494],Slot:\"mainhand\"},{AttributeName:\"generic.attack_speed\",Name:\"generic.attack_speed\",Amount:-2.3,Operation:0,UUID:[I;1186219445,1541948004,-1950252757,-1324930372],Slot:\"mainhand\"}]}"
+            }
+        }
+    },
+
+    "cooldown":{
+    "type": "origins:resource",
+	    "min": 0,
+	    "max": 7,
+	    "start_value": 0,
+	    "hud_render": {
+		    "should_render": true,
+		    "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+		    "bar_index": 17,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:scythe_cooldown",
+                "comparison": "==",
+                "compare_to": 0,
+                "inverted": true
+            }
+	    }
+    },
+
+
+    "drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "*:scythe_cooldown",
+			"change": -1
+		},
+		"interval": 20
+	}
+}

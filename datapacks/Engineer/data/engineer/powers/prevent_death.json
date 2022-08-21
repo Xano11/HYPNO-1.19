@@ -1,0 +1,50 @@
+{
+    "type": "origins:prevent_death",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "origin set @s origins:origin engineer:engineer"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:explosion ~ ~1 ~ 0.5 0.5 0.5 1 10"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:explosion_emitter ~ ~1 ~ 0.1 0.1 0.1 1 1"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:smoke ~ ~1 ~ 0.5 0.5 0.5 0 100"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:flame ~ ~1 ~ 0.5 0.5 0.5 0 100"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "playsound minecraft:entity.generic.explode master @a[distance=..10] ~ ~ ~ 1 1"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "playsound minecraft:entity.firework_rocket.large_blast master @a[distance=..10] ~ ~ ~ 1 1"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "effect give @s slow_falling 10 0 true"
+             }
+                ]
+    },
+	"name": "Emergency Escape",
+	"description": "When Omicron's health reaches 0 you are ejected from the cockpit."
+}

@@ -1,0 +1,668 @@
+{
+    "name": "Fractured Soul",
+    "description": "Due to your soul being split into a million peices, the more shattered it is the more effective you become, you can also manipulate your soul lowering your maximum health to keep the effectiveness stable",
+    "badges": [
+        {
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Using the \"Save\" and \"Load\" toolbar keys, you can raise and lower your permenent health!"
+        },
+        {
+            "sprite": "minecraft:textures/mob_effect/health_boost.png",
+            "text": "OOH! HP!"
+        }
+    ],
+    
+    "type": "origins:multiple",
+
+    "resource": {
+		"type": "origins:resource",
+		"min": 1,
+		"max": 4,
+		"start_value": 4,
+		"hud_render": {
+		"should_render": false
+        }
+	},
+
+    "8_hearts": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "value": -4,
+            "operation": "addition",
+            "name": "8 hearts"
+        },
+            "tick_rate": 10,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:lastsurprise_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {      
+                        "type": "origins:resource",
+                        "resource": "slime:health_resource",
+                        "comparison": "==",
+                        "compare_to": 4
+                    }
+                ]
+            }
+        },
+    
+    "6_hearts": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "value": -8,
+            "operation": "addition",
+            "name": "6 hearts"
+        },
+            "tick_rate": 10,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:lastsurprise_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {      
+                        "type": "origins:resource",
+                        "resource": "slime:health_resource",
+                        "comparison": "==",
+                        "compare_to": 3
+                }
+            ]
+        }
+    },
+
+    "4_hearts": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "value": -12,
+            "operation": "addition",
+            "name": "4 hearts"
+        },
+            "tick_rate": 10,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:lastsurprise_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {      
+                        "type": "origins:resource",
+                        "resource": "slime:health_resource",
+                        "comparison": "==",
+                        "compare_to": 2
+                    }
+                ]
+            }
+        },
+
+    "2_hearts": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.max_health",
+            "value": -16,
+            "operation": "addition",
+            "name": "2 hearts"
+        },
+            "tick_rate": 10,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:lastsurprise_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {      
+                        "type": "origins:resource",
+                        "resource": "slime:health_resource",
+                        "comparison": "==",
+                        "compare_to": 1
+                    }
+                ]
+            }
+        },
+
+    "lower": {
+        "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:change_resource",
+			    "resource": "slime:health_resource",
+			    "change": -1
+            },
+            {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_charge_pop ~ ~0.9 ~ 0.25 0.4 0.25 0.2 100 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_soul ~ ~0.9 ~ 0.25 0.4 0.25 0.2 10 normal"
+			}
+        ]
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.saveToolbarActivator",
+        "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:health_resource",
+                    "comparison": ">",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+
+    "raise": {
+        "type": "origins:active_self",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:change_resource",
+			    "resource": "slime:health_resource",
+			    "change": 1
+            },
+            {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_charge_pop ~ ~0.9 ~ 0.05 0.15 0.05 0.2 100 normal"
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:sculk_soul ~ ~0.9 ~ 0.05 0.15 0.05 0.2 10 normal"
+			}
+        ]
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "key": {
+        "key": "key.loadToolbarActivator",
+        "continuous": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:health_resource",
+                    "comparison": "<",
+                    "compare_to": 4
+                }
+            ]
+        }
+    },
+
+    "8_heart_nerf_1": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "8_heart_nerf_2": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "8_heart_nerf_3": {
+        "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "multiply_total",
+        "value": -0.5,
+        "name": "8_hearts_nerd"
+    },
+    "tick_rate": 10,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+                {
+                "type": "origins:resource",
+                "resource": "*:lastsurprise_resource",
+                "comparison": "==",
+                "compare_to": 0
+                },
+                {      
+                "type": "origins:health",
+                "comparison": ">",
+                "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "8_heart_nerf_4": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "6_heart_nerf_1": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "6_heart_nerf_2": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "6_heart_nerf_3": {
+        "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "multiply_total",
+        "value": -0.25,
+        "name": "6_hearts_nerd"
+    },
+    "tick_rate": 10,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "6_heart_nerf_4": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 8
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 12
+                }
+            ]
+        }
+    },
+
+    "4_heart_buff_1": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 4
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+
+    "4_heart_buff_2": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 4
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+
+    "4_heart_buff_3": {
+        "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "multiply_total",
+        "value": 0.25,
+        "name": "4_hearts_nerd"
+    },
+    "tick_rate": 10,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 4
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+
+    "4_heart_buff_4": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": ">",
+                    "compare_to": 4
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+
+    "2_health_buff_1": {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:lastsurprise_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {      
+                        "type": "origins:health",
+                        "comparison": "<=",
+                        "compare_to": 4
+                    }
+                ]
+            }
+    },
+
+    "2_heart_buff_2": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                    {
+                        "type": "origins:resource",
+                        "resource": "*:lastsurprise_resource",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    {      
+                        "type": "origins:health",
+                        "comparison": "<=",
+                        "compare_to": 4
+                }
+            ]
+        }
+    },
+
+    "2_heart_buff_3": {
+        "type": "origins:conditioned_attribute",
+    "modifier": {
+        "attribute": "minecraft:generic.movement_speed",
+        "operation": "multiply_total",
+        "value": 0.25,
+        "name": "4_hearts_nerd"
+    },
+    "tick_rate": 10,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 4
+                }
+            ]
+        }
+    },
+
+    "2_heart_buff_4": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": 0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:lastsurprise_resource",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:health",
+                    "comparison": "<=",
+                    "compare_to": 4
+                }
+            ]
+        }
+    }
+}

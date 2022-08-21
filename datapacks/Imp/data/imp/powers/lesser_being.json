@@ -1,0 +1,15 @@
+{
+    "name" : "Lesser Being",
+    "description": "As a lesser being intended for servitude you aren’t accustomed to fighting therefore you wield less damage.",
+      "type": "origins:modify_damage_dealt",
+      "modifier": {
+        "operation": "addition",
+        "value": -3.0
+      },
+      "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "Might wanna rethink about fighting in close quarters..."
+        }
+    ]
+  }

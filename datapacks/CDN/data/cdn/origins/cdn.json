@@ -1,0 +1,21 @@
+{
+	"powers": [
+		
+		"cdn:emerald_shot",
+		
+		"cdn:emerald_cleanse",
+
+		"cdn:pickaxe",
+
+		"cdn:fragile_gem"
+		
+	],
+	"icon": {
+        "item": "minecraft:emerald",
+        "tag": "{Enchantments:[{}],CustomModelData:1}"
+    },
+	"order": 1,
+	"impact": 1,
+	"name": "CDN",
+	"description": "Emerald Elemental."
+}

@@ -1,0 +1,129 @@
+{
+    "type": "origins:multiple",
+	"1": {
+  "type": "origins:active_self",
+  "entity_action": {
+        "type": "origins:and",
+        "actions": [
+  {
+    "type": "origins:execute_command",
+    "command": "resource change @s engineer:power_res 250",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:entity.illusioner.prepare_blindness master @s ~ ~ ~ 1 2",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "clear @s gold_ingot{display:{Name:'{\"text\":\"Power Cell\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"[Right Click] To recharge\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]} 1",
+    "permission_level": 4
+  }
+  ]
+        },
+  "cooldown": 750,
+  "hud_render": {
+    "should_render": true,
+	"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+	"bar_index": 24
+  },
+  "condition": {
+  "type": "origins:and",
+  "conditions": [
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Power Cell\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"[Right Click] To recharge\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+			}
+			}
+			]
+			},
+  "key": {
+    "key": "key.use",
+	"continuous": false
+  }
+},
+	"pc": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+		},
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:gold_ingot"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s gold_ingot{display:{Name:'{\"text\":\"Power Cell\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"[Right Click] To recharge\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @a ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"axo": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:axolotl_bucket"
+            }
+		},
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:bowl"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s rabbit_stew{display:{Name:'{\"text\":\"Axolotl Stew\",\"color\":\"light_blue\",\"italic\":false}'}} 1",
+                "permission_level": 4
+        },
+		{
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.axolotl.death master @a[distance=..20] ~ ~ ~ 1 0.5",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.axolotl.hurt master @a[distance=..20] ~ ~ ~ 1 0.5",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+    "hidden": true
+}

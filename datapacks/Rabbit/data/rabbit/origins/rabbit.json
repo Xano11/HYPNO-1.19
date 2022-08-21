@@ -1,0 +1,16 @@
+{
+    "powers": [
+		"rabbit:size",
+		"rabbit:fall",
+		"rabbit:health",
+		"rabbit:leap",
+		"origins:fall_immunity",
+		"origins:no_shield",
+		"rabbit:carrot"
+    ],
+    "icon": "minecraft:rabbit_foot",
+    "order": 20,
+    "impact": 3,
+    "name": "Rabbit",
+    "description": "A fluffy creature that loves to munch on carrots and is very friendly, unless you piss it off."
+}

@@ -1,0 +1,8 @@
+{
+	"type": "origins:multiple",
+	"step": {
+	"type": "origins:prevent_game_event",
+		"event": "minecraft:step"
+	},
+"hidden": true
+}

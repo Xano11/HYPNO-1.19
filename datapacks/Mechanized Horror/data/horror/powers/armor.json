@@ -1,0 +1,17 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.armor",
+    "value": 4.0,
+    "operation": "addition"
+  },
+  "name": "Tough Steel",
+  "description": "Your tougher than normal.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/resistance.png",
+        "text": "+4 Armor"
+    }
+]
+}

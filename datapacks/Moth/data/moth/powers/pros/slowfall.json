@@ -1,0 +1,62 @@
+{
+	"type": "origins:multiple",
+	"feather_weight": {
+		"type": "origins:modify_falling",
+		"velocity": 0.01,
+		"take_fall_damage": false,
+		"condition": {
+		  "type": "origins:and",
+		  "conditions": [
+				{
+					"type": "origins:sneaking",
+					"inverted": true
+				},
+				{
+					"type": "origins:fall_flying",
+					"inverted": true
+				}
+			]
+		}
+	},
+	"feather_weight_elytra": {
+		"type": "origins:modify_falling",
+		"velocity": 0.01,
+		"take_fall_damage": false,
+		"condition": {
+		  "type": "origins:and",
+		  "conditions": [
+				{
+				  	"type": "origins:fall_flying"
+				},
+				{
+					"type": "origins:power_active",
+					"power": "moth:pros/crawl_toggle"
+				}
+			]
+		}
+	},
+	"acrobatics": {
+		"type": "origins:invulnerability",
+		"damage_condition": {
+		  "type": "origins:or",
+		  "conditions": [
+				{
+					"type": "origins:name",
+					"name": "fall"
+				},
+				{
+					"type": "origins:name",
+					"name": "flyIntoWall"
+				}
+			]
+		}
+	},
+	"name": "Featherweight",
+    "description": "You always have slow falling unless you sneak, and are immune to velocity based damage.",    
+	"badges": [
+		{
+			"sprite": "minecraft:textures/item/feather.png",
+			"text": "Slow falling while flying works different, to turn it off toggle [crawl]."
+		}
+	]
+}

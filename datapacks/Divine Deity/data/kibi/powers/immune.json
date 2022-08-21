@@ -1,0 +1,23 @@
+{
+  "type": "origins:effect_immunity",
+  "effects": [
+      "minecraft:strength",
+      "minecraft:speed",
+      "minecraft:jump_boost",
+      "minecraft:fire_resistance",
+      "minecraft:water_breathing",
+      "minecraft:invisibility",
+      "minecraft:night_vision",
+      "minecraft:health_boost",
+      "minecraft:absorption",
+      "minecraft:saturation",
+      "minecraft:glowing",
+      "minecraft:levitation",
+      "minecraft:luck",
+      "minecraft:conduit_power",
+      "minecraft:dolphins_grace",
+      "minecraft:hero_of_the_village"
+  ],
+  "name": "Interfering Magics",
+"description": "You are not used to magic you yourself can't use causing you to not be able to use positive potion effects that you cannot give yourself."
+}

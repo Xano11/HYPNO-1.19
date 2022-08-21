@@ -1,0 +1,51 @@
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type": "origins:raycast",
+        "distance": 16,
+        "block": true,
+        "entity": true,
+        "shape_type": "visual",
+        "fluid_handling": "any",
+        "command_along_ray": "function raiju:dash",
+        "command_step": 3,
+        "command_along_ray_only_on_hit": false
+    },
+    "cooldown": 600,
+    "hud_render":{
+        "should_render":true,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },
+        "condition": {
+            "type": "origins:and",
+			"conditions": [
+            {
+            "type": "origins:block_in_radius",
+		    "block_condition": {
+			"type": "origins:in_tag",
+            "tag": "raiju:copper"
+		    },
+		  "radius": 3,
+		  "shape": "cube",
+		  "comparison": "==",
+		  "compare_to": 0
+	      },
+          {
+            "type": "origins:sneaking",
+            "inverted": true
+        }
+            ]
+        },      
+    "key":{
+            "key":"key.origins.secondary_active"
+    },
+    "name":"Lightning Fast",
+    "description":"Using the [Secondary Ability] key will allow you to do a lightning dash!",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/elytra.png",
+            "text": "That dash will summon ligtning bolts on the way. Those can deal damage!"
+        }
+    ]
+}

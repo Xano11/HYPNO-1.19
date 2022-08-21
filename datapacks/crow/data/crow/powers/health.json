@@ -1,0 +1,11 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.max_health",
+    "value": -10.0,
+    "operation": "addition"
+  },
+  "name": "Bird Heritage",
+  "description": "Due to your small size and hollow bones you have 5 less hearts than a human."
+}

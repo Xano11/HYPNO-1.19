@@ -1,0 +1,145 @@
+{
+	"type": "origins:multiple",
+	"balls": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell master @a[distance=..20] ~ ~ ~ 1 0.7"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell master @a[distance=..20] ~ ~ ~ 1 2"
+                },
+				{
+					"type": "origins:execute_command",
+					"command": "resource change @s lumi:star_res 120",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "resource change @s lumi:power_res -250",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "power grant @s lumi:nouse",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 120,
+					"action": {
+						"type": "origins:execute_command",
+						"command": "power revoke @s lumi:nouse"
+                }
+				}
+            ]
+        },
+        "cooldown": 360,
+  "hud_render": {
+          "should_render": true,
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+          "bar_index": 0
+  },
+  "condition": {
+        "type": "origins:and",
+        "conditions": [ {
+				"type": "origins:resource",
+				"resource": "lumi:power_res",
+				"comparison": ">=",
+				"compare_to": 250
+			},
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+        ]    
+    },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        }
+},
+"trans": {
+    "type": "origins:invisibility",
+    "render_armor": false,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [ {
+				"type": "origins:resource",
+				"resource": "lumi:star_res",
+				"comparison": ">=",
+				"compare_to": 1
+			},
+			{
+			"type": "origins:swimming"
+			}
+        ]    
+    }
+},
+"star": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dust_color_transition 1 0 1 1 1 1 1 ~ ~ ~ 0.3 0.3 0.3 1 15"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:electric_spark ~ ~ ~ 0.1 0.1 0.1 0 10"
+             }
+			 ]
+			 },
+			"interval": 1,
+			"condition": {
+        "type": "origins:and",
+        "conditions": [ {
+				"type": "origins:resource",
+				"resource": "lumi:star_res",
+				"comparison": ">=",
+				"compare_to": 1
+			},
+			{
+			"type": "origins:swimming"
+			}
+        ]    
+    }
+		},
+"star2": {
+"type": "origins:swimming",
+			"condition":{
+				"type": "origins:resource",
+				"resource": "lumi:star_res",
+				"comparison": ">=",
+				"compare_to": 1
+			}
+		},
+    "res": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 120,
+        "start_value": 0,
+        "hud_render": {
+        "should_render": false,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 12
+        }
+    },
+    "drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s lumi:star_res -1"
+             },
+			"interval": 1
+		},
+  "name": "Shooting Star",
+  "description": "(Primary) turn into a shooting star that propells forward."
+}

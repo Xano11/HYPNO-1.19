@@ -1,0 +1,89 @@
+{
+    "type": "origins:multiple",
+    
+    "resource":{
+      "type": "origins:resource",
+      "min": 0,
+      "max": 300,
+      "start_value": 300,
+      "hud_render": {
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+          "bar_index": 15
+      },
+      "min_action": 
+      {
+        "type": "origins:execute_command",
+        "command": "power remove @s wereboar:crippled",
+        "permission_level": 4
+    }
+  },
+  
+  
+      "remove_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "wereboar:crippled_resource",
+          "change": -10
+      },
+      "interval": 10
+      },
+  
+  
+    "health":{
+  
+      "type": "origins:conditioned_attribute",
+      "modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "operation": "addition",
+        "value": -10
+      }
+    },
+  
+  
+    "mining_speed":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.5
+        }
+    },
+
+
+    "air_speed":
+    {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.25
+        }
+    },
+
+    "less_damage":
+    {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.5
+        }
+    },
+
+    "sounds": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:entity.warden.heartbeat player @a[distance=..30] ~ ~ ~ 1 0.5 1",
+        "permission_level": 4
+    },
+    "interval": 5
+    },
+
+    "no_sprint": 
+    {
+        "type": "origins:prevent_sprinting"
+    },
+
+    "hidden": true
+  }

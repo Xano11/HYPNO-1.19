@@ -1,0 +1,18 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.attack_damage",
+    "value": 2,
+    "operation": "addition"
+  },
+  "name": "Strong Arms",
+  "description": "Putting so much power into making you like a glass cannon has left you dealing more damage.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/strength.png",
+        "text": "Have you ever heard of stats?"
+    }
+],
+  "hidden": false
+}

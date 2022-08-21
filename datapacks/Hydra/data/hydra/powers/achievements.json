@@ -1,0 +1,122 @@
+{
+    "type": "origins:multiple",
+"fire_head":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+          "type": "origins:execute_command",
+          "command": "advancement grant @s only hydra:fire",
+          "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s hydra:headf",
+        "permission_level": 4
+    }
+      ]
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "target_condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:blaze"
+    }
+},
+"air_head":{
+    "type": "origins:action_over_time",
+      "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+          "type": "origins:execute_command",
+          "command": "advancement grant @s only hydra:air",
+          "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s hydra:heada",
+        "permission_level": 4
+    }
+      ]
+    },
+      "interval": 20,
+      "condition": {
+        "type": "origins:on_block",
+        "block_condition": {
+            "type": "origins:height",
+            "comparison": "==",
+            "compare_to": 319
+        }
+    }
+  },
+  "water_head":{
+    "type": "origins:action_on_item_use",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+          "type": "origins:execute_command",
+          "command": "advancement grant @s only hydra:water",
+          "permission_level": 4
+      },
+      {
+        "type": "origins:execute_command",
+        "command": "power grant @s hydra:headw",
+        "permission_level": 4
+    }
+      ]
+    },
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:dried_kelp"
+        }
+    }
+},
+"shadow_head":{
+  "type": "origins:action_over_time",
+    "entity_action": {
+      "type": "origins:and",
+      "actions": [{
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only hydra:shadow",
+        "permission_level": 4
+    },
+    {
+      "type": "origins:execute_command",
+      "command": "power grant @s hydra:heads",
+      "permission_level": 4
+  }
+    ]
+  },
+    "interval": 20,
+    "condition": {
+      "type": "origins:status_effect",
+      "effect": "minecraft:darkness",
+      "min_amplifier": 0
+  }
+},
+"nature_head":{
+  "type": "apugli:action_on_bonemeal",
+  "self_action": {
+    "type": "origins:and",
+    "actions": [{
+      "type": "origins:execute_command",
+      "command": "advancement grant @s only hydra:nature",
+      "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "power grant @s hydra:headn",
+    "permission_level": 4
+}
+  ]
+  },
+  "block_condition": {
+    "type": "origins:material",
+    "material": "plant"
+}
+},
+"hidden": true
+}

@@ -1,0 +1,63 @@
+{
+	"type": "origins:multiple",
+	"sacrifice_gain": {
+		"type": "origins:self_action_on_kill",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [
+		{
+            "type": "origins:execute_command",
+            "command": "give @s potion{display:{Name:'{\"text\":\"Bottled Soul\",\"color\":\"aqua\",\"italic\":false}',Lore:['{\"text\":\"You can hear them \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"screaming.\",\"color\":\"dark_gray\",\"italic\":false}']},CustomPotionEffects:[{Id:2,Amplifier:1b,Duration:1800},{Id:9,Amplifier:0b,Duration:1800}],CustomPotionColor:16777215} 1"
+        },
+		{
+			"type": "origins:execute_command",
+			"command": "clear @s minecraft:glass_bottle 1"
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:item.bottle.fill_dragonbreath master @a[distance=..20] ~ ~ ~ 0.5 1",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:particle.soul_escape master @a[distance=..20] ~ ~ ~ 1 1",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:particle.soul_escape master @a[distance=..20] ~ ~ ~ 1 1",
+			"permission_level": 4
+		},
+		{
+			"type": "origins:execute_command",
+			"command": "playsound minecraft:particle.soul_escape master @a[distance=..20] ~ ~ ~ 1 1",
+			"permission_level": 4
+		}
+		]
+		},
+		"cooldown": 1,
+		"condition": {
+        "type": "origins:and",
+        "conditions": [ {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Ritual Blade\",\"color\":\"light_purple\",\"italic\":false}',Lore:['{\"text\":\"Used for harvesting souls.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "offhand",
+			"item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:glass_bottle"
+            }
+			}
+			}
+			]
+			}
+	},
+"hidden": true
+}

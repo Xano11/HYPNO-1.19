@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Immortal"
+        },
+        "description": {
+            "text": "Save yourself from falling to death by teleporting to the ground 100 times."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Can't Kill Me": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:save2"
+}

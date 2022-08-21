@@ -1,0 +1,13 @@
+{
+  "type": "origins:modify_player_spawn",
+  "dimension": "minecraft:the_nether",
+  "biome": "minecraft:soul_sand_valley",
+  "name": "Soul Spawn",
+  "description": "Your natural spawn is a Soul Sand Valley.",
+  "badges": [
+        {
+            "sprite": "minecraft:textures/item/recovery_compass_16.png",
+            "text": "Unless you set your spawn elsewhere, you will spawn/respawn at a Soul Sand Valley."
+        }
+	]
+}

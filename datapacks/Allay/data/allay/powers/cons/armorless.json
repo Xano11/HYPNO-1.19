@@ -1,0 +1,66 @@
+{
+	"type": "origins:multiple",
+	"armorless":{
+            "type": "origins:restrict_armor",
+        "head": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "chest": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "legs": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        "feet": {
+            "type": "origins:armor_value",
+            "comparison": ">",
+            "compare_to": 0
+        }
+    },
+	"no_range": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:trident"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:bow"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:crossbow"
+					}
+				},
+				{
+					"type": "origins:ingredient",
+					"ingredient": {
+						"item": "minecraft:shield"
+					}
+				}
+			]
+		}
+	},
+    "name": "§4§l§nGearless",
+    "description": "Armor, tridents, shields, bows and crossbows are too large and unwieldy to use.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "This is the main thing that stops this origin from being broken!"
+        }
+    ]
+}

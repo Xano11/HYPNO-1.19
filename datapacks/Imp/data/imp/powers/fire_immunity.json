@@ -1,0 +1,39 @@
+{
+	"type": "origins:modify_damage_taken",
+	"modifier": {
+		"value": -1,
+		"operation": "multiply_total"
+	},
+	"damage_condition": {
+		"type": "origins:or",
+		"conditions": [{
+				"type": "origins:name",
+				"name": "lava"
+			},
+			{
+				"type": "origins:name",
+				"name": "onFire"
+			},
+			{
+				"type": "origins:name",
+				"name": "inFire"
+			},
+			{
+				"type": "origins:name",
+				"name": "hotFloor"
+			},
+			{
+				"type": "origins:name",
+				"name": "fall"
+			}
+		]
+	},
+	"name": "Fire Immunity ",
+	"description": "As a being of the nether you have a natural immunity to lava and fire.",
+	"badges": [
+		{
+			"sprite": "minecraft:textures/mob_effect/fire_resistance.png",
+			"text": "HELLFIRE-"
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"type": "origins:effect_immunity",
+	"effect": [
+		"minecraft:wither"
+	],
+	"name": "Black Blood",
+	"description": "You have been born from the ruler of death, and so your blood gives you immunity to the wither effect.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "Blood of the ruler."
+        }
+	]
+}

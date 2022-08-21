@@ -1,0 +1,22 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 10,
+    "entity_action": {
+      "type": "origins:drop_inventory",
+      "throw_randomly": true,
+      "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "item": "minecraft:totem_of_undying"
+        }
+      }
+    },
+    "name": "§4§l§nIll Omen",
+    "description": "The sight of totems disgusts you, you have no need for such vile things.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/totem_of_undying.png",
+          "text": "I know it hurts to watch a totem despawn but don't let it get to you."
+      }
+  ]
+}

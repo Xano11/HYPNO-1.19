@@ -1,0 +1,230 @@
+{
+    "type": "origins:multiple",
+	"1": {
+  "type": "origins:active_self",
+  "entity_action":
+        {
+            "type": "origins:if_else",
+              "condition": {
+  "type": "origins:sneaking",
+  "inverted": true
+  },
+            "if_action":
+            {
+        "type": "origins:and",
+        "actions": [
+  {
+    "type": "origins:execute_command",
+    "command": "execute at @e[type=armor_stand,tag=portal1,limit=1] run playsound minecraft:entity.illusioner.mirror_move master @a ~ ~ ~ 1 2",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource set @s warper:nr_res 0",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource set @s warper:distortion 1000",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource set @s warper:nr_res2 0",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "execute at @e[type=armor_stand,tag=portal1,limit=1] run playsound minecraft:entity.illusioner.prepare_mirror master @a ~ ~ ~ 1 0.1",
+    "permission_level": 4
+  },
+  {
+        "type": "origins:execute_command",
+        "command": "tp @a[distance=..1] @e[type=armor_stand,tag=portal1,limit=1]",
+        "permission_level": 4
+  }
+  ]
+  },
+            "else_action":
+            {
+        "type": "origins:and",
+        "actions": [
+  {
+    "type": "origins:execute_command",
+    "command": "execute at @e[type=armor_stand,tag=portal2,limit=1] run playsound minecraft:entity.illusioner.mirror_move master @a ~ ~ ~ 1 2",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource set @s warper:nr_res 0",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource set @s warper:distortion 1000",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "resource set @s warper:nr_res2 0",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "execute at @e[type=armor_stand,tag=portal2,limit=1] run playsound minecraft:entity.illusioner.prepare_mirror master @a ~ ~ ~ 1 0.1",
+    "permission_level": 4
+  },
+  {
+        "type": "origins:execute_command",
+        "command": "tp @a[distance=..1] @e[type=armor_stand,tag=portal2,limit=1]",
+        "permission_level": 4
+  }
+  ]
+  }
+        },
+  "cooldown": 2400,
+  "hud_render": {
+    "should_render": true,
+	"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+	"bar_index": 7
+  },
+  "condition": {
+  "type": "origins:and",
+  "conditions": [
+			{
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 4,
+                "resource": "warper:nr_res"
+            },
+			{
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": ">=",
+                "compare_to": 1,
+                "resource": "warper:distortion",
+				"inverted": true
+            },
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Normality Relocator\",\"color\":\"light_purple\",\"italic\":false}',Lore:['{\"text\":\"[Right Click] Teleport to your cyan portal\",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"[Right Click + Sneak] Teleport to your magenta portal\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+			}
+			}
+			]
+			},
+  "key": {
+    "key": "key.use",
+	"continuous": true
+  }
+},
+"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 4,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+		"bar_index": 7
+	}
+},
+"res2": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 3600,
+	"start_value": 3600,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 5
+	}
+},
+"cd": 
+	{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:nr_res2",
+	    "change": 1
+	},
+	"interval": 1
+},
+"charge":
+    {
+        "type": "origins:active_self",
+        "cooldown": 20,
+        "key":
+        {
+            "key": "key.use",
+            "continuous": true
+        },
+		"condition": {
+  "type": "origins:and",
+  "conditions": [
+			{
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": "==",
+                "compare_to": 3600,
+                "resource": "warper:nr_res2"
+            },
+			{
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": ">=",
+                "compare_to": 1,
+                "resource": "warper:distortion",
+				"inverted": true
+            },
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Normality Relocator\",\"color\":\"light_purple\",\"italic\":false}',Lore:['{\"text\":\"[Right Click] Teleport to your cyan portal\",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"[Right Click + Sneak] Teleport to your magenta portal\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+			}
+			}
+			]
+			},
+        "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dust_color_transition 0 0.8 0.7 1 0 0 0 ~ ~0.9 ~ 0.3 0.4 0.3 1 5 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dust_color_transition 0.8 0 0.7 1 0 0 0 ~ ~0.9 ~ 0.3 0.4 0.3 1 5 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "playsound minecraft:entity.illusioner.prepare_blindness master @a ~ ~ ~ 1 2 1"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:nr_res 1"
+			 }
+		]
+	}
+},
+"letgo": 
+	{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:nr_res",
+	    "change": -1
+	},
+	"interval": 100
+},
+"hidden": true
+}

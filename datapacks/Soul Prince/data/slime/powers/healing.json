@@ -1,0 +1,88 @@
+{
+    "name": "Soul Mending",
+    "description": "You need to steal and hold others souls to mend your own!",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/regeneration.png",
+            "text": "Healing and souls go together hand in hand."
+        }
+    ],
+    
+    
+    "type": "origins:multiple",
+
+    "capped_out_buff": {
+        "type": "origins:modify_healing",
+        "modifier": {
+        "operation": "multiply_total",
+        "value": 0.25
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:food_resource",
+                    "comparison": ">=",
+                    "compare_to": 13
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:food_resource",
+                    "comparison": "<=",
+                    "compare_to": 14
+                }
+            ]
+        }
+    },
+
+    "not_bad_nerf": {
+        "type": "origins:modify_healing",
+        "modifier": {
+        "operation": "multiply_total",
+        "value": -0.20
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:food_resource",
+                    "comparison": ">=",
+                    "compare_to": 8
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:food_resource",
+                    "comparison": "<=",
+                    "compare_to": 10
+                }
+            ]
+        }
+    },
+
+    "bad_nerf": {
+        "type": "origins:modify_healing",
+        "modifier": {
+        "operation": "multiply_total",
+        "value": -0.5
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:food_resource",
+                    "comparison": ">=",
+                    "compare_to": 0
+                },
+                {      
+                    "type": "origins:resource",
+                    "resource": "slime:food_resource",
+                    "comparison": "<=",
+                    "compare_to": 7
+                }
+            ]
+        }
+    }
+}

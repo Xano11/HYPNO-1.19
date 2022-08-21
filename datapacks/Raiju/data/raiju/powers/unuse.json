@@ -1,0 +1,22 @@
+{
+	"type": "origins:prevent_item_use",
+	"item_condition": {
+		"type": "origins:or",
+		"conditions": [
+		{	
+		"type": "origins:ingredient",
+		"ingredient": {
+			"tag": "raiju:cant_use"
+		}
+	}
+]
+	},
+	"name": "Picky fighter",
+    "description": "You're picky with the weapon and tools you use.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "No crossbows, bows, shields and swords."
+        }
+    ]
+}

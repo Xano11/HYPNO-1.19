@@ -1,0 +1,17 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.max_health",
+    "value": 6.0,
+    "operation": "addition"
+  },
+  "name": "Tough Steel",
+  "description": "Your tougher than normal. (3 more hearts and 4 extra armor points)",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/block/iron_block.png",
+        "text": "Have you ever heard of Dwayne the Rock Johnson?"
+    }
+]
+}

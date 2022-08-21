@@ -1,0 +1,52 @@
+{
+
+    "type": "origins:multiple",
+
+    "slow":{
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "90 percent speed",
+            "attribute": "generic.movement_speed",
+            "value": -0.90,
+            "operation": "multiply_total"
+        }
+    },
+
+    "air_slow":{
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "value": -0.90,
+            "operation": "multiply_total"
+        }
+    },
+
+    "resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 1,
+		"hud_render": {
+		"should_render": false,
+        "condition": {
+                "type": "origins:resource",
+                "resource": "slime:effect/slow_resource",
+                "comparison": ">",
+                "compare_to": 0
+		    }
+        },
+        "min_action": {
+            "type": "origins:execute_command",
+            "command": "power remove @s slime:effect/slow"
+        }
+	},
+
+	"drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "slime:effect/slow_resource",
+			"change": -1
+		},
+		"interval": 20
+	}
+}

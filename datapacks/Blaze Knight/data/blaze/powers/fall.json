@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+      "type": "origins:from_falling"
+    },
+    "modifier": {
+      "value": 2,
+      "operation": "multiply_total"
+    },
+    "name": "balls",
+    "description": "explaination.",
+	"hidden": true
+  }

@@ -1,0 +1,12 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:redstone_block",
+        "minecraft:emerald_block",
+        "minecraft:lapis_block",
+        "minecraft:quartz_block",
+        "minecraft:amethyst_block",
+        "minecraft:budding_amethyst",
+        "minecraft:coal_block"
+    ]
+}

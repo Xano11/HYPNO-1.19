@@ -1,0 +1,23 @@
+{
+  "type":"origins:modify_damage_taken",
+  "modifier":{
+    "value": 3.00,
+    "operation":"multiply_total"
+  },
+  "damage_condition":{
+    "type":"origins:or",
+    "conditions":[
+      {
+        "type": "origins:name",
+        "name": "explosion"
+      },
+      {
+        "type": "origins:name",
+        "name": "explosion.player"
+      }
+    ]
+  },
+  "name": "Shrapnel",
+  "description": "When caught in explosions your suit can be damaged causing it to dent inward and hurt you even more, you take 300% more damage from explosions.",
+  "hidden": false
+}

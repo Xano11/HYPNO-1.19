@@ -1,0 +1,49 @@
+{
+    "type": "origins:multiple",
+    "haste": {
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "name": "Strong Arms stone break speed bonus",
+            "value": 0.20,
+            "operation": "addition"
+            },
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                  "type": "origins:ingredient",
+                  "ingredient": {
+                    "item": "minecraft:air"
+                    }
+                }
+            },
+            "block_condition": {
+                "type": "origins:in_tag",
+                "tag": "ooze:hard",
+                "inverted": true
+            }
+        },
+    "stone": {
+        "type": "origins:modify_harvest",
+        "allow": false,
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                    "tag": "ooze:harvest"
+                        }
+                    },
+                    "inverted": true
+                }
+    },
+    "name": "Acidic Insides",
+    "description": "You consume anything you mine without tools.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/mining_fatigue.png",
+            "text": "Just use tools."
+        }
+    ]
+}

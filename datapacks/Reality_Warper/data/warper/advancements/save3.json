@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Teleportation Master"
+        },
+        "description": {
+            "text": "Save yourself from falling to death from a 300 block drop."
+        },
+        "icon": {
+            "item": "minecraft:jigsaw"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "Teleportation Master": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "warper:save5"
+}

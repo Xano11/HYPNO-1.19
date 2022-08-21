@@ -1,0 +1,353 @@
+{
+    "type": "origins:multiple",
+    "observer": {
+        "type": "origins:recipe",
+        "recipe": {
+		    "id": "engineer:observer",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "%%%",
+                "###"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:cobblestone"
+                },
+				"%": {
+                    "item": "minecraft:redstone"
+                }
+            },
+            "result": {
+                "item": "minecraft:observer"
+            }
+        }
+    },
+    "saddle": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:saddle",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "S S",
+        "i i"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:leather"
+        },
+        "S": {
+            "item": "minecraft:string"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+	"result": {
+        "item": "minecraft:saddle",
+        "count": 1
+			}
+		}
+	},
+    "heart": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:heart",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#P#",
+        "PNP",
+        "#P#"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:prismarine_shard"
+        },
+        "P": {
+            "item": "minecraft:prismarine_crystals"
+        },
+        "N": {
+            "item": "minecraft:nether_star"
+        }
+    },
+    "result": {
+        "item": "minecraft:heart_of_the_sea",
+        "count": 1
+    }
+	}
+	},
+    "iarmor": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:iarmor",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  i",
+        "iii",
+        "i i"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "minecraft:iron_horse_armor",
+        "count": 1
+    }
+	}
+	},
+	"garmor": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:garmor",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  i",
+        "iii",
+        "i i"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "minecraft:golden_horse_armor",
+        "count": 1
+    }
+	}
+	},
+	"darmor": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:darmor",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "  i",
+        "iii",
+        "i i"
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:diamond"
+        }
+    },
+    "result": {
+        "item": "minecraft:diamond_horse_armor",
+        "count": 1
+    }
+	}
+	},
+	"hopper": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:hopper",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "   ",
+        "iii",
+        " i "
+    ],
+    "key": {
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "minecraft:hopper",
+        "count": 1
+    }
+	}
+	},
+	"bell": {
+        "type": "origins:recipe",
+        "recipe": {
+    "id": "engineer:bell",
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "///",
+        " g ",
+        " G "
+    ],
+    "key": {
+        "/": {
+            "item": "minecraft:stick"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        },
+        "G": {
+            "item": "minecraft:gold_block"
+        }
+    },
+    "result": {
+        "item": "minecraft:bell",
+        "count": 1
+    }
+}
+	},
+    "piston": {
+        "type": "origins:recipe",
+        "recipe": {
+		    "id": "engineer:piston",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "%%%",
+                " ^ ",
+                "###"
+            ],
+            "key": {
+                "%": {
+                    "item": "minecraft:oak_planks"
+                },
+				"#": {
+                    "item": "minecraft:cobblestone"
+                },
+				"^": {
+                    "item": "minecraft:iron_ingot"
+                }
+            },
+            "result": {
+                "item": "minecraft:piston"
+            }
+        }
+    },
+	"sensor": {
+        "type": "origins:recipe",
+        "recipe": {
+        "id": "engineer:sensor",
+        
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "PPP"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:redstone"
+        },
+        "P": {
+            "item": "minecraft:sculk"
+        }
+    },
+    "result": {
+        "item": "minecraft:sculk_sensor",
+        "count": 1
+    }
+	}
+	},
+    "dispenser": {
+        "type": "origins:recipe",
+        "recipe": {
+		    "id": "engineer:dispenser",
+            "type": "minecraft:crafting_shaped",
+            "pattern": [
+                "###",
+                "#^#",
+                "#%#"
+            ],
+            "key": {
+                "#": {
+                    "item": "minecraft:cobblestone"
+                },
+				"^": {
+                    "item": "minecraft:string"
+                },
+				"%": {
+                    "item": "minecraft:redstone"
+                }
+            },
+            "result": {
+                "item": "minecraft:dispenser"
+            }
+        }
+    },
+"irong": {
+    "type": "origins:recipe",
+    "recipe": {
+		"id": "engineer:irong",
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:redstone_block"
+            }
+        ],
+        "result": {
+            "item": "minecraft:piglin_banner_pattern",
+        "count": 1
+        }
+    }
+},
+"turret": {
+    "type": "origins:recipe",
+    "recipe": {
+		"id": "engineer:turret",
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:observer"
+            }
+        ],
+        "result": {
+            "item": "minecraft:mojang_banner_pattern",
+        "count": 1
+        }
+    }
+},
+"omicron": {
+    "type": "origins:recipe",
+    "recipe": {
+		"id": "engineer:omicron",
+        "type": "minecraft:crafting_shapeless",
+        "ingredients": [
+            {
+                "item": "minecraft:diamond"
+            },
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:iron_block"
+            },
+            {
+                "item": "minecraft:redstone_block"
+            },
+            {
+                "item": "minecraft:redstone_block"
+            },
+            {
+                "item": "minecraft:redstone_block"
+            },
+            {
+                "item": "minecraft:redstone_block"
+            }
+        ],
+        "result": {
+            "item": "minecraft:skull_banner_pattern",
+        "count": 1
+        }
+    }
+},
+    "name": "High tech",
+    "description": "You can craft some uncraftable items and other items for cheaper."
+}

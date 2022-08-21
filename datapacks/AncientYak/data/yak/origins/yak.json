@@ -1,0 +1,23 @@
+{
+	"powers": [
+		"yak:axe",
+		"yak:wooly",
+		"yak:achievements",
+		"yak:effect_immunity",
+		"yak:hungry",
+		"yak:callback",
+		"yak:transform",
+		"yak:lack",
+		"yak:dash",
+		"yak:more_health",
+		"yak:no_swim",
+		"yak:shield",
+		"yak:fire_weakness",
+		"yak:temperature"
+	],
+	"icon": "minecraft:goat_horn",
+	"order": 1,
+	"impact": 3,
+	"name": "Ancient Yak",
+	"description": "The Ancient Yak is the least beast of its tribe. Orphan and now alone, they've ventured the frozen lands to find it's purpose."
+}

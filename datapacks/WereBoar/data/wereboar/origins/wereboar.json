@@ -1,0 +1,25 @@
+{
+	"powers": [
+		"wereboar:axe",
+		"wereboar:achievements",
+		"wereboar:berserk",
+		"wereboar:no_swim",
+		"wereboar:weak_piglins",
+		"wereboar:spawn",
+		"wereboar:strength_immunity",
+		"wereboar:hungry",
+		"wereboar:arrow_weakness",
+		"wereboar:lovers",
+		"wereboar:callback",
+		"wereboar:leap",
+		"wereboar:transform",
+		"wereboar:lack",
+		"wereboar:more_health",
+		"wereboar:hook"
+	],
+	"icon": "minecraft:golden_axe",
+	"order": 1,
+	"impact": 3,
+	"name": "Wereboar",
+	"description": "The Wereboar is a scarce race which once lived in harmony with the piglins in the nether. With time, however, a war sparked fruit of the fear piglins felt towards the wereboar's power. They hunted them down and killed them off. You are one of the few survivors."
+}

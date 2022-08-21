@@ -1,0 +1,31 @@
+{
+  "type": "origins:damage_over_time",
+  "interval": 20,
+  "onset_delay": 160,
+  "damage": 2,
+  "damage_easy": 1,
+  "damage_source": {
+    "name": "drown",
+    "unblockable": true,
+    "bypasses_armor": true
+  },
+  "condition": {
+    "type": "origins:or",
+    "conditions": [
+      {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0.0
+      }
+    ]
+  },
+  "name": "Drown",
+  "description": "You drown faster in water.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+        "text": "Have you ever heard of air?"
+    }
+]
+}

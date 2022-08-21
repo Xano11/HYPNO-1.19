@@ -1,0 +1,578 @@
+{
+	"type": "origins:multiple",
+	"shaderres": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 20,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+		"bar_index": 17
+	}
+},
+	"distort1": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effects": [
+			{
+				"effect": "minecraft:mining_fatigue",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			},
+			{
+				"effect": "minecraft:slowness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 2
+			}
+		],
+		"condition": {
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+				}
+	},
+	"distort2": {
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "value": -2,
+        "operation": "addition"
+    },
+		"tick_rate": 20,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 250
+			}
+		},
+		"distort3": {
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+        "attribute": "minecraft:generic.max_health",
+        "value": -2,
+        "operation": "addition"
+    },
+		"tick_rate": 20,
+			"condition": {
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 500
+			}
+		},
+		"distort4": {
+		"type": "origins:shader",
+		"shader": "minecraft:shaders/post/deconverge.json",
+		"toggleable": false,
+		"tick_rate": 20,
+			"condition": {
+			"type": "origins:and",
+				"conditions": [
+				{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 500
+			},
+				{
+				"type": "origins:resource",
+				"resource": "warper:distort_shaderres",
+				"comparison": "==",
+				"compare_to": 0
+			},
+			{
+        "type": "origins:resource",
+        "resource": "warper:phaseres",
+        "comparison": "<",
+        "compare_to": 1
+    }
+			]
+			}
+		},
+		"shadercountdown": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:distort_shaderres -1"
+             },
+			"interval": 1,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:distort_shaderres",
+				"comparison": ">=",
+				"compare_to": 1
+			}
+		},
+		"distort5": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:brain_rot"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": "==",
+				"compare_to": 1000
+			}
+		},
+		"beat": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 0.7 1"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 850
+			}
+		},
+		"beat2": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "playsound minecraft:entity.warden.heartbeat master @s ~ ~ ~ 0.5 1"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+			}
+		},
+  "extdmg": {
+  "type":"origins:modify_damage_taken",
+  "modifier":{
+    "value": 0.10,
+    "operation":"multiply_total"
+  },
+  "damage_condition":{
+    "type":"origins:or",
+    "conditions":[
+      {
+        "type": "origins:name",
+        "name": "generic"
+      },
+      {
+        "type": "origins:name",
+        "name": "magic"
+      },
+      {
+        "type": "origins:name",
+        "name": "wither"
+      },
+      {
+        "type": "origins:name",
+        "name": "witherSkull"
+      },
+      {
+        "type": "origins:name",
+        "name": "mob"
+      },
+      {
+        "type": "origins:name",
+        "name": "inFire"
+      },
+      {
+        "type": "origins:name",
+        "name": "onFire"
+      },
+      {
+        "type": "origins:name",
+        "name": "lava"
+      },
+      {
+        "type": "origins:name",
+        "name": "hotFloor"
+      },
+      {
+        "type": "origins:name",
+        "name": "thrown"
+      },
+      {
+        "type": "origins:name",
+        "name": "indirectMagic"
+      },
+      {
+        "type": "origins:name",
+        "name": "anvil"
+      },
+      {
+        "type": "origins:name",
+        "name": "fallingBlock"
+      },
+      {
+        "type": "origins:name",
+        "name": "dragonBreath"
+      },
+      {
+        "type": "origins:name",
+        "name": "dryOut"
+      },
+      {
+        "type": "origins:name",
+        "name": "badRespawnPoint"
+      },
+      {
+        "type": "origins:name",
+        "name": "thorns"
+      },
+      {
+        "type": "origins:name",
+        "name": "flyIntoWall"
+      },
+      {
+        "type": "origins:name",
+        "name": "outOfWorld"
+      },
+      {
+        "type": "origins:name",
+        "name": "cactus"
+      },
+      {
+        "type": "origins:name",
+        "name": "drown"
+      },
+      {
+        "type": "origins:name",
+        "name": "cramming"
+      },
+      {
+        "type": "origins:name",
+        "name": "trident"
+      },
+      {
+        "type": "origins:name",
+        "name": "arrow"
+      },
+      {
+        "type": "origins:name",
+        "name": "sting"
+      },
+      {
+        "type": "origins:name",
+        "name": "fall"
+      },
+      {
+        "type": "origins:name",
+        "name": "inWall"
+      },
+      {
+        "type": "origins:name",
+        "name": "lightningBolt"
+      },
+      {
+        "type": "origins:name",
+        "name": "starve"
+      },
+      {
+        "type": "origins:name",
+        "name": "sweetBerryBush"
+      },
+      {
+        "type": "origins:name",
+        "name": "player"
+      },
+      {
+        "type": "origins:name",
+        "name": "explosion"
+      },
+      {
+        "type": "origins:name",
+        "name": "explosion.player"
+      },
+      {
+        "type": "origins:name",
+        "name": "fireworks"
+      }
+    ]
+  },
+  "condition":{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+			}
+},
+		"distort6": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:50"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:infectres",
+				"comparison": "==",
+				"compare_to": 100
+			}
+		},
+		"distort7": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:100"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:infectres",
+				"comparison": "==",
+				"compare_to": 1000
+			}
+		},
+		"distort8": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:makes_me_stronger"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:phaseresachev",
+				"comparison": "==",
+				"compare_to": 200
+			}
+		},
+		"distort9": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:makes_me_stronger2"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:phaseresachev",
+				"comparison": "==",
+				"compare_to": 300
+			}
+		},
+		"distort10": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:longlive"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:portalres",
+				"comparison": "==",
+				"compare_to": 6000
+			}
+		},
+		"distort11": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:longlive2"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:portalres",
+				"comparison": "==",
+				"compare_to": 12000
+			}
+		},
+		"distort12": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:save2"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:fallcount",
+				"comparison": "==",
+				"compare_to": 50
+			}
+		},
+		"distort13": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:wormhole_connoisseur"
+			 },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:portalcount",
+				"comparison": "==",
+				"compare_to": 100
+			}
+		},
+		"distort14": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:wormhole_master"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:portalcount -1000"
+             }
+			 ]
+			 },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:portalcount",
+				"comparison": "==",
+				"compare_to": 1000
+			}
+		},
+		"distort15": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:save4"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s warper:fallcount -100"
+             }
+			 ]
+			 },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:fallcount",
+				"comparison": "==",
+				"compare_to": 100
+			}
+		},
+		"distort16": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:makes_me_stronger3"
+             },
+			"interval": 20,
+			"condition":{
+				"type": "origins:resource",
+				"resource": "warper:phaseresachev",
+				"comparison": "==",
+				"compare_to": 400
+			}
+		},
+		"distort17": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "advancement grant @s only warper:sunset"
+             },
+			"interval": 20,
+			"condition": {
+    "type": "origins:and",
+    "conditions": [
+        {
+            "type": "origins:time_of_day",
+            "comparison": ">=",
+            "compare_to": 12000
+        },
+        {
+            "type": "origins:time_of_day",
+            "comparison": "<=",
+            "compare_to": 13000
+        },
+		{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": "==",
+				"compare_to": 1000
+					}
+				]
+			}
+		},
+		"distort20": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effect": {
+				"effect": "minecraft:darkness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			},
+		"condition": {
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 850
+				}
+	},
+	"distort21": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:dripping_obsidian_tear ~ ~0.5 ~ 0.1 0.2 0.1 0 1 force"
+             },
+			"interval": 2,
+		"condition": {
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+				}
+		},
+	"distort22": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "playsound minecraft:particle.soul_escape master @a ~ ~ ~ 1 1"
+             },
+			"interval": 8,
+		"condition": {
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": ">=",
+				"compare_to": 750
+				}
+		},
+	"hidden": true
+}

@@ -1,0 +1,33 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:execute_command",
+    "command": "advancement grant @s only warper:wormhole_nether",
+    "permission_level": 4
+  },
+  "cooldown": 160,
+  "condition": {
+			"type": "origins:and",
+				"conditions": [
+				{
+				"type": "origins:resource",
+				"resource": "warper:distortion",
+				"comparison": "<=",
+				"compare_to": 500
+			},
+			{
+    "type": "origins:dimension",
+    "dimension": "minecraft:the_nether",
+    "inverted": true
+}
+]
+},
+  "hud_render": {
+    "should_render": false,
+    "bar_index": 3
+  },
+  "key": {
+    "key": "key.saveToolbarActivator"
+  },
+  "hidden": true
+}

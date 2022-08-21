@@ -1,0 +1,164 @@
+{
+	"type": "origins:multiple",
+	"resource": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 300,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 7
+	}
+	},
+		"sneakpart": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0 1 force"
+             },
+			"interval": 2,
+			"condition":{
+				"type": "origins:sneaking"
+			}
+		},
+		"heat": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s blaze:heat_resource 1"
+             },
+			"interval": 1,
+			"condition":{
+				"type": "origins:on_fire"
+			}
+		},
+		"cooling": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s blaze:heat_resource -2"
+             },
+			"interval": 1,
+			"condition":{
+				"type": "origins:on_fire",
+				"inverted": true
+			}
+		},
+		"rapidcooling": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s blaze:heat_resource -2"
+             },
+			"interval": 1,
+			"condition":{
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 0.0
+            }
+		},
+		"1": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+             "attribute": "minecraft:generic.attack_damage",
+             "operation": "addition",
+             "value": 1
+             },
+			"tick_rate": 10,
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:heat_resource",
+        "comparison": ">=",
+        "compare_to": 50
+    }
+		},
+		"2": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+             "attribute": "minecraft:generic.attack_damage",
+             "operation": "addition",
+             "value": 1
+             },
+			"tick_rate": 10,
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:heat_resource",
+        "comparison": ">=",
+        "compare_to": 100
+    }
+		},
+		"3": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+             "attribute": "minecraft:generic.attack_damage",
+             "operation": "addition",
+             "value": 1
+             },
+			"tick_rate": 10,
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:heat_resource",
+        "comparison": ">=",
+        "compare_to": 150
+    }
+		},
+		"4": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+             "attribute": "minecraft:generic.attack_damage",
+             "operation": "addition",
+             "value": 1
+             },
+			"tick_rate": 10,
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:heat_resource",
+        "comparison": ">=",
+        "compare_to": 200
+    }
+		},
+		"5": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+             "attribute": "minecraft:generic.attack_damage",
+             "operation": "addition",
+             "value": 1
+             },
+			"tick_rate": 10,
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:heat_resource",
+        "comparison": ">=",
+        "compare_to": 250
+    }
+		},
+		"6": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+             "attribute": "minecraft:generic.attack_damage",
+             "operation": "addition",
+             "value": 1
+             },
+			"tick_rate": 10,
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:heat_resource",
+        "comparison": ">=",
+        "compare_to": 300
+    }
+		},
+    "name": "Heat Bar",
+    "description": "While on fire, you gain heat. The more heat you have, the more damage you'll deal.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/blaze_powder.png",
+            "text": "Fireborn."
+        }
+    ]
+}

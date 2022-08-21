@@ -1,0 +1,13 @@
+{
+    "type": "origins:modify_player_spawn",
+    "dimension": "minecraft:the_nether",
+    "structure": "minecraft:bastion_remnant",
+    "name": "Remnants Of War",
+    "description": "You spawn in the remnants of the old world.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/gilded_blackstone.png",
+            "text": "Have you ever heard of angry piglins?"
+        }
+    ]
+}

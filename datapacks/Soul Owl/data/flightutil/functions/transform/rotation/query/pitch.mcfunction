@@ -1,0 +1,1 @@
+execute store result score @s slime-pitch run data get entity @s Rotation[1]

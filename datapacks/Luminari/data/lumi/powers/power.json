@@ -1,0 +1,25 @@
+{
+	"type": "origins:multiple",
+	"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 1000,
+	"start_value": 1000,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+		"bar_index": 17
+	}
+	},
+	"refill": {
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+     "entity_action_respawned": {
+        "type": "origins:execute_command",
+        "permission_level": 4,
+        "command": "resource set @s lumi:power_res 1000"
+		}
+},
+  "name": "Star Power",
+  "description": "Your abilities run on star power, thus making it stronger in the overworld where there are stars but not in the nether where there aren't any."
+}

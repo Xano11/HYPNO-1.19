@@ -1,0 +1,208 @@
+{
+  "type": "origins:multiple",
+  "slash": {
+  "type": "origins:active_self",
+  "entity_action":
+        {
+        "type": "origins:and",
+        "actions": [
+  {
+    "type": "origins:execute_command",
+    "command": "execute at @s positioned ^ ^-.2 ^1 anchored eyes run function warper:slash",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:item.trident.return master @a ~ ~ ~ 1 2",
+    "permission_level": 4
+  }
+  ]
+        },
+  "cooldown": 10,
+  "hud_render": {
+    "should_render": false,
+	"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+	"bar_index": 7
+  },
+  "condition": {
+        "type": "origins:or",
+        "conditions": [ {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Distortion Blade\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"The blade is glitching \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"in your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Reality’s Retribution\",\"color\":\"dark_purple\",\"italic\":false}',Lore:['{\"text\":\"The power of reality in the \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"palm of your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"The Zenith\",\"color\":\"dark_blue\",\"italic\":false}',Lore:['{\"text\":\"The culmination of everything \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"you’ve worked for.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:4s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			}
+			]
+			},
+  "key": {
+    "key": "key.attack"
+  }
+  },
+"ms": {
+  "type": "origins:active_self",
+  "entity_action":
+        {
+        "type": "origins:and",
+        "actions": [
+  {
+    "type": "origins:execute_command",
+    "command": "execute at @s positioned ^ ^-.2 ^1 anchored eyes run function warper:slashb",
+    "permission_level": 4
+  },
+  {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:item.trident.return master @a ~ ~ ~ 1 2",
+    "permission_level": 4
+  }
+  ]
+        },
+  "cooldown": 3,
+  "hud_render": {
+    "should_render": false,
+	"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+	"bar_index": 7
+  },
+  "condition": {
+        "type": "origins:or",
+        "conditions": [ {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"There will be bloodshed.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"True Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"A legendary blade restored \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"to true potential.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			}
+			]
+			},
+  "key": {
+    "key": "key.attack"
+  }
+  },
+  "dmg": {
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+        "attribute": "minecraft:generic.attack_damage",
+        "value": 1.7,
+        "operation": "addition"
+    },
+		"tick_rate": 1,
+			"condition": {
+        "type": "origins:or",
+        "conditions": [ {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Distortion Blade\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"The blade is glitching \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"in your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Reality’s Retribution\",\"color\":\"dark_purple\",\"italic\":false}',Lore:['{\"text\":\"The power of reality in the \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"palm of your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"The Zenith\",\"color\":\"dark_blue\",\"italic\":false}',Lore:['{\"text\":\"The culmination of everything \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"you’ve worked for.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:4s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"There will be bloodshed.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"True Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"A legendary blade restored \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"to true potential.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			}
+			]
+			}
+		},
+  "hit": 
+	{
+	"type": "origins:target_action_on_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+        "type": "origins:execute_command",
+        "command": "power grant @s warper:retri"
+        }
+				]
+				},
+    "cooldown": 80,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 14
+		},
+		"condition":
+            {
+        "type": "origins:or",
+        "conditions": [ {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Distortion Blade\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"The blade is glitching \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"in your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Reality’s Retribution\",\"color\":\"dark_purple\",\"italic\":false}',Lore:['{\"text\":\"The power of reality in the \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"palm of your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s}]}"
+			}
+			},
+			{
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"The Zenith\",\"color\":\"dark_blue\",\"italic\":false}',Lore:['{\"text\":\"The culmination of everything \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"you’ve worked for.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:4s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+			}
+			}
+			]
+			}
+	},
+"hidden": true
+}

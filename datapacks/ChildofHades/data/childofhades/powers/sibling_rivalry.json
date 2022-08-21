@@ -1,0 +1,30 @@
+{
+	"type": "origins:multiple",
+	"sky": {
+		"type": "origins:conditioned_attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_damage",
+			"operation": "addition",
+			"value": -4,
+			"name": "weakness when exposed to sunlight"
+		},
+		"condition": {
+			"type": "origins:exposed_to_sun"
+		}
+	},
+	"water_fatigue": {
+		"type": "origins:modify_swim_speed",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.40
+		}
+	},
+	"name": "Sibling Rivalry",
+	"description": "The water and the sky belong to Poseidon and Zeus, so you swim 40% slower while in water and deal -4 damage while under the sky during day because they want to challenge your abilities as a demigod.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "Photophobic, not to confuse with photogenic."
+        }
+    ]
+}

@@ -1,0 +1,1675 @@
+{
+    "type": "origins:multiple",
+	"res": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 30,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"max_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:feed",
+					"food": 2,
+					"saturation": 0.4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.player.burp player @a[distance=..8] ~ ~ ~ 1 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s #moth:non_food_snacks 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_res",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		}
+	},
+	"0": {
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:and",
+						"conditions": [{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "moth:non_food_snacks"
+							}
+						}]
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:and",
+						"conditions": [{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "moth:non_food_snacks"
+							}
+						}]
+					}
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:change_resource",
+				"resource": "*:*_res",
+				"change": 0,
+				"operation": "set"
+			}]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use"
+		}
+	},
+	"grow": {
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+					"type": "origins:equipped_item",
+					"equipment_slot": "mainhand",
+					"item_condition": {
+						"type": "origins:and",
+						"conditions": [{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "moth:non_food_snacks"
+							}
+						}]
+					}
+				},
+				{
+					"type": "origins:equipped_item",
+					"equipment_slot": "offhand",
+					"item_condition": {
+						"type": "origins:and",
+						"conditions": [{
+							"type": "origins:ingredient",
+							"ingredient": {
+								"tag": "moth:non_food_snacks"
+							}
+						}]
+					}
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:change_resource",
+				"resource": "*:*_res",
+				"change": 1
+			}
+		]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"restrict": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20
+				},
+				{
+					"inverted": true,
+					"type": "origins:gamemode",
+					"gamemode": "creative"
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:set_resource",
+			"resource": "*:*_res",
+			"value": 0
+		}
+	},
+	"preventuse": {
+		"type": "origins:prevent_block_selection",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:sneaking",
+				"inverted": true
+			},
+			{
+				"type": "origins:or",
+				"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:non_food_snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:non_food_snacks"
+								}
+							}]
+						}
+					}
+				]
+			},
+			{
+				"type": "origins:food_level",
+				"comparison": "<",
+				"compare_to": 20
+			}]
+		}
+	},
+	"dres": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 30,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"max_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:feed",
+					"food": 2,
+					"saturation": 0.4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.player.burp player @a[distance=..8] ~ ~ ~ 1 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.generic.explode master @a[distance=..8] ~ ~ ~ 0.5 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:damage",
+					"amount": 6,
+					"source": {
+						"name": "explosion",
+						"bypasses_armor": true
+					}
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:campfire_cosy_smoke ^ ^ ^0.5 0.1 0.1 0.1 0.01 15",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:add_velocity",
+					"y": 0,
+					"space": "world",
+					"set": true
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s #moth:danger_snacks 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_dres",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		}
+	},
+	"danger_0": {
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "moth:danger_snacks"
+						}
+					}]
+				}
+			},
+			{
+				"type": "origins:equipped_item",
+				"equipment_slot": "offhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "moth:danger_snacks"
+						}
+					}]
+				}
+			}]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:change_resource",
+				"resource": "*:*_dres",
+				"change": 0,
+				"operation": "set"
+			}]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use"
+		}
+	},
+	"danger_grow": {
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "moth:danger_snacks"
+						}
+					}]
+				}
+			},
+			{
+				"type": "origins:equipped_item",
+				"equipment_slot": "offhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"tag": "moth:danger_snacks"
+						}
+					}]
+				}
+			}]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:change_resource",
+				"resource": "*:*_dres",
+				"change": 1
+			}
+		]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"danger_restrict": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20
+				},
+				{
+					"inverted": true,
+					"type": "origins:gamemode",
+					"gamemode": "creative"
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:set_resource",
+			"resource": "*:*_dres",
+			"value": 0
+		}
+	},
+	"danger_preventuse": {
+		"type": "origins:prevent_block_selection",
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:sneaking",
+				"inverted": true
+			},
+			{
+				"type": "origins:or",
+				"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:danger_snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:danger_snacks"
+								}
+							}]
+						}
+					}
+				]
+			},
+			{
+				"type": "origins:food_level",
+				"comparison": "<",
+				"compare_to": 20
+			}]
+		}
+	},
+	"eres": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 30,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": false
+		},
+		"max_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:feed",
+					"food": 2,
+					"saturation": 0.4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.player.burp player @a[distance=..8] ~ ~ ~ 1 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:add_xp",
+					"points": 10
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "clear @s minecraft:enchanted_book 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_eres",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		}
+	},
+	"enchant_0": {
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:enchanted_book"
+						}
+					}]
+				}
+			},
+			{
+				"type": "origins:equipped_item",
+				"equipment_slot": "offhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:enchanted_book"
+						}
+					}]
+				}
+			}]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:change_resource",
+				"resource": "*:*_eres",
+				"change": 0,
+				"operation": "set"
+			}]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use"
+		}
+	},
+	"enchant_grow": {
+		"condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:equipped_item",
+				"equipment_slot": "mainhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:enchanted_book"
+						}
+					}]
+				}
+			},
+			{
+				"type": "origins:equipped_item",
+				"equipment_slot": "offhand",
+				"item_condition": {
+					"type": "origins:and",
+					"conditions": [{
+						"type": "origins:ingredient",
+						"ingredient": {
+							"item": "minecraft:enchanted_book"
+						}
+					}]
+				}
+			}]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+				"type": "origins:change_resource",
+				"resource": "*:*_eres",
+				"change": 1
+			}
+		]
+		},
+		"cooldown": 1,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"enchant_restrict": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20
+				},
+				{
+					"inverted": true,
+					"type": "origins:gamemode",
+					"gamemode": "creative"
+				}
+			]
+		},
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:set_resource",
+			"resource": "*:*_eres",
+			"value": 0
+		}
+	},
+	"particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:and",
+								"conditions": [{
+									"type": "origins:ingredient",
+									"ingredient": {
+										"tag": "moth:non_food_snacks"
+									}
+								}]
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:and",
+								"conditions": [{
+									"type": "origins:ingredient",
+									"ingredient": {
+										"tag": "moth:non_food_snacks"
+									}
+								}]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.generic.eat player @a[distance=..8] ~ ~ ~ 1 1",
+					"permission_level": 4
+				},
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 5,
+                        "show_particles": false,
+                        "amplifier": 1,
+                        "show_icon": false
+                    }
+                }
+			]
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"wool_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:banners"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:beds"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:dampens_vibrations"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:banners"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:beds"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:dampens_vibrations"
+								}
+							}]
+						}
+					}]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:string ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+			"permission_level": 4
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"wax_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:candles"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:honeycomb"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:honeycomb_block"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:candles"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:honeycomb"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:honeycomb_block"
+								}
+							}]
+						}
+					}]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:candle ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+			"permission_level": 4
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"paper_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:paper"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:written_book"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:writable_book"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:enchanted_book"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:paper"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:written_book"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:writable_book"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:enchanted_book"
+								}
+							}]
+						}
+					}]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:paper ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+			"permission_level": 4
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"leaf_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:leaves"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:saplings"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:lily_pad"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:bamboo"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:moss_carpet"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:moss_block"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:grass"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:fern"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:sugar_cane"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:big_dripleaf"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:small_dripleaf"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:leaves"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:saplings"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:lily_pad"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:bamboo"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:moss_carpet"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:moss_block"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:grass"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:fern"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:sugar_cane"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:big_dripleaf"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:small_dripleaf"
+								}
+							}]
+						}
+					}]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:azalea ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+			"permission_level": 4
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"flower_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:flowers"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:spore_blossom"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "minecraft:flowers"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:spore_blossom"
+								}
+							}]
+						}
+					}]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:flowering_azalea_leaves ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+			"permission_level": 4
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"leather_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+					"type": "origins:or",
+					"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_helmet"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_chestplate"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_leggings"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_boots"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_horse_armor"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:or",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_helmet"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_chestplate"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_leggings"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_boots"
+								}
+							},
+							{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"item": "minecraft:leather_horse_armor"
+								}
+							}]
+						}
+					}]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:leather ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+			"permission_level": 4
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"danger_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:and",
+								"conditions": [{
+									"type": "origins:ingredient",
+									"ingredient": {
+										"tag": "moth:danger_snacks"
+									}
+								}]
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:and",
+								"conditions": [{
+									"type": "origins:ingredient",
+									"ingredient": {
+										"tag": "moth:danger_snacks"
+									}
+								}]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "execute positioned ~ ~.6 ~ rotated as @s run particle minecraft:item minecraft:firework_rocket ^ ^ ^0.5 0.1 0.1 0.1 0.055 4",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.generic.eat player @a[distance=..8] ~ ~ ~ 1 1",
+					"permission_level": 4
+				},
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 5,
+                        "show_particles": false,
+                        "amplifier": 1,
+                        "show_icon": false
+                    }
+                }
+			]
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"e_particle": {
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:or",
+					"conditions": [{
+							"type": "origins:equipped_item",
+							"equipment_slot": "mainhand",
+							"item_condition": {
+								"type": "origins:and",
+								"conditions": [{
+									"type": "origins:ingredient",
+									"ingredient": {
+										"item": "minecraft:enchanted_book"
+									}
+								}]
+							}
+						},
+						{
+							"type": "origins:equipped_item",
+							"equipment_slot": "offhand",
+							"item_condition": {
+								"type": "origins:and",
+								"conditions": [{
+									"type": "origins:ingredient",
+									"ingredient": {
+										"item": "minecraft:enchanted_book"
+									}
+								}]
+							}
+						}
+					]
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "<",
+					"compare_to": 20
+				}
+			]
+		},
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.generic.eat player @a[distance=..8] ~ ~ ~ 1 1",
+					"permission_level": 4
+				},
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "duration": 5,
+                        "show_particles": false,
+                        "amplifier": 1,
+                        "show_icon": false
+                    }
+                }
+			]
+		},
+		"cooldown": 4,
+		"hud_render": {
+			"should_render": false
+		},
+		"key": {
+			"key": "key.use",
+			"continuous": true
+		}
+	},
+	"tooltip": {
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "moth:non_food_snacks"
+			}
+		},
+		"text": {
+			"text": "Food...",
+			"color": "blue"
+		}
+	},
+	"e_tooltip": {
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"item": "minecraft:enchanted_book"
+			}
+		},
+		"text": {
+			"text": "Exp food...",
+			"color": "blue"
+		}
+	},
+	"danger_tooltip": {
+		"type": "origins:tooltip",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": {
+				"tag": "moth:danger_snacks"
+			}
+		},
+		"text": {
+			"text": "Danger food...",
+			"color": "red"
+		}
+	},
+	"prevent_read": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:or",
+			"conditions": [{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:writable_book"
+				}
+			},
+			{
+				"type": "origins:ingredient",
+				"ingredient": {
+					"item": "minecraft:written_book"
+				}
+			}
+		]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+			{
+				"type": "origins:sneaking",
+				"inverted": true
+			},
+			{
+				"type": "origins:food_level",
+				"comparison": "<",
+				"compare_to": 20
+			}
+			]
+		}
+	},
+    "prevent": {
+    	"type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+            "tag": "moth:not_snacks"
+            }
+        }
+    },
+    "treat": {
+        "type": "origins:action_on_being_used",
+        "bientity_action": {
+        "type": "origins:actor_action",
+        "action": {
+            "type": "origins:and",
+                "actions": [
+                {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:regeneration 3 1",
+                    "permission_level": 4
+                }
+            ]
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+                "condition": {
+				"type": "origins:or",
+				"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:non_food_snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:non_food_snacks"
+								}
+							}]
+						}
+					}
+				]
+			}
+		},
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": "<",
+			"compare_to": 20
+		}
+    },
+    "tasty": {
+    "type": "origins:action_on_being_used",
+    "bientity_action": {
+        "type": "origins:target_action",
+        "action": {
+            "type": "origins:and",
+            "actions": [
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.panda.sneeze master @a[distance=..8] ~ ~ ~ 0.5 2",
+						"permission_level": 4
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.endermite.ambient master @a[distance=..8] ~ ~ ~ 0.5 1",
+						"permission_level": 4
+					},
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:heart ~ ~1 ~ 0.1 0.5 0.5 7 7 force",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:feed",
+                        "food": 2,
+                        "saturation": 0.4
+                    }
+				]   
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+                "condition": {
+				"type": "origins:or",
+				"conditions": [{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "mainhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:non_food_snacks"
+								}
+							}]
+						}
+					},
+					{
+						"type": "origins:equipped_item",
+						"equipment_slot": "offhand",
+						"item_condition": {
+							"type": "origins:and",
+							"conditions": [{
+								"type": "origins:ingredient",
+								"ingredient": {
+									"tag": "moth:non_food_snacks"
+								}
+							}]
+						}
+					}
+				]
+			}
+        },
+		"condition": {
+			"type": "origins:food_level",
+			"comparison": "<",
+			"compare_to": 20
+		}
+    },
+    "name": "Least Picky Eater",
+    "description": "You can't eat meat, but you can eat pretty much anything you can put in a composter and more.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/sugar.png",
+            "text": "[placeholder]"
+        }
+    ]
+}

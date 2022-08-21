@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Bloodlust."
+        },
+        "description": {
+            "text": "Reach 5 berserk stacks."
+        },
+        "icon": {
+            "item": "minecraft:blaze_powder"
+        },
+        "frame": "task",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "wereboar:root"
+}

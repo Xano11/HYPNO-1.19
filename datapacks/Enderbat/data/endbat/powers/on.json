@@ -1,0 +1,15 @@
+{
+"name": "Inverted Gravity",
+"description": "(Secondary) You can invert your gravity to walk on ceilings.",
+"badges": [
+	{
+		"sprite": "minecraft:textures/item/elytra.png",
+		"text": "Use your [Secondary Ability] key to invert"
+	}
+],
+"type": "origins:toggle",
+"active_by_default": false,
+"key": {
+	"key": "key.origins.secondary_active"
+}
+}

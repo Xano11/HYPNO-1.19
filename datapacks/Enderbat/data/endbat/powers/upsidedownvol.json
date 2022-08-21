@@ -1,0 +1,170 @@
+{
+	"type": "origins:multiple",
+	"hidden": true,
+	"to_space": {
+		"type": "origins:modify_velocity",
+		"modifier": {
+			"value": -2,
+			"operation": "multiply_total"
+		},
+		"axes": [
+			"y"
+		],
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.05,
+			"offset_z": 0
+		}
+	]
+	}
+	},
+	"no_more_jump": {
+		"type": "origins:modify_jump",
+		"modifier": {
+			"operation": "set_total",
+			"value": 0
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.05,
+			"offset_z": 0
+		}
+	]
+	}
+	},
+	"height": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:eye_height -.75 @s"
+		},
+		"interval": 10,
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.1,
+			"offset_z": 0
+		}
+		]
+		}
+	},
+	"height2": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:execute_command",
+			"command": "scale set pehkui:eye_height 1 @s"
+		},
+		"interval": 10,
+		"condition": {
+		"type": "origins:and",
+		"conditions": [{
+		"type": "origins:block_collision",
+		"offset_x": 0,
+		"offset_y": 0.1,
+		"offset_z": 0,
+		"inverted": true
+	}
+	]
+	}
+},
+	"jump": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:add_velocity",
+					"y": 0.44
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 0.01,
+					"space": "local"
+				},
+				{
+					"type": "origins:exhaust",
+					"amount": 0.05
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.05,
+			"offset_z": 0
+		}
+		]
+		},
+		"cooldown": 10,
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		}
+	},
+	"jump2": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:add_velocity",
+					"y": 0.01
+				},
+				{
+					"type": "origins:add_velocity",
+					"z": 0.26,
+					"space": "local"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [{
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.05,
+			"offset_z": 0
+		},
+		{
+			"type": "origins:sprinting"
+		}
+		]
+		},
+		"cooldown": 10,
+		"key": {
+			"key": "key.jump",
+			"continuous": true
+		}
+	},
+	"fix_break_speed": {
+		"type": "origins:modify_break_speed",
+		"hidden": true,
+		"modifier": {
+			"operation": "multiply_total_multiplicative",
+			"value": 4
+		},
+		"condition": {
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.1,
+			"offset_z": 0
+		}
+	},
+	"eggolib": {
+		"type": "eggolib:model_flip",
+		"condition": {
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.1,
+			"offset_z": 0
+		}
+	}
+}

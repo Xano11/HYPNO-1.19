@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Extreme Weather Forecast"
+        },
+        "description": {
+            "text": "Use your dash for the first time."
+        },
+        "icon": {
+            "item": "minecraft:blue_ice"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": false
+    },
+    "criteria": {
+        "leap": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "yak:root"
+}

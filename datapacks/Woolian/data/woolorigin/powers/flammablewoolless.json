@@ -1,0 +1,17 @@
+{
+    "type": "origins:modify_damage_taken",
+    "name": "§e§l§nFlammable",
+    "description": "Your Wool Coat is highly flammable and, aside from water, impossible to put out once it starts burning!",
+    "hidden": true,
+    "modifiers": [
+        {
+            "operation": "multiply_total",
+            "value": 1,
+            "name": "Flammable"
+        }
+    ],
+    "damage_condition": {
+        "type": "origins:fire",
+        "inverted": false
+    }
+}

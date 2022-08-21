@@ -1,0 +1,61 @@
+{
+    "type": "origins:multiple",
+
+"jumpscares":
+    {
+            "type": "origins:resource",
+            "min": 0,
+            "max": 100,
+            "start_value": 0,
+            "hud_render": {
+            "should_render":false
+            }, 
+            "max_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only horror:addict"
+        }
+    },
+    "adept_switcher":
+    {
+            "type": "origins:resource",
+            "min": 0,
+            "max": 25,
+            "start_value": 0,
+            "hud_render": {
+            "should_render":false
+            }, 
+            "max_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only horror:adept"
+        }
+    },
+    "veteran_switcher":
+    {
+            "type": "origins:resource",
+            "min": 0,
+            "max": 50,
+            "start_value": 0,
+            "hud_render": {
+            "should_render":false
+            }, 
+            "max_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only horror:veteran"
+        }
+    },
+    "master_switcher":
+    {
+            "type": "origins:resource",
+            "min": 0,
+            "max": 100,
+            "start_value": 0,
+            "hud_render": {
+            "should_render":false
+            }, 
+            "max_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only horror:master"
+        }
+    },
+"hidden": true
+}

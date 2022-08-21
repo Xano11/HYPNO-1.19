@@ -1,0 +1,248 @@
+{
+    "type": "origins:multiple",
+"brute":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:brute",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "target_condition": {
+        "type": "origins:entity_type",
+        "entity_type": "minecraft:piglin_brute"
+    }
+},
+"100":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:100",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:scoreboard",
+        "objective": "kills",
+        "comparison": "==",
+        "compare_to": 99
+    }
+},
+"1000":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:1000",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:scoreboard",
+        "objective": "kills",
+        "comparison": "==",
+        "compare_to": 999
+    }
+},
+"10000":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:10000",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:scoreboard",
+        "objective": "kills",
+        "comparison": "==",
+        "compare_to": 9999
+    }
+},
+"piglin50":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:piglin50",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:scoreboard",
+        "objective": "piglins",
+        "comparison": "==",
+        "compare_to": 49
+    }
+},
+"piglin100":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:piglin100",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:scoreboard",
+        "objective": "piglins",
+        "comparison": "==",
+        "compare_to": 99
+    }
+},
+"piglin250":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:piglin250",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:scoreboard",
+        "objective": "piglins",
+        "comparison": "==",
+        "compare_to": 249
+    }
+},
+"low_clutch":{
+    "type": "origins:self_action_on_kill",
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:low_clutch",
+        "permission_level": 4
+    },
+    "cooldown": 1,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:health",
+        "comparison": "<=",
+        "compare_to": 1.5
+    }
+},
+"determination":
+      {
+        "type": "origins:self_action_on_hit",
+        "entity_action":  {
+            "type": "origins:change_resource",
+            "resource": "wereboar:achievements_determination_resource",
+            "change": 1
+        },
+      "condition": {
+        "type": "origins:resource",
+        "resource": "wereboar:berserk_resource",
+        "comparison": "==",
+        "compare_to": 5
+      },
+        "cooldown": 1
+    },
+    "determination_resource":
+    {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 100,
+        "start_value": 0,
+        "hud_render": {
+          "should_render": false
+        },
+          "max_action": {
+            "type": "origins:and",
+            "actions": [{
+              "type": "origins:execute_command",
+              "command": "advancement grant @s only wereboar:determination",
+              "permission_level": 4
+          }
+          ]
+          }
+      },
+      "clutch":
+      {
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only wereboar:clutch"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+              {
+                "type": "origins:fall_distance",
+                "comparison": ">=",
+                "compare_to": 250
+            },
+            {
+                "type": "origins:power",
+                "power": "wereboar:leap_velocity"
+            }
+            ]
+          }
+    },
+    "hogfish":
+    {
+      "type": "origins:resource",
+      "min": 0,
+      "max": 60,
+      "start_value": 0,
+      "hud_render": {
+      "should_render":false
+      }, 
+      "max_action": {
+      "type": "origins:execute_command",
+      "command": "advancement grant @s only wereboar:hogfish"
+    }
+  },
+  "hogfish_gain":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "wereboar:advancement_hogfish",
+        "change": 1
+    },
+    "interval": 1200,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": ">=",
+      "compare_to": 2
+  }
+},
+"hogfish_lose":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "wereboar:advancement_hogfish",
+        "change": -60
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": ">=",
+      "compare_to": 2
+  }
+},
+"hidden": true
+}

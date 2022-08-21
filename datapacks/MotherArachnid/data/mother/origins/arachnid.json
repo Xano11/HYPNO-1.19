@@ -1,0 +1,18 @@
+{
+	"loading_priority": 10,
+	"powers": [
+		"origins:climbing",
+		"origins:master_of_webs",
+		"origins:carnivore",
+		"origins:arthropod",
+		"mother:health",
+		"mother:poison_immunity",
+		"mother:silky_composition",
+		"mother:spiderlike"
+	],
+	"icon": "minecraft:cobweb",
+	"name": "Mother Arachnid",
+    "description": "The queen of all arachnids, and also the mom of the server.",
+	"order": 3,
+	"impact": 1
+}

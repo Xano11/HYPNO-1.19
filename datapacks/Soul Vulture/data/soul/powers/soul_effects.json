@@ -1,0 +1,44 @@
+{
+    "type": "origins:multiple",
+	
+	"particles": {
+    "type": "origins:particle",
+        "particle": "minecraft:soul",
+        "frequency": 4
+    },
+	"hurtsound1": {
+    "type": "apugli:custom_hurt_sound",
+    "sound": "minecraft:entity.stray.hurt"
+    },
+	"hurtsound2": {
+    "type": "apugli:custom_hurt_sound",
+    "sound": "minecraft:particle.soul_escape"
+    },
+	"hurtsound3": {
+    "type": "apugli:custom_hurt_sound",
+    "sound": "minecraft:entity.wither_skeleton.hurt"
+    },
+	"deathsound1": {
+    "type": "apugli:custom_death_sound",
+    "sound": "minecraft:entity.stray.death"
+    },
+	"deathsound2": {
+    "type": "apugli:custom_death_sound",
+    "sound": "minecraft:entity.wither_skeleton.death"
+    },
+	"hurtparticles1": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:execute_command",
+			"command": "execute at @s run particle block soul_sand ~ ~1 ~ 0.2 0.35 0.2 0 25 normal"
+			}
+	},
+	"hurtparticles2": {
+        "type": "origins:self_action_when_hit",
+        "entity_action": {
+            "type": "origins:execute_command",
+			"command": "execute at @s run particle block bone_block ~ ~1 ~ 0.2 0.35 0.2 0 5 normal"
+			}
+	},
+	"hidden": true
+}

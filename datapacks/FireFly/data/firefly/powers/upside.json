@@ -1,0 +1,17 @@
+{
+  "type": "origins:prevent_item_use",
+  "item_condition": {
+    "type": "origins:ingredient",
+      "ingredient": {
+          "tag": "origins:shields"
+    }
+  },
+  "name": "Not A Downside",
+  "description": "§7You cant use a shield, good boi/grill.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/misc/forcefield.png",
+        "text": "Unwieldly."
+    }
+]
+}

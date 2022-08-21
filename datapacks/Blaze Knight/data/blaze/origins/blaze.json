@@ -1,0 +1,32 @@
+{
+    "powers": [
+        "origins:fire_immunity",
+        "origins:hotblooded",
+        "blaze:heat",
+        "blaze:fuel",
+        "blaze:on",
+        "blaze:spawn",
+        "blaze:slowfall",
+        "blaze:fireball",
+        "blaze:launch",
+        "blaze:pain",
+        "blaze:fall",
+        "blaze:death",
+        "blaze:hunger_fast",
+        "blaze:food",
+        "blaze:nouse",
+        "blaze:water_vulnerability",
+        "blaze:immune",
+        "origins:damage_from_snowballs",
+        "origins:damage_from_potions",
+        "origins:flame_particles",
+        "blaze:soulsuck",
+        "blaze:poor_swimmer"
+		
+    ],
+    "icon": "minecraft:blaze_rod",
+    "order": 20,
+    "impact": 3,
+    "name": "Blazeknight",
+    "description": "Defend the fortress."
+}

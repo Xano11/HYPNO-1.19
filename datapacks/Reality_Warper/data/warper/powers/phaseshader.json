@@ -1,0 +1,10 @@
+{
+  "type": "origins:shader",
+  "shader": "minecraft:shaders/post/sobel.json",
+  "toggleable": false,
+  		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  },
+  "hidden": true
+}

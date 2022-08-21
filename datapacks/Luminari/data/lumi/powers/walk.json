@@ -1,0 +1,122 @@
+{
+    "name": "Star Walker",
+    "description": "(Secondary) Hold down to float in the air.",
+    "type": "origins:multiple",
+    "charge":
+    {
+        "type": "origins:active_self",
+        "cooldown": 0,
+        "key":
+        {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        },
+        "entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:electric_spark ~ ~0.9 ~ 0.3 0.4 0.3 0 3 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "particle minecraft:witch ~ ~0.9 ~ 0.1 0.1 0.1 0 3 force"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s lumi:walk_res 1"
+			 }
+		]
+	},
+	"condition":{
+        "type": "origins:and",
+        "conditions": [ {
+				"type": "origins:resource",
+				"resource": "lumi:power_res",
+				"comparison": ">=",
+				"compare_to": 1
+			},
+			{
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+            }
+			]
+			}
+},
+	"fix": 
+	{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "lumi:power_res",
+	    "change": -4
+	},
+			"condition": {
+				"type": "origins:resource",
+				"resource": "lumi:walk_res",
+				"comparison": "==",
+				"compare_to": 1
+			},
+	"interval": 1
+},
+	"fix2": 
+	{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "lumi:walk_res",
+	    "change": -1
+	},
+	"interval": 1
+},
+"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 1,
+	"start_value": 1,
+	"hud_render": {
+          "should_render": false,
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+          "bar_index": 0
+	}
+	},
+	"float": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 25,
+		"effects": [
+			{
+				"effect": "minecraft:levitation",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": -1
+			}
+		],
+		"condition": {
+            "type": "origins:and",
+            "conditions": [
+			{
+				"type": "origins:resource",
+				"resource": "lumi:walk_res",
+				"comparison": "==",
+				"compare_to": 1
+			},
+			{
+				"type": "origins:resource",
+				"resource": "lumi:power_res",
+				"comparison": ">=",
+				"compare_to": 1
+			},
+                {
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:overworld"
+                }
+				]
+				}
+	}
+}

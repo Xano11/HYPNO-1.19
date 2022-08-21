@@ -1,0 +1,42 @@
+{
+    "name": "Size",
+    "description": "You are bigger than normal ,but struggle to use simple objects like stairs to their full potential.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/netherite_chestplate.png",
+            "text": "Have you ever heard of thiccness?"
+        }
+    ],
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 1.1",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 1.1",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:view_bobbing 0.65",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:step_height 0.3",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:held_item 1.3",
+                "permission_level": 4
+            }
+        ]
+    }
+}

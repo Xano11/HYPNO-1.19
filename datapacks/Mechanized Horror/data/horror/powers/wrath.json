@@ -1,0 +1,62 @@
+{
+	"type": "origins:multiple",
+	
+	"activate": {
+		"type": "origins:active_self",
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [
+				{
+					"type": "origins:execute_command",
+					"command": "power grant @s horror:wrath_effects"
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "horror:sacrifice_sacrifice_resource",
+					"change": -7
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "advancement grant @s only horror:rage",
+					"permission_level": 4
+				},
+				{
+        			"type": "origins:execute_command",
+        			"command": "particle minecraft:lava ~ ~1 ~ 1 1 1 1 200"
+      			},
+				{
+        			"type": "origins:execute_command",
+        			"command": "playsound minecraft:block.smithing_table.use player @a ~ ~ ~ 4 0.5 0"
+      			},
+				{
+        			"type": "origins:execute_command",
+        			"command": "playsound minecraft:block.lava.ambient player @a ~ ~ ~ 4 0.5 0"
+      			}
+			]
+			},
+		"key": {
+			"key": "key.loadToolbarActivator"
+		},
+		"condition":  {
+			"type": "origins:resource",
+			"resource": "horror:sacrifice_sacrifice_resource",
+			"comparison": "==",
+			"compare_to": 7
+		},
+"cooldown": 1200,
+"hud_render": {
+	"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+	"bar_index": 5,
+	"should_render": true
+}   
+},
+
+	"name": "Feel The Rush",
+	"description": "(loadToolbarActivator) After killing 7 things, you can enter a state of hyper focus.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/blaze_powder.png",
+            "text": "Have you ever heard of massacres?"
+        }
+    ]
+}

@@ -1,0 +1,106 @@
+{
+	"type": "origins:multiple",
+	"unphased": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 10,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "before_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ^ ^0.5 ^10"
+                    },
+                    "command_at_hit": "tp @s ~ ~ ~",
+                    "command_along_ray": "particle minecraft:witch ~ ~ ~ 0.01 0.01 0.01 1 5 force",
+                    "command_step": 0.5,
+                    "command_along_ray_only_on_hit": false
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.enderman.teleport master @a[distance=..20] ~ ~ ~ 1 1"
+                },
+				{
+					"type": "origins:execute_command",
+					"command": "resource change @s lumi:power_res -150",
+					"permission_level": 4
+				},
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.wither.ambient master @s ~ ~ ~ 0.2 1"
+                },
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @s mining_fatigue 1 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "effect give @s slowness 2 1",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.illusioner.prepare_mirror master @a[distance=..20] ~ ~ ~ 1 2",
+					"permission_level": 4
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 2,
+					"action": {
+					"type": "origins:execute_command",
+					"command": "particle minecraft:witch ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+					"permission_level": 4
+				}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 2,
+					"action": {
+					"type": "origins:extinguish"
+					}
+				},
+				{
+					"type": "origins:delay",
+					"ticks": 2,
+					"action": {
+                    "type": "origins:add_velocity",
+                    "space": "local",
+                    "z": 0.6
+                }
+            },
+			{
+				"type": "origins:exhaust",
+				"amount": 1.4
+			}
+            ]
+        },
+        "cooldown": 220,
+  "hud_render": {
+          "should_render": true,
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+          "bar_index": 1
+  },
+  "condition": {
+        "type": "origins:and",
+        "conditions": [ {
+				"type": "origins:resource",
+				"resource": "lumi:power_res",
+				"comparison": ">=",
+				"compare_to": 150
+			}
+        ]    
+    },
+        "key": {
+            "key": "key.loadToolbarActivator",
+            "continuous": false
+        }
+},
+  "name": "Condensed Blast",
+  "description": "(loadToolbarActivator) Dash 10 blocks forward."
+}

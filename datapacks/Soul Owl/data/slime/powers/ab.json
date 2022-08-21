@@ -1,0 +1,221 @@
+{
+    "type": "origins:multiple",
+
+    "heal": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 49,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+            "bar_index": 9
+        }
+    },
+
+    "absorb": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "slime:ab_heal",
+                "comparison": "==",
+                "compare_to": 49,
+                "inverted": true
+            },
+            "if_action": {
+                "type": "origins:raycast",
+                "distance": 6,
+                "block": false,
+                "entity": true,
+                "shape_type": "collider",
+                "fluid_handling": "none",
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_velocity",
+                            "z": -0.1
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 2,
+                            "source": {
+                                "name": "sting.player"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:exhaust",
+                                "amount": 0.1
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "slime:ab_heal",
+                                "change": 1
+                            }
+                        }
+                    ]
+                },
+                "hit_action": {
+                    "type": "origins:gain_air",
+                    "value": 20
+                },
+                "before_action": {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.breath player @a ~ ~ ~ 0.01 2"
+                },
+                    "command_at_hit": "particle minecraft:angry_villager",
+                    "command_along_ray": "particle minecraft:dust_color_transition 1 0 1 0.6 0.5 0.1 0.5 ~ ~ ~ 0.001 0.001 0.001 0.001 10 force",
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                },
+            "else_action": {
+                "type": "origins:raycast",
+                "distance": 6,
+                "block": false,
+                "entity": true,
+                "shape_type": "collider",
+                "fluid_handling": "none",
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_velocity",
+                            "z": -0.1
+                        },
+                        {
+                            "type": "origins:damage",
+                            "amount": 2,
+                            "source": {
+                                "name": "sting.player"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:exhaust",
+                                "amount": 0.1
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:heal",
+                                "amount": 0.05
+                            }
+                        }
+                    ]
+                },
+                "hit_action": {
+                    "type": "origins:gain_air",
+                    "value": 20
+                },
+                "before_action": {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.player.breath player @a ~ ~ ~ 0.01 2"
+                },
+                    "command_at_hit": "particle minecraft:angry_villager",
+                    "command_along_ray": "particle minecraft:dust_color_transition 1 0 1 0.6 0.5 0.1 0.5 ~ ~ ~ 0.001 0.001 0.001 0.001 10 force",
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        }
+    },
+
+    "replen": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "slime:ab_heal",
+                "comparison": "==",
+                "compare_to": 0,
+                "inverted": true
+            },
+            "if_action": {
+                "type": "origins:raycast",
+                "distance": 6,
+                "block": false,
+                "entity": true,
+                "shape_type": "collider",
+                "fluid_handling": "none",
+                "bientity_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:add_velocity",
+                            "z": 0.1
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:heal",
+                                "amount": 1
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:feed",
+                                "food": 1,
+                                "saturation": 0.1
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:change_resource",
+                                "resource": "slime:ab_heal",
+                                "change": -3.5
+                            }
+                        }
+                    ]
+                },
+                "before_action": {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.pig.saddle player @a ~ ~ ~ 0.2 2"
+                },
+                    "command_at_hit": "particle minecraft:heart",
+                    "command_along_ray": "particle minecraft:dust_color_transition 0.1 0.5 0.1 0.6 0 1 0 ~ ~ ~ 0.001 0.001 0.001 0.001 10 force",
+                    "command_step": 1,
+                    "command_along_ray_only_on_hit": true
+                },
+            "else_action": {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:block.note_block.cow_bell player @a ~ ~ ~ 0.2 0.5"
+            }
+        },
+        "cooldown": 1,
+        "hud_render": {
+            "should_render": false
+        },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": true
+        }
+    },
+    
+    "name": "Absorb And Replenish",
+    "description": "You can use you Primary Ability Key to Absorb a entities health (damage increases when you have max heal stacks), when on full health, Sucking enemies with Absorb will charge up Heal Stacks. Your Secondary Ability Key will allow you to heal others at the cost of Heal Stacks gain by using Absorb.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/bone_block_top.png",
+            "text": "Primary to Succ, Secondary to Blow."
+        }
+    ]
+}

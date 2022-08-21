@@ -1,0 +1,9 @@
+{
+  "pack": {
+	"name":"For Hyrule",
+	"id":"hyrule",
+    "pack_format":10,
+	"authors":"Visual",
+    "description":"Made by Muffin."
+  }
+}

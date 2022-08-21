@@ -1,0 +1,17 @@
+{
+	"type": "origins:prevent_item_use",
+	"item_condition": {
+		"type": "origins:ingredient",
+		"ingredient": {
+			"tag": "lunarnc:cant_use"
+		}
+	},
+	"name": "Lack of knowledge",
+    "description": "You've never touched a ranged weapon. For that reason, everything else than crossbows are mental gymnastics to you.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/unluck.png",
+            "text": "Born different."
+        }
+    ]
+}

@@ -1,0 +1,260 @@
+{
+	"type": "origins:multiple",
+	"unphased": {
+        "type": "origins:active_self",
+        "entity_action": {
+		"type": "origins:if_else_list",
+            "actions": [ {
+  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on",
+	"inverted": true
+  },
+                    "action":
+                    {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:raycast",
+                    "distance": 12,
+                    "block": true,
+                    "entity": false,
+                    "shape_type": "visual",
+                    "fluid_handling": "any",
+                    "before_action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ^ ^0.5 ^12"
+                    },
+                    "command_at_hit": "tp @s ~ ~ ~",
+                    "command_along_ray": "particle minecraft:dust_color_transition 1 0 0.8 1 0 1 0.6 ~ ~ ~ 0.01 0.01 0.01 1 5 force",
+                    "command_step": 0.5,
+                    "command_along_ray_only_on_hit": false
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell master @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.mirror_move master @a ~ ~ ~ 1 2"
+                },
+				{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 0.4
+            }
+            },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.prepare_blindness master @a ~ ~ ~ 0.4 2"
+                },
+				{
+        "type": "origins:execute_command",
+        "command": "power grant @s origins:fall_immunity",
+        "permission_level": 4
+  },
+  {
+                "type": "origins:delay",
+                "ticks": 55,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s origins:fall_immunity"
+                }
+            },
+			{
+        "type": "origins:execute_command",
+        "command": "effect give @s minecraft:slow_falling 1 0 true",
+        "permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only warper:teleport",
+        "permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "resource set @s warper:fallres 5",
+        "permission_level": 4
+			},
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+				"type": "origins:extinguish"
+				}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:dust_color_transition 0 1 0.6 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+				"permission_level": 4
+            }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:dust_color_transition 1 0 0.8 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+				"permission_level": 4
+            }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 0.2
+            }
+            }
+            ]
+        }
+	},
+	{
+  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on",
+	"inverted": false
+  },
+                    "action":
+                    {
+            "type": "origins:and",
+            "actions": [
+                {
+    "type": "origins:execute_command",
+    "command": "summon armor_stand ^ ^ ^12 {NoGravity:0b,Invulnerable:1b,Marker:1b,Invisible:1b,Tags:[\"telestand\"],ArmorItems:[{},{},{},{}]}",
+    "permission_level": 4
+  },
+  {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust_color_transition 0 1 0.6 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+        "permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only warper:teleport",
+        "permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "resource set @s warper:fallres 5",
+        "permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "particle minecraft:dust_color_transition 1 0 0.8 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+        "permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "effect give @s minecraft:slow_falling 1 0 true",
+        "permission_level": 4
+			},
+  {
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+        "type": "origins:extinguish"
+  }
+            },
+  {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+    "type": "origins:execute_command",
+    "command": "function tele:start_ray",
+    "permission_level": 4
+  }
+            },
+	{
+        "type": "origins:execute_command",
+        "command": "power grant @s origins:fall_immunity",
+        "permission_level": 4
+  },
+  {
+                "type": "origins:delay",
+                "ticks": 55,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @s origins:fall_immunity"
+                }
+            },
+  {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "execute at @e[type=minecraft:armor_stand,tag=telestand] run tp @s ~ ~1 ~"
+                }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 0.2
+            }
+            },
+			{
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell master @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.mirror_move master @a ~ ~ ~ 1 2"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.prepare_blindness master @a ~ ~ ~ 0.4 2"
+                },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:dust_color_transition 0 1 0.6 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+				"permission_level": 4
+            }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 2,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:dust_color_transition 1 0 0.8 2 0 0 0 ~ ~1 ~ 0.5 0.5 0.5 1 20 force",
+				"permission_level": 4
+            }
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 3,
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "kill @e[type=minecraft:armor_stand,tag=telestand]"
+                }
+            }
+            ]
+        }
+	}
+]
+},
+        "cooldown": 160,
+  "hud_render": {
+    "should_render": true,
+    "bar_index": 3
+  },
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": false
+        }
+},
+  "name": "Teleportation",
+  "description": "(Primary) Teleport in the direction your looking in."
+}

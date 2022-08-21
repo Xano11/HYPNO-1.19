@@ -1,0 +1,59 @@
+{
+    "type": "origins:multiple",
+    "resource":
+{ 
+        "type": "origins:resource",
+        "min": 0,
+        "max": 10,
+        "start_value": 200,
+        "hud_render": {
+			"should_render": false,
+			"sprite_location": "origins:textures/gui/resource_bar.png",
+			"bar_index": 3
+			},
+        "min_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "power remove @s engineer:turret_effects",
+                "permission_level": 4
+            }
+        ]   
+    }
+},
+"remove_resource": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "engineer:turret_effects_resource" ,
+        "change": -1
+    },
+    "interval": 2
+},
+"dmg": 
+{
+    "type": "origins:action_over_time",
+	"entity_action": {
+					"type": "origins:damage",
+					"amount": 2,
+					"source": {
+						"name": "magic",
+						"unblockable": true,
+						"bypasses_armor": false
+					}
+				},
+    "interval": 1
+    },
+	"death": {
+	"type": "origins:action_on_callback",
+     "entity_action_respawned": {
+        "type": "origins:execute_command",
+        "permission_level": 4,
+        "command": "power remove @s engineer:turret_effects"
+    },
+	"execute_chosen_when_orb": false
+	},
+    "hidden": true
+}

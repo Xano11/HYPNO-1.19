@@ -1,0 +1,47 @@
+{
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 0.49",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 0.49",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:held_item 1.6",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:visibility 0.75",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:entity_reach 0.75",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:motion 1.3",
+                "permission_level": 4
+            }
+        ]
+    },
+    "name": "§6§l§nChibi",
+    "description": "You are small and harder to notice, but you have less entity reach.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/instant_damage.png",
+            "text": "Try toggling [LoadToolbarActivator] or [SaveToolbarActivator]."
+        }
+    ]
+}

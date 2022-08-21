@@ -1,0 +1,81 @@
+{
+"type": "origins:multiple",
+  "prevent": {
+  "type": "origins:prevent_item_use",
+    "item_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+          "tag": "rabbit:shit"
+        }
+      }
+  },
+  "hunger": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 2,
+			"operation": "multiply_total"
+		}
+	},
+  "carrot": {
+  "type": "origins:modify_food",
+  "item_condition": {
+  "type": "origins:ingredient",
+  "ingredient":
+    {
+    "item": "minecraft:carrot"
+    }
+  },
+  "food_modifier":
+  {
+   "operation": "addition",
+   "value": 2
+  },
+  "saturation_modifier":
+  {
+    "operation": "addition",
+    "value": 0.1
+  },
+  "entity_action": {
+    "type": "origins:chance",
+    "action":
+     {    
+   "type": "origins:execute_command",
+   "command": "effect give @s minecraft:night_vision 10 0 true",
+     "permission_level": 4
+     },
+     "chance": 0.01
+     }
+	 },
+  "gcarrot": {
+  "type": "origins:modify_food",
+  "item_condition": {
+  "type": "origins:ingredient",
+  "ingredient":
+    {
+    "item": "minecraft:golden_carrot"
+    }
+  },
+  "food_modifier":
+  {
+   "operation": "addition",
+   "value": 0
+  },
+  "saturation_modifier":
+  {
+    "operation": "addition",
+    "value": 0
+  },
+  "entity_action": {
+    "type": "origins:chance",
+    "action":
+     {    
+   "type": "origins:execute_command",
+   "command": "effect give @s minecraft:night_vision 10 0 true",
+     "permission_level": 4
+     },
+     "chance": 0.1
+     }
+	 },
+	 "name": "Rabbit Food",
+     "description": "You can only eat Carrots."
+}

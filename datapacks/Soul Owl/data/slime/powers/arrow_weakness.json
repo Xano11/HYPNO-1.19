@@ -1,0 +1,28 @@
+{
+    "type": "origins:modify_damage_taken",
+    "damage_condition": {
+      "type": "origins:or",
+      "conditions": [
+        {
+      "type": "origins:projectile",
+      "projectile": "minecraft:spectral_arrow"      
+        },
+        {
+          "type": "origins:projectile",
+          "projectile": "minecraft:arrow"      
+        }
+      ]
+    },
+    "modifier": {
+      "value": 1,
+      "operation": "multiply_total"
+    },
+    "name": "Brain Trauma",
+    "description": "You died getting shot by a arrow, making you take more damage from them",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/item/arrow.png",
+          "text": "You take 2x arrow damage."
+      }
+  ]
+}

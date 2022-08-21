@@ -1,0 +1,24 @@
+{
+    "type": "origins:conditioned_attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.movement_speed",
+    "value": -0.07900002149011612,
+    "operation": "addition"
+  },
+  "tick_rate": 20,
+  "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0.0
+      },
+    "name": "Poor Swimmer",
+    "description": "You are slower in water.",
+    "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/dolphins_grace.png",
+          "text": "Have you ever heard of swimming? (Clearly not)"
+      }
+  ]
+}

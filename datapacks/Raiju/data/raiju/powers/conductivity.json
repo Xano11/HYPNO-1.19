@@ -1,0 +1,58 @@
+{
+"type":"origins:multiple",
+"lose":
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "raiju:resource_resource",
+	    "change": -2
+	},
+    "condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": ">",
+        "compare_to": 0
+    },
+	"interval": 10
+},
+"damage":
+{
+	"type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:damage",
+        "amount": 1,
+        "source": {
+            "name": "lightningbolt",
+            "bypasses_armor": true,
+            "unblockable": true
+        }
+    },    
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+            "type": "origins:resource",
+            "resource": "raiju:resource_resource",
+            "comparison": "==",
+            "compare_to": 0
+            },
+            {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": ">",
+            "compare_to": 0
+            }
+        ]
+    }, 
+	"interval": 30
+},
+"name":"Conductivity",
+"description":"Being in water will use up your lightning bar. At zero, you will start taking damage.",
+"badges": [
+    {
+        "sprite": "minecraft:textures/item/water_bucket.png",
+        "text": "Water will therefore prevent plenty of abilities!"
+    }
+]
+}

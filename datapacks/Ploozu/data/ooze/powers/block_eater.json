@@ -1,0 +1,211 @@
+{
+    "type": "origins:multiple",
+    "eat_noise": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:entity.generic.eat master @s ~ ~ ~ 1 1.5 1",
+            "permission_level": 4
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+              "type": "origins:ingredient",
+              "ingredient": {
+                "item": "minecraft:air"
+                    }
+                }
+            },
+            "cooldown": 60,
+            "hud_render": {
+            "should_render": false
+            },
+            "only_when_harvested": false
+        },
+    "tier_1": {
+    "type": "origins:action_on_block_break",
+    "entity_action": {
+        "type": "origins:and",
+              "actions": [
+            {
+                "type": "origins:apply_effect",
+                "effect": {
+                    "effect": "minecraft:hunger",
+                    "duration": 60,
+                    "amplifier": 0,
+                    "is_ambient": false,
+                    "show_particles": false,
+                    "show_icon": false
+                }
+            },
+            {
+                "type": "origins:feed",
+                "food": 1,
+                "saturation": 0.1
+            },
+            {
+                "type": "origins:change_resource",
+                "resource": "ooze:mass_resource",
+                "change": 1
+            }
+        ]
+    },
+    "block_condition": {
+        "type": "origins:in_tag",
+        "tag": "ooze:bad_eat",
+        "inverted": true
+    },
+    "condition": {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+          "type": "origins:ingredient",
+          "ingredient": {
+            "item": "minecraft:air"
+            }
+        }
+    },
+    "only_when_harvested": false
+    },
+    "tier_2": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+                  "actions": [
+                {
+                    "type": "origins:feed",
+                    "food": 2,
+                    "saturation": 0.3
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "ooze:mass_resource",
+                    "change": 4
+                }
+            ]
+        },
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "ooze:ores"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+              "type": "origins:ingredient",
+              "ingredient": {
+                "item": "minecraft:air"
+                }
+            }
+        },
+        "only_when_harvested": false
+        },
+    "tier_3": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+                    "actions": [
+                {
+                    "type": "origins:feed",
+                    "food": 4,
+                    "saturation": 0.4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "ooze:mass_resource",
+                    "change": 8
+                }
+            ]
+        },
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "ooze:ore_blocks"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                "item": "minecraft:air"
+                }
+            }
+        },
+        "only_when_harvested": false
+        },
+    "tier_4": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+                    "actions": [
+                {
+                    "type": "origins:feed",
+                    "food": 4,
+                    "saturation": 0.4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "ooze:mass_resource",
+                    "change": 8
+                }
+            ]
+        },
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "ooze:metal_ore"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                "item": "minecraft:air"
+                }
+            }
+        },
+        "only_when_harvested": false
+        },
+    "tier_5": {
+        "type": "origins:action_on_block_break",
+        "entity_action": {
+            "type": "origins:and",
+                    "actions": [
+                {
+                    "type": "origins:feed",
+                    "food": 20,
+                    "saturation": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "ooze:mass_resource",
+                    "change": 64
+                }
+            ]
+        },
+        "block_condition": {
+            "type": "origins:in_tag",
+            "tag": "ooze:metal_block"
+        },
+        "condition": {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:ingredient",
+                "ingredient": {
+                "item": "minecraft:air"
+                }
+            }
+        },
+        "only_when_harvested": false
+        },
+    "name": "Ore Eater",
+    "description": "You gain mass and food by eating blocks.     [etc.< ores< ore blocks< metal ores< metal blocks]",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/saturation.png",
+            "text": "gorp."
+        }
+    ]
+}

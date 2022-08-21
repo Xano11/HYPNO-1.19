@@ -1,0 +1,18 @@
+{
+	"type": "origins:multiple",
+	"name": "Burning Metabolism",
+	"description": "Being this cool comes at a cost, your hunger drains 300% faster.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "Hungry."
+        }
+    ],
+	"hunger": {
+		"type": "origins:modify_exhaustion",
+		"modifier": {
+			"value": 3,
+			"operation": "multiply_total"
+		}
+	}
+}

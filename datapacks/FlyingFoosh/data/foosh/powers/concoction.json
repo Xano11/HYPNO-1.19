@@ -1,0 +1,121 @@
+{
+    "type": "origins:multiple",
+"craft1":{
+"type": "origins:item_on_item",
+"using_item_condition":{
+    "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:pufferfish"
+    }
+},
+"on_item_condition":{
+    "type": "origins:ingredient",
+    "ingredient": {
+        "item": "minecraft:cod"
+    }
+},
+"on_item_action": {
+    "type": "origins:consume",
+    "amount": 1
+},
+"result": {
+    "item": "minecraft:pufferfish",
+    "tag": "{display:{Name:'[{\"text\":\"Puffer Almagamation\",\"italic\":false}]',Lore:['[{\"text\":\"Might need that for a special potion...\",\"italic\":false}]']},Enchantments:[{}]}"
+},
+"using_item_action": {
+    "type": "origins:consume",
+    "amount": 1
+},
+"entity_action": {
+    "type": "origins:execute_command",
+    "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 3 1 0",
+    "permission_level": 4
+}
+},
+"craft2":{
+    "type": "origins:item_on_item",
+    "using_item_condition":{
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:tropical_fish"
+        }
+    },
+    "on_item_condition":{
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:salmon"
+        }
+    },
+    "on_item_action": {
+        "type": "origins:consume",
+        "amount": 1
+    },
+    "result": {
+        "item": "minecraft:tropical_fish",
+        "tag": "{display:{Name:'[{\"text\":\"Tropical Fish Cocktail\",\"italic\":false}]',Lore:['[{\"text\":\"Might need that for a special potion...\",\"italic\":false}]']},Enchantments:[{}]}"
+    },
+    "using_item_action": {
+        "type": "origins:consume",
+        "amount": 1
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 3 1 0",
+        "permission_level": 4
+    }
+    },
+    "craft3":{
+        "type": "origins:item_on_item",
+        "using_item_condition":{
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Puffer Almagamation\",\"italic\":false}]',Lore:['[{\"text\":\"Might need that for a special potion...\",\"italic\":false}]']},Enchantments:[{}]}"
+        },
+        "on_item_condition":{
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'[{\"text\":\"Tropical Fish Cocktail\",\"italic\":false}]',Lore:['[{\"text\":\"Might need that for a special potion...\",\"italic\":false}]']},Enchantments:[{}]}"
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "result": {
+            "item": "minecraft:potion",
+            "tag": "{CustomPotionColor:9764859,display:{Name:'[{\"text\":\"Fish Concoction\",\"italic\":false}]',Lore:['[{\"text\":\"A water breathing potion on a budget\",\"italic\":false,\"color\":\"dark_aqua\"}]']},Enchantments:[{}],CustomPotionEffects:[{Id:13,Duration:2400}]}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 3 1 0",
+            "permission_level": 4
+                },
+                {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only foosh:concoction",
+            "permission_level": 4
+                }
+            ]
+        }
+        },
+    "name":"Fish Alchemy",
+	"description": "You have learned to use your knowledge of the underwater fauna to create special potions to keep you alive on land.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/pufferfish.png",
+            "text": "Mix a pufferfish with a cod for the first part of the craft!"
+        },
+        {
+            "sprite": "minecraft:textures/item/tropical_fish.png",
+            "text": "Mix a tropical fish with a salmon for the second part of the craft!"
+        },
+        {
+            "sprite": "minecraft:textures/item/potion.png",
+            "text": "Mix the two first parts together to make the special pot!"
+        }
+    ]
+}

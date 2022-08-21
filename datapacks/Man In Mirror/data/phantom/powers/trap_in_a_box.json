@@ -1,0 +1,87 @@
+{
+    "type": "origins:multiple",
+    "name": "Trap in a Box",
+    "description": "Whenever you hit an entity, it gets frozen in an unpassable mirror, and can't escape until 10 seconds pass and the mirror shatters, dealing a little bit of damage.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/glass_bottle.png",
+            "text": "Like a ship in a bottle."
+        }
+    ],
+    "toggle": {
+        "type": "origins:toggle",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "active_by_default": false
+    },
+    "bar": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "condition": {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            },
+            "sprite_location": "minecraft:textures/block/glass.png",
+            "bar_index": 100
+        }
+    },
+    "trap": {
+        "type": "origins:action_on_entity_use",
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:player"
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_toggle"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:trigger_cooldown",
+                        "power": "*:*_cooldown"
+                    }
+                },
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:execute_command",
+                    "command": "power grant @s phantom:trapped_in_a_box",
+                    "permission_level": 4
+                    }
+                }
+            ]
+        }
+    },
+    "cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 2400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 9
+        }
+    }
+}

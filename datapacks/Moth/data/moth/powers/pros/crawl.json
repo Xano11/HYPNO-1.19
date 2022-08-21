@@ -1,0 +1,235 @@
+{
+	"type": "origins:multiple",
+	"toggle": {
+		"type": "origins:toggle",
+		"active_by_default": false,
+		"key": {
+			"key": "key.origins.primary_active"
+		}
+	},
+	"crawl_speed_1": {
+        "type": "origins:action_over_time",
+        "rising_action": {
+            "type": "origins:execute_command",
+            "command": "scale set pehkui:motion 0.4",
+            "permission_level": 4
+        },
+        "falling_action": {
+            "type": "origins:execute_command",
+            "command": "scale set pehkui:motion 1",
+            "permission_level": 4
+        },
+        "condition": {
+            "type":  "origins:and",
+            "conditions": [
+            {
+                "type": "origins:power_active",
+                "power": "moth:pros/crawl_toggle"
+            },
+            {
+                "type": "origins:swimming"
+            },
+            {
+                "type": "origins:or",
+                "conditions": [
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": 0,
+                    "offset_z": 0,
+                    "offset_y": 2
+                },
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": 0,
+                    "offset_z": 0,
+                    "offset_y": -0.01
+                }
+                ]
+            },
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:lava",
+                "comparison": "==",
+                "compare_to": 0
+            }
+            ]      
+        },
+        "interval": 1
+	},
+    "crawl_speed_2": {
+		"type": "origins:modify_falling",
+		"velocity": 0.001,
+		"take_fall_damage": false,
+        "condition": {
+            "type":  "origins:and",
+            "conditions": [
+            {
+                "type": "origins:power_active",
+                "power": "moth:pros/crawl_toggle"
+            },
+            {
+                "type": "origins:swimming"
+            },
+            {
+                "type": "origins:block_collision",
+                "offset_x": 0,
+                "offset_z": 0,
+                "offset_y": 2
+            },
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:lava",
+                "comparison": "==",
+                "compare_to": 0
+            }
+            ]      
+        }
+	},
+	"crawl": {
+		"type": "origins:swimming",
+		"condition": {
+			"type":  "origins:and",
+			"conditions": [
+			{
+				"type": "origins:power_active",
+				"power": "moth:pros/crawl_toggle"
+			},
+            {
+                "type": "origins:or",
+                "conditions": [
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": 0,
+                    "offset_z": 0,
+                    "offset_y": 2
+                },
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": 0,
+                    "offset_z": 0,
+                    "offset_y": -0.01
+                }
+                ]
+            },
+			{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:water",
+				"comparison": "==",
+				"compare_to": 0
+			},
+			{
+				"type": "origins:fluid_height",
+				"fluid": "minecraft:lava",
+				"comparison": "==",
+				"compare_to": 0
+			},
+            {
+                "type":  "origins:or",
+                "conditions": [{
+                    "type": "origins:sprinting"
+                },
+                {
+                    "type":  "origins:and",
+                    "conditions": [{
+                        "type": "origins:sneaking"
+                    },
+                    {
+                        "type": "origins:moving"
+                    },
+                    {
+                        "type": "origins:on_block"
+                    },
+                    {
+                        "type": "origins:block_collision",
+                        "offset_x": 0,
+                        "offset_z": 0,
+                        "offset_y": 1
+                    }]
+                }]
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/bugzapper_bzz_resource",
+                "comparison": "==",
+                "compare_to": 61
+            },
+            {
+                "type": "origins:fall_flying",
+                "inverted": true
+            }
+			]
+	
+		}
+	},
+    "climbing": {
+        "type": "origins:climbing",
+        "hold_condition": {
+            "type": "origins:and",
+            "conditions": [
+            {
+                "type": "origins:or",
+                "conditions": [
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": 0.01,
+                    "offset_z": 0.01,
+                    "offset_y": 0
+                },
+                {
+                    "type": "origins:block_collision",
+                    "offset_x": -0.01,
+                    "offset_z": -0.01,
+                    "offset_y": 0
+                }
+                ]
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+            {
+                "type": "origins:collided_horizontally"
+            },
+            {
+                "type": "origins:power_active",
+                "power": "*:*_toggle"
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/bugzapper_bzz_resource",
+                "comparison": "==",
+                "compare_to": 61
+            }
+            ]
+        }
+    },
+    "name": "Crawl",
+    "description": "You can crawl on walls, floors, even ceilings.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/block/cobweb.png",
+            "text": "Sprint to crawl on floors/ceilings, you climb up walls the same way as an arachnid. [Sneak to stay still on walls and prevent dropping off ceilings.]"
+        },
+        {
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Toggle with [Primary]"
+        }
+    ]
+}

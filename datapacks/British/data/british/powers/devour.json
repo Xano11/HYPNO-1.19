@@ -1,0 +1,170 @@
+{
+	"type": "origins:multiple",
+	"balls": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.prepare_blindness master @a[distance=..20] ~ ~ ~ 1 1.5"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.illusioner.cast_spell master @a[distance=..20] ~ ~ ~ 1 0.7"
+                },
+				{
+					"type": "origins:execute_command",
+					"command": "resource change @s british:devour_res 60",
+					"permission_level": 4
+				}
+            ]
+        },
+        "cooldown": 750,
+  "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 1
+  },
+        "key": {
+            "key": "key.origins.secondary_active",
+            "continuous": false
+        }
+},
+"hit": 
+	{
+	"type": "origins:self_action_on_hit",
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [{
+        "type": "origins:execute_command",
+        "command": "resource change @s british:devour_res 30"
+        }
+		]
+		},
+    "cooldown": 10,
+    "hud_render": {
+        "should_render": false,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+        "bar_index": 14
+		},
+		"condition":
+            {
+                "type": "origins:resource",
+                "inverted": false,
+                "comparison": ">=",
+                "compare_to": 2,
+                "resource": "british:devour_res"
+            }
+	},
+"effect": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effects": [
+			{
+				"effect": "minecraft:speed",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 1
+			},
+			{
+				"effect": "minecraft:strength",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 0
+			}
+		],
+		"condition": {
+				"type": "origins:resource",
+                "resource": "british:devour_res",
+				"comparison": ">=",
+				"compare_to": 2
+				}
+	},
+"effects": {
+	"type": "origins:stacking_status_effect",
+		"min_stacks": 0,
+		"max_stacks": 1,
+		"duration_per_stack": 20,
+		"effects": [
+			{
+				"effect": "minecraft:mining_fatigue",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 10
+			},
+			{
+				"effect": "minecraft:weakness",
+				"is_ambient": true,
+				"show_particles": false,
+				"show_icon": true,
+				"amplifier": 10
+			}
+		],
+		"condition": {
+        "type": "origins:and",
+        "conditions": [
+        {
+            "type": "origins:sneaking"
+        },
+        {      
+            "type": "origins:resource",
+            "resource": "british:stealth_timer",
+            "comparison":"==",
+            "compare_to": 0
+        }
+        ]    
+    }
+	},
+    "effectd": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "effect give @s weakness 10 1"
+             },
+			 {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "effect give @s mining_fatigue 10 1"
+             }
+			 ]
+			 },
+			"interval": 1,
+			"condition": {
+				"type": "origins:resource",
+                "resource": "british:devour_res",
+				"comparison": "==",
+				"compare_to": 1
+				}
+		},
+    "res": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 60,
+        "start_value": 0,
+        "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+		"bar_index": 12
+        }
+    },
+    "drain": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource change @s british:devour_res -1"
+             },
+			"interval": 1
+		},
+  "name": "Devour",
+  "description": "(Secondary) give yourself strength and speed, land hits to increase the duration of said effects."
+}

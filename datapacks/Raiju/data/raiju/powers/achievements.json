@@ -1,0 +1,104 @@
+{
+    "type": "origins:multiple",
+"thunder25":{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+            {
+                "type":"origins:execute_command",
+                "command":"advancement grant @s only raiju:thunder25",
+                "permission_level":4
+            }
+        ]
+    },
+    "cooldown": 0,
+    "hud_render":{
+        "should_render":true,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },
+        "condition": {
+            "type": "origins:and",
+			"conditions": [
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "raiju:resource_resource",
+                                    "comparison": "==",
+                                    "compare_to": 60
+                                },
+                                {
+                                    "type": "origins:sneaking",
+                                    "inverted": true
+                                },
+                                {
+                                "type": "origins:block_in_radius",
+		                        "block_condition": {
+			                    "type": "origins:in_tag",
+                                "tag": "raiju:copper"
+		                        },
+		                        "radius": 3,
+		                        "shape": "cube",
+		                        "comparison": "==",
+		                        "compare_to": 0
+	                            },
+                                {
+                                    "type":"origins:command",
+                                    "command":"execute if entity @e[distance=2..10,type=!painting,type=!item,type=!item_frame,type=!armor_stand,type=!villager]",
+                                    "comparison": ">=",
+                                    "compare_to": 25
+                                }
+            ]
+        },      
+    "key":{
+        "key":"key.origins.primary_active"
+    }
+},
+  "trident":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only raiju:trident"
+      },
+    "interval": 10,
+    "condition": {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+          "type": "origins:and",
+          "conditions": [
+              {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:trident"
+            }
+          },
+          {
+              "type": "origins:enchantment",
+              "enchantment": "minecraft:channeling",
+              "comparison": ">=",
+              "compare_to": 1
+          }
+      ]
+        }
+    }
+},
+"hogfish_lose":
+{
+  "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:change_resource",
+        "resource": "foosh:advancement_hogfish",
+        "change": -60
+    },
+    "interval": 20,
+    "condition": {
+      "type": "origins:fluid_height",
+      "fluid": "minecraft:water",
+      "comparison": ">=",
+      "compare_to": 2
+  }
+},
+"hidden": true
+}

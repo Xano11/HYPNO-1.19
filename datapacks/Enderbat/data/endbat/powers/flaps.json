@@ -1,0 +1,112 @@
+{
+	"type": "origins:multiple",
+	"resource": {
+	"type":"origins:resource",
+	"min":0,
+	"max":5,
+	"start_value":4,
+	"hud_render":{
+		"should_render":true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 2
+	}
+},
+	"launch": {
+    "type": "origins:active_self",
+    "cooldown": 10,
+    "key": "key.jump",
+	"continuous": false,
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+			{
+                "type": "origins:add_velocity",
+				"space": "world",
+                "y": 0.5
+			},
+			{
+                "type": "origins:add_velocity",
+				"space": "local",
+                "z": 0.5
+			},
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "particle minecraft:dust 1 1 1 3 ~ ~ ~ 0.3 0.1 0.3 0 10"
+            },
+			{
+				"type": "origins:execute_command",
+				"permission_level": 4,
+				"command": "effect give @s slow_falling 1 0 true"
+			},
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "resource change @s endbat:flaps_resource -1"
+            },
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "playsound minecraft:entity.ender_dragon.flap master @a ~ ~ ~ 0.3 0.6"
+            },
+			{
+				"type": "origins:exhaust",
+				"amount": 1.2
+			}
+        ]
+    },
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 4
+    },
+	"condition": {
+        "type": "origins:and",
+        "conditions": [
+	{
+            "type": "origins:resource",
+            "resource": "endbat:flaps_resource",
+            "comparison":"<=",
+            "compare_to": 0,
+			"inverted": true
+		},
+		{
+			"type": "origins:on_block",
+			"inverted": true
+		},
+		{
+			"type": "origins:block_collision",
+			"offset_x": 0,
+			"offset_y": 0.1,
+			"offset_z": 0,
+			"inverted": true
+		}
+	]
+}
+},
+	"charge": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "endbat:flaps_resource",
+	    "change": 1
+	},
+	"condition": {
+	"type": "origins:and",
+	"conditions": [
+	{
+	"type": "origins:on_block"
+	}
+	]
+	},
+	"interval": 20
+},
+	"name": "Updraft",
+    "description": "You can boost yourself into the air a total of 4 times until you have to land and recharge.",
+	"badges": [
+        {
+            "sprite": "minecraft:textures/item/elytra.png",
+            "text": "Watch out to not run out of them middair!"
+        }
+    ]
+}

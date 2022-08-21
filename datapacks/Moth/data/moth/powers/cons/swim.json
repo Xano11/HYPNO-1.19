@@ -1,0 +1,338 @@
+{
+    "type": "origins:multiple",
+    "sp_resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 300,
+        "start_value": 0,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+            "bar_index": 10,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "moth:cons/swim_sp_resource",
+                "comparison": ">",
+                "compare_to": 0
+            }
+        },
+        "min_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/swim_resource",
+            "change": -1
+        },
+        "max_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "moth:cons/swim_resource",
+                    "change": 1
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "moth:pros/flight_resource",
+                    "operation": "set",
+                    "change": 0
+                }
+            ]
+        }
+    },
+    "dry": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/swim_sp_resource",
+            "change": -3
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "moth:cons/swim_sp_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                }
+                ]
+            },
+        "interval": 20
+    },
+    "extra_dry": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/swim_sp_resource",
+            "change": -7
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fluid_height",
+                    "fluid": "minecraft:water",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "moth:cons/swim_sp_resource",
+                    "comparison": ">",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:block_in_radius",
+                    "block_condition": {
+                        "type": "origins:or",
+                        "conditions": [
+                        {
+                            "type": "origins:block",
+                            "block": "minecraft:campfire"
+                        },
+                        {
+                            "type": "origins:block",
+                            "block": "minecraft:soul_campfire"
+                        }
+                        ]
+                    },
+                    "radius": 2,
+                    "shape": "cube",
+                    "comparison": ">=",
+                    "compare_to": 1
+                }
+                ]
+            },
+        "interval": 20
+    },
+    "wet": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/swim_sp_resource",
+            "change": 10
+        },
+        "condition": {
+            "type": "origins:in_rain"
+        },
+        "interval": 20
+    },
+    "extra_wet": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/swim_sp_resource",
+            "change": 20
+        },
+        "condition": {
+            "type": "origins:fluid_height",
+            "fluid": "minecraft:water",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "interval": 20
+    },
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0,
+        "hud_render": {
+        "should_render": false
+        }
+    },
+    "shake": {
+        "type": "origins:shaking",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "moth:cons/swim_resource",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "floaties": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "y": 0.07,
+            "space": "world",
+            "set": true
+        },
+        "condition": {
+            "type":  "origins:and",
+            "conditions": [
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 0.2
+            },
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": "<",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/swim_resource",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:bubble_column"
+                },
+                "inverted": true
+            }
+            ] 
+        },
+        "interval": 1
+	},
+    "dive": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "y": 0.25,
+            "space": "world",
+            "set": true
+        },
+        "condition": {
+            "type":  "origins:and",
+            "conditions": [
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/swim_resource",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:bubble_column"
+                },
+                "inverted": true
+            }
+            ] 
+        },
+        "interval": 1
+    },
+    "sink": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:add_velocity",
+            "y": -0.05,
+            "space": "world",
+            "set": true
+        },
+        "condition": {
+            "type":  "origins:and",
+            "conditions": [
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": "!=",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/swim_resource",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:bubble_column"
+                },
+                "inverted": true
+            }
+            ] 
+        },
+        "interval": 1
+    },
+    "no_swim": {
+        "type": "origins:prevent_sprinting",
+        "condition": {
+            "type":  "origins:or",
+            "conditions": [
+            {
+                "type": "origins:power_active",
+                "power": "moth:cons/swim_dive"
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/swim_resource",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:in_block",
+                "block_condition": {
+                    "type": "origins:block",
+                    "block": "minecraft:bubble_column"
+                }
+            }
+            ] 
+        }
+    },
+    "swim": {
+        "type": "origins:modify_swim_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.80
+        }
+    },
+    "no_fly": {
+        "type": "origins:prevent_elytra_flight",
+        "condition": {
+            "type":  "origins:or",
+            "conditions": [
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:water",
+                "comparison": ">",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:resource",
+                "resource": "moth:cons/swim_resource",
+                "comparison": "==",
+                "compare_to": 1
+            }] 
+        }
+    },
+    "death": {
+        "type": "origins:action_on_callback",
+        "execute_chosen_when_orb": true,
+        "entity_action_respawned": {
+            "type": "origins:change_resource",
+            "resource": "moth:cons/swim_sp_resource",
+            "operation": "set",
+            "change": 0
+        }
+    },
+    "name": "Soaked",
+    "description": "Water is terrible for you, you float for a while on it but if you dont hurry and get out you will just drown.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/water_breathing.png",
+            "text": "You swim incredibly slowly and water gives you slowness."
+        }
+    ]
+}

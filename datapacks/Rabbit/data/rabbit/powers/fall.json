@@ -1,0 +1,70 @@
+{
+"type": "origins:multiple",
+"fall": {
+    "type": "origins:modify_falling",
+    "velocity": 0.1,
+    "take_fall_damage": false,
+	"condition":{
+    "type": "origins:and",
+    "conditions": [ 
+	{
+	"type": "origins:sprinting"
+	},
+	{
+	"type": "origins:resource",
+	"resource": "rabbit:fall_res",
+	"comparison": "==",
+	"compare_to": 0
+	}
+	]
+	}
+	},
+		"dmg": {
+	"type": "origins:conditioned_attribute",
+	"modifier": {
+        "attribute": "minecraft:generic.attack_damage",
+        "value": 2,
+        "operation": "addition"
+    },
+		"tick_rate": 20,
+			"condition": {
+	"type": "origins:resource",
+	"resource": "rabbit:fall_res",
+	"comparison": "==",
+	"compare_to": 1
+	}
+		},
+"falls": {
+    "type": "origins:modify_falling",
+    "velocity": 0.2,
+    "take_fall_damage": false,
+	"condition":{
+	"type": "origins:sneaking"
+	}
+	},
+"res": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 1,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 2
+	}
+},
+"grounded": {
+		"type": "origins:action_over_time",
+		"entity_action": 
+				{
+             "type": "origins:execute_command",
+             "permission_level": 4,
+             "command": "resource set @s rabbit:fall_res 0"
+             },
+			"interval": 7,
+			"condition":{
+				"type": "origins:on_block"
+			}
+		},
+	"hidden": true
+}

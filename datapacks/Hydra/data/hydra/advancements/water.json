@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Water"
+        },
+        "description": {
+            "text": "Eat dried kelp."
+        },
+        "icon": {
+            "item": "minecraft:tube_coral"
+        },
+        "frame": "goal",
+        "show_toast": true,
+        "announce_to_chat": false,
+        "hidden": false
+    },
+    "criteria": {
+        "first": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 1
+    },
+    "parent": "hydra:root"
+}

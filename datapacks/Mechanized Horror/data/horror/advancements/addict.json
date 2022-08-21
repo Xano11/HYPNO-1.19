@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "Jumpscare addict."
+        },
+        "description": {
+            "text": "Heart attacks can happen earlier than you might think. Reach 100 Jumpscares."
+        },
+        "icon": {
+            "item": "minecraft:ender_eye"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "addict": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "horror:root"
+}

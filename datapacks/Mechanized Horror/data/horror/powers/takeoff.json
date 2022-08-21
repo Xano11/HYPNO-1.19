@@ -1,0 +1,198 @@
+{
+    "hidden": false,
+    "type": "origins:active_self",
+    "name": "Take Off",
+    "description": "(Primary) You launch yourself into the air and then launch yourself forward to catch your prey.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/slow_falling.png",
+            "text": "Have you ever heard of planes?"
+        }
+    ],
+    "cooldown": 900,
+    "key": "key.origins.primary_active",
+	"continuous": false,
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+			{
+                "type": "origins:add_velocity",
+				"space": "world",
+                "y": 1.5
+			},
+			{
+                "type": "origins:delay",
+                "ticks": 10,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 1.4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 11,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 1.2
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 12,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 1
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 13,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 0.8
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 14,
+                "action": {
+                "type": "origins:add_velocity",
+                "space": "local",
+                "z": 0.6
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 10,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 100",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 11,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 100",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 12,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 100",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 13,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 100",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 14,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 100",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 10,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.extinguish_fire master @a[distance=..10] ~ ~ ~ 1 2",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 11,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.extinguish_fire master @a[distance=..10] ~ ~ ~ 1 2",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 12,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.extinguish_fire master @a[distance=..10] ~ ~ ~ 1 2",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 13,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.extinguish_fire master @a[distance=..10] ~ ~ ~ 1 2",
+				"permission_level": 4
+			}
+            },
+			{
+                "type": "origins:delay",
+                "ticks": 14,
+                "action": {
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.generic.extinguish_fire master @a[distance=..10] ~ ~ ~ 1 2",
+				"permission_level": 4
+			}
+            },
+			{
+            "type": "origins:execute_command",
+            "command": "tellraw @a[distance=..20] {\"text\":\"COME HERE!\",\"color\":\"dark_red\",\"bold\":true}"
+        },
+			{
+				"type": "origins:execute_command",
+				"command": "particle minecraft:flame ~ ~ ~ 0.1 0.1 0.1 0.1 100",
+				"permission_level": 4
+			},
+			{
+				"type": "origins:execute_command",
+				"command": "playsound minecraft:entity.wither.shoot master @a[distance=..10] ~ ~ ~ 1 0.7",
+				"permission_level": 4
+			},
+			{
+        "type": "origins:execute_command",
+        "command": "power grant @s origins:more_kinetic_damage"
+        },
+                        {
+                "type": "origins:delay",
+                "ticks": 90,
+                "action": {
+        "type": "origins:execute_command",
+        "command": "power revoke @s origins:more_kinetic_damage"
+        }
+            }
+        ]
+    },
+    "hud_render": {
+        "should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+		"bar_index": 12
+    },
+	"condition": {
+        "type": "origins:fluid_height",
+        "fluid": "minecraft:water",
+        "comparison": "==",
+        "compare_to": 0,
+        "inverted": false
+        }
+}

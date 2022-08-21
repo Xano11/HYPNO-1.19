@@ -1,0 +1,26 @@
+{
+    "display": {
+        "title": {
+            "text": "WHAT A CLUTCH-"
+        },
+        "description": {
+            "text": "Get a kill whilst on half a heart."
+        },
+        "icon": {
+            "item": "minecraft:enchanted_golden_apple"
+        },
+        "frame": "challenge",
+        "show_toast": true,
+        "announce_to_chat": true,
+        "hidden": true
+    },
+    "criteria": {
+        "low_clutch": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "rewards": {
+        "experience": 0
+    },
+    "parent": "wereboar:root"
+}

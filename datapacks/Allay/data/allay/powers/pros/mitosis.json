@@ -1,0 +1,75 @@
+{
+  "type": "origins:active_self",
+  "entity_action": {
+          "type": "origins:and",
+          "actions": [
+            {
+              "type": "origins:execute_command",
+              "command": "resource set @s allay:pros/mitosis_breed 0",
+              "permission_level": 4
+            },
+            {
+              "type": "origins:execute_command",
+              "command": "resource set @s allay:pros/mitosis_breed_two 0",
+              "permission_level": 4
+            },
+            {
+              "type": "origins:equipped_item_action",
+              "equipment_slot": "mainhand",
+              "action": {
+                  "type": "origins:consume",
+                  "amount": 1
+              }
+            },
+            {    
+              "type": "origins:play_sound",
+              "sound": "minecraft:entity.allay.ambient_with_item",
+              "volume": 1,
+              "pitch": 1
+            },
+            {    
+              "type": "origins:play_sound",
+              "sound": "minecraft:entity.allay.ambient_without_item",
+              "volume": 1,
+              "pitch": 1
+            },
+            {
+              "type": "origins:execute_command",
+              "command": "particle minecraft:heart ~ ~1 ~ 0.1 0.5 0.5 10 14 force",
+              "permission_level": 4
+            },
+            {
+              "type": "origins:execute_command",
+              "command": "summon minecraft:allay",
+              "permission_level": 4
+            }
+          ]
+      },
+      "condition": {
+          "type": "origins:equipped_item",
+          "equipment_slot": "mainhand",
+          "item_condition": {
+              "type": "origins:ingredient",
+              "ingredient": {
+                  "item": "minecraft:amethyst_shard"
+              }
+          }
+      },
+  "cooldown": 6000,
+  "hud_render": {
+    "should_render": true,
+      "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+      "bar_index": 4
+  },
+  "key": {
+      "key": "key.use"
+    },
+  "name": "§2§l§nMitosis",
+  "description": "[use] an Amethyst Shard to duplicate!",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/item/amethyst_shard.png",
+        "text": "§6PA§r This ability is innocent in nature."
+    }
+  ]
+}

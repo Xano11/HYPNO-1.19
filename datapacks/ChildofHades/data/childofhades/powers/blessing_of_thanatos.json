@@ -1,0 +1,135 @@
+{
+    "type": "origins:multiple",
+
+    "uundeadnow":{
+        "type": "origins:action_on_callback",
+        "entity_action_chosen": {
+            "type": "origins:and",
+                "actions": [
+                {
+                "type": "origins:execute_command",
+                "command": "team add Undead",
+                "permission_level": 4
+                },
+                {
+                "type": "origins:execute_command",
+                "command": "team join Undead @s",
+                "permission_level": 4
+            }
+        ]
+    },  
+    "entity_action_lost": {
+        "type": "origins:execute_command",
+        "command": "team leave @s",
+        "permission_level": 4
+        }
+    },
+
+    "power_grant_radius": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 25,
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [{
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:zombie] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:zombie_villager] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:drowned] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:zoglin] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:husk] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:zombified_piglin] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:skeleton] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:stray] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:wither_skeleton] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s[type=minecraft:wither_skeleton] childofhades:team"
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "resource change @s childofhades:team_resource 2"
+                        }
+                        ]
+                    }
+                }
+            },
+            "interval": 10
+        },
+
+        
+    "on_hit": {
+        "type": "origins:action_on_hit",
+        "bientity_action": {
+            "type": "origins:target_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "power grant @s childofhades:agro"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:target_condition",
+            "condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:['fighter']}",
+                "inverted": true
+            }
+        }
+    },
+
+    "being_hit": {
+        "type": "origins:action_when_hit",
+        "bientity_action": {
+            "type": "origins:actor_action",
+            "action": {
+                "type": "origins:execute_command",
+                "command": "power grant @s childofhades:agro"
+            }
+        },
+        "bientity_condition": {
+            "type": "origins:actor_condition",
+            "condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:['fighter']}",
+                "inverted": true
+            }
+        }
+    },
+
+    "name": "Thanatos' Blessing",
+	"description": "Since you are the Child of Hades, Thanatos has ordered the undead creatures to not attack you and help you in battle.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/entity/phantom_eyes.png",
+            "text": "Being the overlord also means you got plenty of minions."
+        }
+    ]
+}

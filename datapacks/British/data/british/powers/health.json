@@ -1,0 +1,32 @@
+{
+"type": "origins:multiple",
+"health": {
+    "type": "origins:attribute",
+    "modifier": {
+        
+        "attribute": "minecraft:generic.max_health",
+        "value": -6,
+        "operation": "addition"
+    }
+},
+"armort": {
+    "type": "origins:attribute",
+    "modifier": {
+        
+        "attribute": "minecraft:generic.armor_toughness",
+        "value": -4,
+        "operation": "addition"
+    }
+},
+"armor": {
+    "type": "origins:attribute",
+    "modifier": {
+        
+        "attribute": "minecraft:generic.armor",
+        "value": -6,
+        "operation": "addition"
+    }
+},
+    "name": "Cursed Mark",
+    "description":"You have less health and are cursed to have less armor points and toughness."
+}

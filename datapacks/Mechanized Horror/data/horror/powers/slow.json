@@ -1,0 +1,18 @@
+{
+  "type": "origins:attribute",
+  "modifier": {
+    "name": "Nine lives health reduction",
+    "attribute": "minecraft:generic.movement_speed",
+    "value": -0.01900002149011612,
+    "operation": "addition"
+  },
+  "name": "Slow",
+  "description": "You're slower than normal.",
+  "badges": [
+    {
+        "sprite": "minecraft:textures/mob_effect/slowness.png",
+        "text": "Have you ever heard of weight?"
+    }
+],
+  "hidden": false
+}

@@ -1,0 +1,227 @@
+{
+	"type": "origins:multiple",
+	"resource": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 300,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+		"bar_index": 15
+	}
+	},
+		"cooling": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "resource change @s blaze:fuel_resource -15"
+            },
+			{
+            "type": "origins:set_on_fire",
+            "duration": 4
+            }
+			]
+			},
+			"interval": 1,
+			"condition":{
+			"type": "origins:and",
+            "conditions": [
+			{
+        "type": "origins:resource",
+        "resource": "blaze:fuel_resource",
+        "comparison": "==",
+        "compare_to": 0,
+		"inverted": true
+    },
+			{
+				"type": "origins:power_active",
+				"power": "*:on"
+			},
+            {
+				"type": "origins:on_fire",
+				"inverted": true
+			}
+			]
+		}
+	},
+	"lava": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+        "type": "origins:and",
+        "actions": [
+			{
+            "type": "origins:execute_command",
+            "permission_level": 4,
+            "command": "resource change @s blaze:launch -2"
+            }
+			]
+			},
+			"interval": 1,
+			"condition":{
+			"type": "origins:and",
+            "conditions": [
+            {
+                "type": "origins:fluid_height",
+                "fluid": "minecraft:lava",
+                "comparison": ">",
+                "compare_to": 0.0
+            }
+			]
+		}
+	},
+	"eat": {
+	"key": {
+        "key": "key.use",
+        "continuous": true
+    },
+    "type": "origins:active_self",
+    "cooldown": 15,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:coal"
+                    }
+                }
+            }
+        ]
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "clear @s coal 1"
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "resource change @s blaze:fuel_resource 15"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.generic.eat player @s ~ ~ ~ 1 1"
+            }
+        ]
+    }
+},
+"eat2": {
+	"key": {
+        "key": "key.use",
+        "continuous": true
+    },
+    "type": "origins:active_self",
+    "cooldown": 15,
+    "hud_render": {
+        "should_render": false
+    },
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:charcoal"
+                    }
+                }
+            }
+        ]
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "clear @s charcoal 1"
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "resource change @s blaze:fuel_resource 15"
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "playsound minecraft:entity.generic.eat player @s ~ ~ ~ 1 1"
+            }
+        ]
+    }
+},
+"1": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": 0.1
+             },
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:fuel_resource",
+        "comparison": ">=",
+        "compare_to": 75
+    }
+		},
+		"2": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": 0.1
+             },
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:fuel_resource",
+        "comparison": ">=",
+        "compare_to": 150
+    }
+		},
+		"3": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": 0.1
+             },
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:fuel_resource",
+        "comparison": ">=",
+        "compare_to": 225
+    }
+		},
+		"4": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": 0.1
+             },
+			"condition":{
+        "type": "origins:resource",
+        "resource": "blaze:fuel_resource",
+        "comparison": ">=",
+        "compare_to": 300
+    }
+		},
+		"5": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": 0.13
+             },
+			"condition":{
+				"type": "origins:on_fire",
+				"inverted": false
+			}
+		},
+"hidden": true
+}
