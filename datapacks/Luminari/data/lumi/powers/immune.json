@@ -19,5 +19,11 @@
       "minecraft:hero_of_the_village"
   ],
   "name": "Allergies",
-"description": "You can't get positive potion you can get from your star powers effects."
+"description": "You can't get positive potion you can get from your star powers effects.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/milk_bucket.png",
+            "text": "L bozo."
+        }
+    ]
 }

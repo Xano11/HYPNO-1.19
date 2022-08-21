@@ -30,7 +30,7 @@
 				},
 				{
 					"type": "origins:delay",
-					"ticks": 120,
+					"ticks": 40,
 					"action": {
 						"type": "origins:execute_command",
 						"command": "power revoke @s lumi:nouse"
@@ -38,7 +38,7 @@
 				}
             ]
         },
-        "cooldown": 360,
+        "cooldown": 330,
   "hud_render": {
           "should_render": true,
           "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
@@ -141,5 +141,11 @@
 			"interval": 1
 		},
   "name": "Shooting Star",
-  "description": "(Primary) turn into a shooting star that propells forward."
+  "description": "(Primary) turn into a shooting star that propells forward.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/nether_star.png",
+            "text": "Star."
+        }
+    ]
 }

@@ -1,7 +1,5 @@
 {
 	"type": "origins:multiple",
-	"name": "Star Exhaustion",
-	"description": "Your hunger drains 200% faster.",
 	"hunger": {
 		"type": "origins:modify_exhaustion",
 		"modifier": {
@@ -15,5 +13,13 @@
 			"operation": "multiply_base",
 			"value": -0.10
 		}
-	}
+	},
+	"name": "Star Exhaustion",
+	"description": "Your hunger drains faster.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/hunger.png",
+            "text": "200% faster."
+        }
+    ]
 }

@@ -45,7 +45,12 @@
           }
     }
   },
-    "name": "No Range",
-    "description": "No bows, tridents, crossbows or pearls.",
-	"hidden": false
+    "name": "Disabled",
+    "description": "No bows, tridents, shield, crossbows or pearls.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/mining_fatigue.png",
+            "text": "Disabled."
+        }
+    ]
 }

@@ -112,5 +112,11 @@
 				}
 		},
     "name": "Sun Cancer",
-    "description": "During the day you deal less damage and you recharge slower."
+    "description": "During the day you deal less damage and you recharge slower.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/glowing.png",
+            "text": "Hehe cancer."
+        }
+    ]
 }
