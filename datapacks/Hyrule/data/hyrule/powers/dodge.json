@@ -29,7 +29,7 @@
 				},
 				{
 					"type": "origins:execute_command",
-					"command": "playsound particle.soul_escape master @a ~ ~ ~ 1 1 1",
+					"command": "execute at @s run playsound particle.soul_escape master @a ~ ~ ~ 1 1 1",
 					"permission_level": 4
 				},
 				{
