@@ -14,7 +14,8 @@
 		"raiju:dash",
 		"raiju:conductivity",
 		"raiju:unuse",
-		"raiju:achievements"
+		"raiju:achievements",
+		"raiju:claws"
 	],
 	"icon": "minecraft:bell",
 	"order": 1,
