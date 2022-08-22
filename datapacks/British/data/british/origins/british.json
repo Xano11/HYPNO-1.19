@@ -1,13 +1,14 @@
 {
     "powers": [
 		"british:rinnegan",
+		"british:honoikazuchi",
 		"british:stealth",
 		"british:devour",
 		"british:ignore_water",
 		"british:health"
     ],
     "icon": "minecraft:netherite_sword",
-    "order": 1,
+    "order": 20,
     "impact": 3,
     "name": "Lost Child",
     "description": "You've been abandoned by those called 'family' and have learned how to survive off the streets. The child has been through the world of hell and gain many disabilities which limits their power and what they do; They've managed to form a special eye which allows them to teleport anywhere they want which is close. Now they have to learn how to survive n a world with others and become stronger."

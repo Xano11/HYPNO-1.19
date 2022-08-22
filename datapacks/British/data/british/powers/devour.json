@@ -38,7 +38,7 @@
         "type": "origins:and",
         "actions": [{
         "type": "origins:execute_command",
-        "command": "resource change @s british:devour_res 20"
+        "command": "resource change @s british:devour_res 30"
         }
 		]
 		},
@@ -128,12 +128,12 @@
         "actions": [{
              "type": "origins:execute_command",
              "permission_level": 4,
-             "command": "effect give @s weakness 6 1"
+             "command": "effect give @s weakness 10 1"
              },
 			 {
              "type": "origins:execute_command",
              "permission_level": 4,
-             "command": "effect give @s mining_fatigue 6 1"
+             "command": "effect give @s mining_fatigue 10 1"
              }
 			 ]
 			 },
@@ -163,14 +163,8 @@
              "permission_level": 4,
              "command": "resource change @s british:devour_res -1"
              },
-			"interval": 2
+			"interval": 1
 		},
   "name": "Devour",
-  "description": "(Secondary) give yourself strength and speed, land hits to increase the duration of said effects.",
-  "badges": [
-            {
-                "sprite": "minecraft:textures/item/iron_sword.png",
-                "text": "Some might just call this adrenaline."
-            }
-        ]
+  "description": "(Secondary) give yourself strength and speed, land hits to increase the duration of said effects."
 }
