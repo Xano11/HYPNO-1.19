@@ -28,11 +28,5 @@
     }
 },
     "name": "Cursed Mark",
-    "description":"You have less health and are cursed to have less armor points and toughness.",
-    "badges": [
-            {
-                "sprite": "minecraft:textures/item/tipped_arrow.png",
-                "text": "Don't ask what cursed him, I don't think he even knows."
-            }
-        ]
+    "description":"You have less health and are cursed to have less armor points and toughness."
 }

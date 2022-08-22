@@ -1,0 +1,18 @@
+{
+    "replace": false,
+    "values": [
+      "minecraft:glow_squid",
+      "minecraft:pig",
+      "minecraft:sheep",
+      "minecraft:squid",
+      "minecraft:strider",
+      "minecraft:turtle",
+      "minecraft:dolphin",
+      "minecraft:goat",
+      "minecraft:spider",
+      "minecraft:wolf",
+      "minecraft:creeper",
+      "minecraft:zoglin",
+      "minecraft:zombie_villager"
+    ]
+}

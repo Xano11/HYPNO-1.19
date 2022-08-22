@@ -1,0 +1,14 @@
+{
+    "replace": false,
+    "values": [
+      "minecraft:villager",
+      "minecraft:wandering_trader",
+      "minecraft:ghast",
+      "minecraft:ravager",
+      "minecraft:hoglin",
+      "minecraft:ender_dragon",
+      "minecraft:warden",
+      "minecraft:player",
+      "capybara:capybara"
+    ]
+}

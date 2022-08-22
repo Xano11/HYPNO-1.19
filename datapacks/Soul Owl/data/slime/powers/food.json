@@ -132,10 +132,6 @@
           "saturation": 2,
           "snack": true
         },
-        "return_stack":{
-            "item": "minecraft:echo_shard",
-            "tag": "{Tags:[edibleshard],display:{Name:'[{\"text\":\"Soul\",\"italic\":false,\"color\":\"light_purple\"},{\"text\":\"Shard\",\"color\":\"dark_purple\"}]',Lore:['[{\"text\":\"Using this rare shard, the Soul Owl can siphon the souls inside to feed itself.\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{}]}"
-        },
         "entity_action":
         {	
         "type": "origins:and",
@@ -147,6 +143,10 @@
                 "type": "origins:change_resource",
                 "resource": "slime:food_resource",
                 "change": -1
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "give @s minecraft:echo_shard{Tags:[edibleshard],display:{Name:'[{\"text\":\"Soul\",\"italic\":false,\"color\":\"light_purple\"},{\"text\":\"Shard\",\"color\":\"dark_purple\"}]',Lore:['[{\"text\":\"Using this rare shard, the Soul Owl can siphon the souls inside to feed itself.\",\"italic\":false,\"color\":\"dark_gray\"}]']},Enchantments:[{}]}"
             },
             {
                 "type": "origins:execute_command",

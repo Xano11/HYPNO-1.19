@@ -41,6 +41,17 @@
       "inverted": true
     }
   },
+  "mining_speed":{
+    "type": "origins:modify_break_speed",
+    "modifier": {
+        "operation": "multiply_base",
+        "value": -0.25
+    },
+    "condition": {
+      "type": "origins:in_rain",
+      "inverted": true
+    }
+},
 "hunger":{
   "type": "origins:modify_exhaustion",
   "modifier": {
