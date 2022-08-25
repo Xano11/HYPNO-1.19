@@ -36,6 +36,10 @@
         "compare_to": 0
     },
     {
+        "type": "origins:sneaking",
+        "inverted": true
+    },
+    {
         "type": "origins:on_block",
         "inverted": false
     }
@@ -62,6 +66,15 @@
                                     "type": "origins:consume",
                                     "amount": 1
                                 }
+                            },
+                            {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "permission_level": 4,
+                                "command": "item replace entity @s weapon.mainhand with minecraft:air"
                             }
                         ]
                     }
@@ -83,6 +96,10 @@
                 "type": "origins:nbt",
                 "nbt": "{Tags:[raven]}"
                 }
+        },
+        {
+            "type": "origins:sneaking",
+            "inverted": true
         },
         {
             "type": "origins:resource",
@@ -231,6 +248,10 @@
                 }
         },
         {
+            "type": "origins:sneaking",
+            "inverted": true
+        },
+        {
             "type": "origins:resource",
             "resource": "crow:scatter_potion_boost_resource",
             "comparison": ">",
@@ -264,5 +285,32 @@
           "change": -1
       },
       "interval": 1
-      }
+      },
+      "convert":{
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "playsound minecraft:block.brewing_stand.brew player @a ~ ~ ~ 1 0.5"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:witch ~ ~1 ~ 0.5 0.5 0.5 1 10"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "permission_level": 4,
+                    "command": "power remove @s crow:crowform"
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[raven]}"
+            }
+        }
 }
