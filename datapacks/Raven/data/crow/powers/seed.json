@@ -1,6 +1,6 @@
 {
     "name": "Ravenous Hunger",
-	"description": " You have learned the ways of the predictor allowing you to eat your prey rotten (rotten flesh is the same as steak but gives 0 saturation), although your body now craves more food to survive (100% faster exhaustion and exhausts 0.05 hunger every second you are gliding).",
+	"description": " You have learned the ways of the predictor allowing you to eat your prey rotten, although your body now craves more food to survive (100% faster exhaustion and exhausts 0.05 hunger every second you are gliding).",
     "type": "origins:multiple",
 
     "rotten": {
@@ -19,7 +19,7 @@
     "saturation_modifier": {
         "name": "decreased saturation points",
         "operation": "addition",
-        "value": -1
+        "value": 0.5
         }
     },
 

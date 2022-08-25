@@ -1,49 +1,5 @@
 {
     "type": "origins:multiple",
-    
-    "resource":{
-      "type": "origins:resource",
-      "min": 0,
-      "max": 600,
-      "start_value": 600,
-      "hud_render": {
-          "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-          "bar_index": 17
-      },
-      "min_action": 
-      {
-        "type": "origins:and",
-        "actions": [
-        {
-          "type": "origins:delay",
-          "ticks": 1,
-          "action": {
-              "type": "origins:and",
-              "actions": [
-                {
-                  "type": "origins:execute_command",
-                      "command": "power remove @s crow:crowform",
-                      "permission_level": 4
-                }
-              ]
-          }
-      }
-      ]
-    }
-  },
-
-  "remove_resource": 
-      {
-      "type": "origins:action_over_time",
-      "entity_action": {
-          "type": "origins:change_resource",
-          "resource": "crow:crowform_resource",
-          "change": -10
-      },
-      "interval": 10
-      },
-  
-  
       "detect": 
       {
         "type": "origins:entity_glow",
@@ -65,7 +21,7 @@
       "modifier": {
         "attribute": "minecraft:generic.max_health",
         "operation": "addition",
-        "value": 4
+        "value": -4
       }
     },
   
@@ -79,7 +35,7 @@
           "actions": [
             {
               "type": "origins:feed",
-              "food": 10,
+              "food": 5,
               "saturation": 0.2
           },
           {
@@ -101,5 +57,96 @@
   },
   "cooldown": 1
   },
+
+"tinier_boi":
+{
+  "type": "origins:action_on_callback",
+  "execute_chosen_when_orb": true,
+  "entity_action_added": {
+      "type": "origins:and",
+      "actions": [
+          {
+              "type": "origins:execute_command",
+              "command": "scale set pehkui:height 0.65",
+              "permission_level": 4
+          },
+          {
+              "type": "origins:execute_command",
+              "command": "scale set pehkui:width 0.65",
+              "permission_level": 4
+          }
+      ]
+  },
+  "entity_action_removed": {
+    "type": "origins:and",
+    "actions": [
+        {
+            "type": "origins:execute_command",
+            "command": "scale set pehkui:height 0.95",
+            "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "scale set pehkui:width 0.95",
+            "permission_level": 4
+        }
+    ]
+},
+"entity_action_respawned": 
+      {
+          "type": "origins:execute_command",
+          "command": "power remove @s crow:crowform",
+          "permission_level": 4
+      }
+},
+"less_heal":{
+  "type": "origins:modify_healing",
+  "modifier": {
+      "operation": "multiply_total",
+      "value": -0.4
+  }
+},
+"winged":{
+  "type": "origins:elytra_flight",
+  "render_elytra": true
+},
+"unwinged":
+{
+  "type": "origins:self_action_when_hit",
+  "entity_action":  {
+    "type": "origins:execute_command",
+    "command": "power remove @s crow:crowform_winged",
+    "permission_level": 4
+},
+  "damage_condition":{
+    "type": "origins:projectile",
+    "projectile": "minecraft:arrow"
+},
+  "cooldown": 1
+},
+"unwinged_resource":{
+  "type": "origins:resource",
+  "min": 0,
+  "max": 300,
+  "start_value": 0,
+  "min_action":{
+    "type": "origins:execute_command",
+    "command": "power grant @s crow:crowform_winged",
+    "permission_level": 4
+},
+"remove_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "crow:crowform_unwinged_resource",
+          "change": -20
+      },
+      "interval": 20
+      },
+  "hud_render":{
+    "should_render": false
+    }
+},
     "hidden": true
   }
