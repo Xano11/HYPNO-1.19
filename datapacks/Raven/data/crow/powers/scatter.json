@@ -217,6 +217,11 @@
                                     "command": "particle minecraft:explosion_emitter ~ ~ ~ 1 1 1 0.1 1"
                                     },
                                     {
+                                        "type": "origins:change_resource",
+                                        "resource": "crow:scatter_potion_boost_resource",
+                                        "change": -20
+                                    },
+                                    {
                                         "type": "origins:execute_command",
                                         "permission_level": 4,
                                         "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 3 1"
