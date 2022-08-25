@@ -33,7 +33,7 @@
                         "actions": [
                             {
                                 "type": "origins:execute_command",
-                                "command": "summon armor_stand ~ ~0.4 ~ {Invisible:1b,Invulnerable:1b,NoBasePlate:1b,Marker:1b,ShowArms:1b,Tags:[\"feather\"],ArmorItems:[{},{},{},{}],HandItems:[{id:\"netherite_sword\",Count:1b},{}],Pose:{RightArm:[90f,0f,0f]}}"
+                                "command": "summon armor_stand ~0.4 ~0.4 ~0.7 {Invisible:1b,Invulnerable:1b,NoBasePlate:1b,Marker:1b,ShowArms:1b,Tags:[\"feather\"],ArmorItems:[{},{},{},{}],HandItems:[{id:\"netherite_sword\",Count:1b},{}],Pose:{RightArm:[90f,0f,0f]}}"
                                 },
                                 {
                                     "type":"origins:execute_command",
@@ -71,6 +71,10 @@
         "hands": [
             "MAIN_HAND"
         ],
+        "block_condition": {
+            "type": "origins:block",
+            "block": "minecraft:respawn_anchor"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -175,5 +179,5 @@
 	"interval": 2
 },
 	"name": "Cursed feather",
-    "description": "You can boost yourself into the air a total of 10 times until you have to land and recharge."
+    "description": "If you use your [Use] key whilst aiming at the top of a respawn anchor, you'll set up a cursed feather. Using [Secondary Ability] key will teleport you back to the feather."
 }
