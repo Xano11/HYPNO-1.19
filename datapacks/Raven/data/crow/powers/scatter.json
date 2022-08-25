@@ -53,31 +53,23 @@
         "entity_action": {
             "type":"origins:and",
             "actions":[
+              
                 {
-                    "type": "origins:delay",
-                    "ticks": 1,
-                    "action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:equipped_item_action",
-                                "equipment_slot": "mainhand",
-                                "action": {
-                                    "type": "origins:consume",
-                                    "amount": 1
-                                }
-                            },
-                            {
-                                "type": "origins:swing_hand",
-                                "hand": "MAIN_HAND"
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "permission_level": 4,
-                                "command": "item replace entity @s weapon.mainhand with minecraft:air"
-                            }
-                        ]
-                    }
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "mainhand",
+                "action": {
+                    "type": "origins:consume",
+                    "amount": 1
+                }
+                },
+                {
+                "type": "origins:swing_hand",
+                "hand": "MAIN_HAND"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "item replace entity @s weapon.mainhand with minecraft:air"
                 }
             ]
         },
@@ -175,21 +167,21 @@
                     "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 1 1.5"
                     },
                     {
-                        "type": "origins:delay",
-                        "ticks": 1,
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:equipped_item_action",
-                                    "equipment_slot": "mainhand",
-                                    "action": {
-                                        "type": "origins:consume",
-                                        "amount": 1
-                                    }
-                                }
-                            ]
-                        }
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "permission_level": 4,
+                        "command": "item replace entity @s weapon.mainhand with minecraft:air"
+                    },
+                    {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:consume",
+                        "amount": 1
+                    }      
                     },
                     {
                         "type": "origins:delay",
@@ -265,6 +257,12 @@
         {
             "type": "origins:on_block",
             "inverted": true
+        },
+        {
+            "type": "origins:command",
+            "command": "execute if entity @s[x_rotation=80..90]",
+            "comparison": "==",
+            "compare_to": 1
         }
     ]
         }
