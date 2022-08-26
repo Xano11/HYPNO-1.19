@@ -106,7 +106,7 @@
     "badges": [
         {
             "sprite": "minecraft:textures/mob_effect/jump_boost.png",
-            "text": "Extinguishes you if your on fire."
+            "text": "Extinguishes you if you're on fire."
         }
     ]
 }

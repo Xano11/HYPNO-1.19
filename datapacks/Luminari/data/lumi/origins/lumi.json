@@ -6,11 +6,11 @@
 		"lumi:charge",
 		"lumi:power",
 		"lumi:immune",
-		"origins:carnivore",
 		"lumi:day",
+		"lumi:danger",
 		"lumi:hunger_fast",
-		"origins:no_shield",
-		"lumi:particle"
+		"lumi:particle",
+		"lumi:netherited"
     ],
     "icon": "minecraft:nether_star",
     "order": 1,

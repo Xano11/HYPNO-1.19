@@ -22,19 +22,6 @@
 					"type": "origins:execute_command",
 					"command": "resource change @s lumi:power_res -250",
 					"permission_level": 4
-				},
-				{
-					"type": "origins:execute_command",
-					"command": "power grant @s lumi:nouse",
-					"permission_level": 4
-				},
-				{
-					"type": "origins:delay",
-					"ticks": 40,
-					"action": {
-						"type": "origins:execute_command",
-						"command": "power revoke @s lumi:nouse"
-                }
 				}
             ]
         },
@@ -80,6 +67,126 @@
         ]    
     }
 },
+"strider1": {
+    "type": "origins:modify_velocity",
+    "modifier": {
+      "value": 0.15,
+      "operation": "multiply_total"
+    },
+    "axes": [
+      "x",
+      "y",
+      "z"
+    ],
+    "condition":{
+        "type": "origins:and",
+        "conditions": [ {
+                "type": "origins:resource",
+                "resource": "lumi:star_res",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            {
+            "type": "origins:swimming"
+            },
+            {
+            "type": "origins:enchantment",
+            "enchantment": "minecraft:depth_strider",
+            "calculation": "sum",
+            "comparison": "==",
+            "compare_to": 1
+            }
+        ]    
+    }
+},
+"strider2": {
+    "type": "origins:modify_velocity",
+    "modifier": {
+      "value": 0.3,
+      "operation": "multiply_total"
+    },
+    "axes": [
+      "x",
+      "y",
+      "z"
+    ],
+    "condition": {
+        "type": "origins:and",
+        "conditions": [ {
+                "type": "origins:resource",
+                "resource": "lumi:star_res",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            {
+            "type": "origins:swimming"
+            },
+            {
+            "type": "origins:enchantment",
+            "enchantment": "minecraft:depth_strider",
+            "calculation": "sum",
+            "comparison": "==",
+            "compare_to": 2
+            }
+        ]    
+    }
+},
+"strider3": {
+    "type": "origins:modify_velocity",
+    "modifier": {
+      "value": 0.4,
+      "operation": "multiply_total"
+    },
+    "axes": [
+      "x",
+      "y",
+      "z"
+    ],
+    "condition": {
+        "type": "origins:and",
+        "conditions": [ {
+                "type": "origins:resource",
+                "resource": "lumi:star_res",
+                "comparison": ">=",
+                "compare_to": 1
+            },
+            {
+            "type": "origins:swimming"
+            },
+            {
+            "type": "origins:enchantment",
+            "enchantment": "minecraft:depth_strider",
+            "calculation": "sum",
+            "comparison": "==",
+            "compare_to": 3
+            }
+        ]    
+    }
+        
+},
+"no_use": {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+          "tag": "lumi:cant_use"
+      }
+  },
+  "condition":
+  {
+    "type": "origins:and",
+    "conditions": [ {
+            "type": "origins:resource",
+            "resource": "lumi:star_res",
+            "comparison": ">=",
+            "compare_to": 1
+        },
+        {
+        "type": "origins:swimming"
+        }
+    ]    
+}
+  },
 "star": {
 		"type": "origins:action_over_time",
 		"entity_action": {

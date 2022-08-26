@@ -1,0 +1,48 @@
+{
+    "type": "origins:multiple",
+
+    "nether_weakness": {
+        "type": "origins:conditioned_attribute",
+  "modifier": {
+    "name": "Less armor",
+    "attribute": "minecraft:generic.armor",
+    "value": -0.5,
+    "operation": "multiply_total"
+  },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                {    
+                    "type": "origins:dimension",
+                    "dimension": "minecraft:the_nether"
+                }
+                ]
+            }
+        },
+        "nether_crippled": {
+            "type": "origins:conditioned_attribute",
+      "modifier": {
+        "name": "No damage",
+        "attribute": "minecraft:generic.attack_damage",
+        "value": -1,
+        "operation": "multiply_total"
+      },
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                    {    
+                        "type": "origins:dimension",
+                        "dimension": "minecraft:the_nether"
+                    }
+                    ]
+                }
+            },
+    "name": "Nether Danger",
+    "description": "Being in the Nether will make you noticeably weaker.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/wither.png",
+            "text": "Can't deal damage, 50% less armor, and more vulnerable to damage."
+        }
+    ]
+}

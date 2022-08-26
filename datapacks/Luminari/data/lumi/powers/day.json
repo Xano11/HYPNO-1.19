@@ -2,26 +2,26 @@
     "type": "origins:multiple",
 
     "day_time_weakness": {
-        "type": "origins:attribute",
+        "type": "origins:conditioned_attribute",
   "modifier": {
-    "name": "Nine lives health reduction",
+    "name": "Less damage",
     "attribute": "minecraft:generic.attack_damage",
     "value": -4,
     "operation": "addition"
   },
             "condition": {
-                "type": "origins:or",
+                "type": "origins:and",
                 "conditions": [
                     {
                         "type": "origins:daytime"
                     },
                 {    
                     "type": "origins:dimension",
-                    "dimension": "minecraft:overworld",
-					"inverted": true
+                    "dimension": "minecraft:overworld"
                 }
                 ]
-            }
+            },
+            "tick_rate": 20
         },
 	"night_time_speed_buff": {
 		"type": "origins:modify_air_speed",
@@ -43,48 +43,88 @@
             ]
         }
 		},
-	"night_time": {
-	"type": "origins:stacking_status_effect",
-		"min_stacks": 0,
-		"max_stacks": 1,
-		"duration_per_stack": 40,
-		"effects": [
-			{
-				"effect": "minecraft:speed",
-				"is_ambient": true,
-				"show_particles": false,
-				"show_icon": true,
-				"amplifier": 0
-			},
-			{
-				"effect": "minecraft:slow_falling",
-				"is_ambient": true,
-				"show_particles": false,
-				"show_icon": true,
-				"amplifier": 0
-			},
-			{
-				"effect": "minecraft:jump_boost",
-				"is_ambient": true,
-				"show_particles": false,
-				"show_icon": true,
-				"amplifier": 1
-			}
-		],
-		"condition": {
-            "type": "origins:and",
-            "conditions": [
-			{
+        "slow_fall":
+        {
+            "type": "origins:modify_falling",
+            "velocity": 0.01,
+            "take_fall_damage": false,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                {
+                            "type": "origins:daytime",
+                            "inverted": true
+                        },
+                    {    
+                        "type": "origins:dimension",
+                        "dimension": "minecraft:overworld"
+                    },
+                    {
+                    "type": "origins:sneaking",
+                    "inverted":  true
+                }
+                ]
+            }
+        },
+        "jump_boost":
+        {
+            "type": "origins:modify_jump",
+            "modifier": {
+                "operation": "addition",
+                "value": 0.6
+            },
+            "entity_action": {
+                "type": "origins:and",
+                "actions": [{
+                     "type": "origins:execute_command",
+                     "permission_level": 4,
+                     "command": "particle minecraft:dust_color_transition 1 0 1 1 1 1 1 ~ ~ ~ 0.3 0.3 0.3 1 15"
+                     },
+                     {
+                     "type": "origins:execute_command",
+                     "permission_level": 4,
+                     "command": "particle minecraft:electric_spark ~ ~ ~ 0.1 0.1 0.1 0 10"
+                     }
+                     ]
+            },
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
                         "type": "origins:daytime",
-						"inverted": true
+                        "inverted": true
                     },
                 {    
                     "type": "origins:dimension",
                     "dimension": "minecraft:overworld"
                 }
-				]
-				}
-	},
+                ]
+            }
+        },
+        "speed":
+        {
+            "type": "origins:conditioned_attribute",
+      "modifier": {
+        "name": "Less damage",
+        "attribute": "minecraft:generic.movement_speed",
+        "value": 0.04,
+        "operation": "addition"
+      },
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:daytime",
+                            "inverted": true
+                        },
+                    {    
+                        "type": "origins:dimension",
+                        "dimension": "minecraft:overworld"
+                    }
+                    ]
+                },
+                "tick_rate": 20
+            },
 "charge": {
 		"type": "origins:action_over_time",
 		"entity_action": {
@@ -112,11 +152,11 @@
 				}
 		},
     "name": "Sun Cancer",
-    "description": "During the day you deal less damage and you recharge slower.",
+    "description": "During the day, you are extremely crippled.",
     "badges": [
         {
             "sprite": "minecraft:textures/mob_effect/glowing.png",
-            "text": "Hehe cancer."
+            "text": "Less damage, etc."
         }
     ]
 }
