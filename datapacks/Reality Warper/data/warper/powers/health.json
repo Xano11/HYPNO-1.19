@@ -1,0 +1,23 @@
+{
+	"type": "origins:multiple",
+    "health": {
+    "type": "origins:attribute",
+    "modifier": {
+        
+        "attribute": "minecraft:generic.max_health",
+        "value": -6,
+        "operation": "addition"
+    }
+    },
+    "armor": {
+        "type": "origins:attribute",
+        "modifier": {
+            
+            "attribute": "minecraft:generic.armor",
+            "value": -4,
+            "operation": "addition"
+        }
+        },
+    "name": "Fractured Health",
+    "description":"All your reality warping distorted your human body causing you to have less hearts and less armor."
+}

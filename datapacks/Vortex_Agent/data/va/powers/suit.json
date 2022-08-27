@@ -1,0 +1,18 @@
+{
+    "type": "origins:invulnerability",
+    "damage_condition": {
+        "type": "origins:or",
+        "conditions": [
+            {
+                "type": "origins:name",
+                "name": "fall"
+            },
+            {
+                "type": "origins:name",
+                "name": "inWall"
+            }
+        ]
+    },
+    "name": "Space Suit",
+    "description": "Your suit prevents fall and suffocation damage."
+}
