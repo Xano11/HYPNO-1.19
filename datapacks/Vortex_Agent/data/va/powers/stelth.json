@@ -1,0 +1,251 @@
+{
+	"type": "origins:multiple",
+
+	"active_to_show_keybind": {
+		"type": "origins:active_self",
+		"key": {
+			"key": "key.sneak"
+		},
+		"entity_action": {
+			"type": "origins:nothing"
+		},
+		"cooldown": 1
+	},
+
+	"energy_swirl": {
+		"type": "apugli:energy_swirl",
+		"texture_location": "minecraft:textures/entity/creeper/creeper_armor.png",
+		"speed": 0.001,
+		"condition": {
+			"type": "origins:or",
+			"inverted": true,
+			"conditions": [{
+					"type": "origins:resource",
+					"resource": "*:*_bar",
+					"comparison": "<=",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "*:*_bar",
+					"comparison": ">",
+					"compare_to": 99
+				}
+			]
+		}
+	},
+
+	"bar": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 100,
+		"start_value": 0,
+		"hud_render": {
+			"should_render": true,
+			"sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+			"bar_index": 15,
+			"condition": {
+				"type": "origins:or",
+				"inverted": true,
+				"conditions": [{
+						"type": "origins:resource",
+						"resource": "*:*_bar",
+						"comparison": "<=",
+						"compare_to": 1
+					},
+					{
+						"type": "origins:resource",
+						"resource": "*:*_bar",
+						"comparison": ">",
+						"compare_to": 99
+					}
+				]
+			}
+		}
+	},
+
+	"charge": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"condition": {
+			"type": "origins:sneaking"
+		},
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:change_resource",
+					"resource": "*:*_bar",
+					"change": 1
+				},
+				{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_bar",
+						"compare_to": 100,
+						"comparison": "<"
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "function va:chargeup"
+					}
+				}
+			]
+		},
+
+		"falling_action": {
+			"type": "origins:if_else",
+			"condition": {
+				"type": "origins:resource",
+				"resource": "*:*_bar",
+				"compare_to": 100,
+				"comparison": "<"
+			},
+			"if_action": {
+				"type": "origins:change_resource",
+				"resource": "*:*_bar",
+				"change": 0,
+				"operation": "set"
+			}
+		}
+	},
+
+	"invis": {
+		"type": "origins:invisibility",
+		"render_armor": false,
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_bar",
+			"compare_to": 100,
+			"comparison": "=="
+		}
+	},
+
+	"break_invis":{
+		"type": "origins:prevent_game_event",
+		"events": [
+			"minecraft:block_place",
+			"minecraft:block_destroy",
+			"minecraft:container_close"
+		],
+		"entity_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:if_else",
+					"condition": {
+						"type": "origins:resource",
+						"resource": "*:*_bar",
+						"compare_to": 100,
+						"comparison": "=="
+					},
+					"if_action": {
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.elder_guardian.death master @a[distance=..6] ~ ~ ~ 1 1.73"
+					}
+				},
+				{
+					"type": "origins:change_resource",
+					"resource": "*:*_bar",
+					"change": 0,
+					"operation": "set"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_bar",
+			"compare_to": 100,
+			"comparison": "=="
+		}
+	},
+
+	"break_combat": {
+		"type": "origins:action_when_hit",
+		"bientity_action": {
+			"type": "origins:target_action",
+			"action": {
+				"type": "origins:and",
+				"actions": [{
+						"type": "origins:change_resource",
+						"resource": "*:*_bar",
+						"change": 0,
+						"operation": "set"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.elder_guardian.death master @a[distance=..6] ~ ~ ~ 1 1.73"
+					}
+				]
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_bar",
+			"compare_to": 100,
+			"comparison": "=="
+		}
+	},
+
+	"break_combat_2": {
+		"type": "origins:action_on_hit",
+		"bientity_action": {
+			"type": "origins:actor_action",
+			"action": {
+				"type": "origins:and",
+				"actions": [{
+						"type": "origins:change_resource",
+						"resource": "*:*_bar",
+						"change": 0,
+						"operation": "set"
+					},
+					{
+						"type": "origins:execute_command",
+						"command": "playsound minecraft:entity.elder_guardian.death master @a[distance=..6] ~ ~ ~ 1 1.73"
+					}
+				]
+			}
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_bar",
+			"compare_to": 100,
+			"comparison": "=="
+		}
+	},
+
+	"sound_power": {
+		"type": "origins:action_over_time",
+		"interval": 1,
+		"rising_action": {
+			"type": "origins:and",
+			"actions": [{
+					"type": "origins:execute_command",
+					"command": "playsound minecraft:entity.elder_guardian.curse master @a[distance=..16] ~ ~ ~ 1 1.78"
+				},
+				{
+					"type": "origins:execute_command",
+					"command": "title @s actionbar {\"text\":\"§l「§rOptical Camouflage§l」§r §ainitialized\",\"color\":\"#32CD32\",\"bold\":false,\"italic\":false}"
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "*:*_bar",
+			"compare_to": 100,
+			"comparison": "=="
+		}
+	},
+
+	"name": "Fading Vortex",
+	"description": "You can go into §bStealth§r §bMode§r after a few seconds of charging. This makes you invisible to mobs and prevents step vibrations.",
+	"badges": [{
+			"sprite": "origins:textures/gui/badge/info.png",
+			"text": "§bStealth Mode §r- §8[§bBuff§8]§r\n§a+§r You are invisible\n§a+§r You deal more damage when in stealth\n§c-§b Stealth Mode§r breaks if you break/place blocks, open containers or enter combat."
+		},
+		{
+			"type": "origins:keybind",
+			"text": "Hold %s for 5 seconds to charge this ability.",
+			"sprite": "origins:textures/gui/badge/active.png"
+		}
+	]
+}

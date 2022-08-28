@@ -1,0 +1,1 @@
+particle minecraft:dust_color_transition 0.2 0.6 0.2 0.7 0.2 1 0.2 ~ ~1 ~ 0.5 0.6 0.5 0.001 5 normal

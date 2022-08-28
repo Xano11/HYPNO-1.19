@@ -1,0 +1,44 @@
+{
+	"type": "origins:multiple",
+
+	"health": {
+		"type": "origins:attribute",
+		"modifier": {
+
+			"attribute": "minecraft:generic.max_health",
+			"value": -2,
+			"operation": "addition"
+		}
+	},
+
+	"armor_toughness": {
+		"type": "origins:attribute",
+		"modifier": {
+
+			"attribute": "minecraft:generic.armor_toughness",
+			"value": -5,
+			"operation": "addition"
+		}
+	},
+
+	"armor": {
+		"type": "origins:attribute",
+		"modifier": {
+
+			"attribute": "minecraft:generic.armor",
+			"value": -5,
+			"operation": "addition"
+		}
+	},
+	
+    "modify_healing": {
+		"type": "origins:modify_healing",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.5
+		}
+	},
+	
+    "name": "Defective Equipment",
+	"description": "The suit you were shipped here with has a broken self-repair chip, reducing your natural regen speed."
+}

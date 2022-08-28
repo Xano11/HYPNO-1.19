@@ -1,0 +1,37 @@
+{
+	"type": "origins:multiple",
+	
+	"stelth_buff": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": 0.25
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "va:stelth_bar",
+			"compare_to": 100,
+			"comparison": "=="
+		}
+	},
+	
+	"axe": {
+		"type": "origins:modify_damage_dealt",
+		"modifier": {
+			"operation": "multiply_total",
+			"value": -0.8
+		},
+		"condition": {
+			"type": "origins:equipped_item",
+			"equipment_slot": "mainhand",
+			"item_condition": {
+				"type": "origins:ingredient",
+				"ingredient": {
+					"tag": "va:axes"
+				}
+			}
+		}
+	},
+	"name": "Combat Training",
+	"description": "You are adept at quick strikes, causing you to deal more damage in §bStealth§r §bMode§r. However, you neglected CQC training so you deal less damage with axes."
+}
