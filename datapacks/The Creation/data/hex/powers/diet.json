@@ -13,7 +13,7 @@
 			"actions": [{
 					"type": "origins:feed",
 					"food": 2,
-					"saturation": 0.8
+					"saturation": 0.4
 				},
 				{
 					"type": "origins:execute_command",
@@ -286,8 +286,8 @@
 			"type": "origins:and",
 			"actions": [{
 					"type": "origins:feed",
-					"food": 2,
-					"saturation": 0.8
+					"food": 4,
+					"saturation": 1
 				},
 				{
 					"type": "origins:execute_command",
@@ -560,8 +560,8 @@
 			"type": "origins:and",
 			"actions": [{
 					"type": "origins:feed",
-					"food": 2,
-					"saturation": 0.8
+					"food": 8,
+					"saturation": 1.2
 				},
 				{
 					"type": "origins:execute_command",
