@@ -9,7 +9,7 @@
     "conditions":[
       {
         "type":"origins:projectile",
-        "name":"arrow_immunity"
+        "name":"minecraft:arrow"
       }
     ]
   },

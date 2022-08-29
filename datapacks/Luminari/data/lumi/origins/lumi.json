@@ -10,7 +10,8 @@
 		"lumi:danger",
 		"lumi:hunger_fast",
 		"lumi:particle",
-		"lumi:netherited"
+		"lumi:netherited",
+		"lumi:nether"
     ],
     "icon": "minecraft:nether_star",
     "order": 1,

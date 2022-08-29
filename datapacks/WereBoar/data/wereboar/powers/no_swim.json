@@ -30,6 +30,22 @@
             "inverted": false
         }
     },
+    "bad_up":
+    {
+        "type": "origins:modify_velocity",
+        "modifier": {
+          "value": -0.5,
+          "operation": "multiply_total"
+        },
+        "axes": [
+          "y"
+        ],
+        "condition":
+        {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water"
+        }
+    },
     "name": "Sturdy",
     "description": "You are so heavy you won't be able to swim without Depth Strider or a conduit.",
     "badges": [
