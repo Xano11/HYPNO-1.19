@@ -3,7 +3,7 @@
     "charge":
     {
         "type": "origins:active_self",
-        "cooldown": 0,
+        "cooldown": 1,
         "key":
         {
             "key": "key.origins.secondary_active",
@@ -25,7 +25,7 @@
 			 {
              "type": "origins:execute_command",
              "permission_level": 4,
-             "command": "resource set @s lumi:walk_res 1"
+             "command": "resource set @s lumi:walk_res 2"
 			 }
 		]
 	},
@@ -50,12 +50,12 @@
 	"entity_action": {
 	    "type": "origins:change_resource",
 	    "resource": "lumi:power_res",
-	    "change": -4
+	    "change": -2
 	},
 			"condition": {
 				"type": "origins:resource",
 				"resource": "lumi:walk_res",
-				"comparison": "==",
+				"comparison": ">=",
 				"compare_to": 1
 			},
 	"interval": 1
@@ -73,8 +73,8 @@
 "res": {
 	"type": "origins:resource",
 	"min": 0,
-	"max": 1,
-	"start_value": 1,
+	"max": 2,
+	"start_value": 2,
 	"hud_render": {
           "should_render": false,
           "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
@@ -89,7 +89,7 @@
 			{
 				"type": "origins:resource",
 				"resource": "lumi:walk_res",
-				"comparison": "==",
+				"comparison": ">=",
 				"compare_to": 1
 			},
 			{

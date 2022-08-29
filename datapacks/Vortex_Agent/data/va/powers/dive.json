@@ -1,0 +1,63 @@
+{
+    "type": "origins:multiple",
+
+    "active": {
+        "type": "origins:active_self",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:add_velocity",
+                    "z": 0.75,
+                    "space": "local"
+                },
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_phasecd"
+                }
+            ]
+        },
+        "cooldown": 160,
+        "hud_render": {
+            "should_render": true,
+            "bar_index": 1,
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png"
+        }
+    },
+    
+    "phasecd": {
+        "type": "origins:cooldown",
+        "cooldown": 8,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+   
+    "phase": {
+        "type": "origins:phasing",
+        "phase_down_condition": {
+            "type": "origins:constant",
+            "value": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_phasecd",
+            "compare_to": 0,
+            "comparison": "!="
+        }
+    },
+   
+    "name": "Phase Dive",
+    "description": "You can tumble forwards, phasing through blocks for a short time. (though not down)",
+    "badges": [
+        {
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "This lets you dash right through not so thin walls. (1-5 blocks thick)"
+        },
+        {
+            "type": "origins:keybind",
+            "text": "Active ability, use with %s.",
+            "sprite": "origins:textures/gui/badge/active.png"
+        }
+    ]
+}

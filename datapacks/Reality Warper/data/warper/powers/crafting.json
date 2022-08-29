@@ -1,0 +1,391 @@
+{
+    "type": "origins:multiple",
+	"core": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Corrupted Shard\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Corrupted Heart\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s fermented_spider_eye{display:{Name:'{\"text\":\"Corrupted Core\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"nr": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Corrupted Core\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:nether_star"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s recovery_compass{display:{Name:'{\"text\":\"Normality Relocator\",\"color\":\"light_purple\",\"italic\":false}',Lore:['{\"text\":\"[Right Click] Teleport to your cyan portal\",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"[Right Click + Sneak] Teleport to your magenta portal\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"db": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Corrupted Core\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:iron_sword"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s iron_sword{display:{Name:'{\"text\":\"Distortion Blade\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"The blade is glitching \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"in your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"ms": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+		},
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:stone_sword"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s stone_sword{display:{Name:'{\"text\":\"Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"There will be bloodshed.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                },
+        {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only warper:ms",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"rb": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_scrap"
+            }
+		},
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:golden_sword"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s golden_sword{display:{Name:'{\"text\":\"Ritual Blade\",\"color\":\"light_purple\",\"italic\":false}',Lore:['{\"text\":\"Used for harvesting souls.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"bb": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:netherite_ingot"
+            }
+		},
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:wooden_sword"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s wooden_sword{display:{Name:'{\"text\":\"Broken Blade\",\"color\":\"white\",\"italic\":false}',Lore:['{\"text\":\"Was once a sword of glory.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"tm": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"There will be bloodshed.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Broken Blade\",\"color\":\"white\",\"italic\":false}',Lore:['{\"text\":\"Was once a sword of glory.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s netherite_sword{display:{Name:'{\"text\":\"True Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"A legendary blade restored \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"to true potential.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"rr": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Distortion Blade\",\"color\":\"light_blue\",\"italic\":false}',Lore:['{\"text\":\"The blade is glitching \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"in your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:1s},{id:\"minecraft:mending\",lvl:1s}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:nether_star"
+            }
+		},
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s netherite_sword{display:{Name:'{\"text\":\"Reality’s Retribution\",\"color\":\"dark_purple\",\"italic\":false}',Lore:['{\"text\":\"The power of reality in the \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"palm of your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                },
+        {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only warper:rr",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+	"z": {
+        "type": "origins:item_on_item",
+        "on_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"Reality’s Retribution\",\"color\":\"dark_purple\",\"italic\":false}',Lore:['{\"text\":\"The power of reality in the \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"palm of your hand.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s}]}"
+        },
+        "using_item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{display:{Name:'{\"text\":\"True Murasama\",\"color\":\"dark_red\",\"italic\":false}',Lore:['{\"text\":\"A legendary blade restored \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"to true potential.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:3s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]}"
+        },
+        "using_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "on_item_action": {
+            "type": "origins:consume",
+            "amount": 1
+        },
+        "entity_action": {
+            "type": "origins:and",
+                "actions": [{
+                "type": "origins:execute_command",
+                "command": "give @s netherite_sword{display:{Name:'{\"text\":\"The Zenith\",\"color\":\"dark_blue\",\"italic\":false}',Lore:['{\"text\":\"The culmination of everything \",\"color\":\"dark_gray\",\"italic\":false}','{\"text\":\"you’ve worked for.\",\"color\":\"dark_gray\",\"italic\":false}']},HideFlags:1,RepairCost:100,Enchantments:[{id:\"minecraft:sharpness\",lvl:4s},{id:\"minecraft:mending\",lvl:1s},{id:\"minecraft:fire_aspect\",lvl:1s}]} 1",
+                "permission_level": 4
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "playsound minecraft:item.armor.equip_iron master @s ~ ~ ~ 1 1 1",
+            "permission_level": 4
+                },
+        {
+            "type": "origins:execute_command",
+            "command": "advancement grant @s only warper:z",
+            "permission_level": 4
+                }
+            ]
+        }
+    },
+    "shard": {
+        "type": "origins:active_self",
+        "entity_action": {
+              "type": "origins:and",
+              "actions": [
+        {
+          "type": "origins:execute_command",
+          "command": "resource change @s warper:distortion -500",
+          "permission_level": 4
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:block.amethyst_cluster.break master @s ~ ~ ~ 1 0.4",
+          "permission_level": 4
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:block.portal.trigger master @s ~ ~ ~ 0.1 2",
+          "permission_level": 4
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "playsound minecraft:block.glass.break master @s ~ ~ ~ 0.2 0.1",
+          "permission_level": 4
+        },
+        {
+          "type": "origins:execute_command",
+          "command": "clear @s echo_shard{display:{Name:'{\"text\":\"Corrupted Shard\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]} 1",
+          "permission_level": 4
+        }
+        ]
+              },
+        "cooldown": 750,
+        "hud_render": {
+          "should_render": true,
+          "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+          "bar_index": 0
+        },
+        "condition": {
+        "type": "origins:and",
+        "conditions": [
+                  {
+                  "type": "origins:equipped_item",
+                  "equipment_slot": "mainhand",
+                  "item_condition": {
+                  "type": "origins:nbt",
+                  "nbt": "{display:{Name:'{\"text\":\"Corrupted Shard\",\"color\":\"light_purple\",\"italic\":false}'},HideFlags:1,Enchantments:[{id:\"minecraft:unbreaking\",lvl:1s}]}"
+                  }
+                  }
+                  ]
+                  },
+        "key": {
+          "key": "key.use",
+          "continuous": false
+        }
+      },
+    "name":"Special Crafting",
+    "description":"You can craft certain devices to help you."
+}

@@ -1,0 +1,222 @@
+{
+	"type": "origins:multiple",
+	"speed": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [{
+                    "effect": "minecraft:slowness",
+                    "amplifier": 1,
+                    "duration": 9,
+                    "show_particles": false,
+                    "show_icon": false
+                },
+				{
+                    "effect": "minecraft:darkness",
+                    "amplifier": 0,
+                    "duration": 9,
+                    "show_particles": false,
+                    "show_icon": false
+                },
+				{
+                    "effect": "minecraft:mining_fatigue",
+                    "amplifier": 2,
+                    "duration": 40,
+                    "show_particles": false,
+                    "show_icon": false
+                },
+                {
+                    "effect": "minecraft:weakness",
+                    "amplifier": 0,
+                    "duration": 40,
+                    "show_particles": false,
+                    "show_icon": false
+                }
+            ]
+        },
+        "interval": 8,
+		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+},
+"air": {
+		"type": "origins:modify_air_speed",
+		"modifier": {
+             "operation": "multiply_total",
+             "value": -0.7
+             },
+			"condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+	},
+"fix": {
+  "type":"origins:modify_damage_taken",
+  "modifier":{
+    "value": -1.00,
+    "operation":"multiply_total"
+  },
+  "damage_condition":{
+    "type":"origins:or",
+    "conditions":[
+      {
+        "type": "origins:name",
+        "name": "inWall"
+      }
+    ]
+  },
+    "condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+},
+"phaseres": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 100,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 5
+	}
+},
+"phaseresachev": {
+	"type": "origins:resource",
+	"min": 0,
+	"max": 400,
+	"start_value": 0,
+	"hud_render": {
+		"should_render": false,
+		"sprite_location": "origins:textures/gui/resource_bar.png",
+		"bar_index": 5
+	},
+	"hidden": true
+},
+"phaserescharge": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:phasedebuff_phaseres",
+	    "change": 1
+	},
+		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  },
+	"interval": 2
+},
+"phasereschargeachev": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:phasedebuff_phaseresachev",
+	    "change": 1
+	},
+		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  },
+	"interval": 2
+},
+"phasereset": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:phasedebuff_phaseres",
+	    "change": -10
+	},
+		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on",
+	"inverted": true
+  },
+	"interval": 10
+},
+"phaseresetachev": {
+	"type": "origins:action_over_time",
+	"entity_action": {
+	    "type": "origins:change_resource",
+	    "resource": "warper:phasedebuff_phaseresachev",
+	    "change": -10
+	},
+		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on",
+	"inverted": true
+  },
+	"interval": 10
+},
+"phaseshader": {
+  "type": "origins:shader",
+  "shader": "minecraft:shaders/post/sobel.json",
+  "toggleable": false,
+  		  "condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  }
+},
+"phaseachev": {
+  "type": "origins:active_self",
+  "entity_action": {
+    "type": "origins:execute_command",
+    "command": "advancement grant @s only warper:screw_reality",
+    "permission_level": 4
+  },
+  "cooldown": 0,
+  "hud_render": {
+    "should_render": false,
+    "bar_index": 3
+  },
+  "key": {
+    "key": "key.origins.secondary_active"
+  }
+},
+"phasedamage": {
+        "type": "origins:action_over_time",
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [{
+                    "effect": "minecraft:instant_damage",
+                    "amplifier": 0,
+                    "duration": 300,
+                    "show_particles": false,
+                    "show_icon": false
+                },
+                {
+                    "effect": "minecraft:blindness",
+                    "amplifier": 0,
+                    "duration": 25,
+                    "show_particles": false,
+                    "show_icon": false
+                }
+            ]
+        },
+        "interval": 8,
+		  "condition": {
+        "type": "origins:resource",
+        "resource": "warper:phasedebuff_phaseres",
+        "comparison": ">",
+        "compare_to": 99
+    }
+},
+"glow": {
+    "type": "origins:entity_glow",
+	"bientity_condition": {
+	"type": "origins:distance",
+	"comparison": "<=",
+	"compare_to": 5
+	},
+	"condition": {
+    "type": "origins:power_active",
+    "power": "*:on"
+  },
+    "use_teams": false,
+    "red": 1.0,
+    "green": 0.0,
+    "blue": 1.0
+},
+    "name": "Reality's Retribution",
+    "description": "Warping reality for too long will anger the laws of reality and will inflict punishment."
+}

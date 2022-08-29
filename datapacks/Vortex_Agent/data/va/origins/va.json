@@ -1,0 +1,18 @@
+{
+    "powers": [
+        "va:stelth",
+        "va:combat",
+        "va:dive",
+        "va:suit",
+        "va:threat",
+        "va:regen"
+    ],
+    "icon": {
+        "item": "minecraft:echo_shard",
+        "tag": "{Enchantments:[{}],CustomModelData:1}"
+    },
+    "order": 1,
+    "impact": 2,
+    "name": "Vortex Agent",
+    "description": "Coming from outer space, Vortex Agents have a wide array of tools at their disposal to evade the universe's dangers."
+}
