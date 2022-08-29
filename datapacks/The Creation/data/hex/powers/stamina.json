@@ -1,0 +1,237 @@
+{
+	"type": "origins:multiple",
+	"sp_resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 150,
+		"start_value": 150,
+		"hud_render": {
+		"should_render": true,
+		"sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+		"bar_index": 24
+		}
+	},
+	"regen": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hex:stamina_sp_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hex:jump_frames",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hex:stamina_sp_resource",
+					"comparison": "<",
+					"compare_to": 150
+        		},
+				{
+					"type": "origins:food_level",
+					"comparison": ">",
+					"compare_to": 0
+				}
+                ]
+			},
+		"interval": 3
+	},
+	"regen_extra": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hex:stamina_sp_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:sprinting",
+					"inverted": true
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hex:jump_frames",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hex:stamina_sp_resource",
+					"comparison": "<",
+					"compare_to": 150
+        		},
+				{
+					"type": "origins:relative_health",
+					"comparison": "==",
+					"compare_to": 1.0
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 20
+				}
+                ]
+			},
+		"interval": 5
+	},
+	"loss": {
+		"type": "origins:action_over_time",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hex:stamina_sp_resource",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:or",
+			"conditions": [
+				{
+					"type": "origins:sprinting"
+				},
+				{
+					"type": "origins:food_level",
+					"comparison": "==",
+					"compare_to": 0
+				}
+                ]
+			},
+		"interval": 10
+	},
+	"loss_jump": {
+		"type": "origins:modify_jump",
+		"entity_action": {
+			"type": "origins:change_resource",
+			"resource": "hex:stamina_sp_resource",
+			"change": -1
+		}
+	},
+	"resource": {
+		"type": "origins:resource",
+		"min": 0,
+		"max": 1,
+		"start_value": 0,
+		"hud_render": {
+		"should_render": false
+		}
+	},
+	"gain": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hex:stamina_resource",
+			"change": 1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hex:stamina_resource",
+					"comparison": "==",
+					"compare_to": 0
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hex:stamina_sp_resource",
+					"comparison": "==",
+					"compare_to": 0
+        		}
+			]
+        },
+		"interval": 1
+	},
+	"drain": {
+		"type": "origins:action_over_time",
+		"rising_action": {
+			"type": "origins:change_resource",
+			"resource": "hex:stamina_resource",
+			"change": -1
+		},
+		"condition": {
+			"type": "origins:and",
+			"conditions": [
+				{
+					"type": "origins:resource",
+					"resource": "hex:stamina_resource",
+					"comparison": "==",
+					"compare_to": 1
+				},
+				{
+					"type": "origins:resource",
+					"resource": "hex:stamina_sp_resource",
+					"comparison": "==",
+					"compare_to": 150
+        		}
+			]
+        },
+		"interval": 1
+	},
+	"tired_sprint": {
+		"type": "origins:prevent_sprinting",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hex:stamina_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"shake": {
+		"type": "origins:shaking",
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hex:stamina_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"weak": {
+		"type": "origins:action_over_time",
+		"interval": 2,
+		"entity_action": {
+			"type": "origins:apply_effect",
+			"effects": [
+				{
+					"effect": "minecraft:slowness",
+					"duration": 5,
+					"amplifier": 0,
+					"is_ambient": true,
+					"show_particles": false,
+					"show_icon": true
+				},
+				{
+					"effect": "minecraft:weakness",
+					"duration": 5,
+					"amplifier": 0,
+					"is_ambient": true,
+					"show_particles": false,
+					"show_icon": true
+				}
+			]
+		},
+		"condition": {
+			"type": "origins:resource",
+			"resource": "hex:stamina_resource",
+			"comparison": "==",
+			"compare_to": 1
+		}
+	},
+	"name": "§4§l§nStamina",
+    "description": "Whether it be mana, or simple human limitations, forcing yourself to the limit is extremely tiring.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/emerald.png",
+            "text": "Sprinting slows down your stamina regen and being on full health & hunger makes it faster."
+        }
+    ]
+}

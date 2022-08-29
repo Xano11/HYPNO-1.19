@@ -1,0 +1,21 @@
+{
+	"unchoosable": false,
+	"powers": [
+		"hex:nocturnal",
+		"hex:jump",
+		"hex:stamina",
+		"hex:physique",
+		"hex:strong_arms",
+		"hex:hungry",
+		"hex:size",
+		"hex:sink",
+		"hex:diet",
+		"hex:pickup"
+	],
+	"icon": "minecraft:recovery_compass",
+	"order": 10,
+	"impact": 2,
+	"name": "The Construct",
+	"loading_priority": 1,
+	"description": "What the The Construct doin."
+}

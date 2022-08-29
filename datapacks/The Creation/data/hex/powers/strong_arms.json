@@ -1,0 +1,66 @@
+{
+    "type":"origins:multiple",
+    "prevent_food": {
+    	"type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:food"
+        }
+    },
+	"prevent": {
+		"type": "origins:prevent_item_use",
+		"item_condition": {
+			"type": "origins:ingredient",
+			"ingredient": [{
+				"item": "minecraft:bow"
+			},
+			{
+				"item": "minecraft:crossbow"
+			},
+			{
+				"item": "minecraft:shield"
+			}]
+		}
+	},
+	"strong": {
+		"type": "origins:attribute",
+		"modifier": {
+			"attribute": "minecraft:generic.attack_damage",
+			"operation": "addition",
+			"value": 2,
+			"name": "more_dmg"
+		}
+	},
+	"strong_arms": {
+		"type": "origins:modify_harvest",
+		"allow": true,
+		"block_condition": {
+		  "type": "origins:in_tag",
+		  "tag": "origins:natural_stone"
+		}
+	},
+	"strong_arms_2": {
+		"type": "origins:modify_break_speed",
+		"block_condition": {
+		  "type": "origins:in_tag",
+		  "tag": "origins:natural_stone"
+		},
+		"condition": {
+		  "type": "origins:using_effective_tool",
+		  "inverted": true
+		},
+		"modifier": {
+		  "name": "Strong Arms stone break speed bonus",
+		  "value": 0.06,
+		  "operation": "addition"
+		},
+		"hidden": true
+	},
+    "name": "Tough Arms",
+    "description": "Due to your large stature you are slower, and have more health.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/instant_health.png",
+            "text": "You have 2 more hearts and move 50% slower."
+        }
+    ]
+}

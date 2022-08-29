@@ -1,0 +1,75 @@
+{
+	"type": "origins:multiple",
+	"sink": {
+        "type": "origins:ignore_water"
+    },
+    "soak": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 2,
+        "duration_per_stack": 30,
+        "effects": [
+            {
+                "effect": "minecraft:slowness",
+                "duration": 100,
+                "amplifier": 1,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false
+            },
+            {
+                "effect": "minecraft:slow_falling",
+                "duration": 100,
+                "amplifier": 0,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:submerged_in",
+                    "fluid": "minecraft:water"
+                }
+            ]
+        }
+    },
+    "hydrophobia": {
+        "type": "origins:damage_over_time",
+        "interval": 20,
+        "onset_delay": 1,
+        "damage": 2,
+        "damage_easy": 1,
+        "damage_source": {
+          "name": "hurt_by_water",
+          "unblockable": true,
+          "bypasses_armor": true
+        },
+        "protection_enchantment": "origins:water_protection",
+        "protection_effectiveness": 1.0,
+        "condition": {
+          "type": "origins:or",
+          "conditions": [
+            {
+              "type": "origins:fluid_height",
+              "fluid": "minecraft:water",
+              "comparison": ">",
+              "compare_to": 0.0
+            },
+            {
+              "type": "origins:in_rain"
+            }
+          ]
+        }
+    },
+	"name": "§4§l§nBlood beats Steel",
+    "description": "Despite modifications to your arms being cool and all, it's surprising how tough flesh and bones are. You've lost your touch with the sword, and overall have less blood to go around when you get a huge stab in your neck.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/mob_effect/weakness.png",
+            "text": "You deal 80% less melee damage and have 2 less hearts."
+        }
+    ]
+}

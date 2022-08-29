@@ -1,0 +1,9 @@
+{
+  "pack": {
+	"name":"For Hex",
+	"id":"hex",
+    "pack_format":10,
+	"authors":"Visual",
+    "description":"Made by Muffin."
+  }
+}

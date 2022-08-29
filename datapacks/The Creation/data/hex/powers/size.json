@@ -1,0 +1,49 @@
+{
+    "type": "origins:action_on_callback",
+    "execute_chosen_when_orb": true,
+    "entity_action_gained": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "tag @s add bloodlord"
+            }
+        ]
+    },
+    "entity_action_added": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:height 1.25",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:width 1.25",
+                "permission_level": 4
+            },
+            {
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:reach 1.25",
+                "permission_level": 4
+            },
+			{
+                "type": "origins:execute_command",
+                "command": "scale set pehkui:held_item 1.25",
+                "permission_level": 4
+            }
+        ]
+    },
+    "entity_action_lost": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:execute_command",
+                "command": "scale reset",
+                "permission_level": 4
+            }
+        ]
+    },
+	"hidden": true
+}

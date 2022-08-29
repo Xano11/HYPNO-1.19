@@ -3,6 +3,7 @@
     "order": 1,
     "origins": [
         "yak:yak",
+		"hex:hex",
 		"cdn:cdn",
 		"va:va",
 		"hyrule:hyrule",

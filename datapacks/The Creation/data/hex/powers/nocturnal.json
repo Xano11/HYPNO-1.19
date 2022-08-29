@@ -1,0 +1,52 @@
+{
+	"type": "origins:multiple",
+	"bright": {
+        "type": "origins:stacking_status_effect",
+        "min_stacks": 0,
+        "max_stacks": 2,
+        "duration_per_stack": 30,
+        "effects": [
+            {
+                "effect": "minecraft:darkness",
+                "duration": 100,
+                "amplifier": 0,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false
+            },
+            {
+                "effect": "minecraft:slowness",
+                "duration": 100,
+                "amplifier": 0,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": false
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:exposed_to_sun"
+                }
+            ]
+        }
+    },
+	"night_vision": {
+        "type": "origins:night_vision",
+        "strength": 0.1,
+        "condition": {
+            "type": "origins:submerged_in",
+            "fluid": "minecraft:water",
+            "inverted": true
+        }
+    },
+    "name": "Nocturnal",
+    "description": "With a lot more \"Umph\" and some slight cybernetic modifications, you can use a bow in a surprisingly effective manner.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/particle/critical_hit.png",
+            "text": "You can break shields if you hit them enough!"
+        }
+    ]
+}
