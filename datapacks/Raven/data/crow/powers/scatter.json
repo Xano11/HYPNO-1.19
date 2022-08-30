@@ -268,6 +268,121 @@
         }
 },
 
+"potion_flyboost":
+{
+    "type": "origins:active_self",
+    "cooldown": 300,
+    "key": "key.use",
+    "entity_action": {
+        "type":"origins:and",
+        "actions":[
+            {
+                "type": "origins:add_velocity",
+                "z": 0.2,
+                "world": "local" 
+            },
+            {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 1 0.2 1 1 100"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "particle minecraft:witch ~ ~ ~ 1 0.2 1 0.1 100"
+                },
+                {
+                "type": "origins:execute_command",
+                "permission_level": 4,
+                "command": "playsound minecraft:block.glass.break player @a ~ ~ ~ 1 1.5"
+                },
+                {
+                "type": "origins:swing_hand",
+                "hand": "MAIN_HAND"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "permission_level": 4,
+                    "command": "item replace entity @s weapon.mainhand with minecraft:air"
+                },
+                {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "mainhand",
+                "action": {
+                    "type": "origins:consume",
+                    "amount": 1
+                }      
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "z": 2,
+                                "world": "local"
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "permission_level": 4,
+                                "command": "particle minecraft:dust_color_transition 0 0 0 1.5 0.6 0 0.3 ~ ~ ~ 1 0.2 1 1 100"
+                                },
+                                {
+                                "type": "origins:execute_command",
+                                "permission_level": 4,
+                                "command": "particle minecraft:witch ~ ~ ~ 1 0.2 1 0.1 100"
+                                },
+                                {
+                                "type": "origins:execute_command",
+                                "permission_level": 4,
+                                "command": "particle minecraft:explosion_emitter ~ ~ ~ 1 1 1 0.1 1"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "permission_level": 4,
+                                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 3 1"
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "permission_level": 4,
+                                    "command": "playsound minecraft:entity.generic.explode player @a ~ ~ ~ 3 0.75"
+                                }
+                        ]
+                    }
+                }
+        ]
+    },
+    "hud_render": {
+        "should_render":true,
+        "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
+        "bar_index": 0
+    },
+"condition":
+{
+    "type":"origins:and",
+    "conditions":
+    [
+    {
+        "type": "origins:equipped_item",
+        "equipment_slot": "mainhand",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[raven]}"
+            }
+    },
+    {
+        "type": "origins:fall_flying"
+    },
+    {
+        "type": "origins:on_block",
+        "inverted": true
+    }
+]
+    }
+},
+
     "potion_boost_resource":
     {
         "type": "origins:resource",
