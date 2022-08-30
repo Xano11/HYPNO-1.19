@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"xoenix:shadow_control"
+	],
+	"icon": {
+		"item": "minecraft:elytra",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 1,
+	"impact": 3,
+	"name": "Xoenix",
+	"description": "WIP"
+}

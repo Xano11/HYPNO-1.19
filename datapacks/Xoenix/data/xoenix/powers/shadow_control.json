@@ -1,0 +1,582 @@
+{
+"type":"origins:multiple",
+
+"activate":{
+  "type":"origins:active_self",
+  "entity_action":{
+      "type":"origins:and",
+      "actions":[
+        {
+            "type": "origins:area_of_effect",
+            "radius": 2,
+            "bientity_action": {
+                "type":"origins:and",
+                "actions":[{
+                "type": "origins:target_action",
+                "action": {
+                    "type":"origins:and",
+                    "actions":[{
+                    "type": "origins:execute_command",
+                    "command": "power grant @s xoenix:controlled",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 0.2 0.6 0.2 1 300",
+                    "permission_level": 4
+                }
+            ]
+        }
+            },
+            {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 0.5 0 0.5 1 300",
+                    "permission_level": 4
+                }
+            }
+                ]
+            },
+            "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:living"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:can_see"
+            }
+        ]
+    }
+        },
+        {
+        "type": "origins:delay",
+        "ticks": 20,
+        "action": 
+        {
+            "type": "origins:area_of_effect",
+            "radius": 4,
+            "bientity_action": {
+                "type":"origins:and",
+                "actions":[{
+                "type": "origins:target_action",
+                "action": {
+                    "type":"origins:and",
+                    "actions":[{
+                    "type": "origins:execute_command",
+                    "command": "power grant @s xoenix:controlled",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 0.2 0.6 0.2 1 300",
+                    "permission_level": 4
+                }
+            ]
+        }
+            },
+            {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 1 0 1 1 300",
+                    "permission_level": 4
+                }
+            }
+                ]
+            },
+            "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:living"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:can_see"
+            }
+        ]
+    }
+        }
+    },
+    {
+        "type": "origins:delay",
+        "ticks": 60,
+        "action": 
+        {
+            "type": "origins:area_of_effect",
+            "radius": 8,
+            "bientity_action": {
+                "type":"origins:and",
+                "actions":[{
+                "type": "origins:target_action",
+                "action": {
+                    "type":"origins:and",
+                    "actions":[{
+                    "type": "origins:execute_command",
+                    "command": "power grant @s xoenix:controlled",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 0.2 0.6 0.2 1 300",
+                    "permission_level": 4
+                }
+            ]
+        }
+            },
+            {
+                "type": "origins:actor_action",
+                "action": {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 0 0 0 2 ~ ~ ~ 2 0 2 1 300",
+                    "permission_level": 4
+                }
+            }
+                ]
+            },
+            "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                },
+                {
+                    "type": "origins:living"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:can_see"
+            }
+        ]
+    }
+        }
+    }
+      ]
+  },
+  "cooldown": 600,
+  "hud_render":{
+      "should_render":true,
+      "sprite_location":"origins:textures/gui/community/spiderkolo/resource_bar_02.png",
+      "bar_index":7
+  },
+      "condition": {
+          "type": "origins:and",
+    "conditions": [
+                              
+                {
+                "type": "origins:sneaking",
+                "inverted": false
+            }
+          ]
+      },      
+  "key":{
+      "key":"key.origins.primary_active"
+  }
+},
+"control_forward":
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+          {
+              "type": "origins:area_of_effect",
+              "radius": 16,
+              "bientity_action": {
+                  "type": "origins:target_action",
+                  "action":  {
+                    "type": "origins:add_velocity",
+                    "z": 0.1,
+                    "world": "local_horizontal"
+                }
+              },
+              "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=controlled]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            }
+        ]
+    }
+            }
+            ]
+        },
+        
+    "cooldown": 1,
+    "hud_render":{
+        "should_render":false,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },    
+    "key":{
+        "key":"key.forward",
+        "continuous": true
+    }
+  },
+  "control_backward":
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+          {
+              "type": "origins:area_of_effect",
+              "radius": 16,
+              "bientity_action": {
+                  "type": "origins:target_action",
+                  "action":  {
+                    "type": "origins:add_velocity",
+                    "z": -0.1,
+                    "world": "local_horizontal"
+                }
+              },
+              "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=controlled]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            }
+        ]
+    }
+            }
+            ]
+        },
+              
+    "cooldown": 1,
+    "hud_render":{
+        "should_render":false,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },    
+    "key":{
+        "key":"key.back",
+        "continuous": true
+    }
+  },
+  "control_left":
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+          {
+              "type": "origins:area_of_effect",
+              "radius": 16,
+              "bientity_action": {
+                  "type": "origins:target_action",
+                  "action":  {
+                    "type": "origins:add_velocity",
+                    "x": 0.1,
+                    "world": "local_horizontal"
+                }
+              },
+              "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=controlled]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            }
+        ]
+    }
+            }
+            ]
+        },
+    "cooldown": 1,
+    "hud_render":{
+        "should_render":false,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },    
+    "key":{
+        "key":"key.left",
+        "continuous": true
+    }
+  },
+  "control_right":
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+          {
+              "type": "origins:area_of_effect",
+              "radius": 16,
+              "bientity_action": {
+                  "type": "origins:target_action",
+                  "action":  {
+                    "type": "origins:add_velocity",
+                    "x": -0.1,
+                    "world": "local_horizontal"
+                }
+              },
+              "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=controlled]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            }
+        ]
+    }
+            }
+            ]
+        },
+    "cooldown": 1,
+    "hud_render":{
+        "should_render":false,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },    
+    "key":{
+        "key":"key.right",
+        "continuous": true
+    }
+  },
+  "control_hit":
+{
+    "type":"origins:active_self",
+    "entity_action":{
+        "type":"origins:and",
+        "actions":[
+          {
+              "type": "origins:area_of_effect",
+              "radius": 16,
+              "bientity_action": {
+                  "type": "origins:target_action",
+                  "action":  {
+                    "type":"origins:and",
+                    "actions":[
+                        {
+                            "type": "origins:raycast",
+                            "distance": 3,
+                            "block": true,
+                            "entity": true,
+                            "shape_type": "visual",
+                            "fluid_handling": "any",
+                            "bientity_action": {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type":"origins:and",
+                                    "actions":[{
+                                    "type": "origins:damage",
+                                    "amount": 1,
+                                    "source": {
+                                        "name": "player"
+                                    }
+                                }
+                            ]
+                            }
+                            },
+                            "before_action":  {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            "command_step": 1
+                        }
+                        ]
+                    }
+              },
+              "bientity_condition": {
+                "type":"origins:and",
+                "conditions":[{
+                "type": "origins:target_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[{
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=controlled]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            },
+            {
+                "type": "origins:actor_condition",
+                "condition": {
+                "type":"origins:and",
+                "conditions":[
+                {
+                    "type": "origins:on_block"
+                }
+            ]
+               }
+            }
+        ]
+    }
+            }
+            ]
+        },
+    "cooldown": 1,
+    "hud_render":{
+        "should_render":false,
+        "sprite_location":"origins:textures/gui/resource_bar.png",
+        "bar_index":2
+    },    
+    "key":{
+        "key":"key.attack"
+    }
+  },
+  "name":"Shadow Control",
+  "description":"By pressing your primary power key, you will summon lightning to strike the nearby entities. If sneaking, the number of targets will be limited to 1, but will do more damage to said entity.",
+  "badges": [
+      {
+          "sprite": "minecraft:textures/mob_effect/darkness.png",
+          "text": "Additionally, during thunderstorms, the concentrated lightning will teleport you to the targeted enemy. (Has a hunger cost)"
+      }
+  ]
+}
