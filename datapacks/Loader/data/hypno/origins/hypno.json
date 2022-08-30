@@ -1,0 +1,13 @@
+{
+	"powers": [
+		"hypno:prevent"
+	],
+	"icon": {
+        "item": "minecraft:jigsaw",
+        "tag": "{Enchantments:[{}],CustomModelData:1}"
+    },
+	"order": 1,
+	"impact": 0,
+	"name": "Hypno Origin",
+	"description": "You are part of the Hypno SMP"
+}

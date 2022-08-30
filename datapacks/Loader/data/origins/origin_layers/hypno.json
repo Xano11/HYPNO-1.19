@@ -1,0 +1,10 @@
+{
+    "order": 2,
+    "origins": [
+        "hypno:hypno"
+    ],
+    "name": "Hypno",
+    "missing_name": "None",
+    "hidden": true,
+    "auto_choose": true
+}

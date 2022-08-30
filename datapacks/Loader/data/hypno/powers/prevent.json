@@ -1,0 +1,98 @@
+{
+  "type":"origins:multiple",
+  "item_use":
+  {
+    "type": "origins:prevent_item_use",
+    "item_condition": {
+      "type": "origins:ingredient",
+      "ingredient": {
+        "tag": "hypno:prevent"
+      }
+    }
+  },
+  "elytra":
+  {
+    "type": "origins:conditioned_restrict_armor",
+    "chest": {
+      "type": "origins:ingredient",
+      "ingredient": {
+          "item": "minecraft:elytra"
+      }
+  },
+    "tick_rate": 20
+},
+"waystone_craft1":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft2":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:blackstone_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft3":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:nether_brick_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft4":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:deepslate_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft5":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:desert_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft6":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:end_stone_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft7":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:red_desert_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft8":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:red_nether_brick_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+"waystone_craft9":
+{
+  "type": "origins:modify_crafting",
+  "recipe": "fwaystones:stone_brick_waystone",
+  "result": {
+      "item": "minecraft:air"
+  }
+},
+    "name": "Unwieldly (Hypno Edition)",
+	"description": "You cannot use a plethora of items."
+  }
