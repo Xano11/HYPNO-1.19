@@ -242,13 +242,10 @@
           {
               "type": "origins:area_of_effect",
               "radius": 16,
-              "bientity_action": {
-                  "type": "origins:target_action",
-                  "action":  {
+              "bientity_action": {     
                     "type": "origins:add_velocity",
                     "z": 0.1,
                     "world": "local_horizontal"
-                }
               },
               "bientity_condition": {
                 "type":"origins:and",
@@ -306,12 +303,9 @@
               "type": "origins:area_of_effect",
               "radius": 16,
               "bientity_action": {
-                  "type": "origins:target_action",
-                  "action":  {
                     "type": "origins:add_velocity",
                     "z": -0.1,
                     "world": "local_horizontal"
-                }
               },
               "bientity_condition": {
                 "type":"origins:and",
@@ -369,12 +363,9 @@
               "type": "origins:area_of_effect",
               "radius": 16,
               "bientity_action": {
-                  "type": "origins:target_action",
-                  "action":  {
                     "type": "origins:add_velocity",
                     "x": 0.1,
                     "world": "local_horizontal"
-                }
               },
               "bientity_condition": {
                 "type":"origins:and",
@@ -430,13 +421,10 @@
           {
               "type": "origins:area_of_effect",
               "radius": 16,
-              "bientity_action": {
-                  "type": "origins:target_action",
-                  "action":  {
+              "bientity_action":{
                     "type": "origins:add_velocity",
                     "x": -0.1,
                     "world": "local_horizontal"
-                }
               },
               "bientity_condition": {
                 "type":"origins:and",
