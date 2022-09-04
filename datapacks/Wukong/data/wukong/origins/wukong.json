@@ -1,0 +1,15 @@
+{
+	"powers": [
+		"wukong:shadow_control",
+		"wukong:staff",
+		"wukong:stature"
+	],
+	"icon": {
+		"item": "minecraft:netherite_hoe",
+		"tag": "{Tags:[wukong],display:{Name:'[{\"text\":\"Wukong\\'s Staff\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[{\"text\":\"This legendary staff grants Wukong\\'s abilities a special boost.\",\"italic\":false,\"color\":\"yellow\"}]']},Enchantments:[{id:mending,lvl:1},{id:unbreaking,lvl:3}]}"
+	},
+	"order": 1,
+	"impact": 3,
+	"name": "Wukong",
+	"description": "The legendary monkey king."
+}

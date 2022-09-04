@@ -1,0 +1,128 @@
+{
+    "type": "origins:multiple",
+    
+    "resource":{
+      "type": "origins:resource",
+      "min": 0,
+      "max": 200,
+      "start_value": 200,
+      "hud_render": {
+          "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
+          "bar_index": 0
+      },
+      "min_action": 
+      {
+        "type": "origins:execute_command",
+        "command": "power remove @s wukong:controlled",
+        "permission_level": 4
+    }
+  },
+  
+  
+      "remove_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "wukong:controlled_resource",
+          "change": -10
+      },
+      "interval": 10
+      },
+
+     
+    "mining_speed":{
+        "type": "origins:modify_break_speed",
+        "modifier": {
+            "operation": "multiply_base",
+            "value": -0.8
+        }
+    },
+
+    "air_speed":
+    {
+        "type": "origins:modify_air_speed",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -0.75
+        }
+    },
+
+    "less_damage":
+    {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+
+    "sounds": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "playsound minecraft:block.sculk_catalyst.bloom player @s ~ ~ ~ 5 1.4",
+        "permission_level": 4
+    },
+    "interval": 60
+    },
+
+    "particles": 
+    {
+    "type": "origins:action_over_time",
+	"entity_action": {
+        "type": "origins:execute_command",
+        "command": "particle minecraft:block minecraft:witch ~ ~1 ~ 0.2 0.4 0.2 1 100",
+        "permission_level": 4
+    },
+    "interval": 40
+    },
+
+    "no_sprint": 
+    {
+        "type": "origins:prevent_sprinting"
+    },
+
+    "no_item": 
+    {
+        "type": "origins:prevent_item_use"
+    },
+
+"no_jump":
+    {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    
+    "slowed":{
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type":"origins:and",
+            "actions":[{
+            "type": "origins:execute_command",
+            "command": "effect give @s minecraft:slowness 10 20 false"
+        },
+        {
+            "type": "origins:execute_command",
+            "command": "tag @s add controlled"
+        }
+    ]
+},
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "tag @s remove controlled"
+        },
+        "execute_chosen_when_orb": true
+    },
+    "swirl":
+    {
+        "type": "apugli:energy_swirl",
+        "texture_location": "minecraft:textures/block/crying_obsidian.png",
+        "speed": 0.001
+    },
+    "hidden": true
+  }

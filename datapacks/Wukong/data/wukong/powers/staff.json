@@ -1,0 +1,192 @@
+{
+        "type": "origins:multiple",
+        "golden_axe": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.attack_damage",
+            "operation": "addition",
+            "value": 7,
+            "name": "staff dmg"
+                },
+        "tick_rate": 2,
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:nbt",
+                    "nbt": "{Tags:[wukong]}"
+                }
+            }
+        ]
+    }
+    },
+    "no_shot":
+    {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+            "type": "origins:nbt",
+            "nbt": "{Tags:[wukong]}"
+        }
+    },
+    "craft":{
+    "type": "origins:modify_grindstone",
+    "result_type": "specified",
+    "block_action": {
+        "type": "origins:set_block",
+        "block": "minecraft:air"
+    },
+    "entity_action": {
+        "type": "origins:execute_command",
+        "command": "advancement grant @s only wereboar:craft",
+        "permission_level": 4
+    },
+    "top_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:blaze_rod"
+        }
+    },
+    "bottom_condition": {
+        "type": "origins:ingredient",
+        "ingredient": {
+            "item": "minecraft:netherite_ingot"
+        }
+    },
+    "result_stack": {
+        "item": "minecraft:netherite_hoe",
+        "tag": "{Tags:[wukong],display:{Name:'[{\"text\":\"Wukong\\'s Staff\",\"italic\":false,\"color\":\"gold\"}]',Lore:['[{\"text\":\"This legendary staff grants Wukong\\'s abilities a special boost.\",\"italic\":false,\"color\":\"yellow\"}]']},Enchantments:[{id:mending,lvl:1},{id:unbreaking,lvl:3}]}"
+    }
+},
+"hop_trigger":
+    {
+        "type": "origins:modify_jump",
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "wukong:staff_hop_resource",
+            "change": 20
+        }
+    },
+
+    "hop":
+    {
+        "type": "origins:active_self",
+        "cooldown": 1,
+        "key": "key.use",
+        "entity_action": {
+            "type":"origins:and",
+            "actions":[
+                {
+                    "type": "origins:add_velocity",
+                    "y": 0.3
+                },
+                    {
+                    "type": "origins:execute_command",
+                    "permission_level": 4,
+                    "command": "playsound minecraft:entity.arrow.hit player @s ~ ~ ~ 1 0.5"
+                    },
+                    {
+                    "type": "origins:swing_hand",
+                    "hand": "MAIN_HAND"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_velocity",
+                                    "y": 1.5
+                                },
+                                    {
+                                    "type": "origins:execute_command",
+                                    "permission_level": 4,
+                                    "command": "particle minecraft:cloud ~ ~ ~ 1 1 1 0.1 1"
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "wukong:staff_hop_resource",
+                                        "change": -20
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "permission_level": 4,
+                                        "command": "playsound minecraft:item.crossbow.shoot player @s ~ ~ ~ 1 0.5 1"
+                                    }
+                            ]
+                        }
+                    }
+            ]
+        },
+        "hud_render": {
+            "should_render": false
+        },
+    "condition":
+    {
+        "type":"origins:and",
+        "conditions":
+        [
+        {
+            "type": "origins:equipped_item",
+            "equipment_slot": "mainhand",
+            "item_condition": {
+                "type": "origins:nbt",
+                "nbt": "{Tags:[wukong]}"
+                }
+        },
+        {
+            "type": "origins:sneaking",
+            "inverted": true
+        },
+        {
+            "type": "origins:resource",
+            "resource": "wukong:staff_hop_resource",
+            "comparison": ">",
+            "compare_to": 0
+        },
+        {
+            "type": "origins:on_block",
+            "inverted": true
+        },
+        {
+            "type": "origins:command",
+            "command": "execute if entity @s[x_rotation=80..90]",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    ]
+        }
+},
+"hop_resource":
+    {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 20,
+        "start_value": 20,
+        "hud_render":{
+          "should_render": false
+          }
+    },
+
+    "remove_resource": 
+      {
+      "type": "origins:action_over_time",
+      "entity_action": {
+          "type": "origins:change_resource",
+          "resource": "wukong:staff_hop_resource",
+          "change": -1
+      },
+      "interval": 1
+      },
+    "name": "The Monkey King's Signature",
+    "description": "You are much stronger when using your signature staff. You also unlock and enhance certain abilities.",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/netherite_ingot.png",
+            "text": "To craft it, you have to put a blaze on the top slot of a grindstone with a netherite ingot on the bottom slot."
+        }
+    ]
+}

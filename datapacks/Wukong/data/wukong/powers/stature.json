@@ -1,0 +1,78 @@
+{
+    "type": "origins:multiple",
+    "size": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1.1 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "advancement grant @s only slime:root",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1 @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "advancement revoke @s through slime:root",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_respawn": {
+            "type": "origins:and",
+            "actions": [{
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:height 1.1 @s",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "execute_chosen_when_orb": true
+    },
+
+    "health": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.max_health",
+            "value": -2,
+            "operation": "addition"
+        }
+    },
+
+    "speed": {
+        "type": "origins:attribute",
+        "modifier": {
+            "name": "Max health increase",
+            "attribute": "minecraft:generic.movement_speed",
+            "value": 0.4,
+            "operation": "multiply_total"
+        }
+    },
+
+    "footstep":{
+        "type": "apugli:custom_footstep",
+        "sound": "minecraft:entity.wolf.step"
+    },
+
+    "name": "Monkey King's Stature",
+    "description": "You have ",
+    "badges": [
+        {
+            "sprite": "minecraft:textures/item/cocoa_beans.png",
+            "text": "Even Though I Have A Human Brain I'll Still Shit On Your Lawn, Bitch."
+        }
+    ]
+}
