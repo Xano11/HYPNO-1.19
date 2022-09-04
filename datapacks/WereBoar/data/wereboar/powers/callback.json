@@ -9,6 +9,16 @@
     },
     {
       "type": "origins:execute_command",
+      "command": "scale set pehkui:height 1.1 @s",
+      "permission_level": 4
+  },
+  {
+      "type": "origins:execute_command",
+      "command": "scale set pehkui:width 1.2 @s",
+      "permission_level": 4
+  },
+    {
+      "type": "origins:execute_command",
       "command": "advancement grant @s only wereboar:root",
       "permission_level": 4
   },
@@ -33,10 +43,35 @@
     },
     {
       "type": "origins:execute_command",
+      "command": "scale set pehkui:height 1 @s",
+      "permission_level": 4
+  },
+  {
+      "type": "origins:execute_command",
+      "command": "scale set pehkui:width 1 @s",
+      "permission_level": 4
+  },
+    {
+      "type": "origins:execute_command",
       "command": "advancement revoke @s through wereboar:root",
       "permission_level": 4
   }
 ]
 },
-    "hidden": true
+"entity_action_respawn": {
+  "type": "origins:and",
+  "actions": [{
+          "type": "origins:execute_command",
+          "command": "scale set pehkui:height 1.1 @s",
+          "permission_level": 4
+      },
+      {
+          "type": "origins:execute_command",
+          "command": "scale set pehkui:width 1.2 @s",
+          "permission_level": 4
+      }
+  ]
+},
+"execute_chosen_when_orb": true,
+"hidden": true
 }
