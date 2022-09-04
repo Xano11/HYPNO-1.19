@@ -1,7 +1,0 @@
-{
-	"type": "apugli:custom_footstep",
-	"sound" : "minecraft:block.netherrack.step",
-	"volume": 0.2,
-	"pitch": 0.5,
-	"hidden": true
-}
