@@ -1,0 +1,14 @@
+{
+	"powers": [
+		"huntress:ride",
+		"huntress:callback"
+	],
+	"icon": {
+		"item": "minecraft:saddle",
+		"tag": "{Enchantments:[{}],CustomModelData:1}"
+	},
+	"order": 1,
+	"impact": 3,
+	"name": "Huntress",
+	"description": "WIP"
+}

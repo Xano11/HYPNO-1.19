@@ -16,6 +16,7 @@
 		"firefly:firefly",
 		"british:british",
 		"foosh:foosh",
+		"huntress:huntress",
 		"hydra:hydra",
 		"imp:imp",
 		"blood:blood",
@@ -33,7 +34,7 @@
 		"wereboar:wereboar",
 		"woolorigin:woolian",
 		"wraith:wraith",
-		"xoenix:xoenix"
+		"wukong:wukong"
     ],
     "name": "Origin",
     "missing_name": "None",
